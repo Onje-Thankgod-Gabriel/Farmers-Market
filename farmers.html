@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Discover Verified Farmers</title>
+    <!-- Inter Google Font & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Farmers CSS -->
+    <link rel="stylesheet" href="../assets/css/farmers.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== PAGE HEADER (dark green) ====== -->
+    <section class="farmers-page-header">
+        <div class="farmers-page-header-content">
+            <h1 class="farmers-page-title">Discover Verified Farmers</h1>
+            <p class="farmers-page-subtitle">Connect directly with trusted farmers across Nigeria for fresh agricultural produce.</p>
+        </div>
+    </section>
+
+    <!-- ====== SEARCH & FILTER SECTION (white background) ====== -->
+    <section class="farmers-search-section" aria-label="Search and filter farmers">
+        <div class="container">
+            <div class="farmers-search-wrapper">
+                <div class="farmers-search-box">
+                    <div class="farmers-search-field">
+                        <i class="fas fa-search farmers-search-icon"></i>
+                        <input type="text" id="searchFarmer" placeholder="Search farmer or farm type..." class="farmers-search-input" aria-label="Search farmers">
+                    </div>
+                    <div class="farmers-search-field">
+                        <i class="fas fa-map-pin farmers-search-icon"></i>
+                        <select id="filterLocation" class="farmers-search-select" aria-label="Filter by location">
+                            <option value="">All Locations</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Ibadan">Ibadan</option>
+                            <option value="Abuja">Abuja</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Abeokuta">Abeokuta</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Kaduna">Kaduna</option>
+                        </select>
+                    </div>
+                    <div class="farmers-search-field">
+                        <i class="fas fa-tag farmers-search-icon"></i>
+                        <select id="filterSpecialization" class="farmers-search-select" aria-label="Filter by specialization">
+                            <option value="">All Specializations</option>
+                            <option value="Crop Farmer">Crop Farmer</option>
+                            <option value="Livestock Farmer">Livestock Farmer</option>
+                            <option value="Poultry Farmer">Poultry Farmer</option>
+                            <option value="Mixed Farming">Mixed Farming</option>
+                            <option value="Fishery">Fishery</option>
+                        </select>
+                    </div>
+                    <div class="farmers-search-field farmers-search-checkbox">
+                        <i class="fas fa-check-circle farmers-search-icon"></i>
+                        <label class="farmers-checkbox-label">
+                            <input type="checkbox" id="filterVerified"> Verified Only
+                        </label>
+                    </div>
+                    <button class="farmers-btn farmers-btn-primary farmers-btn-filter" id="filterBtn">
+                        <i class="fas fa-sliders-h"></i> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== FARMERS GRID (white background) ====== -->
+    <section class="farmers-grid-section" aria-label="Farmers listings">
+        <div class="container">
+            <div class="farmers-grid-header">
+                <h2 class="farmers-grid-title">Verified Farmers</h2>
+                <span class="farmers-grid-count" id="farmersResultCount">15 farmers</span>
+            </div>
+            <div class="row g-4 farmers-card-grid" id="farmerGrid">
+                <!-- Farmer Card 1 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Ibadan" data-specialization="Crop Farmer" data-verified="true" data-page="1">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="1" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Ade Farms</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 12 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 2 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Lagos" data-specialization="Poultry Farmer" data-verified="true" data-page="1">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="2" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Chi Farms</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Poultry Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Lagos, Ikeja</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 8 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 3 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Kaduna" data-specialization="Crop Farmer" data-verified="true" data-page="1">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="3" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Zaria Grains</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 15 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 4 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Enugu" data-specialization="Livestock Farmer" data-verified="false" data-page="1">
+                    <div class="farmers-card">
+                        <button class="farmers-save-btn" data-farmer-id="4" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Benue Roots</h3>
+                                <span class="farmers-unverified-badge"><i class="fas fa-clock"></i> Pending</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Livestock Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 6 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.2</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 5 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Benin" data-specialization="Mixed Farming" data-verified="true" data-page="1">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="5" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Edo Oil Mill</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Mixed Farming</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 10 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 6 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Abuja" data-specialization="Fishery" data-verified="true" data-page="1">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="6" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">GreenHarvest</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Fishery</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Abuja</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 7 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 7 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Port Harcourt" data-specialization="Fishery" data-verified="true" data-page="2">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="7" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Delta Fisheries</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Fishery</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Port Harcourt</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 9 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 8 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Kano" data-specialization="Crop Farmer" data-verified="true" data-page="2">
+                    <div class="farmers-card">
+                        <button class="farmers-save-btn" data-farmer-id="8" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1506980595901-8a3e5c3360e3?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Kano Grains</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Kano</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 14 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 9 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Oyo" data-specialization="Poultry Farmer" data-verified="true" data-page="2">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="9" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Oyo Poultry</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Poultry Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Oyo</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 6 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 10 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Jos" data-specialization="Livestock Farmer" data-verified="true" data-page="2">
+                    <div class="farmers-card">
+                        <button class="farmers-save-btn" data-farmer-id="10" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Jos Livestock</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Livestock Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Jos</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 11 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 11 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Abeokuta" data-specialization="Mixed Farming" data-verified="true" data-page="3">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="11" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Ogun Farms</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Mixed Farming</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Abeokuta</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 8 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 12 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Akure" data-specialization="Fishery" data-verified="true" data-page="3">
+                    <div class="farmers-card">
+                        <button class="farmers-save-btn" data-farmer-id="12" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Akure Fisheries</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Fishery</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Akure</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 5 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 13 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Ilorin" data-specialization="Crop Farmer" data-verified="true" data-page="3">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="13" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Ilorin Farms</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Ilorin</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 13 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 14 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Benin" data-specialization="Poultry Farmer" data-verified="true" data-page="3">
+                    <div class="farmers-card">
+                        <button class="farmers-save-btn" data-farmer-id="14" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Benin Poultry</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Poultry Farmer</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 4 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.4</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farmer Card 15 -->
+                <div class="col-6 col-lg-3 farmers-card-item" data-location="Lagos" data-specialization="Mixed Farming" data-verified="true" data-page="3">
+                    <div class="farmers-card">
+                        <div class="farmers-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="farmers-save-btn" data-farmer-id="15" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="farmers-card-image" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop');"></div>
+                        <div class="farmers-card-body">
+                            <div class="farmers-card-header">
+                                <h3 class="farmers-card-name">Lagos Mixed Farms</h3>
+                                <span class="farmers-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="farmers-card-specialization"><i class="fas fa-tractor"></i> Mixed Farming</p>
+                            <p class="farmers-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <p class="farmers-card-experience"><i class="fas fa-clock"></i> 10 years experience</p>
+                            <div class="farmers-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <a href="farmer-detail.html" class="farmers-btn farmers-btn-outline farmers-btn-view">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty state (hidden by default) -->
+            <div class="farmers-empty-state" id="farmersEmptyState" style="display: none;">
+                <i class="fas fa-search farmers-empty-icon"></i>
+                <h3>No farmers found matching your search criteria.</h3>
+                <p>Try adjusting your filters or search terms.</p>
+            </div>
+
+            <!-- ====== PAGINATION ====== -->
+            <div class="farmers-pagination" id="farmersPaginationContainer">
+                <button class="farmers-pagination-btn" id="farmersPrevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> <span>Previous</span>
+                </button>
+                <div class="farmers-pagination-numbers" id="farmersPaginationNumbers">
+                    <button class="farmers-pagination-btn active" data-page="1">1</button>
+                    <button class="farmers-pagination-btn" data-page="2">2</button>
+                    <button class="farmers-pagination-btn" data-page="3">3</button>
+                </div>
+                <button class="farmers-pagination-btn" id="farmersNextBtn">
+                    <span>Next</span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="farmers-cta-section" aria-label="Join FarmConnect">
+        <div class="container">
+            <div class="farmers-cta-wrapper">
+                <h2 class="farmers-cta-title">Join Nigeria's growing agricultural marketplace today.</h2>
+                <div class="farmers-cta-buttons">
+                    <a href="register.html?type=farmer" class="farmers-cta-btn farmers-cta-btn-primary">
+                        <i class="fas fa-seedling"></i> Start Selling
+                    </a>
+                    <a href="marketplace.html" class="farmers-cta-btn farmers-cta-btn-outline">
+                        <i class="fas fa-store"></i> Browse Marketplace
+                    </a>
+                    <a href="register.html?type=logistics" class="farmers-cta-btn farmers-cta-btn-outline">
+                        <i class="fas fa-truck"></i> Start Delivering
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/farmers.js" defer></script>
+</body>
+</html>

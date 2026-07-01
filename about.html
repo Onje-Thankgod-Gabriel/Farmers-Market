@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · About Us</title>
+    <!-- Inter Google Font & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- About CSS -->
+    <link rel="stylesheet" href="../assets/css/about.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR (auth nav - removed per instruction) ====== -->
+<!-- ====== NAVBAR (sticky, mobile-first) ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== PAGE HEADER (dark green) ====== -->
+    <section class="about-page-header">
+        <div class="about-page-header-content">
+            <h1 class="about-page-title">About FarmConnect Marketplace</h1>
+            <p class="about-page-subtitle">Connecting Farmers, Buyers, and Logistics Providers Across Nigeria</p>
+        </div>
+    </section>
+
+    <!-- ====== THE PROBLEM SECTION (white) ====== -->
+    <section class="about-section about-section-white" aria-label="The problem we solve">
+        <div class="container">
+            <h2 class="about-section-title">The Challenge</h2>
+            <p class="about-section-subtitle">Agricultural trade in Nigeria faces significant barriers that limit growth and opportunity.</p>
+            <div class="row g-4 about-problem-grid">
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-problem-card">
+                        <i class="fas fa-link about-problem-icon"></i>
+                        <h3>Limited Market Access</h3>
+                        <p>Farmers struggle to connect directly with buyers, limiting their market reach and profitability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-problem-card">
+                        <i class="fas fa-truck about-problem-icon"></i>
+                        <h3>Logistics Challenges</h3>
+                        <p>Moving agricultural products across Nigeria is complicated, expensive, and often unreliable.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-problem-card">
+                        <i class="fas fa-handshake about-problem-icon"></i>
+                        <h3>Lack of Trust</h3>
+                        <p>Without verified profiles and transparent reviews, building trust between parties is difficult.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-problem-card">
+                        <i class="fas fa-chart-line about-problem-icon"></i>
+                        <h3>Information Gaps</h3>
+                        <p>Farmers lack real-time market information, leading to poor pricing and missed opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== THE SOLUTION SECTION (white) ====== -->
+    <section class="about-section about-section-white" aria-label="How FarmConnect works">
+        <div class="container">
+            <h2 class="about-section-title">The Solution</h2>
+            <p class="about-section-subtitle">FarmConnect creates a seamless ecosystem for agricultural trade in Nigeria.</p>
+            <div class="row g-4 about-solution-grid">
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-solution-card">
+                        <div class="about-solution-number">1</div>
+                        <i class="fas fa-seedling about-solution-icon"></i>
+                        <h3>Farmers List Produce</h3>
+                        <p>Farmers create profiles and list their agricultural products with pricing and availability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-solution-card">
+                        <div class="about-solution-number">2</div>
+                        <i class="fas fa-shopping-bag about-solution-icon"></i>
+                        <h3>Buyers Discover Products</h3>
+                        <p>Buyers browse, search, and find fresh produce directly from verified farmers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-solution-card">
+                        <div class="about-solution-number">3</div>
+                        <i class="fas fa-truck about-solution-icon"></i>
+                        <h3>Logistics Delivers Safely</h3>
+                        <p>Trusted logistics partners handle delivery, ensuring produce arrives fresh and on time.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="about-solution-card">
+                        <div class="about-solution-number">4</div>
+                        <i class="fas fa-shield-alt about-solution-icon"></i>
+                        <h3>Secure & Trusted</h3>
+                        <p>Every transaction is backed by verified profiles, ratings, and a trusted marketplace environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== WHY TRUST FARMCONNECT (white) ====== -->
+    <section class="about-section about-section-white" aria-label="Why trust FarmConnect">
+        <div class="container">
+            <h2 class="about-section-title">Why Trust FarmConnect</h2>
+            <p class="about-section-subtitle">Built on transparency, verification, and a commitment to agricultural excellence.</p>
+            <div class="row g-4 about-trust-grid">
+                <div class="col-md-4">
+                    <div class="about-trust-card">
+                        <i class="fas fa-user-check about-trust-icon"></i>
+                        <h3>Verified Farmers</h3>
+                        <p>Every farmer profile is verified to ensure authenticity and reliability.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-trust-card">
+                        <i class="fas fa-truck about-trust-icon"></i>
+                        <h3>Verified Logistics</h3>
+                        <p>Logistics providers are thoroughly vetted for safety and reliability.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-trust-card">
+                        <i class="fas fa-star about-trust-icon"></i>
+                        <h3>Ratings & Reviews</h3>
+                        <p>Transparent feedback system helps users make informed decisions.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Statistics -->
+            <div class="about-stats">
+                <div class="row g-4">
+                    <div class="col-4">
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">1,000+</span>
+                            <span class="about-stat-label">Farmers</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">10,000+</span>
+                            <span class="about-stat-label">Transactions</span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">500+</span>
+                            <span class="about-stat-label">Logistics Partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== OUR MISSION SECTION (white) ====== -->
+    <section class="about-section about-section-white" aria-label="Our mission">
+        <div class="container">
+            <div class="about-mission-wrapper">
+                <div class="about-mission-content">
+                    <h2 class="about-section-title">Our Mission</h2>
+                    <p class="about-mission-statement">
+                        "To simplify agricultural trade by creating a trusted digital marketplace that connects farmers, buyers, and logistics providers."
+                    </p>
+                    <p class="about-mission-text">
+                        We envision a Nigeria where every farmer has access to fair markets, every buyer can find quality produce, and logistics flows seamlessly across the nation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="about-cta-section" aria-label="Join FarmConnect">
+        <div class="container">
+            <div class="about-cta-wrapper">
+                <h2 class="about-cta-title">Join Nigeria's Growing Agricultural Marketplace</h2>
+                <div class="about-cta-buttons">
+                    <a href="register.html?type=farmer" class="about-cta-btn about-cta-btn-primary">
+                        <i class="fas fa-seedling"></i> Start Selling
+                    </a>
+                    <a href="marketplace.html" class="about-cta-btn about-cta-btn-outline">
+                        <i class="fas fa-store"></i> Explore Marketplace
+                    </a>
+                    <a href="register.html?type=logistics" class="about-cta-btn about-cta-btn-outline">
+                        <i class="fas fa-truck"></i> Become a Delivery Partner
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/about.js" defer></script>
+</body>
+</html>

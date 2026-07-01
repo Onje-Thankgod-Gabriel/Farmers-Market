@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Ade Farms - Farmer Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/farmer-detail.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register">
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== FARMER HEADER (dark green) ====== -->
+    <section class="detail-farmer-header">
+        <div class="detail-farmer-header-content">
+            <h1 class="detail-farmer-title">Ade Farms</h1>
+            <p class="detail-farmer-subtitle">Premium crop farmer with 12 years of experience in Ibadan.</p>
+        </div>
+    </section>
+
+    <!-- ====== FARMER PROFILE SECTION (white background) ====== -->
+    <section class="detail-profile-section" aria-label="Farmer profile">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="detail-profile-image-wrapper">
+                        <!-- Featured Badge -->
+                        <div class="detail-profile-featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="detail-profile-save-btn" data-farmer-id="1" aria-label="Save farmer">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-profile-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop');"></div>
+                        <div class="detail-profile-badge">
+                            <i class="fas fa-check-circle"></i> Verified Farmer
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="detail-profile-info">
+                        <div class="detail-profile-header">
+                            <h2 class="detail-profile-name">Ade Farms</h2>
+                            <span class="detail-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <p class="detail-profile-specialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                        <p class="detail-profile-location"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo State</p>
+                        <div class="detail-profile-meta">
+                            <span class="detail-profile-experience"><i class="fas fa-clock"></i> 12 years experience</span>
+                            <span class="detail-profile-member"><i class="fas fa-calendar-alt"></i> Member Since: January 2023</span>
+                            <span class="detail-profile-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                4.8 (124 reviews)
+                            </span>
+                        </div>
+                        <p class="detail-profile-bio">
+                            Ade Farms is a family-owned agricultural business based in Ibadan, Oyo State. 
+                            We specialize in growing high-quality rice, maize, and other staple crops using sustainable farming practices. 
+                            With over 12 years of experience, we pride ourselves on delivering fresh, premium produce directly to our customers.
+                            Our farm is certified and we are committed to food safety and quality assurance.
+                        </p>
+                        <div class="detail-profile-actions">
+                            <a href="#" class="detail-btn detail-btn-primary detail-btn-lg detail-btn-whatsapp" id="chatBtn">
+                                <i class="fab fa-whatsapp"></i> Chat with Farmer
+                            </a>
+                            <a href="#" class="detail-btn detail-btn-outline detail-btn-lg detail-btn-call" id="callBtn">
+                                <i class="fas fa-phone"></i> Call Farmer
+                            </a>
+                            <a href="#" class="detail-btn detail-btn-outline detail-btn-lg" id="viewProductsBtn">View Products</a>
+                            <button class="detail-btn detail-btn-report" id="reportBtn">
+                                <i class="fas fa-flag"></i> Report Farmer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== FARM & PRODUCE SECTION (white background) ====== -->
+    <section class="detail-similar-section" id="produce-section" aria-label="Similar products">
+        <div class="container">
+            <h2 class="detail-section-title">Farmer Products</h2>
+            <div class="row g-4 detail-similar-grid">
+                <!-- Similar Product 1 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="301" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">50kg Bag of Rice</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Ade Farms</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Ibadan</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦45,000</span>
+                                <span class="detail-similar-status detail-status-available">In Stock</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Product 2 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="302" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1567337710282-00832b415979?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">Organic Maize (100kg)</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Zaria Grains</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦28,000</span>
+                                <span class="detail-similar-status detail-status-available">In Stock</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.2</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Product 3 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="303" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1595853035070-59a39fe84de3?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">Fresh Tomatoes (crate)</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> GreenHarvest</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦12,000</span>
+                                <span class="detail-similar-status detail-status-available">In Stock</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Product 4 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="304" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1557844352-761f2565b576?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">Cassava Chips (ton)</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Benue Roots</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Benin</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦62,000</span>
+                                <span class="detail-similar-status detail-status-available">In Stock</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Crops</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Product 5 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="305" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1589923188900-85dae523342b?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">Poultry Broilers (live)</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Chi Farms</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦8,500</span>
+                                <span class="detail-similar-status detail-status-available">In Stock</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Livestock</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Product 6 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="detail-similar-card">
+                        <button class="detail-similar-save-btn" data-product-id="306" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-similar-image" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop');"></div>
+                        <div class="detail-similar-body">
+                            <h3 class="detail-similar-name">Premium Palm Oil (25L)</h3>
+                            <p class="detail-similar-farmer"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Edo Oil Mill</p>
+                            <p class="detail-similar-location"><i class="fas fa-map-marker-alt"></i> Benin</p>
+                            <div class="detail-similar-footer">
+                                <span class="detail-similar-price">₦32,000</span>
+                                <span class="detail-similar-status detail-status-low">Limited</span>
+                            </div>
+                            <div class="detail-similar-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.3</span>
+                            </div>
+                            <span class="detail-similar-category"><i class="fas fa-tag"></i> Processed</span>
+                            <a href="product-detail.html" class="detail-btn detail-btn-outline detail-btn-sm detail-btn-view-similar">View Product</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== REVIEWS SECTION (white background) ====== -->
+    <section class="detail-reviews-section" aria-label="Farmer reviews">
+        <div class="container">
+            <div class="detail-reviews-header">
+                <h2 class="detail-section-title">Buyer Reviews</h2>
+                <button class="detail-btn detail-btn-primary detail-btn-sm" id="addReviewBtn">Add Review</button>
+            </div>
+            <div class="detail-reviews-list">
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Chioma Okafor</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Excellent quality rice! The grains are long and fluffy. Will definitely order again."</p>
+                        <span class="detail-review-date">March 15, 2026</span>
+                    </div>
+                </div>
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Emeka Nwachukwu</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Great produce and fast delivery. The farmer was very responsive to my questions."</p>
+                        <span class="detail-review-date">February 28, 2026</span>
+                    </div>
+                </div>
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Aisha Mohammed</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Best farmer I've worked with in Ibadan. The quality is consistently excellent."</p>
+                        <span class="detail-review-date">February 10, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="detail-cta-section" aria-label="Explore more produce">
+        <div class="container">
+            <div class="detail-cta-wrapper">
+                <h2 class="detail-cta-title">Need Fresh Farm Produce?</h2>
+                <p class="detail-cta-subtitle">Browse hundreds of verified products from trusted Nigerian farmers.</p>
+                <a href="marketplace.html" class="detail-btn detail-btn-primary detail-btn-lg detail-btn-cta">
+                    <i class="fas fa-store"></i> Explore Marketplace
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== CONTACT MODAL (Login Required) ====== -->
+<div class="detail-contact-modal-overlay" id="contactModal">
+    <div class="detail-contact-modal">
+        <button class="detail-contact-modal-close" id="contactModalClose">&times;</button>
+        <div class="detail-contact-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p>You need to login or register to perform this action.</p>
+        <div class="detail-contact-modal-buttons">
+            <a href="login.html" class="detail-btn detail-btn-primary">Login</a>
+            <a href="register.html" class="detail-btn detail-btn-outline">Register</a>
+        </div>
+        <p class="detail-contact-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== REPORT MODAL ====== -->
+<div class="detail-modal-overlay" id="reportModal">
+    <div class="detail-modal">
+        <div class="detail-modal-header">
+            <h3><i class="fas fa-flag"></i> Report Farmer</h3>
+            <button class="detail-modal-close" id="closeModalBtn">&times;</button>
+        </div>
+        <form id="reportForm">
+            <div class="detail-modal-body">
+                <div class="detail-form-group">
+                    <label>Farmer Name</label>
+                    <input type="text" id="reportFarmerName" value="Ade Farms" readonly class="detail-form-input detail-form-input-readonly">
+                </div>
+                <div class="detail-form-group">
+                    <label>Your Complaint</label>
+                    <textarea id="reportComplaint" rows="5" placeholder="Please describe your issue with this farmer..." class="detail-form-textarea" required></textarea>
+                </div>
+            </div>
+            <div class="detail-modal-footer">
+                <button type="button" class="detail-btn detail-btn-outline" id="cancelModalBtn">Cancel</button>
+                <button type="submit" class="detail-btn detail-btn-primary" id="submitReportBtn">Submit Report</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ====== REVIEW MODAL ====== -->
+<div class="detail-review-modal-overlay" id="reviewModal">
+    <div class="detail-review-modal">
+        <div class="detail-review-modal-header">
+            <h3><i class="fas fa-star" style="color:#F59E0B;"></i> Write a Review</h3>
+            <button class="detail-review-modal-close" id="reviewModalClose">&times;</button>
+        </div>
+        <form id="reviewForm">
+            <div class="detail-review-modal-body">
+                <div class="detail-form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="reviewerName" class="detail-form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="detail-form-group">
+                    <label>Rating</label>
+                    <div class="detail-star-rating" id="starRating">
+                        <i class="far fa-star" data-value="1"></i>
+                        <i class="far fa-star" data-value="2"></i>
+                        <i class="far fa-star" data-value="3"></i>
+                        <i class="far fa-star" data-value="4"></i>
+                        <i class="far fa-star" data-value="5"></i>
+                    </div>
+                    <span class="detail-rating-text" id="ratingText">Select a rating</span>
+                    <input type="hidden" id="reviewRating" value="0">
+                </div>
+                <div class="detail-form-group">
+                    <label>Your Review</label>
+                    <textarea id="reviewText" rows="4" class="detail-form-textarea" placeholder="Write your review..." required></textarea>
+                </div>
+                <div class="detail-form-group">
+                    <label>Review Date</label>
+                    <input type="text" id="reviewDate" class="detail-form-input" readonly>
+                </div>
+            </div>
+            <div class="detail-review-modal-footer">
+                <button type="button" class="detail-btn detail-btn-outline" id="reviewCancelBtn">Cancel</button>
+                <button type="submit" class="detail-btn detail-btn-primary" id="submitReviewBtn">Submit Review</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/farmer-detail.js" defer></script>
+</body>
+</html>

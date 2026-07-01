@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="admin-light-mode">
+
+<!-- ====== SIDEBAR ====== -->
+<aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-header">
+        <a href="#" class="admin-sidebar-logo">
+            <i class="fas fa-leaf admin-sidebar-logo-icon"></i>
+            <span class="admin-sidebar-brand">FarmConnect</span>
+        </a>
+        <button class="admin-sidebar-collapse" id="adminSidebarCollapse">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+    </div>
+    <nav class="admin-sidebar-nav">
+        <a href="#" class="admin-sidebar-link active" data-section="overview"><i class="fas fa-th-large"></i><span>Overview</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="users"><i class="fas fa-users"></i><span>Manage Users</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="products"><i class="fas fa-box"></i><span>Product Listings</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="reviews"><i class="fas fa-star"></i><span>Reviews Management</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="reports"><i class="fas fa-flag"></i><span>Reports Center</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="notifications"><i class="fas fa-bell"></i><span>Notifications</span></a>
+        <a href="#" class="admin-sidebar-link" data-section="settings"><i class="fas fa-cog"></i><span>Settings</span></a>
+        <a href="#" class="admin-sidebar-link admin-sidebar-logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </nav>
+</aside>
+
+<!-- ====== MOBILE OVERLAY ====== -->
+<div class="admin-overlay" id="adminOverlay"></div>
+
+<!-- ====== MAIN CONTENT ====== -->
+<div class="admin-main" id="adminMain">
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="admin-navbar">
+        <div class="admin-navbar-left">
+            <button class="admin-navbar-toggle" id="adminNavbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="admin-navbar-title" id="adminPageTitle">Overview</h1>
+        </div>
+        <div class="admin-navbar-right">
+            <div class="admin-search-wrapper">
+                <i class="fas fa-search admin-search-icon"></i>
+                <input type="text" class="admin-search-input" id="adminGlobalSearch" placeholder="Search...">
+            </div>
+            <button class="admin-navbar-btn" id="adminDarkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="admin-navbar-btn" id="adminNotificationIcon">
+                <i class="fas fa-bell"></i>
+                <span class="admin-notification-dot" id="adminNotificationDot"></span>
+            </button>
+            <div class="admin-profile-dropdown" id="adminProfileDropdown">
+                <div class="admin-profile-trigger">
+                    <div class="admin-profile-avatar" id="adminAvatar">
+                        <span id="adminAvatarInitials">AD</span>
+                    </div>
+                    <div class="admin-profile-info">
+                        <span class="admin-profile-name" id="adminName">Admin User</span>
+                        <span class="admin-profile-role">Administrator</span>
+                    </div>
+                    <i class="fas fa-chevron-down admin-profile-arrow"></i>
+                </div>
+                <div class="admin-profile-menu" id="adminProfileMenu">
+                    <a href="#" class="admin-profile-menu-item" data-action="settings"><i class="fas fa-cog"></i> Settings</a>
+                    <div class="admin-profile-menu-divider"></div>
+                    <a href="#" class="admin-profile-menu-item admin-profile-menu-logout" data-action="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== CONTENT ====== -->
+    <div class="admin-content">
+
+        <!-- ====== OVERVIEW SECTION ====== -->
+        <section class="admin-section active" id="admin-section-overview">
+            <div class="admin-welcome">
+                <h2>Welcome back, <span id="adminWelcomeName">Admin</span>! 👋</h2>
+                <p>Monitor and manage the FarmConnect marketplace.</p>
+            </div>
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-user-tag"></i></div><div><span class="admin-stat-number" id="adminBuyersCount">0</span><span class="admin-stat-label">Buyers</span></div></div>
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-seedling"></i></div><div><span class="admin-stat-number" id="adminFarmersCount">0</span><span class="admin-stat-label">Farmers</span></div></div>
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-truck"></i></div><div><span class="admin-stat-number" id="adminLogisticsCount">0</span><span class="admin-stat-label">Logistics</span></div></div>
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-box"></i></div><div><span class="admin-stat-number" id="adminProductsCount">0</span><span class="admin-stat-label">Products</span></div></div>
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-star"></i></div><div><span class="admin-stat-number" id="adminReviewsCount">0</span><span class="admin-stat-label">Reviews</span></div></div>
+                <div class="admin-stat-card"><div class="admin-stat-icon"><i class="fas fa-flag"></i></div><div><span class="admin-stat-number" id="adminReportsCount">0</span><span class="admin-stat-label">Reports</span></div></div>
+            </div>
+            <div class="admin-recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="admin-activity-list" id="adminActivityList">
+                    <div class="admin-activity-item"><i class="fas fa-user-plus" style="color:#2D7D3A;"></i><span>New farmer registered: Ade Farms</span><span class="admin-activity-time">2 hours ago</span></div>
+                    <div class="admin-activity-item"><i class="fas fa-flag" style="color:#EF4444;"></i><span>Product reported: 50kg Bag of Rice</span><span class="admin-activity-time">5 hours ago</span></div>
+                    <div class="admin-activity-item"><i class="fas fa-star" style="color:#F59E0B;"></i><span>New review submitted</span><span class="admin-activity-time">1 day ago</span></div>
+                </div>
+            </div>
+            <div class="admin-quick-actions">
+                <button class="admin-btn admin-btn-primary" data-action="users"><i class="fas fa-users"></i> View Users</button>
+                <button class="admin-btn admin-btn-outline" data-action="reports"><i class="fas fa-flag"></i> Review Reports</button>
+                <button class="admin-btn admin-btn-outline" data-action="products"><i class="fas fa-box"></i> View Listings</button>
+            </div>
+        </section>
+
+        <!-- ====== USERS SECTION ====== -->
+        <section class="admin-section" id="admin-section-users">
+            <h2>Manage Users</h2>
+            <div class="admin-table-header">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <input type="text" class="admin-table-search" id="adminUserSearch" placeholder="Search users...">
+                    <select class="admin-filter-select" id="adminUserTypeFilter">
+                        <option value="">All Types</option>
+                        <option value="Buyer">Buyer</option>
+                        <option value="Farmer">Farmer</option>
+                        <option value="Logistics">Logistics</option>
+                    </select>
+                    <select class="admin-filter-select" id="adminUserStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Suspended">Suspended</option>
+                    </select>
+                </div>
+            </div>
+            <div class="admin-table-wrapper">
+                <table class="admin-table" id="adminUsersTable">
+                    <thead>
+                        <tr><th>Profile</th><th>Name</th><th>Type</th><th>Location</th><th>Joined</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="adminUsersBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====== PRODUCTS SECTION ====== -->
+        <section class="admin-section" id="admin-section-products">
+            <h2>Product Listings</h2>
+            <div class="admin-table-header">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <input type="text" class="admin-table-search" id="adminProductSearch" placeholder="Search products...">
+                    <select class="admin-filter-select" id="adminProductStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Hidden">Hidden</option>
+                    </select>
+                </div>
+            </div>
+            <div class="admin-table-wrapper">
+                <table class="admin-table" id="adminProductsTable">
+                    <thead>
+                        <tr><th>Image</th><th>Product</th><th>Farmer</th><th>Category</th><th>Location</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="adminProductsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====== REVIEWS SECTION ====== -->
+        <section class="admin-section" id="admin-section-reviews">
+            <h2>Reviews Management</h2>
+            <div class="admin-table-header">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <input type="text" class="admin-table-search" id="adminReviewSearch" placeholder="Search reviews...">
+                    <select class="admin-filter-select" id="adminReviewRatingFilter">
+                        <option value="">All Ratings</option>
+                        <option value="5">⭐ 5</option>
+                        <option value="4">⭐ 4</option>
+                        <option value="3">⭐ 3</option>
+                        <option value="2">⭐ 2</option>
+                        <option value="1">⭐ 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="admin-table-wrapper">
+                <table class="admin-table" id="adminReviewsTable">
+                    <thead>
+                        <tr><th>Reviewer</th><th>Recipient</th><th>Rating</th><th>Review</th><th>Date</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="adminReviewsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====== REPORTS SECTION ====== -->
+        <section class="admin-section" id="admin-section-reports">
+            <h2>Reports Center</h2>
+            <div class="admin-table-header">
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <input type="text" class="admin-table-search" id="adminReportSearch" placeholder="Search reports...">
+                    <select class="admin-filter-select" id="adminReportStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+            </div>
+            <div class="admin-table-wrapper">
+                <table class="admin-table" id="adminReportsTable">
+                    <thead>
+                        <tr><th>Report ID</th><th>Type</th><th>Reported Item</th><th>Submitted By</th><th>Date</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="adminReportsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ====== NOTIFICATIONS SECTION ====== -->
+        <section class="admin-section" id="admin-section-notifications">
+            <h2>Notifications</h2>
+            <div class="admin-notifications-header">
+                <button class="admin-btn admin-btn-sm admin-btn-outline" id="adminMarkAllReadBtn"><i class="fas fa-check-double"></i> Mark All Read</button>
+            </div>
+            <div class="admin-notifications-list" id="adminNotificationsList"></div>
+        </section>
+
+        <!-- ====== SETTINGS SECTION ====== -->
+        <section class="admin-section" id="admin-section-settings">
+            <h2>Settings</h2>
+            <div class="admin-settings-container">
+                <div class="admin-settings-card">
+                    <h3>Account Settings</h3>
+                    <div class="admin-form-group">
+                        <label>Name</label>
+                        <input type="text" id="adminSettingsName" class="admin-form-input" value="Admin User">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Email</label>
+                        <input type="email" id="adminSettingsEmail" class="admin-form-input" value="admin@farmconnect.ng">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Change Password</label>
+                        <div class="admin-password-row">
+                            <input type="password" id="adminSettingsNewPassword" class="admin-form-input" placeholder="New password">
+                            <input type="password" id="adminSettingsConfirmPassword" class="admin-form-input" placeholder="Confirm password">
+                        </div>
+                        <button class="admin-btn admin-btn-primary admin-btn-sm" id="adminChangePasswordBtn">Update Password</button>
+                    </div>
+                </div>
+                <div class="admin-settings-card">
+                    <h3>Preferences</h3>
+                    <div class="admin-settings-toggle">
+                        <span>Dark Mode</span>
+                        <label class="admin-toggle">
+                            <input type="checkbox" id="adminSettingsDarkMode">
+                            <span class="admin-toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="admin-settings-toggle">
+                        <span>Email Notifications</span>
+                        <label class="admin-toggle">
+                            <input type="checkbox" id="adminSettingsEmailNotif" checked>
+                            <span class="admin-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- ====== UNIVERSAL MODAL ====== -->
+<div class="admin-modal-overlay" id="adminModal">
+    <div class="admin-modal">
+        <div class="admin-modal-header">
+            <h3 id="adminModalTitle">Modal</h3>
+            <button class="admin-modal-close" id="adminModalClose">&times;</button>
+        </div>
+        <div class="admin-modal-body" id="adminModalBody">
+            <p id="adminModalMessage">Loading...</p>
+            <div id="adminModalFields"></div>
+        </div>
+        <div class="admin-modal-footer" id="adminModalFooter">
+            <button class="admin-btn admin-btn-outline" id="adminModalCancel">Cancel</button>
+            <button class="admin-btn admin-btn-primary" id="adminModalConfirm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== TOAST ====== -->
+<div class="admin-toast-container" id="adminToastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

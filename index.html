@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect Marketplace · Home</title>
+    <!-- Inter Google Font & Font Awesome 6 (CDN) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities (customised) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- ======== HOME.CSS (linked) ======== -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<!-- ====== NAVBAR (sticky, mobile-first) ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<main>
+    <!-- ====== HERO SECTION (dark green + white text, large search) ====== -->
+    <section class="home-hero" aria-label="Hero section">
+        <div class="home-hero-overlay"></div>
+        <div class="home-hero-content">
+            <h1 class="home-hero-title">Connecting Farmers, Buyers &amp; Logistics in One Place</h1>
+            <p class="home-hero-sub">A smarter way to trade agricultural products and move goods across Nigeria.</p>
+            <!-- large search bar -->
+            <div class="home-search-wrapper">
+                <div class="home-search-box">
+                    <div class="home-search-field">
+                        <i class="fas fa-seedling home-search-icon"></i>
+                        <input type="text" id="searchProduct" placeholder="Rice, Maize, Yam..." class="home-search-input" aria-label="Search product">
+                    </div>
+                    <div class="home-search-field">
+                        <i class="fas fa-map-pin home-search-icon"></i>
+                        <input type="text" id="searchLocation" placeholder="Ibadan, Lagos..." class="home-search-input" aria-label="Search location">
+                    </div>
+                    <div class="home-search-field home-search-select">
+                        <i class="fas fa-user-tag home-search-icon"></i>
+                        <select id="searchRole" class="home-search-select-input" aria-label="Select role">
+                            <option value="farmer">Farmer</option>
+                            <option value="buyer" selected>Farm Produce</option>
+                            <option value="logistics">Logistics</option>
+                        </select>
+                    </div>
+                    <button class="home-btn home-btn-primary home-btn-search" id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+            <!-- subtle agricultural background effect (via css) -->
+        </div>
+    </section>
+
+        <!-- ====== CATEGORY SECTION (white background) ====== -->
+    <section class="home-section home-section-white" aria-label="Categories">
+        <div class="container">
+            <h2 class="home-section-title">Browse Categories</h2>
+            <div class="row g-4 home-category-grid" id="categoryGrid">
+                <!-- Crops & Grains -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Crops">
+                    <a href="marketplace.html?category=Crops" class="home-category-card"><i class="fas fa-seedling home-cat-icon"></i><span>Crops</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Grains">
+                    <a href="marketplace.html?category=Grains" class="home-category-card"><i class="fas fa-leaf home-cat-icon"></i><span>Grains</span></a>
+                </div>
+                
+                <!-- Produce -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Vegetables">
+                    <a href="marketplace.html?category=Vegetables" class="home-category-card"><i class="fas fa-carrot home-cat-icon"></i><span>Vegetables</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Fruits">
+                    <a href="marketplace.html?category=Fruits" class="home-category-card"><i class="fas fa-apple-alt home-cat-icon"></i><span>Fruits</span></a>
+                </div>
+                
+                <!-- Livestock & Animal Products -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Livestock">
+                    <a href="marketplace.html?category=Livestock" class="home-category-card"><i class="fas fa-horse head home-cat-icon"></i><span>Livestock</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Poultry">
+                    <a href="marketplace.html?category=Poultry" class="home-category-card"><i class="fas fa-drumstick-bite home-cat-icon"></i><span>Poultry</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Fishery">
+                    <a href="marketplace.html?category=Fishery" class="home-category-card"><i class="fas fa-fish home-cat-icon"></i><span>Fishery</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Eggs & Dairy">
+                    <a href="marketplace.html?category=Eggs%20%26%20Dairy" class="home-category-card"><i class="fas fa-egg home-cat-icon"></i><span>Eggs & Dairy</span></a>
+                </div>
+                
+                <!-- Processed & Value-Added Products -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Palm Oil">
+                    <a href="marketplace.html?category=Palm%20Oil" class="home-category-card"><i class="fas fa-oil-can home-cat-icon"></i><span>Palm Oil</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Processed Foods">
+                    <a href="marketplace.html?category=Processed%20Foods" class="home-category-card"><i class="fas fa-bread-slice home-cat-icon"></i><span>Processed Foods</span></a>
+                </div>
+                
+                <!-- Farm Inputs & Supplies -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Farm Equipment">
+                    <a href="marketplace.html?category=Farm%20Equipment" class="home-category-card"><i class="fas fa-tractor home-cat-icon"></i><span>Farm Equipment</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Fertilizers">
+                    <a href="marketplace.html?category=Fertilizers" class="home-category-card"><i class="fas fa-flask home-cat-icon"></i><span>Fertilizers</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Agro Chemicals">
+                    <a href="marketplace.html?category=Agro%20Chemicals" class="home-category-card"><i class="fas fa-pills home-cat-icon"></i><span>Agro Chemicals</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Seeds">
+                    <a href="marketplace.html?category=Seeds" class="home-category-card"><i class="fas fa-seedling home-cat-icon"></i><span>Seeds</span></a>
+                </div>
+                
+                <!-- Logistics & Services -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Logistics">
+                    <a href="marketplace.html?category=Logistics" class="home-category-card"><i class="fas fa-truck home-cat-icon"></i><span>Logistics</span></a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Storage">
+                    <a href="marketplace.html?category=Storage" class="home-category-card"><i class="fas fa-warehouse home-cat-icon"></i><span>Storage</span></a>
+                </div>
+                <!-- Tubers & Root Vegetables -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Tubers">
+                    <a href="marketplace.html?category=Tubers" class="home-category-card"><i class="fas fa-carrot home-cat-icon"></i><span>Tubers</span></a>
+                </div>
+                <!-- Legumes & Beans -->
+                <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Legumes">
+                    <a href="marketplace.html?category=Legumes" class="home-category-card"><i class="fas fa-seedling home-cat-icon"></i><span>Legumes</span></a>
+                </div>
+            </div>
+            <!-- Show More Button -->
+            <div class="home-category-show-more" id="categoryShowMoreContainer">
+                <button class="home-featured-btn home-featured-btn-primary" id="categoryShowMoreBtn">
+                    <i class="fas fa-chevron-down"></i> Show More
+                </button>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== FEATURED LISTINGS (white background) ====== -->
+    <section class="home-featured-section" aria-label="Featured listings">
+        <div class="container">
+            <div class="home-featured-header">
+                <h2 class="home-section-title">Featured Listings</h2>
+                <span class="home-featured-count">Top Picks</span>
+            </div>
+            <div class="row g-4 home-featured-grid" id="featuredGrid">
+                <!-- Card 1 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Grains" data-location="Ibadan" data-product-id="1">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="1" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">50kg Bag of Rice</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> Ade Farms</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦45,000</span>
+                                <span class="home-featured-status home-status-available">In Stock</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Vegetables" data-location="Lagos" data-product-id="2">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="2" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1595853035070-59a39fe84de3?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">Fresh Tomatoes (crate)</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> GreenHarvest</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Lagos, Ikeja</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦12,000</span>
+                                <span class="home-featured-status home-status-available">In Stock</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Grains" data-location="Kaduna" data-product-id="3">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="3" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">Organic Maize (100kg)</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> Zaria Grains</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦28,000</span>
+                                <span class="home-featured-status home-status-low">Limited</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.2</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Livestock" data-location="Enugu" data-product-id="4">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="4" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1589923188900-85dae523342b?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">Poultry Broilers (live)</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> Chi Farms</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦8,500</span>
+                                <span class="home-featured-status home-status-available">In Stock</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Livestock</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Crops" data-location="Benin" style="display:none;" data-product-id="5">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="5" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1557844352-761f2565b576?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">Cassava Chips (ton)</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> Benue Roots</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦62,000</span>
+                                <span class="home-featured-status home-status-available">In Stock</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Crops</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-6 col-md-4 col-lg-3 home-featured-item" data-category="Fruits" data-location="Benin" style="display:none;" data-product-id="6">
+                    <div class="home-featured-card">
+                        <div class="home-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="home-featured-save-btn" data-product-id="6" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="home-featured-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop');"></div>
+                        <div class="home-featured-body">
+                            <h3 class="home-featured-name">Premium Palm Oil (25L)</h3>
+                            <p class="home-featured-seller"><i class="fas fa-user-check home-featured-trust-badge"></i> Edo Oil Mill</p>
+                            <p class="home-featured-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <div class="home-featured-footer">
+                                <span class="home-featured-price">₦32,000</span>
+                                <span class="home-featured-status home-status-low">Limited</span>
+                            </div>
+                            <div class="home-featured-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.3</span>
+                            </div>
+                            <span class="home-featured-category"><i class="fas fa-tag"></i> Fruits</span>
+                            <a href="product-detail.html" class="home-featured-btn home-featured-btn-outline home-featured-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Show More Button -->
+            <div class="home-featured-show-more" id="showMoreContainer">
+                <button class="home-featured-btn home-featured-btn-primary" id="showMoreBtn">
+                    <i class="fas fa-chevron-down"></i> Show More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== BROWSE ALL PRODUCE SECTION ====== -->
+    <section class="home-section home-section-white" aria-label="Browse all produce">
+        <div class="container">
+            <div class="home-browse-section">
+                <div class="home-browse-content">
+                    <h2 class="home-browse-title">Ready to Discover More?</h2>
+                    <p class="home-browse-subtitle">Explore hundreds of fresh farm produce from verified farmers across Nigeria.</p>
+                    <a href="marketplace.html" class="home-btn home-btn-primary home-btn-browse">
+                        <i class="fas fa-store"></i> Browse All Produce
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HOW IT WORKS (white background) ====== -->
+    <section class="home-section home-section-white how-it-works" aria-label="How it works">
+        <div class="container">
+            <h2 class="home-section-title">How It Works</h2>
+            <div class="row g-4 home-steps">
+                <div class="col-md-4">
+                    <div class="home-step-card"><i class="fas fa-tractor home-step-icon"></i><h3>Farmers list produce</h3><p>Post your crops, livestock, or services in minutes.</p></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="home-step-card"><i class="fas fa-shopping-bag home-step-icon"></i><h3>Buyers discover &amp; order</h3><p>Browse verified listings and place orders instantly.</p></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="home-step-card"><i class="fas fa-truck home-step-icon"></i><h3>Logistics delivers safely</h3><p>Trusted partners move goods across Nigeria.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="home-cta-section" aria-label="Join FarmConnect">
+        <div class="container">
+            <div class="home-cta-wrapper">
+                <h2 class="home-cta-title">Join Nigeria's growing agricultural marketplace today.</h2>
+                <div class="home-cta-buttons">
+                    <a href="marketplace.html" class="home-cta-btn home-cta-btn-primary">
+                        <i class="fas fa-store"></i> Browse Marketplace
+                    </a>
+                    <a href="register.html?type=farmer" class="home-cta-btn home-cta-btn-outline">
+                        <i class="fas fa-seedling"></i> Start Selling
+                    </a>
+                    <a href="register.html?type=logistics" class="home-cta-btn home-cta-btn-outline">
+                        <i class="fas fa-truck"></i> Become a Delivery Partner
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== HOME.JS linked ====== -->
+<script src="../assets/js/main.js" defer></script>
+<!-- Bootstrap JS (for toggles etc. but we use custom) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

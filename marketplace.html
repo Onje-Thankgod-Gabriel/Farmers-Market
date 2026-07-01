@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect Marketplace · Fresh Farm Produce</title>
+    <!-- Inter Google Font & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities (customised) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Main CSS (will be merged) -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Marketplace CSS -->
+    <link rel="stylesheet" href="../assets/css/marketplace.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== PAGE HEADER (dark green) ====== -->
+    <section class="marketplace-page-header">
+        <div class="marketplace-page-header-content">
+            <h1 class="marketplace-page-title">Browse Fresh Farm Produce</h1>
+            <p class="marketplace-page-subtitle">Discover fresh agricultural products directly from verified farmers across Nigeria.</p>
+        </div>
+    </section>
+
+    <!-- ====== SEARCH & FILTER SECTION (white background) ====== -->
+    <section class="marketplace-search-section" aria-label="Search and filter">
+        <div class="container">
+            <div class="marketplace-search-wrapper">
+                <div class="marketplace-search-box">
+                    <div class="marketplace-search-field">
+                        <i class="fas fa-search marketplace-search-icon"></i>
+                        <input type="text" id="searchProduct" placeholder="Search products (e.g. Rice, Yam, Maize)" class="marketplace-search-input" aria-label="Search products">
+                    </div>
+                    <div class="marketplace-search-field">
+                        <i class="fas fa-map-pin marketplace-search-icon"></i>
+                        <select id="filterLocation" class="marketplace-search-select" aria-label="Filter by location">
+                            <option value="">All Locations</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Ibadan">Ibadan</option>
+                            <option value="Abuja">Abuja</option>
+                            <option value="Abeokuta">Abeokuta</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Benin">Benin</option>
+                        </select>
+                    </div>
+                    <div class="marketplace-search-field">
+                        <i class="fas fa-tag marketplace-search-icon"></i>
+                        <select id="filterCategory" class="marketplace-search-select" aria-label="Filter by category">
+                            <option value="">All Categories</option>
+                            <option value="Crops">Crops</option>
+                            <option value="Livestock">Livestock</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Grains">Grains</option>
+                        </select>
+                    </div>
+                    <button class="marketplace-btn marketplace-btn-primary marketplace-btn-filter" id="filterBtn">
+                        <i class="fas fa-sliders-h"></i> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <!-- ====== MARKETPLACE GRID (white background) ====== -->
+    <section class="marketplace-grid-section" aria-label="Marketplace listings">
+        <div class="container">
+            <div class="marketplace-grid-header">
+                <h2 class="marketplace-grid-title">Fresh Produce</h2>
+                <span class="marketplace-grid-count" id="resultCount">12 products</span>
+            </div>
+            <div class="row g-4 marketplace-card-grid" id="productGrid">
+                <!-- Card 1 - Grains -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Grains" data-location="Ibadan" data-product-id="101">
+                    <div class="marketplace-card">
+                        <div class="marketplace-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="marketplace-save-btn" data-product-id="101" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">50kg Bag of Rice</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Ade Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦45,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Vegetables -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Vegetables" data-location="Lagos" data-product-id="102">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="102" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1595853035070-59a39fe84de3?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Fresh Tomatoes (crate)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> GreenHarvest</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Lagos, Ikeja</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦12,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Grains -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Grains" data-location="Kaduna" data-product-id="103">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="103" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Organic Maize (100kg)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Zaria Grains</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦28,000</span>
+                                <span class="marketplace-card-status marketplace-status-low">Limited</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.2</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 - Livestock -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Livestock" data-location="Enugu" data-product-id="104">
+                    <div class="marketplace-card">
+                        <div class="marketplace-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="marketplace-save-btn" data-product-id="104" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1589923188900-85dae523342b?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Poultry Broilers (live)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Chi Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦8,500</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Livestock</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 - Crops -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Crops" data-location="Benin" data-product-id="105">
+                    <div class="marketplace-card">
+                        <div class="marketplace-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="marketplace-save-btn" data-product-id="105" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1557844352-761f2565b576?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Cassava Chips (ton)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Benue Roots</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦62,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Crops</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 - Fruits -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Fruits" data-location="Benin" data-product-id="106">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="106" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Premium Palm Oil (25L)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Edo Oil Mill</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦32,000</span>
+                                <span class="marketplace-card-status marketplace-status-low">Limited</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.3</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Fruits</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 - Vegetables (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Vegetables" data-location="Abeokuta" data-product-id="107">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="107" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Fresh Cabbage (crate)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Ogun Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Abeokuta, Ogun</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦9,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 - Fruits (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Fruits" data-location="Lagos" data-product-id="108">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="108" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Fresh Watermelon (large)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Lagos Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦7,500</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Fruits</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 - Crops (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Crops" data-location="Kano" data-product-id="109">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="109" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1523741543316-beb7fcb3d0f3?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Groundnuts (50kg bag)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Kano Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Kano</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦35,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Crops</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10 - Livestock (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Livestock" data-location="Kaduna" data-product-id="110">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="110" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Goats (live)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Kaduna Livestock</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦45,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Livestock</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11 - Grains (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Grains" data-location="Ilorin" data-product-id="111">
+                    <div class="marketplace-card">
+                        <div class="marketplace-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="marketplace-save-btn" data-product-id="111" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Brown Beans (100kg)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Ilorin Grains</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦55,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Grains</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12 - Vegetables (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Vegetables" data-location="Jos" data-product-id="112">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="112" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Fresh Carrots (crate)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Jos Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Jos, Plateau</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦8,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- Card 13 - Page 2 - Vegetables (NEW) -->
+                <div class="col-6 col-md-4 col-lg-3 marketplace-card-item" data-category="Vegetables" data-location="Lagos" data-product-id="113" data-page="2">
+                    <div class="marketplace-card">
+                        <button class="marketplace-save-btn" data-product-id="113" aria-label="Save product">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="marketplace-card-img" style="background-image: url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=400&h=250&fit=crop');"></div>
+                        <div class="marketplace-card-body">
+                            <h3 class="marketplace-card-name">Fresh Bell Peppers (crate)</h3>
+                            <p class="marketplace-card-seller"><i class="fas fa-user-check marketplace-trust-badge"></i> Lagos Farms</p>
+                            <p class="marketplace-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="marketplace-card-footer">
+                                <span class="marketplace-card-price">₦11,000</span>
+                                <span class="marketplace-card-status marketplace-status-available">In Stock</span>
+                            </div>
+                            <div class="marketplace-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <span class="marketplace-card-category"><i class="fas fa-tag"></i> Vegetables</span>
+                            <a href="product-detail.html" class="marketplace-btn marketplace-btn-outline marketplace-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty state -->
+            <div class="marketplace-empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-search marketplace-empty-icon"></i>
+                <h3>No farm produce found for your search.</h3>
+                <p>Try adjusting your filters or search terms.</p>
+            </div>
+
+             <!-- ====== PAGINATION ====== -->
+            <div class="marketplace-pagination" id="paginationContainer">
+                <button class="marketplace-pagination-btn" id="prevPageBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="marketplace-pagination-numbers" id="paginationNumbers">
+                    <button class="marketplace-pagination-btn active" data-page="1">1</button>
+                    <button class="marketplace-pagination-btn" data-page="2">2</button>
+                </div>
+                <button class="marketplace-pagination-btn" id="nextPageBtn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="marketplace-cta-section" aria-label="Join FarmConnect">
+        <div class="container">
+            <div class="marketplace-cta-wrapper">
+                <h2 class="marketplace-cta-title">Join Nigeria's growing agricultural marketplace today.</h2>
+                <div class="marketplace-cta-buttons">
+                    <a href="register.html?type=farmer" class="marketplace-cta-btn marketplace-cta-btn-primary">
+                        <i class="fas fa-seedling"></i> Start Selling
+                    </a>
+                    <a href="register.html?type=logistics" class="marketplace-cta-btn marketplace-cta-btn-outline">
+                        <i class="fas fa-truck"></i> Start Delivering
+                    </a>
+                    <a href="marketplace.html" class="marketplace-cta-btn marketplace-cta-btn-outline">
+                        <i class="fas fa-store"></i> Continue Buying
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/marketplace.js" defer></script>
+</body>
+</html>

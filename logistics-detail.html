@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · FarmExpress Logistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/logistics-detail.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register">
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== LOGISTICS HEADER (dark green) ====== -->
+    <section class="detail-logistics-header">
+        <div class="detail-logistics-header-content">
+            <h1 class="detail-logistics-title">FarmExpress Logistics</h1>
+            <p class="detail-logistics-subtitle">Reliable farm produce transport across Nigeria with a fleet of 50+ vehicles.</p>
+        </div>
+    </section>
+
+    <!-- ====== LOGISTICS PROVIDER PROFILE (white background) ====== -->
+    <section class="detail-profile-section" aria-label="Logistics provider profile">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="detail-profile-image-wrapper">
+                        <!-- Featured Badge -->
+                        <div class="detail-profile-featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </div>
+                        
+                        <!-- Save Button -->
+                        <button class="detail-profile-save-btn" data-logistics-id="1" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="detail-profile-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop');"></div>
+                        <div class="detail-profile-badge">
+                            <i class="fas fa-check-circle"></i> Verified Partner
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="detail-profile-info">
+                        <div class="detail-profile-header">
+                            <h2 class="detail-profile-name">FarmExpress Logistics</h2>
+                            <span class="detail-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                        </div>
+                        <p class="detail-profile-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                        <p class="detail-profile-location"><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria (Nationwide Coverage)</p>
+                        <div class="detail-profile-meta">
+                            <span class="detail-profile-experience"><i class="fas fa-clock"></i> 8 years experience</span>
+                            <span class="detail-profile-vehicles"><i class="fas fa-vehicle"></i> 50+ Vehicles</span>
+                            <span class="detail-profile-member"><i class="fas fa-calendar-alt"></i> Member Since: January 2024</span>
+                            <span class="detail-profile-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                5.0 (89 reviews)
+                            </span>
+                            <span class="detail-profile-availability detail-status-available">
+                                <i class="fas fa-circle"></i> Available
+                            </span>
+                        </div>
+                        <p class="detail-profile-bio">
+                            FarmExpress Logistics is a leading agricultural logistics provider specializing in 
+                            farm produce transportation across Nigeria. With a fleet of 50+ temperature-controlled 
+                            and bulk cargo vehicles, we ensure your produce reaches its destination fresh and on time. 
+                            Our commitment to reliability and safety has made us the trusted partner for farmers and 
+                            agribusinesses nationwide.
+                        </p>
+                        <div class="detail-profile-actions">
+                            <a href="#" class="detail-btn detail-btn-primary detail-btn-lg detail-btn-whatsapp" id="chatBtn">
+                                <i class="fab fa-whatsapp"></i> Chat with Provider
+                            </a>
+                            <a href="#" class="detail-btn detail-btn-outline detail-btn-lg detail-btn-call" id="callBtn">
+                                <i class="fas fa-phone"></i> Call Provider
+                            </a>
+                            <button class="detail-btn detail-btn-report" id="reportBtn">
+                                <i class="fas fa-flag"></i> Report Provider
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== VEHICLE TYPES SECTION (white background) ====== -->
+    <section class="detail-vehicles-section" aria-label="Vehicle types">
+        <div class="container">
+            <h2 class="detail-section-title">Available Transport Types</h2>
+            <div class="row g-4 detail-vehicles-grid">
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-vehicle-card">
+                        <div class="detail-vehicle-icon"><i class="fas fa-truck"></i></div>
+                        <h3>Bulk Cargo Trucks</h3>
+                        <p>Heavy-duty trucks for large volume farm produce transportation.</p>
+                        <span class="detail-vehicle-status">Available</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-vehicle-card">
+                        <div class="detail-vehicle-icon"><i class="fas fa-snowflake"></i></div>
+                        <h3>Refrigerated Trucks</h3>
+                        <p>Temperature-controlled vehicles for perishable produce.</p>
+                        <span class="detail-vehicle-status">Available</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-vehicle-card">
+                        <div class="detail-vehicle-icon"><i class="fas fa-box"></i></div>
+                        <h3>Light Delivery Vans</h3>
+                        <p>Fast and efficient last-mile delivery for smaller orders.</p>
+                        <span class="detail-vehicle-status">Limited</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-vehicle-card">
+                        <div class="detail-vehicle-icon"><i class="fas fa-route"></i></div>
+                        <h3>Long-Distance Haulage</h3>
+                        <p>Cross-country transport for bulk farm produce shipments.</p>
+                        <span class="detail-vehicle-status">Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== SERVICE COVERAGE & HIGHLIGHTS (white background) ====== -->
+    <section class="detail-coverage-section" aria-label="Service coverage">
+        <div class="container">
+            <h2 class="detail-section-title">Service Coverage & Highlights</h2>
+            
+            <div class="detail-coverage-grid">
+                <!-- Coverage Areas -->
+                <div class="detail-coverage-card">
+                    <div class="detail-coverage-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Coverage Areas</h3>
+                    <ul class="detail-coverage-list">
+                        <li><i class="fas fa-check-circle"></i> Lagos</li>
+                        <li><i class="fas fa-check-circle"></i> Ibadan</li>
+                        <li><i class="fas fa-check-circle"></i> Abuja</li>
+                        <li><i class="fas fa-check-circle"></i> Kano</li>
+                        <li><i class="fas fa-check-circle"></i> Port Harcourt</li>
+                        <li><i class="fas fa-check-circle"></i> Enugu</li>
+                        <li><i class="fas fa-check-circle"></i> Nationwide Coverage</li>
+                    </ul>
+                </div>
+
+                <!-- Service Highlights -->
+                <div class="detail-coverage-card">
+                    <div class="detail-coverage-icon"><i class="fas fa-star"></i></div>
+                    <h3>Service Highlights</h3>
+                    <ul class="detail-coverage-list">
+                        <li><i class="fas fa-check-circle"></i> 50+ Fleet Vehicles</li>
+                        <li><i class="fas fa-check-circle"></i> Temperature-Controlled Transport</li>
+                        <li><i class="fas fa-check-circle"></i> Real-Time Communication</li>
+                        <li><i class="fas fa-check-circle"></i> Professional Drivers</li>
+                        <li><i class="fas fa-check-circle"></i> Insurance Coverage</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Customer Support</li>
+                        <li><i class="fas fa-check-circle"></i> Competitive Rates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== REVIEWS SECTION (white background) ====== -->
+    <section class="detail-reviews-section" aria-label="Logistics reviews">
+        <div class="container">
+            <div class="detail-reviews-header">
+                <h2 class="detail-section-title">Customer Reviews</h2>
+                <button class="detail-btn detail-btn-primary detail-btn-sm" id="addReviewBtn">Add Review</button>
+            </div>
+            <div class="detail-reviews-list">
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Chioma Okafor</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Excellent service! My produce arrived fresh and on time. Great communication throughout."</p>
+                        <span class="detail-review-date">March 15, 2026</span>
+                    </div>
+                </div>
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Emeka Nwachukwu</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Very reliable logistics provider. The tracking system is fantastic and accurate."</p>
+                        <span class="detail-review-date">February 28, 2026</span>
+                    </div>
+                </div>
+                <div class="detail-review-item">
+                    <div class="detail-review-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop');"></div>
+                    <div class="detail-review-content">
+                        <div class="detail-review-header">
+                            <h4 class="detail-review-name">Aisha Mohammed</h4>
+                            <div class="detail-review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="detail-review-text">"Professional and efficient. My cold chain delivery was perfectly handled."</p>
+                        <span class="detail-review-date">February 10, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="detail-cta-section" aria-label="Explore logistics providers">
+        <div class="container">
+            <div class="detail-cta-wrapper">
+                <h2 class="detail-cta-title">Need Reliable Produce Transportation?</h2>
+                <p class="detail-cta-subtitle">Connect with verified logistics providers across Nigeria.</p>
+                <a href="logistics.html" class="detail-btn detail-btn-primary detail-btn-lg detail-btn-cta">
+                    <i class="fas fa-store"></i> Browse Logistics Providers
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== CONTACT MODAL (Login Required) ====== -->
+<div class="detail-contact-modal-overlay" id="contactModal">
+    <div class="detail-contact-modal">
+        <button class="detail-contact-modal-close" id="contactModalClose">&times;</button>
+        <div class="detail-contact-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p>You need to login or register to perform this action.</p>
+        <div class="detail-contact-modal-buttons">
+            <a href="login.html" class="detail-btn detail-btn-primary">Login</a>
+            <a href="register.html" class="detail-btn detail-btn-outline">Register</a>
+        </div>
+        <p class="detail-contact-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== REPORT MODAL ====== -->
+<div class="detail-modal-overlay" id="reportModal">
+    <div class="detail-modal">
+        <div class="detail-modal-header">
+            <h3><i class="fas fa-flag"></i> Report Logistics Provider</h3>
+            <button class="detail-modal-close" id="closeModalBtn">&times;</button>
+        </div>
+        <form id="reportForm">
+            <div class="detail-modal-body">
+                <div class="detail-form-group">
+                    <label>Company Name</label>
+                    <input type="text" id="reportCompanyName" value="FarmExpress Logistics" readonly class="detail-form-input detail-form-input-readonly">
+                </div>
+                <div class="detail-form-group">
+                    <label>Your Complaint</label>
+                    <textarea id="reportComplaint" rows="5" placeholder="Please describe your issue (delay, damage, etc.)..." class="detail-form-textarea" required></textarea>
+                </div>
+            </div>
+            <div class="detail-modal-footer">
+                <button type="button" class="detail-btn detail-btn-outline" id="cancelModalBtn">Cancel</button>
+                <button type="submit" class="detail-btn detail-btn-primary" id="submitReportBtn">Submit Report</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ====== REVIEW MODAL ====== -->
+<div class="detail-review-modal-overlay" id="reviewModal">
+    <div class="detail-review-modal">
+        <div class="detail-review-modal-header">
+            <h3><i class="fas fa-star" style="color:#F59E0B;"></i> Write a Review</h3>
+            <button class="detail-review-modal-close" id="reviewModalClose">&times;</button>
+        </div>
+        <form id="reviewForm">
+            <div class="detail-review-modal-body">
+                <div class="detail-form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="reviewerName" class="detail-form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="detail-form-group">
+                    <label>Rating</label>
+                    <div class="detail-star-rating" id="starRating">
+                        <i class="far fa-star" data-value="1"></i>
+                        <i class="far fa-star" data-value="2"></i>
+                        <i class="far fa-star" data-value="3"></i>
+                        <i class="far fa-star" data-value="4"></i>
+                        <i class="far fa-star" data-value="5"></i>
+                    </div>
+                    <span class="detail-rating-text" id="ratingText">Select a rating</span>
+                    <input type="hidden" id="reviewRating" value="0">
+                </div>
+                <div class="detail-form-group">
+                    <label>Your Review</label>
+                    <textarea id="reviewText" rows="4" class="detail-form-textarea" placeholder="Write your review..." required></textarea>
+                </div>
+                <div class="detail-form-group">
+                    <label>Review Date</label>
+                    <input type="text" id="reviewDate" class="detail-form-input" readonly>
+                </div>
+            </div>
+            <div class="detail-review-modal-footer">
+                <button type="button" class="detail-btn detail-btn-outline" id="reviewCancelBtn">Cancel</button>
+                <button type="submit" class="detail-btn detail-btn-primary" id="submitReviewBtn">Submit Review</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/logistics-detail.js" defer></script>
+</body>
+</html>

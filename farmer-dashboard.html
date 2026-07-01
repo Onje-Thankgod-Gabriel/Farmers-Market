@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Farmer Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/farmer-dashboard.css">
+</head>
+<body class="farmer-light-mode">
+
+<!-- ====== SIDEBAR ====== -->
+<aside class="farmer-sidebar" id="farmerSidebar">
+    <div class="farmer-sidebar-header">
+        <a href="#" class="farmer-sidebar-logo">
+            <i class="fas fa-leaf farmer-sidebar-logo-icon"></i>
+            <span class="farmer-sidebar-brand">FarmConnect</span>
+        </a>
+        <button class="farmer-sidebar-collapse" id="sidebarCollapse">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+    </div>
+    <nav class="farmer-sidebar-nav">
+        <a href="#" class="farmer-sidebar-link active" data-section="overview"><i class="fas fa-th-large"></i><span>Overview</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="profile"><i class="fas fa-user"></i><span>My Profile</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="products"><i class="fas fa-box"></i><span>My Products</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="add-product"><i class="fas fa-plus-circle"></i><span>Add Product</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="enquiries"><i class="fas fa-envelope"></i><span>Enquiries</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="reviews"><i class="fas fa-star"></i><span>Reviews</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="notifications"><i class="fas fa-bell"></i><span>Notifications</span></a>
+        <a href="#" class="farmer-sidebar-link" data-section="settings"><i class="fas fa-cog"></i><span>Settings</span></a>
+        <a href="#" class="farmer-sidebar-link farmer-sidebar-logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </nav>
+</aside>
+
+<!-- ====== MAIN CONTENT ====== -->
+<div class="farmer-main" id="farmerMain">
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="farmer-navbar">
+        <div class="farmer-navbar-left">
+            <button class="farmer-navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="farmer-navbar-title" id="pageTitle">Overview</h1>
+        </div>
+        <div class="farmer-navbar-right">
+            <div class="farmer-search-wrapper">
+                <i class="fas fa-search farmer-search-icon"></i>
+                <input type="text" class="farmer-search-input" id="globalSearch" placeholder="Search...">
+            </div>
+            <button class="farmer-navbar-btn" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="farmer-navbar-btn" id="notificationIcon">
+                <i class="fas fa-bell"></i>
+                <span class="farmer-notification-dot" id="notificationDot"></span>
+            </button>
+            <div class="farmer-profile-dropdown" id="farmerProfileDropdown">
+                <div class="farmer-profile-trigger">
+                    <div class="farmer-profile-avatar" id="farmerAvatar">
+                        <span id="avatarInitials">JD</span>
+                    </div>
+                    <div class="farmer-profile-info">
+                        <span class="farmer-profile-name" id="farmerName">John Doe</span>
+                        <span class="farmer-profile-role">Farmer</span>
+                    </div>
+                    <i class="fas fa-chevron-down farmer-profile-arrow"></i>
+                </div>
+                <div class="farmer-profile-menu" id="farmerProfileMenu">
+                    <a href="#" class="farmer-profile-menu-item" data-action="profile"><i class="fas fa-user-circle"></i> My Profile</a>
+                    <a href="#" class="farmer-profile-menu-item" data-action="settings"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" class="farmer-profile-menu-item" data-action="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== CONTENT ====== -->
+    <div class="farmer-content">
+
+        <!-- ====== OVERVIEW SECTION ====== -->
+        <section class="farmer-section active" id="section-overview">
+            <div class="farmer-welcome">
+                <h2>Welcome back, <span id="welcomeName">John</span>! 👋</h2>
+                <p>Here's what's happening with your farm today.</p>
+            </div>
+            <div class="farmer-profile-completion">
+                <div class="farmer-completion-bar">
+                    <span>Profile Completion</span>
+                    <span id="completionPercent">75%</span>
+                </div>
+                <div class="farmer-progress-track">
+                    <div class="farmer-progress-fill" id="completionFill" style="width:75%"></div>
+                </div>
+            </div>
+            <div class="farmer-stats-grid">
+                <div class="farmer-stat-card"><div class="farmer-stat-icon"><i class="fas fa-box"></i></div><div><span class="farmer-stat-number" id="totalProducts">12</span><span class="farmer-stat-label">Total Products</span></div></div>
+                <div class="farmer-stat-card"><div class="farmer-stat-icon"><i class="fas fa-envelope"></i></div><div><span class="farmer-stat-number" id="totalEnquiries">8</span><span class="farmer-stat-label">Total Enquiries</span></div></div>
+                <div class="farmer-stat-card"><div class="farmer-stat-icon"><i class="fas fa-star"></i></div><div><span class="farmer-stat-number" id="avgRating">4.8</span><span class="farmer-stat-label">Average Rating</span></div></div>
+                <div class="farmer-stat-card"><div class="farmer-stat-icon"><i class="fas fa-comment"></i></div><div><span class="farmer-stat-number" id="totalReviews">24</span><span class="farmer-stat-label">Total Reviews</span></div></div>
+            </div>
+            <div class="farmer-recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="farmer-activity-list" id="activityList">
+                    <div class="farmer-activity-item"><i class="fas fa-box" style="color:#2D7D3A;"></i><span>Product added: 50kg Bag of Rice</span><span class="farmer-activity-time">2 hours ago</span></div>
+                    <div class="farmer-activity-item"><i class="fas fa-star" style="color:#F59E0B;"></i><span>New review from Chioma Okafor</span><span class="farmer-activity-time">5 hours ago</span></div>
+                    <div class="farmer-activity-item"><i class="fas fa-envelope" style="color:#3B82F6;"></i><span>New enquiry from Emeka Nwachukwu</span><span class="farmer-activity-time">1 day ago</span></div>
+                </div>
+            </div>
+            <div class="farmer-quick-actions">
+                <button class="farmer-btn farmer-btn-primary" data-action="add-product"><i class="fas fa-plus"></i> Add Product</button>
+                <button class="farmer-btn farmer-btn-outline" data-action="view-products"><i class="fas fa-box"></i> View Products</button>
+                <button class="farmer-btn farmer-btn-outline" data-action="complete-profile"><i class="fas fa-user-edit"></i> Complete Profile</button>
+            </div>
+        </section>
+
+        <!-- ====== PROFILE SECTION ====== -->
+        <section class="farmer-section" id="section-profile">
+            <h2>My Profile</h2>
+            <div class="farmer-profile-container">
+                <div class="farmer-profile-form-wrapper">
+                    <form id="profileForm">
+                        <div class="farmer-form-group">
+                            <label>Profile Image</label>
+                            <div class="farmer-image-upload" id="profileImageUpload">
+                                <div class="farmer-image-preview" id="profileImagePreview">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Click to upload image</span>
+                                </div>
+                                <input type="file" id="profileImageInput" accept="image/*" style="display:none">
+                            </div>
+                        </div>
+                        <div class="farmer-form-group">
+                            <label>Farm Name</label>
+                            <input type="text" id="farmName" class="farmer-form-input" placeholder="Enter farm name" value="Green Valley Farm">
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>Specialization</label>
+                                <input type="text" id="specialization" class="farmer-form-input" placeholder="e.g. Crop Farmer" value="Crop Farmer">
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Location</label>
+                                <input type="text" id="location" class="farmer-form-input" placeholder="e.g. Ibadan, Oyo" value="Ibadan, Oyo">
+                            </div>
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>Years of Experience</label>
+                                <input type="number" id="experience" class="farmer-form-input" placeholder="Years" value="12">
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Member Since</label>
+                                <input type="text" id="memberSince" class="farmer-form-input" value="January 2023" readonly>
+                            </div>
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>WhatsApp Number</label>
+                                <input type="tel" id="whatsapp" class="farmer-form-input" placeholder="080-123-4567" value="080-123-4567">
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" class="farmer-form-input" placeholder="080-123-4567" value="080-123-4567">
+                            </div>
+                        </div>
+                        <div class="farmer-form-group">
+                            <label>About Farm / Bio</label>
+                            <textarea id="bio" class="farmer-form-textarea" rows="4">We are a family-owned farm specializing in high-quality rice and maize production.</textarea>
+                        </div>
+                        <div class="farmer-form-divider"></div>
+                        <div class="farmer-form-group">
+                            <label>Email <span class="farmer-form-private">(Private - Only visible to you and admin)</span></label>
+                            <input type="email" id="email" class="farmer-form-input" value="john@greenvalley.ng" readonly>
+                        </div>
+                        <div class="farmer-form-actions">
+                            <button type="submit" class="farmer-btn farmer-btn-primary" id="saveProfileBtn">Update Profile</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="farmer-profile-preview-wrapper">
+                    <h3>Live Preview</h3>
+                    <div class="farmer-preview-card" id="profilePreview">
+                        <div class="farmer-preview-header">
+                            <div class="farmer-preview-avatar" id="previewAvatar">
+                                <span id="previewAvatarText">GV</span>
+                            </div>
+                            <div class="farmer-preview-info">
+                                <h4 id="previewName">Green Valley Farm</h4>
+                                <span class="farmer-preview-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                                <p id="previewSpecialization"><i class="fas fa-tractor"></i> Crop Farmer</p>
+                                <p id="previewLocation"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo</p>
+                                <p id="previewExperience"><i class="fas fa-clock"></i> 12 years experience</p>
+                                <p id="previewMemberSince"><i class="fas fa-calendar-alt"></i> Member Since: January 2023</p>
+                                <div class="farmer-preview-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    <span>4.8 (24 reviews)</span>
+                                </div>
+                                <p id="previewBio" class="farmer-preview-bio">We are a family-owned farm specializing in high-quality rice and maize production.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PRODUCTS SECTION ====== -->
+        <section class="farmer-section" id="section-products">
+            <div class="farmer-table-header">
+                <h2>My Products</h2>
+                <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                    <input type="text" class="farmer-table-search" id="productSearch" placeholder="Search products...">
+                    <select class="farmer-filter-select" id="productCategoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="Grains">Grains</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Livestock">Livestock</option>
+                        <option value="Crops">Crops</option>
+                    </select>
+                    <button class="farmer-btn farmer-btn-primary" id="addProductFromProducts"><i class="fas fa-plus"></i> Add Product</button>
+                </div>
+            </div>
+            <div class="farmer-products-grid" id="productsGrid">
+                <!-- Product cards will be rendered by JavaScript -->
+            </div>
+        </section>
+
+        <!-- ====== ADD PRODUCT SECTION ====== -->
+        <section class="farmer-section" id="section-add-product">
+            <h2>Add New Product</h2>
+            <div class="farmer-add-product-container">
+                <div class="farmer-add-product-form">
+                    <form id="addProductForm">
+                        <div class="farmer-form-group">
+                            <label>Product Image</label>
+                            <div class="farmer-image-upload" id="productImageUpload">
+                                <div class="farmer-image-preview" id="productImagePreview">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Click to upload image</span>
+                                </div>
+                                <input type="file" id="productImageInput" accept="image/*" style="display:none">
+                            </div>
+                        </div>
+                        <div class="farmer-form-group">
+                            <label>Product Name</label>
+                            <input type="text" id="productName" class="farmer-form-input" placeholder="Enter product name">
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>Category</label>
+                                <select id="productCategory" class="farmer-form-input">
+                                    <option value="">Select category</option>
+                                    <option value="Grains">Grains</option>
+                                    <option value="Vegetables">Vegetables</option>
+                                    <option value="Fruits">Fruits</option>
+                                    <option value="Livestock">Livestock</option>
+                                    <option value="Crops">Crops</option>
+                                </select>
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Product Type</label>
+                                <input type="text" id="productType" class="farmer-form-input" placeholder="e.g. Rice">
+                            </div>
+                        </div>
+                        <div class="farmer-form-group">
+                            <label>Description</label>
+                            <textarea id="productDescription" class="farmer-form-textarea" rows="3" placeholder="Describe your product..."></textarea>
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>Price (₦)</label>
+                                <input type="number" id="productPrice" class="farmer-form-input" placeholder="0">
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Quantity Available</label>
+                                <input type="number" id="productQuantity" class="farmer-form-input" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="farmer-form-row">
+                            <div class="farmer-form-group">
+                                <label>Packaging</label>
+                                <input type="text" id="productPackaging" class="farmer-form-input" placeholder="e.g. 50kg Bag">
+                            </div>
+                            <div class="farmer-form-group">
+                                <label>Minimum Order</label>
+                                <input type="text" id="productMinOrder" class="farmer-form-input" placeholder="e.g. 1 Bag">
+                            </div>
+                        </div>
+                        <div class="farmer-form-group">
+                            <label>Availability Status</label>
+                            <select id="productStatus" class="farmer-form-input">
+                                <option value="In Stock">In Stock</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        <div class="farmer-form-actions">
+                            <button type="submit" class="farmer-btn farmer-btn-primary" id="saveProductBtn">Save Product</button>
+                            <button type="button" class="farmer-btn farmer-btn-outline" id="cancelProductBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="farmer-product-preview-wrapper">
+                    <h3>Live Product Preview</h3>
+                    <div class="farmer-preview-product" id="productPreview">
+                        <div class="farmer-preview-product-image" id="previewProductImage" style="background-image: url('');">
+                            <div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>
+                        </div>
+                        <div class="farmer-preview-product-body">
+                            <h4 id="previewProductName">Product Name</h4>
+                            <p class="farmer-preview-product-seller"><i class="fas fa-user-check" style="color:#2D7D3A;"></i> Green Valley Farm</p>
+                            <p class="farmer-preview-product-location"><i class="fas fa-map-marker-alt"></i> Ibadan, Oyo</p>
+                            <div class="farmer-preview-product-footer">
+                                <span class="farmer-preview-product-price" id="previewProductPrice">₦0</span>
+                                <span class="farmer-preview-product-status" id="previewProductStatus">In Stock</span>
+                            </div>
+                            <div class="farmer-preview-product-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <span class="farmer-preview-product-category" id="previewProductCategory"><i class="fas fa-tag"></i> Grains</span>
+                            <p class="farmer-preview-product-desc" id="previewProductDesc">Description goes here...</p>
+                            <div class="farmer-preview-product-specs">
+                                <div class="farmer-preview-spec"><span>Product Type</span><span id="previewProductType">-</span></div>
+                                <div class="farmer-preview-spec"><span>Quantity</span><span id="previewProductQty">-</span></div>
+                                <div class="farmer-preview-spec"><span>Packaging</span><span id="previewProductPackaging">-</span></div>
+                                <div class="farmer-preview-spec"><span>Min Order</span><span id="previewProductMinOrder">-</span></div>
+                            </div>
+                            <span class="farmer-preview-product-verified"><i class="fas fa-check-circle"></i> Verified Farmer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ENQUIRIES SECTION ====== -->
+        <section class="farmer-section" id="section-enquiries">
+            <h2>Enquiries</h2>
+            <div class="farmer-table-header">
+                <input type="text" class="farmer-table-search" id="enquirySearch" placeholder="Search enquiries...">
+                <select class="farmer-filter-select" id="enquiryStatusFilter">
+                    <option value="">All Status</option>
+                    <option value="New">New</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Closed">Closed</option>
+                </select>
+            </div>
+            <div class="farmer-enquiries-list" id="enquiriesList">
+                <!-- Enquiries rendered by JavaScript -->
+            </div>
+        </section>
+
+        <!-- ====== REVIEWS SECTION ====== -->
+        <section class="farmer-section" id="section-reviews">
+            <h2>Reviews</h2>
+            <div class="farmer-reviews-summary">
+                <div class="farmer-review-stat"><span class="farmer-review-stat-number" id="reviewAvg">4.8</span><span>Average Rating</span></div>
+                <div class="farmer-review-stat"><span class="farmer-review-stat-number" id="reviewCount">24</span><span>Total Reviews</span></div>
+            </div>
+            <div class="farmer-reviews-list" id="reviewsList">
+                <!-- Reviews rendered by JavaScript -->
+            </div>
+        </section>
+
+        <!-- ====== NOTIFICATIONS SECTION ====== -->
+        <section class="farmer-section" id="section-notifications">
+            <h2>Notifications</h2>
+            <div class="farmer-notifications-header">
+                <button class="farmer-btn farmer-btn-sm farmer-btn-outline" id="markAllReadBtn"><i class="fas fa-check-double"></i> Mark All Read</button>
+            </div>
+            <div class="farmer-notifications-list" id="notificationsList">
+                <!-- Notifications rendered by JavaScript -->
+            </div>
+        </section>
+
+        <!-- ====== SETTINGS SECTION ====== -->
+        <section class="farmer-section" id="section-settings">
+            <h2>Settings</h2>
+            <div class="farmer-settings-container">
+                <div class="farmer-settings-card">
+                    <h3>Account Settings</h3>
+                    <div class="farmer-form-group">
+                        <label>Email</label>
+                        <input type="email" id="settingsEmail" class="farmer-form-input" value="john@greenvalley.ng" readonly>
+                    </div>
+                    <div class="farmer-form-group">
+                        <label>Change Password</label>
+                        <div class="farmer-password-row">
+                            <input type="password" id="settingsNewPassword" class="farmer-form-input" placeholder="New password">
+                            <input type="password" id="settingsConfirmPassword" class="farmer-form-input" placeholder="Confirm password">
+                        </div>
+                        <button class="farmer-btn farmer-btn-primary farmer-btn-sm" id="changePasswordBtn">Update Password</button>
+                    </div>
+                </div>
+                <div class="farmer-settings-card">
+                    <h3>Preferences</h3>
+                    <div class="farmer-settings-toggle">
+                        <span>Dark Mode</span>
+                        <label class="farmer-toggle">
+                            <input type="checkbox" id="settingsDarkMode">
+                            <span class="farmer-toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="farmer-settings-toggle">
+                        <span>Email Notifications</span>
+                        <label class="farmer-toggle">
+                            <input type="checkbox" id="settingsEmailNotif" checked>
+                            <span class="farmer-toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- ====== UNIVERSAL MODAL ====== -->
+<div class="farmer-modal-overlay" id="farmerModal">
+    <div class="farmer-modal">
+        <div class="farmer-modal-header">
+            <h3 id="modalTitle">Modal</h3>
+            <button class="farmer-modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="farmer-modal-body" id="modalBody">
+            <p id="modalMessage">Loading...</p>
+            <div id="modalFields"></div>
+        </div>
+        <div class="farmer-modal-footer" id="modalFooter">
+            <button class="farmer-btn farmer-btn-outline" id="modalCancel">Cancel</button>
+            <button class="farmer-btn farmer-btn-primary" id="modalConfirm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== TOAST ====== -->
+<div class="farmer-toast-container" id="toastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/farmer-dashboard.js" defer></script>
+</body>
+</html>

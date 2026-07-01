@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Contact Us</title>
+    <!-- Inter Google Font & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Contact CSS -->
+    <link rel="stylesheet" href="../assets/css/contact.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR (auth nav - removed per instruction) ====== -->
+ <!-- ====== NAVBAR (sticky, mobile-first) ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== PAGE HEADER (dark green) ====== -->
+    <section class="contact-page-header">
+        <div class="contact-page-header-content">
+            <h1 class="contact-page-title">Contact Us</h1>
+            <p class="contact-page-subtitle">Have Questions, Feedback, or Partnership Requests? We'd Love to Hear From You.</p>
+        </div>
+    </section>
+
+
+    <!-- ====== CONTACT INFORMATION SECTION (white) ====== -->
+    <section class="contact-section contact-section-white" aria-label="Contact information">
+        <div class="container">
+            <h2 class="contact-section-title">Get in Touch</h2>
+            <div class="row g-4 contact-info-grid">
+                <div class="col-md-3">
+                    <div class="contact-info-card">
+                        <i class="fas fa-envelope contact-info-icon"></i>
+                        <h3>Email</h3>
+                        <p>hello@farmconnect.ng</p>
+                        <p class="contact-info-detail">support@farmconnect.ng</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-info-card">
+                        <i class="fas fa-phone contact-info-icon"></i>
+                        <h3>Phone</h3>
+                        <p>+234 800 123 4567</p>
+                        <p class="contact-info-detail">+234 800 765 4321</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-info-card">
+                        <i class="fas fa-map-marker-alt contact-info-icon"></i>
+                        <h3>Office</h3>
+                        <p>Lagos, Nigeria</p>
+                        <p class="contact-info-detail">3rd Floor, Agribusiness Hub</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="contact-info-card">
+                        <i class="fas fa-clock contact-info-icon"></i>
+                        <h3>Business Hours</h3>
+                        <p>Mon-Fri: 9:00 AM - 6:00 PM</p>
+                        <p class="contact-info-detail">Sat-Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT FORM SECTION (white) ====== -->
+    <section class="contact-section contact-section-white" aria-label="Contact form">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="contact-form-wrapper">
+                        <h2 class="contact-form-title">Send Us a Message</h2>
+                        <p class="contact-form-subtitle">We'll respond within 24 hours.</p>
+                        <form id="contactForm">
+                            <div class="contact-form-group">
+                                <label for="contactName">Full Name</label>
+                                <input type="text" id="contactName" placeholder="John Doe" class="contact-form-input" required>
+                            </div>
+                            <div class="contact-form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" placeholder="john@example.com" class="contact-form-input" required>
+                            </div>
+                            <div class="contact-form-group">
+                                <label for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" placeholder="I'm interested in..." class="contact-form-input" required>
+                            </div>
+                            <div class="contact-form-group">
+                                <label for="contactMessage">Message</label>
+                                <textarea id="contactMessage" rows="5" placeholder="Tell us how we can help..." class="contact-form-textarea" required></textarea>
+                            </div>
+                            <button type="submit" class="contact-btn contact-btn-primary contact-btn-submit">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-map-wrapper">
+                        <h2 class="contact-form-title">Find Us</h2>
+                        <div class="contact-map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.97168593772!2d3.2534299481286024!3d6.551938012642694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d0a5b6a5193%3A0xe454f989528349cf!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2s!4v1700000000000" 
+                                width="100%" 
+                                height="450" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="FarmConnect Location">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FAQ SECTION (white) ====== -->
+    <section class="contact-section contact-section-white" aria-label="Frequently asked questions">
+        <div class="container">
+            <h2 class="contact-section-title">Frequently Asked Questions</h2>
+            <div class="contact-faq-wrapper">
+                <!-- FAQ 1 -->
+                <div class="contact-faq-item">
+                    <div class="contact-faq-question" data-faq="1">
+                        <h3>How do I register as a farmer?</h3>
+                        <i class="fas fa-chevron-down contact-faq-icon"></i>
+                    </div>
+                    <div class="contact-faq-answer">
+                        <p>To register as a farmer, simply click the "Register" button in the top right corner. Select "Farmer" as your role, fill in your details, and submit. Once verified, you can start listing your produce immediately.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="contact-faq-item">
+                    <div class="contact-faq-question" data-faq="2">
+                        <h3>How can I buy products on FarmConnect?</h3>
+                        <i class="fas fa-chevron-down contact-faq-icon"></i>
+                    </div>
+                    <div class="contact-faq-answer">
+                        <p>Browse the Marketplace section, search for the produce you need, and contact the farmer directly. You can place orders and arrange delivery through our trusted logistics partners.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="contact-faq-item">
+                    <div class="contact-faq-question" data-faq="3">
+                        <h3>How do logistics providers join?</h3>
+                        <i class="fas fa-chevron-down contact-faq-icon"></i>
+                    </div>
+                    <div class="contact-faq-answer">
+                        <p>Logistics providers can register on the platform by selecting "Logistics" during sign-up. Complete your company profile, and our team will verify your credentials before listing your services.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="contact-faq-item">
+                    <div class="contact-faq-question" data-faq="4">
+                        <h3>How are farmers verified?</h3>
+                        <i class="fas fa-chevron-down contact-faq-icon"></i>
+                    </div>
+                    <div class="contact-faq-answer">
+                        <p>We verify farmers through a combination of documentation, farm visits, and community feedback. Our verification process ensures trust and authenticity across the platform.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="contact-faq-item">
+                    <div class="contact-faq-question" data-faq="5">
+                        <h3>How do I report an issue?</h3>
+                        <i class="fas fa-chevron-down contact-faq-icon"></i>
+                    </div>
+                    <div class="contact-faq-answer">
+                        <p>You can report any issue through the "Report" button on product or farmer profiles. Alternatively, use the contact form below, and our support team will respond within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/contact.js" defer></script>
+</body>
+</html>

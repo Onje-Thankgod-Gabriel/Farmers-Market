@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>FarmConnect · Agricultural Logistics Network</title>
+    <!-- Inter Google Font & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap 5.3 grid & utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Logistics CSS -->
+    <link rel="stylesheet" href="../assets/css/logistics.css">
+</head>
+<body>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="login-navbar">
+    <div class="login-nav-container">
+        <a href="index.html" class="login-logo">FarmConnect</a>
+        <button class="login-menu-toggle" id="loginMenuToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="login-nav-links" id="loginNavLinks">
+            <ul class="login-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="marketplace.html">Marketplace</a></li>
+                <li><a href="farmers.html">Farmers</a></li>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="home-nav-cta-wrapper home-btn-login-register" >
+                    <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
+                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ====== PAGE HEADER (dark green) ====== -->
+    <section class="logistics-page-header">
+        <div class="logistics-page-header-content">
+            <h1 class="logistics-page-title">Reliable Agricultural Logistics Network</h1>
+            <p class="logistics-page-subtitle">Connect with trusted logistics providers for safe and fast delivery of farm produce across Nigeria.</p>
+        </div>
+    </section>
+
+        <!-- ====== SEARCH & FILTER SECTION (white background) ====== -->
+    <section class="logistics-search-section" aria-label="Search and filter logistics providers">
+        <div class="container">
+            <div class="logistics-search-wrapper">
+                <div class="logistics-search-box">
+                    <div class="logistics-search-field">
+                        <i class="fas fa-search logistics-search-icon"></i>
+                        <input type="text" id="searchLogistics" placeholder="Search logistics company..." class="logistics-search-input" aria-label="Search logistics providers">
+                    </div>
+                    <div class="logistics-search-field">
+                        <i class="fas fa-map-pin logistics-search-icon"></i>
+                        <select id="filterLocation" class="logistics-search-select" aria-label="Filter by location">
+                            <option value="">All Locations</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Ibadan">Ibadan</option>
+                            <option value="Abuja">Abuja</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Port Harcourt">Port Harcourt</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Benin">Benin</option>
+                        </select>
+                    </div>
+                    <div class="logistics-search-field">
+                        <i class="fas fa-truck logistics-search-icon"></i>
+                        <select id="filterService" class="logistics-search-select" aria-label="Filter by service type">
+                            <option value="">All Services</option>
+                            <option value="Farm Produce Transport">Farm Produce Transport</option>
+                            <option value="Cold Chain Delivery">Cold Chain Delivery</option>
+                            <option value="Bulk Cargo Transport">Bulk Cargo Transport</option>
+                            <option value="Last Mile Delivery">Last Mile Delivery</option>
+                        </select>
+                    </div>
+                    <div class="logistics-search-field">
+                        <i class="fas fa-circle logistics-search-icon"></i>
+                        <select id="filterAvailability" class="logistics-search-select" aria-label="Filter by availability">
+                            <option value="">All Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Busy">Busy</option>
+                            <option value="Offline">Offline</option>
+                        </select>
+                    </div>
+                    <button class="logistics-btn logistics-btn-primary logistics-btn-filter" id="filterBtn">
+                        <i class="fas fa-sliders-h"></i> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== LOGISTICS GRID (white background) ====== -->
+    <section class="logistics-grid-section" aria-label="Logistics providers">
+        <div class="container">
+            <div class="logistics-grid-header">
+                <h2 class="logistics-grid-title">Trusted Logistics Providers</h2>
+                <span class="logistics-grid-count" id="logisticsResultCount">15 providers</span>
+            </div>
+            <div class="row g-4 logistics-card-grid" id="logisticsGrid">
+                <!-- Card 1 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Lagos" data-service="Farm Produce Transport" data-availability="Available" data-page="1">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="1" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1577412647305-9918a0b5f0b8?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">FarmExpress Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                                <span class="logistics-reviews-count">(89 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Ibadan" data-service="Cold Chain Delivery" data-availability="Available" data-page="1">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="2" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">ColdChain Transport</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Cold Chain Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Ibadan</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                                <span class="logistics-reviews-count">(124 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Abuja" data-service="Bulk Cargo Transport" data-availability="Busy" data-page="1">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="3" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1597266497221-2f2e5d7af6a6?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">BulkCargo Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Bulk Cargo Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Abuja</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="logistics-reviews-count">(156 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-busy"><i class="fas fa-circle"></i> Busy</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Kano" data-service="Last Mile Delivery" data-availability="Available" data-page="1">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="4" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1566577134770-3c85bb4b9f8a?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">LastMile Connect</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Last Mile Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Kano</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.2</span>
+                                <span class="logistics-reviews-count">(67 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Port Harcourt" data-service="Farm Produce Transport" data-availability="Offline" data-page="1">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="5" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">FarmHaul Nigeria</h3>
+                                <span class="logistics-unverified-badge"><i class="fas fa-clock"></i> Pending</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Port Harcourt</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>4.0</span>
+                                <span class="logistics-reviews-count">(34 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-offline"><i class="fas fa-circle"></i> Offline</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Enugu" data-service="Cold Chain Delivery" data-availability="Busy" data-page="1">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="6" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">ColdStorage Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Cold Chain Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                                <span class="logistics-reviews-count">(98 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-busy"><i class="fas fa-circle"></i> Busy</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Lagos" data-service="Last Mile Delivery" data-availability="Available" data-page="2">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="7" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1566577134770-3c85bb4b9f8a?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">LastMile Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Last Mile Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="logistics-reviews-count">(112 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Kano" data-service="Farm Produce Transport" data-availability="Available" data-page="2">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="8" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Kano Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Kano</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                                <span class="logistics-reviews-count">(78 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Abuja" data-service="Cold Chain Delivery" data-availability="Busy" data-page="2">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="9" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Abuja Cold Chain</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Cold Chain Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Abuja</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="logistics-reviews-count">(145 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-busy"><i class="fas fa-circle"></i> Busy</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Ibadan" data-service="Bulk Cargo Transport" data-availability="Available" data-page="2">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="10" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1597266497221-2f2e5d7af6a6?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Ibadan Cargo</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Bulk Cargo Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Ibadan</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                                <span class="logistics-reviews-count">(56 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Lagos" data-service="Farm Produce Transport" data-availability="Offline" data-page="3">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="11" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1577412647305-9918a0b5f0b8?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Lagos Transport</h3>
+                                <span class="logistics-unverified-badge"><i class="fas fa-clock"></i> Pending</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                <span>3.9</span>
+                                <span class="logistics-reviews-count">(23 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-offline"><i class="fas fa-circle"></i> Offline</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Benin" data-service="Last Mile Delivery" data-availability="Available" data-page="3">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="12" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1566577134770-3c85bb4b9f8a?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Benin LastMile</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Last Mile Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Benin City</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.7</span>
+                                <span class="logistics-reviews-count">(67 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 13 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Enugu" data-service="Farm Produce Transport" data-availability="Busy" data-page="3">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="13" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Enugu Logistics</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Farm Produce Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Enugu</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                                <span class="logistics-reviews-count">(89 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-busy"><i class="fas fa-circle"></i> Busy</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 14 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Kaduna" data-service="Cold Chain Delivery" data-availability="Available" data-page="3">
+                    <div class="logistics-card">
+                        <button class="logistics-save-btn" data-logistics-id="14" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Kaduna Cold Chain</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Cold Chain Delivery</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Kaduna</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.8</span>
+                                <span class="logistics-reviews-count">(134 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-available"><i class="fas fa-circle"></i> Available</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 15 -->
+                <div class="col-6 col-lg-3 logistics-card-item" data-location="Port Harcourt" data-service="Bulk Cargo Transport" data-availability="Offline" data-page="3">
+                    <div class="logistics-card">
+                        <div class="logistics-featured-badge"><i class="fas fa-star"></i> Featured</div>
+                        <button class="logistics-save-btn" data-logistics-id="15" aria-label="Save logistics provider">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="logistics-card-image" style="background-image: url('https://images.unsplash.com/photo-1597266497221-2f2e5d7af6a6?w=400&h=250&fit=crop');"></div>
+                        <div class="logistics-card-body">
+                            <div class="logistics-card-header">
+                                <h3 class="logistics-card-name">Port Harcourt Cargo</h3>
+                                <span class="logistics-verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <p class="logistics-card-service"><i class="fas fa-truck"></i> Bulk Cargo Transport</p>
+                            <p class="logistics-card-location"><i class="fas fa-map-marker-alt"></i> Port Harcourt</p>
+                            <div class="logistics-card-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>4.9</span>
+                                <span class="logistics-reviews-count">(156 reviews)</span>
+                            </div>
+                            <div class="logistics-card-status">
+                                <span class="logistics-status-offline"><i class="fas fa-circle"></i> Offline</span>
+                            </div>
+                            <a href="logistics-detail.html" class="logistics-btn logistics-btn-outline logistics-btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty state (hidden by default) -->
+            <div class="logistics-empty-state" id="logisticsEmptyState" style="display: none;">
+                <i class="fas fa-search logistics-empty-icon"></i>
+                <h3>No logistics providers found for your search criteria.</h3>
+                <p>Try adjusting your filters or search terms.</p>
+            </div>
+
+            <!-- ====== PAGINATION ====== -->
+            <div class="logistics-pagination" id="logisticsPaginationContainer">
+                <button class="logistics-pagination-btn" id="logisticsPrevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i> <span>Previous</span>
+                </button>
+                <div class="logistics-pagination-numbers" id="logisticsPaginationNumbers">
+                    <button class="logistics-pagination-btn active" data-page="1">1</button>
+                    <button class="logistics-pagination-btn" data-page="2">2</button>
+                    <button class="logistics-pagination-btn" data-page="3">3</button>
+                </div>
+                <button class="logistics-pagination-btn" id="logisticsNextBtn">
+                    <span>Next</span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+        <!-- ====== CTA SECTION (dark green) ====== -->
+    <section class="logistics-cta-section" aria-label="Join FarmConnect">
+        <div class="container">
+            <div class="logistics-cta-wrapper">
+                <h2 class="logistics-cta-title">Join Nigeria's growing agricultural marketplace today.</h2>
+                <div class="logistics-cta-buttons">
+                    <a href="register.html?type=logistics" class="logistics-cta-btn logistics-cta-btn-primary">
+                        <i class="fas fa-truck"></i> Start Delivering
+                    </a>
+                    <a href="marketplace.html" class="logistics-cta-btn logistics-cta-btn-outline">
+                        <i class="fas fa-store"></i> Browse Marketplace
+                    </a>
+                    <a href="register.html?type=farmer" class="logistics-cta-btn logistics-cta-btn-outline">
+                        <i class="fas fa-seedling"></i> Start Selling
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ====== FOOTER (dark green) ====== -->
+<footer class="home-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="#" class="home-logo home-footer-logo"><i class="fas fa-leaf home-logo-icon"></i> FarmConnect</a>
+                <p class="home-footer-text">Connecting farmers, buyers, and logistics across Nigeria with trust and transparency.</p>
+                <div class="home-social-icons">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="home-footer-links">
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="farmers.html">Farmers</a></li>
+                    <li><a href="logistics.html">Logistics</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <address class="home-footer-text">
+                    <i class="fas fa-map-pin"></i> Lagos, Nigeria<br>
+                    <i class="fas fa-phone"></i> +234 800 123 4567<br>
+                    <i class="fas fa-envelope"></i> hello@farmconnect.ng
+                </address>
+            </div>
+            <div class="col-md-3">
+                <h5>Stay updated</h5>
+                <p class="home-footer-text">Subscribe for market insights.</p>
+                <div class="home-footer-subscribe">
+                    <input type="email" placeholder="Your email" class="home-footer-input">
+                    <button class="home-btn home-btn-primary home-btn-sm">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="home-footer-bottom">
+            <p>&copy; 2026 FarmConnect Marketplace. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- ====== SCRIPTS ====== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="../assets/js/logistics.js" defer></script>
+</body>
+</html>
