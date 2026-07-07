@@ -5786,82 +5786,7 @@ body:has(.detail-contact-modal-overlay.active) .detail-modal-overlay {
   line-height: 1.6;
 }
 
-/* ----- SEARCH & FILTER SECTION (white) ----- */
-.logistics-search-section {
-  background: black;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid #E5E7EB;
-}
 
-.logistics-search-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.logistics-search-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  background: #F0F5F0;
-  padding: 0.75rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-}
-
-.logistics-search-field {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1 1 160px;
-  background: #FFFFFF;
-  padding: 0.2rem 0.8rem;
-  border-radius: 12px;
-  border: 1px solid #E5E7EB;
-  transition: 0.3s ease;
-}
-
-.logistics-search-field:focus-within {
-  border-color: #2D7D3A;
-  box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.1);
-}
-
-.logistics-search-icon {
-  color: #6B7280;
-  font-size: 0.9rem;
-}
-
-.logistics-search-input {
-  border: none;
-  background: transparent;
-  font-size: 0.95rem;
-  padding: 0.6rem 0;
-  width: 100%;
-  font-weight: 400;
-  color: #111827;
-  outline: none;
-  font-family: 'Inter', sans-serif;
-}
-
-.logistics-search-input::placeholder {
-  color: #9CA3AF;
-}
-
-.logistics-search-select {
-  border: none;
-  background: transparent;
-  font-size: 0.95rem;
-  padding: 0.6rem 1.8rem 0.6rem 0.2rem;
-  font-weight: 400;
-  color: #111827;
-  appearance: none;
-  outline: none;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  width: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.2rem center;
-}
 
 /* ----- GRID SECTION ----- */
 .logistics-grid-section {
@@ -6181,17 +6106,7 @@ body:has(.detail-contact-modal-overlay.active) .detail-modal-overlay {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media screen and (max-width: 992px) {
-  .logistics-search-box {
-    flex-direction: column;
-  }
-  .logistics-search-field {
-    flex: 1 1 100%;
-  }
-  .logistics-btn-filter {
-    width: 100%;
-  }
-}
+
 
 @media screen and (max-width: 768px) {
   .logistics-nav-links {
@@ -6260,9 +6175,7 @@ body:has(.detail-contact-modal-overlay.active) .detail-modal-overlay {
   .logistics-page-title {
     font-size: 1.6rem;
   }
-  .logistics-search-box {
-    padding: 0.5rem;
-  }
+
 }
 /* Hide empty state by default */
 .logistics-empty-state {
@@ -10561,183 +10474,7 @@ body {
     }
 }
 
-/* ============================================================
-   SEARCH & FILTER SECTION - MATCHING FARMERS PAGE
-   ============================================================ */
-/* 
-.logistics-search-section {
-    background: #FFFFFF;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid #E5E7EB;
-}
 
-.logistics-search-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.logistics-search-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    background: #F0F5F0;
-    padding: 0.75rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-}
-
-.logistics-search-field {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1 1 160px;
-    background: #FFFFFF;
-    padding: 0.2rem 0.8rem;
-    border-radius: 12px;
-    border: 1px solid #E5E7EB;
-    transition: 0.3s ease;
-}
-
-.logistics-search-field:focus-within {
-    border-color: #2D7D3A;
-    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.1);
-}
-
-.logistics-search-icon {
-    color: #6B7280;
-    font-size: 0.9rem;
-}
-
-.logistics-search-input {
-    border: none;
-    background: transparent;
-    font-size: 0.95rem;
-    padding: 0.6rem 0;
-    width: 100%;
-    font-weight: 400;
-    color: #111827;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-}
-
-.logistics-search-input::placeholder {
-    color: #9CA3AF;
-}
-
-.logistics-search-select {
-    border: none;
-    background: transparent;
-    font-size: 0.95rem;
-    padding: 0.6rem 1.8rem 0.6rem 0.2rem;
-    font-weight: 400;
-    color: #111827;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.2rem center;
-}
-
-.logistics-btn-filter {
-    padding: 0.6rem 2rem;
-    font-size: 0.95rem;
-    flex-shrink: 0;
-} */
-
-/* ----- RESPONSIVE - MATCHING FARMERS PAGE ----- */
-/* @media screen and (max-width: 992px) {
-    .logistics-search-box {
-        flex-direction: column;
-    }
-    .logistics-search-field {
-        flex: 1 1 100%;
-    }
-    .logistics-btn-filter {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .logistics-search-section {
-        padding: 1.5rem 0;
-    }
-    .logistics-search-box {
-        padding: 0.5rem;
-        border-radius: 12px;
-        gap: 0.5rem;
-    }
-    .logistics-search-field {
-        padding: 0.15rem 0.6rem;
-        border-radius: 10px;
-        min-height: 36px;
-    }
-    .logistics-search-input {
-        font-size: 0.85rem;
-        padding: 0.4rem 0;
-        min-height: 28px;
-    }
-    .logistics-search-input::placeholder {
-        font-size: 0.8rem;
-    }
-    .logistics-search-select {
-        font-size: 0.85rem;
-        padding: 0.4rem 1.6rem 0.4rem 0.2rem;
-        min-height: 28px;
-    }
-    .logistics-btn-filter {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-        min-height: 38px;
-    }
-    .logistics-search-icon {
-        font-size: 0.8rem;
-    }
-    .login-container {
-      margin-top: -5rem;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .logistics-search-section {
-        padding: 1rem 0;
-    }
-    .logistics-search-box {
-        padding: 0.4rem;
-        border-radius: 10px;
-        gap: 0.4rem;
-    }
-    .logistics-search-field {
-        padding: 0.1rem 0.5rem;
-        border-radius: 8px;
-        min-height: 32px;
-    }
-    .logistics-search-input {
-        font-size: 0.78rem;
-        padding: 0.3rem 0;
-        min-height: 24px;
-    }
-    .logistics-search-input::placeholder {
-        font-size: 0.75rem;
-    }
-    .logistics-search-select {
-        font-size: 0.78rem;
-        padding: 0.3rem 1.4rem 0.3rem 0.2rem;
-        min-height: 24px;
-    }
-    .logistics-btn-filter {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.78rem;
-        min-height: 32px;
-        border-radius: 8px;
-    }
-    .logistics-search-icon {
-        font-size: 0.75rem;
-    }
-} */
 
 .marketplace-empty-state {
     display: none !important;
@@ -15776,42 +15513,6 @@ body {
     margin-left: auto;
 }
 
-.logistics-search-wrapper {
-    display: flex;
-    align-items: center;
-    background: rgba(255,255,255,0.05);
-    border-radius: 60px;
-    padding: 0.25rem 0.75rem;
-    border: 1px solid rgba(255,255,255,0.04);
-    transition: var(--logistics-transition);
-    min-width: 200px;
-    flex-shrink: 1;
-}
-
-.logistics-search-wrapper:focus-within {
-    border-color: rgba(45,125,58,0.5);
-    background: rgba(255,255,255,0.08);
-}
-
-.logistics-search-icon {
-    color: rgba(255,255,255,0.3);
-    font-size: 0.85rem;
-}
-
-.logistics-search-input {
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    padding: 0.4rem 0.5rem;
-    font-size: 0.85rem;
-    outline: none;
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-}
-
-.logistics-search-input::placeholder {
-    color: rgba(255,255,255,0.3);
-}
 
 .logistics-navbar-btn {
     background: rgba(255,255,255,0.05);
@@ -16971,16 +16672,6 @@ body {
         gap: 0.3rem;
     }
 
-    .logistics-search-wrapper {
-        min-width: 100px;
-        flex: 1;
-        max-width: 150px;
-    }
-
-    .logistics-search-input {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.3rem;
-    }
 
     .logistics-navbar-btn {
         width: 32px;
@@ -17139,11 +16830,6 @@ body {
 
     .logistics-navbar-toggle {
         font-size: 1.1rem;
-    }
-
-    .logistics-search-wrapper {
-        min-width: 70px;
-        max-width: 100px;
     }
 
     .logistics-navbar-btn {
@@ -19506,308 +19192,9 @@ body {
     background: #1A3A22;
 }
 
-/* ============================================================
-   SEARCH & FILTER SECTION - MATCHING FARMERS & MARKETPLACE
-   ============================================================ */
 
-.logistics-search-section {
-    background: #FFFFFF;
-    padding: 2.5rem 0;
-    border-bottom: 1px solid #E5E7EB;
-}
 
-.logistics-search-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
 
-.logistics-search-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    background: #F0F5F0;
-    padding: 0.75rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    width: 100%;
-}
-
-.logistics-search-field {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1 1 160px;
-    background: #FFFFFF;
-    padding: 0.2rem 0.8rem;
-    border-radius: 12px;
-    border: 1px solid #E5E7EB;
-    transition: 0.3s ease;
-    min-height: 44px;
-}
-
-.logistics-search-field:focus-within {
-    border-color: #2D7D3A;
-    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.1);
-}
-
-.logistics-search-icon {
-    color: #6B7280;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-}
-
-.logistics-search-input {
-    border: none;
-    background: transparent;
-    font-size: 0.95rem;
-    padding: 0.6rem 0;
-    width: 100%;
-    font-weight: 400;
-    color: #111827;
-    outline: none;
-    font-family: 'Inter', sans-serif;
-}
-
-.logistics-search-input::placeholder {
-    color: #9CA3AF;
-}
-
-.logistics-search-select {
-    border: none;
-    background: transparent;
-    font-size: 0.95rem;
-    padding: 0.6rem 1.8rem 0.6rem 0.2rem;
-    font-weight: 400;
-    color: #111827;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    width: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.2rem center;
-}
-
-.logistics-btn-filter {
-    padding: 0.6rem 2rem;
-    font-size: 0.95rem;
-    flex-shrink: 0;
-    min-height: 44px;
-    background: #2D7D3A;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 60px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s ease;
-    font-family: 'Inter', sans-serif;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-}
-
-.logistics-btn-filter:hover {
-    background: #236B2E;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
-    color: #FFFFFF;
-}
-
-/* ============================================================
-   RESPONSIVE - MATCHING FARMERS & MARKETPLACE
-   ============================================================ */
-
-@media screen and (max-width: 992px) {
-    .logistics-search-box {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    .logistics-search-field {
-        flex: 1 1 100%;
-        width: 100%;
-        min-height: 48px;
-        padding: 0.3rem 0.8rem;
-    }
-    .logistics-btn-filter {
-        width: 100%;
-        justify-content: center;
-        padding: 0.7rem 1.5rem;
-        font-size: 1rem;
-        min-height: 48px;
-    }
-    .logistics-search-input {
-        font-size: 1rem;
-        padding: 0.5rem 0;
-        min-height: 32px;
-    }
-    .logistics-search-input::placeholder {
-        font-size: 0.95rem;
-    }
-    .logistics-search-select {
-        font-size: 1rem;
-        padding: 0.5rem 1.8rem 0.5rem 0.2rem;
-        min-height: 32px;
-    }
-    .logistics-search-icon {
-        font-size: 0.95rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .logistics-search-section {
-        padding: 1.5rem 0;
-    }
-    
-    .logistics-search-wrapper {
-        padding: 0 10px;
-    }
-    
-    .logistics-search-box {
-        padding: 0.6rem;
-        border-radius: 12px;
-        gap: 0.6rem;
-    }
-    
-    .logistics-search-field {
-        padding: 0.2rem 0.7rem;
-        border-radius: 10px;
-        min-height: 44px;
-    }
-    
-    .logistics-search-input {
-        font-size: 0.95rem;
-        padding: 0.4rem 0;
-        min-height: 30px;
-    }
-    
-    .logistics-search-input::placeholder {
-        font-size: 0.9rem;
-    }
-    
-    .logistics-search-select {
-        font-size: 0.95rem;
-        padding: 0.4rem 1.8rem 0.4rem 0.2rem;
-        min-height: 30px;
-        background-size: 10px 6px;
-    }
-    
-    .logistics-btn-filter {
-        padding: 0.6rem 1rem;
-        font-size: 0.95rem;
-        min-height: 44px;
-        border-radius: 60px;
-    }
-    
-    .logistics-search-icon {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .logistics-search-section {
-        padding: 1rem 0;
-    }
-    
-    .logistics-search-wrapper {
-        padding: 0 8px;
-    }
-    
-    .logistics-search-box {
-        padding: 0.5rem;
-        border-radius: 10px;
-        gap: 0.75rem;
-    }
-    
-    .logistics-search-field {
-        padding: 0.15rem 0.6rem;
-        border-radius: 8px;
-        min-height: 40px;
-    }
-    
-    .logistics-search-input {
-        font-size: 0.88rem;
-        padding: 0.35rem 0;
-        min-height: 26px;
-    }
-    
-    .logistics-search-input::placeholder {
-        font-size: 0.82rem;
-    }
-    
-    .logistics-search-select {
-        font-size: 0.88rem;
-        padding: 0.35rem 1.6rem 0.35rem 0.2rem;
-        min-height: 26px;
-        background-size: 8px 5px;
-    }
-    
-    .logistics-btn-filter {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.88rem;
-        min-height: 40px;
-        border-radius: 8px;
-    }
-    
-    .logistics-search-icon {
-        font-size: 0.85rem;
-    }
-}
-
-/* ============================================================
-   AGGRESSIVE FIX - REMOVE ALL FOCUS RINGS
-   ============================================================ */
-
-.logistics-search-section .container,
-.logistics-search-section .container:focus,
-.logistics-search-section .container:focus-visible,
-.logistics-search-section .container:hover,
-.logistics-search-wrapper,
-.logistics-search-wrapper:focus,
-.logistics-search-wrapper:focus-visible,
-.logistics-search-wrapper:hover,
-.logistics-search-box,
-.logistics-search-box:focus,
-.logistics-search-box:focus-visible,
-.logistics-search-box:hover,
-.logistics-search-field,
-.logistics-search-field:focus,
-.logistics-search-field:focus-visible,
-.logistics-search-field:hover {
-    outline: none !important;
-    box-shadow: none !important;
-    border-color: transparent !important;
-}
-
-/* Remove from all children too */
-.logistics-search-section .container *,
-.logistics-search-section .container *:focus,
-.logistics-search-section .container *:focus-visible,
-.logistics-search-section .container *:hover,
-.logistics-search-wrapper *,
-.logistics-search-wrapper *:focus,
-.logistics-search-wrapper *:focus-visible,
-.logistics-search-wrapper *:hover,
-.logistics-search-box *,
-.logistics-search-box *:focus,
-.logistics-search-box *:focus-visible,
-.logistics-search-box *:hover,
-.logistics-search-field *,
-.logistics-search-field *:focus,
-.logistics-search-field *:focus-visible,
-.logistics-search-field *:hover {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Keep ONLY the field highlight */
-.logistics-search-field:focus-within {
-    border-color: #2D7D3A !important;
-    box-shadow: 0 0 0 2px rgba(45, 125, 58, 0.15) !important;
-    outline: none !important;
-}
 
 /* ============================================================
    CATEGORIES - SHOW MORE/LESS
@@ -24501,235 +23888,8 @@ body {
     }
 }
 
-/* ============================================================
-   LOGISTICS DASHBOARD - MOBILE SEARCH BAR FIX (UPDATED)
-   ============================================================ */
 
-@media screen and (max-width: 768px) {
-    .logistics-navbar-right {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        flex-wrap: nowrap;
-        flex: 1;
-        justify-content: flex-end;
-    }
 
-    .logistics-search-wrapper {
-        min-width: 130px;
-        max-width: 180px;
-        flex: 0 1 auto;
-        padding: 0.3rem 0.75rem;
-        border-radius: 60px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        margin-right: 0.2rem;
-    }
-
-    .logistics-search-input {
-        font-size: 0.82rem;
-        padding: 0.3rem 0.3rem;
-        width: 100%;
-        min-width: 80px;
-        color: #FFFFFF;
-    }
-
-    .logistics-search-input::placeholder {
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.4);
-    }
-
-    .logistics-search-icon {
-        font-size: 0.82rem;
-        flex-shrink: 0;
-        color: rgba(255, 255, 255, 0.4);
-    }
-
-    .logistics-navbar-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #FFFFFF;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .logistics-navbar-btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .logistics-profile-avatar {
-        width: 32px;
-        height: 32px;
-        font-size: 0.7rem;
-        flex-shrink: 0;
-        background: #2D7D3A;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #FFFFFF;
-        font-weight: 700;
-    }
-
-    .logistics-profile-info {
-        display: none !important;
-    }
-
-    .logistics-profile-arrow {
-        display: none !important;
-    }
-
-    .logistics-profile-trigger {
-        padding: 0.15rem 0.3rem;
-        gap: 0.3rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .logistics-navbar-title {
-        font-size: 1rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 120px;
-        color: #FFFFFF;
-        margin: 0;
-    }
-
-    .logistics-navbar-left {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    .logistics-navbar-toggle {
-        font-size: 1.2rem;
-        padding: 0.3rem 0.5rem;
-        min-width: 40px;
-        min-height: 40px;
-        background: transparent;
-        border: none;
-        color: #FFFFFF;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-
-/* Small mobile */
-@media screen and (max-width: 480px) {
-    .logistics-search-wrapper {
-        min-width: 110px;
-        max-width: 150px;
-        padding: 0.25rem 0.6rem;
-        margin-right: 0.1rem;
-    }
-
-    .logistics-search-input {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.2rem;
-        min-width: 60px;
-    }
-
-    .logistics-search-input::placeholder {
-        font-size: 0.7rem;
-    }
-
-    .logistics-search-icon {
-        font-size: 0.75rem;
-    }
-
-    .logistics-navbar-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 0.8rem;
-    }
-
-    .logistics-profile-avatar {
-        width: 28px;
-        height: 28px;
-        font-size: 0.6rem;
-    }
-
-    .logistics-navbar-title {
-        font-size: 0.85rem;
-        max-width: 80px;
-    }
-
-    .logistics-navbar-toggle {
-        font-size: 1rem;
-        min-width: 34px;
-        min-height: 34px;
-        padding: 0.25rem 0.35rem;
-    }
-
-    .logistics-navbar-right {
-        gap: 0.35rem;
-    }
-}
-
-/* Extra small screens */
-@media screen and (max-width: 380px) {
-    .logistics-search-wrapper {
-        min-width: 90px;
-        max-width: 120px;
-        padding: 0.2rem 0.4rem;
-        margin-right: 0;
-    }
-
-    .logistics-search-input {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.15rem;
-        min-width: 50px;
-    }
-
-    .logistics-search-input::placeholder {
-        font-size: 0.6rem;
-    }
-
-    .logistics-search-icon {
-        font-size: 0.65rem;
-    }
-
-    .logistics-navbar-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 0.7rem;
-    }
-
-    .logistics-profile-avatar {
-        width: 24px;
-        height: 24px;
-        font-size: 0.5rem;
-    }
-
-    .logistics-navbar-title {
-        font-size: 0.75rem;
-        max-width: 60px;
-    }
-
-    .logistics-navbar-toggle {
-        font-size: 0.85rem;
-        min-width: 30px;
-        min-height: 30px;
-        padding: 0.2rem 0.25rem;
-    }
-
-    .logistics-navbar-right {
-        gap: 0.25rem;
-    }
-}
 
 /* ============================================================
    FARMER PRODUCTS - pcard- PREFIX (Matches Saved Items)
@@ -28149,4 +27309,765 @@ body.dark-mode .logistics-card .logistics-unverified-badge {
 body.dark-mode .logistics-unverified-badge i,
 body.dark-mode .logistics-card .logistics-unverified-badge i {
     color: #FBBF24 !important;
+}
+
+/* ============================================================
+   DARK MODE - ALL SAVE MODALS (Matching Homepage Style)
+   ============================================================ */
+
+/* ----- All Save Modals Base ----- */
+body.dark-mode .farmers-save-modal,
+body.dark-mode .logistics-save-modal,
+body.dark-mode .similar-save-modal,
+body.dark-mode .farmer-profile-save-modal,
+body.dark-mode .farmer-produce-save-modal,
+body.dark-mode .logistics-detail-save-modal,
+body.dark-mode .marketplace-save-modal,
+body.dark-mode .product-detail-save-modal,
+body.dark-mode .home-save-modal,
+body.dark-mode .detail-save-modal,
+body.dark-mode .farmers-save-modal-overlay .farmers-save-modal,
+body.dark-mode .logistics-save-modal-overlay .logistics-save-modal,
+body.dark-mode .similar-save-modal-overlay .similar-save-modal,
+body.dark-mode .farmer-profile-save-modal-overlay .farmer-profile-save-modal,
+body.dark-mode .farmer-produce-save-modal-overlay .farmer-produce-save-modal,
+body.dark-mode .logistics-detail-save-modal-overlay .logistics-detail-save-modal,
+body.dark-mode .marketplace-save-modal-overlay .marketplace-save-modal,
+body.dark-mode .product-detail-save-modal-overlay .product-detail-save-modal,
+body.dark-mode .home-save-modal-overlay .home-save-modal,
+body.dark-mode .detail-save-modal-overlay .detail-save-modal {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ----- Modal Headers ----- */
+body.dark-mode .farmers-save-modal .modal-header,
+body.dark-mode .logistics-save-modal .modal-header,
+body.dark-mode .similar-save-modal .modal-header,
+body.dark-mode .farmer-profile-save-modal .modal-header,
+body.dark-mode .farmer-produce-save-modal .modal-header,
+body.dark-mode .logistics-detail-save-modal .modal-header,
+body.dark-mode .marketplace-save-modal .modal-header,
+body.dark-mode .product-detail-save-modal .modal-header,
+body.dark-mode .home-save-modal .modal-header,
+body.dark-mode .detail-save-modal .modal-header,
+body.dark-mode .farmers-save-modal-header,
+body.dark-mode .logistics-save-modal-header,
+body.dark-mode .similar-save-modal-header,
+body.dark-mode .farmer-profile-save-modal-header,
+body.dark-mode .farmer-produce-save-modal-header,
+body.dark-mode .logistics-detail-save-modal-header {
+    border-bottom-color: #1A3A22 !important;
+    background: transparent !important;
+}
+
+/* ----- Modal Titles ----- */
+body.dark-mode .farmers-save-modal h3,
+body.dark-mode .logistics-save-modal h3,
+body.dark-mode .similar-save-modal h3,
+body.dark-mode .farmer-profile-save-modal h3,
+body.dark-mode .farmer-produce-save-modal h3,
+body.dark-mode .logistics-detail-save-modal h3,
+body.dark-mode .marketplace-save-modal h3,
+body.dark-mode .product-detail-save-modal h3,
+body.dark-mode .home-save-modal h3,
+body.dark-mode .detail-save-modal h3,
+body.dark-mode .farmers-save-modal-title,
+body.dark-mode .logistics-save-modal-title,
+body.dark-mode .similar-save-modal-title,
+body.dark-mode .farmer-profile-save-modal-title,
+body.dark-mode .farmer-produce-save-modal-title,
+body.dark-mode .logistics-detail-save-modal-title {
+    color: #F8F9FA !important;
+}
+
+/* ----- Modal Close Buttons ----- */
+body.dark-mode .farmers-save-modal .modal-close,
+body.dark-mode .logistics-save-modal .modal-close,
+body.dark-mode .similar-save-modal .modal-close,
+body.dark-mode .farmer-profile-save-modal .modal-close,
+body.dark-mode .farmer-produce-save-modal .modal-close,
+body.dark-mode .logistics-detail-save-modal .modal-close,
+body.dark-mode .marketplace-save-modal .modal-close,
+body.dark-mode .product-detail-save-modal .modal-close,
+body.dark-mode .home-save-modal .modal-close,
+body.dark-mode .detail-save-modal .modal-close,
+body.dark-mode .farmers-save-modal-close,
+body.dark-mode .logistics-save-modal-close,
+body.dark-mode .similar-save-modal-close,
+body.dark-mode .farmer-profile-save-modal-close,
+body.dark-mode .farmer-produce-save-modal-close,
+body.dark-mode .logistics-detail-save-modal-close {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .farmers-save-modal .modal-close:hover,
+body.dark-mode .logistics-save-modal .modal-close:hover,
+body.dark-mode .similar-save-modal .modal-close:hover,
+body.dark-mode .farmer-profile-save-modal .modal-close:hover,
+body.dark-mode .farmer-produce-save-modal .modal-close:hover,
+body.dark-mode .logistics-detail-save-modal .modal-close:hover,
+body.dark-mode .marketplace-save-modal .modal-close:hover,
+body.dark-mode .product-detail-save-modal .modal-close:hover,
+body.dark-mode .home-save-modal .modal-close:hover,
+body.dark-mode .detail-save-modal .modal-close:hover {
+    color: #F8F9FA !important;
+}
+
+/* ----- Modal Body Text ----- */
+body.dark-mode .farmers-save-modal .modal-body p,
+body.dark-mode .logistics-save-modal .modal-body p,
+body.dark-mode .similar-save-modal .modal-body p,
+body.dark-mode .farmer-profile-save-modal .modal-body p,
+body.dark-mode .farmer-produce-save-modal .modal-body p,
+body.dark-mode .logistics-detail-save-modal .modal-body p,
+body.dark-mode .marketplace-save-modal .modal-body p,
+body.dark-mode .product-detail-save-modal .modal-body p,
+body.dark-mode .home-save-modal .modal-body p,
+body.dark-mode .detail-save-modal .modal-body p,
+body.dark-mode .farmers-save-modal-message,
+body.dark-mode .logistics-save-modal-message,
+body.dark-mode .similar-save-modal-message,
+body.dark-mode .farmer-profile-save-modal-message,
+body.dark-mode .farmer-produce-save-modal-message,
+body.dark-mode .logistics-detail-save-modal-message,
+body.dark-mode .farmers-save-modal-text,
+body.dark-mode .logistics-save-modal-text,
+body.dark-mode .similar-save-modal-text,
+body.dark-mode .farmer-profile-save-modal-text,
+body.dark-mode .farmer-produce-save-modal-text,
+body.dark-mode .logistics-detail-save-modal-text {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .farmers-save-modal .modal-body label,
+body.dark-mode .logistics-save-modal .modal-body label,
+body.dark-mode .similar-save-modal .modal-body label,
+body.dark-mode .farmer-profile-save-modal .modal-body label,
+body.dark-mode .farmer-produce-save-modal .modal-body label,
+body.dark-mode .logistics-detail-save-modal .modal-body label,
+body.dark-mode .marketplace-save-modal .modal-body label,
+body.dark-mode .product-detail-save-modal .modal-body label,
+body.dark-mode .home-save-modal .modal-body label,
+body.dark-mode .detail-save-modal .modal-body label {
+    color: #9CA3AF !important;
+}
+
+/* ----- Modal Footers ----- */
+body.dark-mode .farmers-save-modal .modal-footer,
+body.dark-mode .logistics-save-modal .modal-footer,
+body.dark-mode .similar-save-modal .modal-footer,
+body.dark-mode .farmer-profile-save-modal .modal-footer,
+body.dark-mode .farmer-produce-save-modal .modal-footer,
+body.dark-mode .logistics-detail-save-modal .modal-footer,
+body.dark-mode .marketplace-save-modal .modal-footer,
+body.dark-mode .product-detail-save-modal .modal-footer,
+body.dark-mode .home-save-modal .modal-footer,
+body.dark-mode .detail-save-modal .modal-footer,
+body.dark-mode .farmers-save-modal-footer,
+body.dark-mode .logistics-save-modal-footer,
+body.dark-mode .similar-save-modal-footer,
+body.dark-mode .farmer-profile-save-modal-footer,
+body.dark-mode .farmer-produce-save-modal-footer,
+body.dark-mode .logistics-detail-save-modal-footer {
+    border-top-color: #1A3A22 !important;
+    background: transparent !important;
+}
+
+/* ----- Modal Inputs (if any) ----- */
+body.dark-mode .farmers-save-modal input,
+body.dark-mode .logistics-save-modal input,
+body.dark-mode .similar-save-modal input,
+body.dark-mode .farmer-profile-save-modal input,
+body.dark-mode .farmer-produce-save-modal input,
+body.dark-mode .logistics-detail-save-modal input,
+body.dark-mode .marketplace-save-modal input,
+body.dark-mode .product-detail-save-modal input,
+body.dark-mode .home-save-modal input,
+body.dark-mode .detail-save-modal input,
+body.dark-mode .farmers-save-modal textarea,
+body.dark-mode .logistics-save-modal textarea,
+body.dark-mode .similar-save-modal textarea,
+body.dark-mode .farmer-profile-save-modal textarea,
+body.dark-mode .farmer-produce-save-modal textarea,
+body.dark-mode .logistics-detail-save-modal textarea,
+body.dark-mode .farmers-save-modal-select,
+body.dark-mode .logistics-save-modal-select,
+body.dark-mode .similar-save-modal-select {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .farmers-save-modal input::placeholder,
+body.dark-mode .logistics-save-modal input::placeholder,
+body.dark-mode .similar-save-modal input::placeholder,
+body.dark-mode .farmer-profile-save-modal input::placeholder,
+body.dark-mode .farmer-produce-save-modal input::placeholder,
+body.dark-mode .logistics-detail-save-modal input::placeholder,
+body.dark-mode .marketplace-save-modal input::placeholder,
+body.dark-mode .product-detail-save-modal input::placeholder,
+body.dark-mode .home-save-modal input::placeholder,
+body.dark-mode .detail-save-modal input::placeholder,
+body.dark-mode .farmers-save-modal textarea::placeholder,
+body.dark-mode .logistics-save-modal textarea::placeholder,
+body.dark-mode .similar-save-modal textarea::placeholder,
+body.dark-mode .farmer-profile-save-modal textarea::placeholder,
+body.dark-mode .farmer-produce-save-modal textarea::placeholder,
+body.dark-mode .logistics-detail-save-modal textarea::placeholder {
+    color: #6B7280 !important;
+}
+
+/* ----- Modal Buttons (Outline) ----- */
+body.dark-mode .farmers-save-modal .btn-outline,
+body.dark-mode .logistics-save-modal .btn-outline,
+body.dark-mode .similar-save-modal .btn-outline,
+body.dark-mode .farmer-profile-save-modal .btn-outline,
+body.dark-mode .farmer-produce-save-modal .btn-outline,
+body.dark-mode .logistics-detail-save-modal .btn-outline,
+body.dark-mode .marketplace-save-modal .btn-outline,
+body.dark-mode .product-detail-save-modal .btn-outline,
+body.dark-mode .home-save-modal .btn-outline,
+body.dark-mode .detail-save-modal .btn-outline,
+body.dark-mode .farmers-save-modal-cancel,
+body.dark-mode .logistics-save-modal-cancel,
+body.dark-mode .similar-save-modal-cancel,
+body.dark-mode .farmer-profile-save-modal-cancel,
+body.dark-mode .farmer-produce-save-modal-cancel,
+body.dark-mode .logistics-detail-save-modal-cancel {
+    background: transparent !important;
+    border-color: #2A4F34 !important;
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .farmers-save-modal .btn-outline:hover,
+body.dark-mode .logistics-save-modal .btn-outline:hover,
+body.dark-mode .similar-save-modal .btn-outline:hover,
+body.dark-mode .farmer-profile-save-modal .btn-outline:hover,
+body.dark-mode .farmer-produce-save-modal .btn-outline:hover,
+body.dark-mode .logistics-detail-save-modal .btn-outline:hover,
+body.dark-mode .marketplace-save-modal .btn-outline:hover,
+body.dark-mode .product-detail-save-modal .btn-outline:hover,
+body.dark-mode .home-save-modal .btn-outline:hover,
+body.dark-mode .detail-save-modal .btn-outline:hover {
+    border-color: #2D7D3A !important;
+    color: #2D7D3A !important;
+    background: transparent !important;
+}
+
+/* ----- Modal Primary Buttons ----- */
+body.dark-mode .farmers-save-modal .btn-primary,
+body.dark-mode .logistics-save-modal .btn-primary,
+body.dark-mode .similar-save-modal .btn-primary,
+body.dark-mode .farmer-profile-save-modal .btn-primary,
+body.dark-mode .farmer-produce-save-modal .btn-primary,
+body.dark-mode .logistics-detail-save-modal .btn-primary,
+body.dark-mode .marketplace-save-modal .btn-primary,
+body.dark-mode .product-detail-save-modal .btn-primary,
+body.dark-mode .home-save-modal .btn-primary,
+body.dark-mode .detail-save-modal .btn-primary,
+body.dark-mode .farmers-save-modal-confirm,
+body.dark-mode .logistics-save-modal-confirm,
+body.dark-mode .similar-save-modal-confirm,
+body.dark-mode .farmer-profile-save-modal-confirm,
+body.dark-mode .farmer-produce-save-modal-confirm,
+body.dark-mode .logistics-detail-save-modal-confirm {
+    background: #2D7D3A !important;
+    border-color: #2D7D3A !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .farmers-save-modal .btn-primary:hover,
+body.dark-mode .logistics-save-modal .btn-primary:hover,
+body.dark-mode .similar-save-modal .btn-primary:hover,
+body.dark-mode .farmer-profile-save-modal .btn-primary:hover,
+body.dark-mode .farmer-produce-save-modal .btn-primary:hover,
+body.dark-mode .logistics-detail-save-modal .btn-primary:hover,
+body.dark-mode .marketplace-save-modal .btn-primary:hover,
+body.dark-mode .product-detail-save-modal .btn-primary:hover,
+body.dark-mode .home-save-modal .btn-primary:hover,
+body.dark-mode .detail-save-modal .btn-primary:hover {
+    background: #236B2E !important;
+    border-color: #236B2E !important;
+    color: #FFFFFF !important;
+}
+
+/* ----- Modal Overlay ----- */
+body.dark-mode .farmers-save-modal-overlay,
+body.dark-mode .logistics-save-modal-overlay,
+body.dark-mode .similar-save-modal-overlay,
+body.dark-mode .farmer-profile-save-modal-overlay,
+body.dark-mode .farmer-produce-save-modal-overlay,
+body.dark-mode .logistics-detail-save-modal-overlay,
+body.dark-mode .marketplace-save-modal-overlay,
+body.dark-mode .product-detail-save-modal-overlay,
+body.dark-mode .home-save-modal-overlay,
+body.dark-mode .detail-save-modal-overlay {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* ----- Modal Icon (Lock/Heart) ----- */
+body.dark-mode .farmers-save-modal .modal-icon,
+body.dark-mode .logistics-save-modal .modal-icon,
+body.dark-mode .similar-save-modal .modal-icon,
+body.dark-mode .farmer-profile-save-modal .modal-icon,
+body.dark-mode .farmer-produce-save-modal .modal-icon,
+body.dark-mode .logistics-detail-save-modal .modal-icon,
+body.dark-mode .marketplace-save-modal .modal-icon,
+body.dark-mode .product-detail-save-modal .modal-icon,
+body.dark-mode .home-save-modal .modal-icon,
+body.dark-mode .detail-save-modal .modal-icon {
+    background: rgba(45, 125, 58, 0.15) !important;
+    color: #2D7D3A !important;
+}
+
+/* ----- Modal Note Text (small footer text) ----- */
+body.dark-mode .farmers-save-modal .modal-note,
+body.dark-mode .logistics-save-modal .modal-note,
+body.dark-mode .similar-save-modal .modal-note,
+body.dark-mode .farmer-profile-save-modal .modal-note,
+body.dark-mode .farmer-produce-save-modal .modal-note,
+body.dark-mode .logistics-detail-save-modal .modal-note,
+body.dark-mode .marketplace-save-modal .modal-note,
+body.dark-mode .product-detail-save-modal .modal-note,
+body.dark-mode .home-save-modal .modal-note,
+body.dark-mode .detail-save-modal .modal-note {
+    color: #6B7280 !important;
+}
+
+/* ----- Modal Divider ----- */
+body.dark-mode .farmers-save-modal .modal-divider,
+body.dark-mode .logistics-save-modal .modal-divider,
+body.dark-mode .similar-save-modal .modal-divider,
+body.dark-mode .farmer-profile-save-modal .modal-divider,
+body.dark-mode .farmer-produce-save-modal .modal-divider,
+body.dark-mode .logistics-detail-save-modal .modal-divider,
+body.dark-mode .marketplace-save-modal .modal-divider,
+body.dark-mode .product-detail-save-modal .modal-divider,
+body.dark-mode .home-save-modal .modal-divider,
+body.dark-mode .detail-save-modal .modal-divider {
+    background: #1A3A22 !important;
+}
+
+/* ============================================================
+   DARK MODE - RATING STARS FIX (GOLD COLOR)
+   ============================================================ */
+
+body.dark-mode .detail-profile-rating,
+body.dark-mode .detail-seller-rating,
+body.dark-mode .detail-product-rating,
+body.dark-mode .farmers-card-rating,
+body.dark-mode .logistics-card-rating,
+body.dark-mode .detail-similar-rating,
+body.dark-mode .marketplace-card-rating,
+body.dark-mode .home-featured-rating {
+    color: #F59E0B !important;
+}
+
+body.dark-mode .detail-profile-rating i,
+body.dark-mode .detail-seller-rating i,
+body.dark-mode .detail-product-rating i,
+body.dark-mode .farmers-card-rating i,
+body.dark-mode .logistics-card-rating i,
+body.dark-mode .detail-similar-rating i,
+body.dark-mode .marketplace-card-rating i,
+body.dark-mode .home-featured-rating i {
+    color: #F59E0B !important;
+}
+
+body.dark-mode .detail-profile-rating span,
+body.dark-mode .detail-seller-rating span,
+body.dark-mode .detail-product-rating span,
+body.dark-mode .farmers-card-rating span,
+body.dark-mode .logistics-card-rating span,
+body.dark-mode .detail-similar-rating span,
+body.dark-mode .marketplace-card-rating span,
+body.dark-mode .home-featured-rating span {
+    color: #9CA3AF !important;
+}
+
+
+/* ============================================================
+   DARK MODE - VEHICLE STATUS (PRESERVE LIGHT MODE STYLE)
+   ============================================================ */
+
+body.dark-mode .detail-vehicle-status {
+    background: #DFF0E0 !important;
+    color: green !important;
+    opacity: 1 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ============================================================
+   SEARCH & FILTER SECTION - MATCHING FARMERS PAGE
+   ============================================================ */
+
+.logistics-search-section {
+    background: #FFFFFF;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.logistics-search-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logistics-search-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    background: #F0F5F0;
+    padding: 0.75rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.logistics-search-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1 1 160px;
+    background: #FFFFFF;
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    transition: 0.3s ease;
+}
+
+.logistics-search-field:focus-within {
+    border-color: #2D7D3A;
+    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.1);
+}
+
+.logistics-search-icon {
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+.logistics-search-input {
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+    width: 100%;
+    font-weight: 400;
+    color: #111827;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.logistics-search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.logistics-search-select {
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.8rem 0.6rem 0.2rem;
+    font-weight: 400;
+    color: #111827;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.2rem center;
+}
+
+.logistics-btn-filter {
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+/* ----- RESPONSIVE - MATCHING FARMERS PAGE ----- */
+@media screen and (max-width: 992px) {
+    .logistics-search-box {
+        flex-direction: column;
+    }
+    .logistics-search-field {
+        flex: 1 1 100%;
+    }
+    .logistics-btn-filter {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logistics-search-section {
+        padding: 1.5rem 0;
+    }
+    .logistics-search-box {
+        padding: 0.5rem;
+        border-radius: 12px;
+        gap: 0.5rem;
+    }
+    .logistics-search-field {
+        padding: 0.15rem 0.6rem;
+        border-radius: 10px;
+        min-height: 36px;
+    }
+    .logistics-search-input {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+        min-height: 28px;
+    }
+    .logistics-search-input::placeholder {
+        font-size: 0.8rem;
+    }
+    .logistics-search-select {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.6rem 0.4rem 0.2rem;
+        min-height: 28px;
+    }
+    .logistics-btn-filter {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        min-height: 38px;
+    }
+    .logistics-search-icon {
+        font-size: 0.8rem;
+    }
+    .login-container {
+      margin-top: -5rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .logistics-search-section {
+        padding: 1rem 0;
+    }
+    .logistics-search-box {
+        padding: 0.4rem;
+        border-radius: 10px;
+        gap: 0.4rem;
+    }
+    .logistics-search-field {
+        padding: 0.1rem 0.5rem;
+        border-radius: 8px;
+        min-height: 32px;
+    }
+    .logistics-search-input {
+        font-size: 0.78rem;
+        padding: 0.3rem 0;
+        min-height: 24px;
+    }
+    .logistics-search-input::placeholder {
+        font-size: 0.75rem;
+    }
+    .logistics-search-select {
+        font-size: 0.78rem;
+        padding: 0.3rem 1.4rem 0.3rem 0.2rem;
+        min-height: 24px;
+    }
+    .logistics-btn-filter {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.78rem;
+        min-height: 32px;
+        border-radius: 8px;
+    }
+    .logistics-search-icon {
+        font-size: 0.75rem;
+    }
+}
+
+
+/* ============================================================
+   LOGISTICS DASHBOARD - MOBILE SEARCH BAR FIX (UPDATED)
+   ============================================================ */
+
+
+    .logistics-navbar-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .logistics-navbar-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .logistics-profile-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+        background: #2D7D3A;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        font-weight: 700;
+    }
+
+    .logistics-profile-info {
+        display: none !important;
+    }
+
+    .logistics-profile-arrow {
+        display: none !important;
+    }
+
+    .logistics-profile-trigger {
+        padding: 0.15rem 0.3rem;
+        gap: 0.3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .logistics-navbar-title {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    .logistics-navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 1.2rem;
+        padding: 0.3rem 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+        background: transparent;
+        border: none;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+    .logistics-search-wrapper {
+        min-width: 110px;
+        max-width: 150px;
+        padding: 0.25rem 0.6rem;
+        margin-right: 0.1rem;
+    }
+
+    .logistics-search-input {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.2rem;
+        min-width: 60px;
+    }
+
+    .logistics-search-input::placeholder {
+        font-size: 0.7rem;
+    }
+
+    .logistics-search-icon {
+        font-size: 0.75rem;
+    }
+
+    .logistics-navbar-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .logistics-profile-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.6rem;
+    }
+
+    .logistics-navbar-title {
+        font-size: 0.85rem;
+        max-width: 80px;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 1rem;
+        min-width: 34px;
+        min-height: 34px;
+        padding: 0.25rem 0.35rem;
+    }
+
+    .logistics-navbar-right {
+        gap: 0.35rem;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 380px) {
+    .logistics-search-wrapper {
+        min-width: 90px;
+        max-width: 120px;
+        padding: 0.2rem 0.4rem;
+        margin-right: 0;
+    }
+
+    .logistics-search-input {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.15rem;
+        min-width: 50px;
+    }
+
+    .logistics-search-input::placeholder {
+        font-size: 0.6rem;
+    }
+
+    .logistics-search-icon {
+        font-size: 0.65rem;
+    }
+
+    .logistics-navbar-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .logistics-profile-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 0.5rem;
+    }
+
+    .logistics-navbar-title {
+        font-size: 0.75rem;
+        max-width: 60px;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 0.85rem;
+        min-width: 30px;
+        min-height: 30px;
+        padding: 0.2rem 0.25rem;
+    }
+
+    .logistics-navbar-right {
+        gap: 0.25rem;
+    }
 }
