@@ -5787,7 +5787,7 @@ body:has(.detail-contact-modal-overlay.active) .detail-modal-overlay {
 }
 
 /* ----- SEARCH & FILTER SECTION (white) ----- */
-/* .logistics-search-section {
+.logistics-search-section {
   background: black;
   padding: 2.5rem 0;
   border-bottom: 1px solid #E5E7EB;
@@ -5861,7 +5861,7 @@ body:has(.detail-contact-modal-overlay.active) .detail-modal-overlay {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.2rem center;
-} */
+}
 
 /* ----- GRID SECTION ----- */
 .logistics-grid-section {
@@ -10453,7 +10453,6 @@ body {
     border: 1px solid rgba(45, 125, 58, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
-    margin-top: -5rem;
 }
 
 .how-it-works {
@@ -11315,7 +11314,7 @@ body {
 
 .home-featured-section {
     background: #FFFFFF;
-    padding: 3rem 0 4rem;
+    /* padding: 3rem 0 4rem; */
 }
 
 .home-featured-header {
@@ -11324,7 +11323,8 @@ body {
 }
 
 .home-featured-header .home-section-title {
-    margin-bottom: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
 }
 
 .home-featured-header .home-section-title::after {
@@ -21422,3 +21422,6731 @@ body {
     }
 }
 
+/* ============================================================
+   PRODUCT DETAIL - INCREASE IMAGE HEIGHT
+   ============================================================ */
+
+
+.detail-product-image {
+    height: 500px !important;
+}
+
+
+
+/* Tablet */
+@media screen and (max-width: 992px) {
+    .detail-product-image {
+        height: 400px !important;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .detail-product-image {
+        height: 350px !important;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .detail-product-image {
+        height: 280px !important;
+    }
+}
+
+/* Extra Small */
+@media screen and (max-width: 360px) {
+    .detail-product-image {
+        height: 220px !important;
+    }
+}
+
+/* ============================================================
+   DASHBOARD BURGER MENU - PERFECTED
+   ============================================================ */
+
+/* ----- All Dashboards Burger Menu ----- */
+.admin-navbar-toggle,
+.farmer-navbar-toggle,
+.buyer-navbar-toggle,
+.logistics-navbar-toggle {
+    display: none;
+    background: #0D2812 !important;
+    border: 2px solid rgba(45, 125, 58, 0.35) !important;
+    border-radius: 10px !important;
+    color: #FFFFFF !important;
+    font-size: 1.4rem !important;
+    cursor: pointer !important;
+    padding: 0.7rem 0.6rem !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1 !important;
+    min-height: 48px !important;
+    min-width: 48px !important;
+    margin-left: 0.5rem !important;
+}
+
+.admin-navbar-toggle:hover,
+.farmer-navbar-toggle:hover,
+.buyer-navbar-toggle:hover,
+.logistics-navbar-toggle:hover {
+    background: #1A3A22 !important;
+    border-color: rgba(45, 125, 58, 0.5) !important;
+}
+
+.admin-navbar-toggle i,
+.farmer-navbar-toggle i,
+.buyer-navbar-toggle i,
+.logistics-navbar-toggle i {
+    color: #2D7D3A !important;
+    font-size: 1.4rem !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* When menu is open (X icon) */
+.admin-navbar-toggle.active i,
+.farmer-navbar-toggle.active i,
+.buyer-navbar-toggle.active i,
+.logistics-navbar-toggle.active i {
+    color: #2D7D3A !important;
+}
+
+/* Show on mobile only */
+@media screen and (max-width: 992px) {
+    .admin-navbar-toggle,
+    .farmer-navbar-toggle,
+    .buyer-navbar-toggle,
+    .logistics-navbar-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+/* Small screens - slightly smaller */
+@media screen and (max-width: 480px) {
+    .admin-navbar-toggle,
+    .farmer-navbar-toggle,
+    .buyer-navbar-toggle,
+    .logistics-navbar-toggle {
+        padding: 0.55rem 0.5rem !important;
+        border-radius: 8px !important;
+        border-width: 1.8px !important;
+        border-color: rgba(45, 125, 58, 0.3) !important;
+        min-height: 42px !important;
+        min-width: 42px !important;
+        margin-left: 0.3rem !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .admin-navbar-toggle i,
+    .farmer-navbar-toggle i,
+    .buyer-navbar-toggle i,
+    .logistics-navbar-toggle i {
+        font-size: 1.2rem !important;
+    }
+}
+
+/* ============================================================
+   DASHBOARD LOGO - WHITE TO GREEN GRADIENT
+   ============================================================ */
+
+/* ----- All Dashboards Logo ----- */
+.admin-sidebar-logo,
+.farmer-sidebar-logo,
+.buyer-sidebar-logo,
+.logistics-sidebar-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
+    letter-spacing: -0.02em !important;
+    color: #FFFFFF !important;
+}
+
+/* Logo text with gradient */
+.admin-sidebar-brand,
+.farmer-sidebar-brand,
+.buyer-sidebar-brand,
+.logistics-sidebar-brand {
+    background: linear-gradient(90deg, #FFFFFF 30%, #2D7D3A 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+}
+
+/* Logo icon stays solid green */
+.admin-sidebar-logo-icon,
+.farmer-sidebar-logo-icon,
+.buyer-sidebar-logo-icon,
+.logistics-sidebar-logo-icon {
+    color: #2D7D3A !important;
+    font-size: 1.5rem !important;
+    flex-shrink: 0 !important;
+    -webkit-text-fill-color: #2D7D3A !important;
+}
+
+/* When sidebar is collapsed - hide the brand text */
+.admin-sidebar.collapsed .admin-sidebar-brand,
+.farmer-sidebar.collapsed .farmer-sidebar-brand,
+.buyer-sidebar.collapsed .buyer-sidebar-brand,
+.logistics-sidebar.collapsed .logistics-sidebar-brand {
+    display: none !important;
+}
+
+/* When sidebar is collapsed - keep the icon visible */
+.admin-sidebar.collapsed .admin-sidebar-logo-icon,
+.farmer-sidebar.collapsed .farmer-sidebar-logo-icon,
+.buyer-sidebar.collapsed .buyer-sidebar-logo-icon,
+.logistics-sidebar.collapsed .logistics-sidebar-logo-icon {
+    display: flex !important;
+}
+
+/* Dark mode - keep the gradient */
+.farmer-dark-mode .farmer-sidebar-brand,
+.buyer-dark-mode .buyer-sidebar-brand,
+.logistics-dark-mode .logistics-sidebar-brand,
+.admin-dark-mode .admin-sidebar-brand {
+    background: linear-gradient(90deg, #FFFFFF 30%, #2D7D3A 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Dark mode - icon stays green */
+.farmer-dark-mode .farmer-sidebar-logo-icon,
+.buyer-dark-mode .buyer-sidebar-logo-icon,
+.logistics-dark-mode .logistics-sidebar-logo-icon,
+.admin-dark-mode .admin-sidebar-logo-icon {
+    color: #2D7D3A !important;
+    -webkit-text-fill-color: #2D7D3A !important;
+}
+
+/* Login Modal - Hidden by default */
+.detail-contact-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.detail-contact-modal-overlay.active {
+    display: flex;
+}
+
+.detail-contact-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: contactModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes contactModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.detail-contact-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.detail-contact-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.detail-contact-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.detail-contact-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.detail-contact-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.detail-contact-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.detail-contact-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.detail-contact-modal-buttons .detail-btn {
+    min-width: 120px;
+    justify-content: center;
+}
+
+.detail-contact-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* ============================================================
+   HOME SAVE MODAL
+   ============================================================ */
+
+.home-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.home-save-modal-overlay.active {
+    display: flex;
+}
+
+.home-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: homeSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes homeSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.home-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.home-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.home-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.home-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.home-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.home-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.home-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.home-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.home-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.home-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.home-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.home-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .home-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .home-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .home-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .home-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .home-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   MARKETPLACE SAVE MODAL
+   ============================================================ */
+
+.marketplace-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.marketplace-save-modal-overlay.active {
+    display: flex;
+}
+
+.marketplace-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: marketplaceSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes marketplaceSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.marketplace-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.marketplace-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.marketplace-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.marketplace-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.marketplace-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.marketplace-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.marketplace-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.marketplace-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.marketplace-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.marketplace-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.marketplace-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.marketplace-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.marketplace-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .marketplace-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .marketplace-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .marketplace-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .marketplace-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .marketplace-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   PRODUCT DETAIL SAVE MODAL
+   ============================================================ */
+
+.product-detail-save-modal-overlay,
+.similar-products-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.product-detail-save-modal-overlay.active,
+.similar-products-save-modal-overlay.active {
+    display: flex;
+}
+
+.product-detail-save-modal,
+.similar-products-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: productDetailSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes productDetailSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.product-detail-save-modal-close,
+.similar-products-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.product-detail-save-modal-close:hover,
+.similar-products-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.product-detail-save-modal-icon,
+.similar-products-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.product-detail-save-modal-icon i,
+.similar-products-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.product-detail-save-modal h3,
+.similar-products-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.product-detail-save-modal p,
+.similar-products-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.product-detail-save-modal-buttons,
+.similar-products-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-detail-save-modal-btn,
+.similar-products-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.product-detail-save-modal-btn-primary,
+.similar-products-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.product-detail-save-modal-btn-primary:hover,
+.similar-products-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.product-detail-save-modal-btn-outline,
+.similar-products-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.product-detail-save-modal-btn-outline:hover,
+.similar-products-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.product-detail-save-modal-note,
+.similar-products-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .product-detail-save-modal,
+    .similar-products-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .product-detail-save-modal-btn,
+    .similar-products-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .product-detail-save-modal-icon,
+    .similar-products-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .product-detail-save-modal-icon i,
+    .similar-products-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .product-detail-save-modal h3,
+    .similar-products-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   FARMERS SAVE MODAL
+   ============================================================ */
+
+.farmers-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.farmers-save-modal-overlay.active {
+    display: flex;
+}
+
+.farmers-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: farmersSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes farmersSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.farmers-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.farmers-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.farmers-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.farmers-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.farmers-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.farmers-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.farmers-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmers-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.farmers-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.farmers-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.farmers-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmers-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmers-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .farmers-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .farmers-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .farmers-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .farmers-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .farmers-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   FARMER DETAIL SAVE MODALS
+   ============================================================ */
+
+.farmer-profile-save-modal-overlay,
+.farmer-produce-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.farmer-profile-save-modal-overlay.active,
+.farmer-produce-save-modal-overlay.active {
+    display: flex;
+}
+
+.farmer-profile-save-modal,
+.farmer-produce-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: farmerDetailSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes farmerDetailSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.farmer-profile-save-modal-close,
+.farmer-produce-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.farmer-profile-save-modal-close:hover,
+.farmer-produce-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.farmer-profile-save-modal-icon,
+.farmer-produce-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.farmer-profile-save-modal-icon i,
+.farmer-produce-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.farmer-profile-save-modal h3,
+.farmer-produce-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.farmer-profile-save-modal p,
+.farmer-produce-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.farmer-profile-save-modal-buttons,
+.farmer-produce-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmer-profile-save-modal-btn,
+.farmer-produce-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.farmer-profile-save-modal-btn-primary,
+.farmer-produce-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.farmer-profile-save-modal-btn-primary:hover,
+.farmer-produce-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.farmer-profile-save-modal-btn-outline,
+.farmer-produce-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-profile-save-modal-btn-outline:hover,
+.farmer-produce-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-profile-save-modal-note,
+.farmer-produce-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .farmer-profile-save-modal,
+    .farmer-produce-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .farmer-profile-save-modal-btn,
+    .farmer-produce-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .farmer-profile-save-modal-icon,
+    .farmer-produce-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .farmer-profile-save-modal-icon i,
+    .farmer-produce-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .farmer-profile-save-modal h3,
+    .farmer-produce-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   LOGISTICS SAVE MODAL
+   ============================================================ */
+
+.logistics-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.logistics-save-modal-overlay.active {
+    display: flex;
+}
+
+.logistics-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: logisticsSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes logisticsSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.logistics-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.logistics-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.logistics-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.logistics-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.logistics-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.logistics-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.logistics-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logistics-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.logistics-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.logistics-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.logistics-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.logistics-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.logistics-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .logistics-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .logistics-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .logistics-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logistics-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .logistics-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   LOGISTICS DETAIL SAVE MODAL
+   ============================================================ */
+
+.logistics-detail-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.logistics-detail-save-modal-overlay.active {
+    display: flex;
+}
+
+.logistics-detail-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: logisticsDetailSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes logisticsDetailSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.logistics-detail-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.logistics-detail-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.logistics-detail-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.logistics-detail-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.logistics-detail-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.logistics-detail-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.logistics-detail-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logistics-detail-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.logistics-detail-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.logistics-detail-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.logistics-detail-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.logistics-detail-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.logistics-detail-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .logistics-detail-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .logistics-detail-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .logistics-detail-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logistics-detail-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .logistics-detail-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   FARMER DETAIL SAVE MODAL
+   ============================================================ */
+
+.farmer-detail-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.farmer-detail-save-modal-overlay.active {
+    display: flex;
+}
+
+.farmer-detail-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: farmerDetailSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes farmerDetailSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.farmer-detail-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.farmer-detail-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.farmer-detail-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.farmer-detail-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.farmer-detail-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.farmer-detail-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.farmer-detail-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmer-detail-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.farmer-detail-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.farmer-detail-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.farmer-detail-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-detail-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-detail-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .farmer-detail-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .farmer-detail-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .farmer-detail-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .farmer-detail-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .farmer-detail-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   SIMILAR PRODUCTS SAVE MODAL
+   ============================================================ */
+
+.similar-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.similar-save-modal-overlay.active {
+    display: flex;
+}
+
+.similar-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: similarSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes similarSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.similar-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.similar-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.similar-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.similar-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.similar-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.similar-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.similar-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.similar-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.similar-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.similar-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.similar-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.similar-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.similar-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .similar-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .similar-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .similar-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .similar-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .similar-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+ 
+/* ============================================================
+   TOAST NOTIFICATION SYSTEM - REDESIGNED
+   ============================================================ */
+
+.toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 340px;
+    width: 100%;
+    pointer-events: none;
+    padding: 0;
+}
+
+/* Individual Toast */
+.toast-notification {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 0.75rem 1rem 0.75rem 0.875rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    animation: toastSlideIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    pointer-events: auto;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Colored accent bar */
+.toast-notification::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 10px 0 0 10px;
+}
+
+.toast-success::before {
+    background: #2D7D3A;
+}
+
+.toast-error::before {
+    background: #EF4444;
+}
+
+.toast-info::before {
+    background: #3B82F6;
+}
+
+.toast-warning::before {
+    background: #F59E0B;
+}
+
+.toast-removed::before {
+    background: #9CA3AF;
+}
+
+/* Toast Icon */
+.toast-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+}
+
+.toast-success .toast-icon {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.toast-removed .toast-icon {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+.toast-error .toast-icon {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.toast-info .toast-icon {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.toast-warning .toast-icon {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+/* Toast Content */
+.toast-content {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: #111827;
+    margin: 0 0 0.05rem 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.toast-message {
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+/* Close Button */
+.toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #D1D5DB;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    transition: 0.25s ease;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.toast-close:hover {
+    color: #6B7280;
+    background: #F3F4F6;
+    transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(40px) scale(0.92);
+    }
+}
+
+.toast-notification.toast-hiding {
+    animation: toastSlideOut 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN - SAME WIDTH ON ALL SCREENS
+   ============================================================ */
+
+/* All screens keep same max-width */
+@media screen and (max-width: 768px) {
+    .toast-container {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        left: auto;
+        max-width: 340px;
+        gap: 0.5rem;
+    }
+
+    .toast-notification {
+        padding: 0.65rem 0.875rem 0.65rem 0.75rem;
+        border-radius: 8px;
+    }
+
+    .toast-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+    }
+
+    .toast-title {
+        font-size: 0.78rem;
+    }
+
+    .toast-message {
+        font-size: 0.72rem;
+    }
+
+    .toast-close {
+        font-size: 0.8rem;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .toast-container {
+        bottom: 1rem;
+        right: 1rem;
+        left: auto;
+        max-width: 340px;
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    .toast-notification {
+        padding: 0.6rem 0.8rem 0.6rem 0.7rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .toast-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 0.7rem;
+    }
+
+    .toast-content {
+        min-width: 0;
+    }
+
+    .toast-title {
+        font-size: 0.75rem;
+    }
+
+    .toast-message {
+        font-size: 0.68rem;
+        line-height: 1.3;
+    }
+
+    .toast-close {
+        font-size: 0.7rem;
+        width: 16px;
+        height: 16px;
+    }
+
+    .toast-notification::before {
+        width: 3px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .toast-container {
+        bottom: 0.75rem;
+        right: 0.75rem;
+        left: auto;
+        max-width: 300px;
+        gap: 0.4rem;
+    }
+
+    .toast-notification {
+        padding: 0.5rem 0.6rem 0.5rem 0.6rem;
+        border-radius: 6px;
+    }
+
+    .toast-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.6rem;
+    }
+
+    .toast-title {
+        font-size: 0.7rem;
+    }
+
+    .toast-message {
+        font-size: 0.62rem;
+    }
+
+    .toast-close {
+        font-size: 0.6rem;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* ============================================================
+   FARMER PRODUCE SAVE MODAL
+   ============================================================ */
+
+.farmer-produce-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.farmer-produce-save-modal-overlay.active {
+    display: flex;
+}
+
+.farmer-produce-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: farmerProduceSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes farmerProduceSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.farmer-produce-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.farmer-produce-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.farmer-produce-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.farmer-produce-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.farmer-produce-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.farmer-produce-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.farmer-produce-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmer-produce-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.farmer-produce-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.farmer-produce-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.farmer-produce-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-produce-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-produce-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .farmer-produce-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .farmer-produce-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .farmer-produce-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .farmer-produce-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .farmer-produce-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   FARMER PROFILE SAVE MODAL - UNIQUE
+   ============================================================ */
+
+.farmer-profile-save-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.farmer-profile-save-modal-overlay.active {
+    display: flex;
+}
+
+.farmer-profile-save-modal {
+    background: #FFFFFF;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    animation: farmerProfileSaveModalIn 0.3s ease;
+    position: relative;
+}
+
+@keyframes farmerProfileSaveModalIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.farmer-profile-save-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6B7280;
+    cursor: pointer;
+    transition: 0.3s ease;
+    line-height: 1;
+}
+
+.farmer-profile-save-modal-close:hover {
+    color: #111827;
+    transform: rotate(90deg);
+}
+
+.farmer-profile-save-modal-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FEF3C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.farmer-profile-save-modal-icon i {
+    font-size: 2rem;
+    color: #F59E0B;
+}
+
+.farmer-profile-save-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.farmer-profile-save-modal p {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.farmer-profile-save-modal-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmer-profile-save-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    border-radius: 60px;
+    border: none;
+    padding: 0.6rem 2rem;
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    min-width: 120px;
+}
+
+.farmer-profile-save-modal-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+.farmer-profile-save-modal-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.farmer-profile-save-modal-btn-outline {
+    background: transparent;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-profile-save-modal-btn-outline:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-profile-save-modal-note {
+    font-size: 0.8rem !important;
+    color: #9CA3AF !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .farmer-profile-save-modal {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .farmer-profile-save-modal-btn {
+        min-width: 100px;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .farmer-profile-save-modal-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .farmer-profile-save-modal-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .farmer-profile-save-modal h3 {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+/* ============================================================
+   SAVED ITEMS - COMPLETELY UNIQUE CLASSES (sgrid- prefix)
+   ============================================================ */
+
+/* ----- Tabs ----- */
+.stabs-wrap {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: #F3F4F6;
+    padding: 0.4rem;
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.stabs-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #6B7280;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.stabs-btn i {
+    font-size: 0.9rem;
+}
+
+.stabs-btn:hover {
+    color: #111827;
+    background: rgba(45, 125, 58, 0.08);
+}
+
+.stabs-btn.active {
+    background: #FFFFFF;
+    color: #2D7D3A;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stabs-count {
+    background: #E5E7EB;
+    color: #6B7280;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.5rem;
+    border-radius: 20px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.stabs-btn.active .stabs-count {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+/* ----- Grid Container ----- */
+.sgrid-wrap {
+    display: block;
+}
+
+.sgrid-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+/* ----- Card Container - NO overflow hidden ----- */
+.sgrid-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #E5E7EB;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible !important;
+}
+
+.sgrid-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 125, 58, 0.15);
+    border-color: rgba(45, 125, 58, 0.2);
+}
+
+/* ----- Card Image - NO BORDER RADIUS ----- */
+.sgrid-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F0F5F0;
+    flex-shrink: 0;
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* ----- Card Body - Round bottom corners only ----- */
+.sgrid-body {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* ----- Card Title ----- */
+.sgrid-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.3;
+}
+
+/* ----- Card Meta (subtitle) ----- */
+.sgrid-meta {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.9rem;
+    margin: 0.1rem 0;
+}
+
+.sgrid-meta i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+/* ----- Card Location ----- */
+.sgrid-location {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin: 0.1rem 0;
+}
+
+.sgrid-location i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Card Header (Farmers/Logistics) ----- */
+.sgrid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.sgrid-header .sgrid-title {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+
+/* ----- Card Experience (Farmers) ----- */
+.sgrid-exp {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin: 0.1rem 0;
+}
+
+.sgrid-exp i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Card Footer (Products) ----- */
+.sgrid-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+/* ----- Card Price ----- */
+.sgrid-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2D7D3A;
+}
+
+/* ----- Card Status ----- */
+.sgrid-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 60px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.sgrid-status-available {
+    background: #DFF0E0;
+    color: #236B2E;
+}
+
+.sgrid-status-limited {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.sgrid-status-sold {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.sgrid-status-busy {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.sgrid-status-offline {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+/* ----- Card Rating ----- */
+.sgrid-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: #F59E0B;
+    font-size: 0.85rem;
+    margin: 0.25rem 0;
+}
+
+.sgrid-rating span {
+    color: #6B7280;
+    font-weight: 500;
+    margin-left: 0.1rem;
+}
+
+.sgrid-rating i {
+    font-size: 0.8rem;
+}
+
+/* ----- Card Reviews (Logistics) ----- */
+.sgrid-reviews {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin-left: 0.1rem;
+}
+
+/* ----- Card Tag/Category ----- */
+.sgrid-tag {
+    font-size: 0.7rem;
+    color: #6B7280;
+    margin: 0.15rem 0;
+}
+
+.sgrid-tag i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+/* ----- Featured Badge ----- */
+.sgrid-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 60px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.sgrid-badge-featured {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(45, 125, 58, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.sgrid-badge-featured i {
+    font-size: 0.5rem;
+}
+
+/* ----- Verified Badge ----- */
+.sgrid-verified {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 60px;
+    white-space: nowrap;
+}
+
+.sgrid-verified-true {
+    background: #DFF0E0;
+    color: #236B2E;
+}
+
+.sgrid-verified-true i {
+    margin-right: 0.2rem;
+}
+
+.sgrid-verified-false {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.sgrid-verified-false i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Saved Date ----- */
+.sgrid-saved-date {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    margin: 0.25rem 0;
+}
+
+.sgrid-saved-date i {
+    margin-right: 0.2rem;
+}
+
+/* ----- View Button ----- */
+.sgrid-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 60px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 1.5px solid #2D7D3A;
+    color: #2D7D3A;
+    background: transparent;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.sgrid-btn:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+/* ----- Empty State ----- */
+.sgrid-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #6B7280;
+}
+
+.sgrid-empty i {
+    font-size: 3rem;
+    color: #D1D5DB;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.sgrid-empty h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.sgrid-empty p {
+    font-size: 0.9rem;
+    color: #9CA3AF;
+}
+
+/* ============================================================
+   RESPONSIVE - 4 COLUMNS DESKTOP, 2 COLUMNS MOBILE
+   ============================================================ */
+
+@media screen and (min-width: 993px) {
+    .sgrid-row .col-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .sgrid-img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 769px) {
+    .sgrid-row .col-lg-3 {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+    .sgrid-img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sgrid-row .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+    .sgrid-img {
+        height: 160px;
+    }
+    .sgrid-body {
+        padding: 0.8rem;
+    }
+    .sgrid-title {
+        font-size: 0.95rem;
+    }
+    .sgrid-header .sgrid-title {
+        font-size: 1rem;
+    }
+    .sgrid-price {
+        font-size: 1rem;
+    }
+    .sgrid-meta,
+    .sgrid-location,
+    .sgrid-exp {
+        font-size: 0.8rem;
+    }
+    .stabs-wrap {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0.3rem;
+        gap: 0.3rem;
+    }
+    .stabs-btn {
+        flex: 0 0 auto;
+        min-width: 100px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sgrid-row .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+    .sgrid-img {
+        height: 130px;
+    }
+    .sgrid-body {
+        padding: 0.6rem;
+    }
+    .sgrid-title {
+        font-size: 0.8rem;
+    }
+    .sgrid-header .sgrid-title {
+        font-size: 0.85rem;
+    }
+    .sgrid-price {
+        font-size: 0.85rem;
+    }
+    .sgrid-meta,
+    .sgrid-location,
+    .sgrid-exp {
+        font-size: 0.7rem;
+    }
+    .sgrid-rating {
+        font-size: 0.7rem;
+    }
+    .sgrid-btn {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .sgrid-tag {
+        font-size: 0.6rem;
+    }
+    .sgrid-saved-date {
+        font-size: 0.6rem;
+    }
+    .sgrid-badge {
+        font-size: 0.45rem;
+        padding: 0.12rem 0.4rem;
+        top: 6px;
+        left: 6px;
+    }
+    .sgrid-badge i {
+        font-size: 0.35rem;
+    }
+    .sgrid-verified {
+        font-size: 0.55rem;
+        padding: 0.12rem 0.4rem;
+    }
+    .stabs-btn {
+        min-width: 70px;
+        padding: 0.35rem 0.5rem;
+        font-size: 0.65rem;
+    }
+    .stabs-btn i {
+        font-size: 0.65rem;
+    }
+    .stabs-count {
+        font-size: 0.5rem;
+        padding: 0.05rem 0.35rem;
+        min-width: 14px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .sgrid-row .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .sgrid-img {
+        height: 100px;
+    }
+    .sgrid-body {
+        padding: 0.4rem;
+    }
+    .sgrid-title {
+        font-size: 0.7rem;
+    }
+    .sgrid-header .sgrid-title {
+        font-size: 0.75rem;
+    }
+    .sgrid-price {
+        font-size: 0.75rem;
+    }
+    .sgrid-meta,
+    .sgrid-location,
+    .sgrid-exp {
+        font-size: 0.6rem;
+    }
+    .sgrid-rating {
+        font-size: 0.6rem;
+    }
+    .sgrid-btn {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.4rem;
+    }
+    .sgrid-saved-date {
+        font-size: 0.55rem;
+    }
+    .sgrid-badge {
+        font-size: 0.4rem;
+        padding: 0.1rem 0.35rem;
+        top: 4px;
+        left: 4px;
+    }
+    .sgrid-badge i {
+        font-size: 0.3rem;
+    }
+    .stabs-btn {
+        min-width: 55px;
+        padding: 0.25rem 0.35rem;
+        font-size: 0.55rem;
+    }
+    .stabs-btn i {
+        font-size: 0.55rem;
+    }
+    .stabs-count {
+        font-size: 0.45rem;
+        padding: 0.05rem 0.3rem;
+        min-width: 12px;
+    }
+}
+
+/* ============================================================
+   LOGISTICS DASHBOARD - MOBILE SEARCH BAR FIX (UPDATED)
+   ============================================================ */
+
+@media screen and (max-width: 768px) {
+    .logistics-navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .logistics-search-wrapper {
+        min-width: 130px;
+        max-width: 180px;
+        flex: 0 1 auto;
+        padding: 0.3rem 0.75rem;
+        border-radius: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        margin-right: 0.2rem;
+    }
+
+    .logistics-search-input {
+        font-size: 0.82rem;
+        padding: 0.3rem 0.3rem;
+        width: 100%;
+        min-width: 80px;
+        color: #FFFFFF;
+    }
+
+    .logistics-search-input::placeholder {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .logistics-search-icon {
+        font-size: 0.82rem;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .logistics-navbar-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .logistics-navbar-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .logistics-profile-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+        background: #2D7D3A;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFFFFF;
+        font-weight: 700;
+    }
+
+    .logistics-profile-info {
+        display: none !important;
+    }
+
+    .logistics-profile-arrow {
+        display: none !important;
+    }
+
+    .logistics-profile-trigger {
+        padding: 0.15rem 0.3rem;
+        gap: 0.3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .logistics-navbar-title {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    .logistics-navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 1.2rem;
+        padding: 0.3rem 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+        background: transparent;
+        border: none;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+    .logistics-search-wrapper {
+        min-width: 110px;
+        max-width: 150px;
+        padding: 0.25rem 0.6rem;
+        margin-right: 0.1rem;
+    }
+
+    .logistics-search-input {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.2rem;
+        min-width: 60px;
+    }
+
+    .logistics-search-input::placeholder {
+        font-size: 0.7rem;
+    }
+
+    .logistics-search-icon {
+        font-size: 0.75rem;
+    }
+
+    .logistics-navbar-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .logistics-profile-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 0.6rem;
+    }
+
+    .logistics-navbar-title {
+        font-size: 0.85rem;
+        max-width: 80px;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 1rem;
+        min-width: 34px;
+        min-height: 34px;
+        padding: 0.25rem 0.35rem;
+    }
+
+    .logistics-navbar-right {
+        gap: 0.35rem;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 380px) {
+    .logistics-search-wrapper {
+        min-width: 90px;
+        max-width: 120px;
+        padding: 0.2rem 0.4rem;
+        margin-right: 0;
+    }
+
+    .logistics-search-input {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.15rem;
+        min-width: 50px;
+    }
+
+    .logistics-search-input::placeholder {
+        font-size: 0.6rem;
+    }
+
+    .logistics-search-icon {
+        font-size: 0.65rem;
+    }
+
+    .logistics-navbar-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+
+    .logistics-profile-avatar {
+        width: 24px;
+        height: 24px;
+        font-size: 0.5rem;
+    }
+
+    .logistics-navbar-title {
+        font-size: 0.75rem;
+        max-width: 60px;
+    }
+
+    .logistics-navbar-toggle {
+        font-size: 0.85rem;
+        min-width: 30px;
+        min-height: 30px;
+        padding: 0.2rem 0.25rem;
+    }
+
+    .logistics-navbar-right {
+        gap: 0.25rem;
+    }
+}
+
+/* ============================================================
+   FARMER PRODUCTS - pcard- PREFIX (Matches Saved Items)
+   ============================================================ */
+
+/* ----- Grid - 4 columns desktop, 2 mobile ----- */
+.pcard-wrap {
+    display: block;
+}
+
+.pcard-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.pcard-item {
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-bottom: 16px;
+}
+
+/* ----- Card - overflow: visible so image corners aren't rounded ----- */
+.pcard-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #E5E7EB;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible !important; /* CRITICAL: prevents image corner rounding */
+}
+
+.pcard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 125, 58, 0.15);
+    border-color: rgba(45, 125, 58, 0.2);
+}
+
+/* ----- Image - NO BORDER RADIUS ON ANY SCREEN ----- */
+.pcard-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F0F5F0;
+    flex-shrink: 0;
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* ----- Body - Round bottom corners only ----- */
+.pcard-body {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* ----- Title ----- */
+.pcard-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.2rem;
+}
+
+/* ----- Seller (Matches marketplace-card-seller) ----- */
+.pcard-seller {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.pcard-seller i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+/* ----- Location (Matches marketplace-card-location) ----- */
+.pcard-location {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-bottom: 0.6rem;
+}
+
+.pcard-location i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Footer (Price & Status) ----- */
+.pcard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid #E5E7EB;
+}
+
+.pcard-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2D7D3A;
+}
+
+.pcard-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 60px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.pcard-status-available {
+    background: #DFF0E0;
+    color: #236B2E;
+}
+
+.pcard-status-limited {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.pcard-status-sold {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+/* ----- Rating (Matches marketplace-card-rating) ----- */
+.pcard-rating {
+    font-size: 0.8rem;
+    color: #F59E0B;
+    margin-top: 0.3rem;
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+}
+
+.pcard-rating span {
+    color: #6B7280;
+    font-weight: 500;
+}
+
+/* ----- Tag/Category ----- */
+.pcard-tag {
+    font-size: 0.7rem;
+    color: #6B7280;
+    margin-bottom: 0.4rem;
+}
+
+.pcard-tag i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+/* ----- Date (Saved/Added) ----- */
+.pcard-date {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    margin: 0.25rem 0;
+}
+
+.pcard-date i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Actions - 3 Buttons (View, Edit, Delete) ----- */
+.pcard-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.pcard-btn {
+    flex: 1;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    justify-content: center;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: 1.5px solid #E5E7EB;
+    background: transparent;
+    color: #6B7280;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.pcard-btn i {
+    font-size: 0.65rem;
+}
+
+/* View Button - GREEN */
+.pcard-btn-view {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.pcard-btn-view:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.25);
+}
+
+/* Edit Button - SAME GREEN AS VIEW */
+.pcard-btn-edit {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.pcard-btn-edit:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.25);
+}
+
+/* Delete Button - RED */
+.pcard-btn-delete {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+.pcard-btn-delete:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+/* ----- Empty State ----- */
+.pcard-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #6B7280;
+}
+
+.pcard-empty i {
+    font-size: 3rem;
+    color: #D1D5DB;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.pcard-empty h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.pcard-empty p {
+    font-size: 0.9rem;
+    color: #9CA3AF;
+}
+
+/* ============================================================
+   RESPONSIVE - 4 COLUMNS DESKTOP, 2 COLUMNS MOBILE
+   ============================================================ */
+
+@media screen and (min-width: 993px) {
+    .pcard-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .pcard-img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 769px) {
+    .pcard-item {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+    .pcard-img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pcard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 6px;
+        padding-left: 6px;
+        margin-bottom: 12px;
+    }
+    .pcard-img {
+        height: 160px;
+    }
+    .pcard-body {
+        padding: 0.8rem;
+    }
+    .pcard-title {
+        font-size: 0.95rem;
+    }
+    .pcard-price {
+        font-size: 1rem;
+    }
+    .pcard-seller,
+    .pcard-location {
+        font-size: 0.75rem;
+    }
+    .pcard-btn {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .pcard-btn i {
+        font-size: 0.6rem;
+    }
+    .pcard-actions {
+        gap: 0.35rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pcard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 4px;
+        padding-left: 4px;
+        margin-bottom: 8px;
+    }
+    .pcard-img {
+        height: 130px;
+    }
+    .pcard-body {
+        padding: 0.6rem;
+    }
+    .pcard-title {
+        font-size: 0.8rem;
+    }
+    .pcard-price {
+        font-size: 0.85rem;
+    }
+    .pcard-seller,
+    .pcard-location {
+        font-size: 0.65rem;
+    }
+    .pcard-rating {
+        font-size: 0.7rem;
+    }
+    .pcard-tag {
+        font-size: 0.6rem;
+    }
+    .pcard-date {
+        font-size: 0.6rem;
+    }
+    .pcard-btn {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.4rem;
+    }
+    .pcard-btn i {
+        font-size: 0.55rem;
+    }
+    .pcard-actions {
+        gap: 0.25rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .pcard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 3px;
+        padding-left: 3px;
+        margin-bottom: 6px;
+    }
+    .pcard-img {
+        height: 100px;
+    }
+    .pcard-body {
+        padding: 0.4rem;
+    }
+    .pcard-title {
+        font-size: 0.7rem;
+    }
+    .pcard-price {
+        font-size: 0.75rem;
+    }
+    .pcard-seller,
+    .pcard-location {
+        font-size: 0.6rem;
+    }
+    .pcard-rating {
+        font-size: 0.6rem;
+    }
+    .pcard-tag {
+        font-size: 0.55rem;
+    }
+    .pcard-date {
+        font-size: 0.55rem;
+    }
+    .pcard-btn {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.3rem;
+        border-width: 1.2px;
+    }
+    .pcard-btn i {
+        font-size: 0.5rem;
+    }
+    .pcard-actions {
+        gap: 0.2rem;
+    }
+}
+
+/* ============================================================
+   LOGISTICS SERVICES - scard- PREFIX (Matches Public Cards)
+   ============================================================ */
+
+/* ----- Grid - 4 columns desktop, 2 mobile ----- */
+.scard-wrap {
+    display: block;
+}
+
+.scard-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.scard-item {
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-bottom: 16px;
+}
+
+/* ----- Service Card - Matches Public Logistics Cards ----- */
+.scard-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #E5E7EB;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: visible !important;
+}
+
+.scard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(45, 125, 58, 0.15);
+    border-color: rgba(45, 125, 58, 0.2);
+}
+
+/* ----- Service Image - NO BORDER RADIUS ----- */
+.scard-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F0F5F0;
+    flex-shrink: 0;
+    border-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* ----- Service Body ----- */
+.scard-body {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* ----- Service Title ----- */
+.scard-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.3;
+}
+
+/* ----- Service Type ----- */
+.scard-service {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.9rem;
+    margin: 0.1rem 0;
+}
+
+.scard-service i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+/* ----- Service Location ----- */
+.scard-location {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin: 0.1rem 0;
+}
+
+.scard-location i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Service Rating ----- */
+.scard-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: #F59E0B;
+    font-size: 0.85rem;
+    margin: 0.25rem 0;
+}
+
+.scard-rating span {
+    color: #6B7280;
+    font-weight: 500;
+    margin-left: 0.1rem;
+}
+
+.scard-rating i {
+    font-size: 0.8rem;
+}
+
+/* ----- Service Reviews ----- */
+.scard-reviews {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin-left: 0.1rem;
+}
+
+/* ----- Service Status ----- */
+.scard-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.25rem 0;
+}
+
+.scard-status i {
+    margin-right: 0.3rem;
+    font-size: 0.6rem;
+}
+
+.scard-status-available {
+    color: #236B2E;
+}
+
+.scard-status-available i {
+    color: #10B981;
+}
+
+.scard-status-busy {
+    color: #B45309;
+}
+
+.scard-status-busy i {
+    color: #F59E0B;
+}
+
+.scard-status-offline {
+    color: #6B7280;
+}
+
+.scard-status-offline i {
+    color: #9CA3AF;
+}
+
+/* ----- Service Date ----- */
+.scard-date {
+    font-size: 0.7rem;
+    color: #9CA3AF;
+    margin: 0.25rem 0;
+}
+
+.scard-date i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Service Actions - 3 Buttons ----- */
+.scard-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.scard-btn {
+    flex: 1;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    justify-content: center;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: 1.5px solid #E5E7EB;
+    background: transparent;
+    color: #6B7280;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.scard-btn i {
+    font-size: 0.65rem;
+}
+
+/* View Button - GREEN */
+.scard-btn-view {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.scard-btn-view:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.25);
+}
+
+/* Edit Button - GREEN (Same as View) */
+.scard-btn-edit {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.scard-btn-edit:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.25);
+}
+
+/* Delete Button - RED */
+.scard-btn-delete {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+.scard-btn-delete:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+/* ----- Empty State ----- */
+.scard-empty {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #6B7280;
+}
+
+.scard-empty i {
+    font-size: 3rem;
+    color: #D1D5DB;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.scard-empty h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.scard-empty p {
+    font-size: 0.9rem;
+    color: #9CA3AF;
+}
+
+/* ============================================================
+   ADD SERVICE PAGE - LOGISTICS
+   ============================================================ */
+
+.logistics-add-service-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.logistics-service-preview-wrapper h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--logistics-text, #111827);
+    margin-bottom: 1rem;
+}
+
+/* ----- Service Preview Card ----- */
+.logistics-preview-service {
+    background: var(--logistics-card-bg, #FFFFFF);
+    border-radius: 16px;
+    border: 1px solid var(--logistics-border, #E5E7EB);
+    box-shadow: var(--logistics-shadow, 0 4px 16px rgba(0,0,0,0.04));
+    overflow: hidden;
+    position: sticky;
+    top: 80px;
+}
+
+.logistics-preview-service-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: #F0F5F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;
+}
+
+.logistics-preview-service-placeholder {
+    color: var(--logistics-text-secondary, #6B7280);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.logistics-preview-service-placeholder i {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+    color: #9CA3AF;
+}
+
+.logistics-preview-service-body {
+    padding: 1.25rem;
+}
+
+.logistics-preview-service-body h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--logistics-text, #111827);
+    margin: 0 0 0.2rem 0;
+}
+
+.logistics-preview-service-type {
+    font-size: 0.9rem;
+    color: var(--logistics-text-secondary, #6B7280);
+    margin: 0.1rem 0;
+}
+
+.logistics-preview-service-type i {
+    color: #2D7D3A;
+    margin-right: 0.2rem;
+}
+
+.logistics-preview-service-location {
+    font-size: 0.85rem;
+    color: var(--logistics-text-secondary, #6B7280);
+    margin: 0.1rem 0;
+}
+
+.logistics-preview-service-location i {
+    margin-right: 0.2rem;
+}
+
+.logistics-preview-service-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: #F59E0B;
+    font-size: 0.85rem;
+    margin: 0.25rem 0;
+}
+
+.logistics-preview-service-rating span {
+    color: var(--logistics-text-secondary, #6B7280);
+}
+
+.logistics-preview-reviews {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin-left: 0.1rem;
+}
+
+.logistics-preview-service-status {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.15rem 0.6rem;
+    border-radius: 60px;
+    margin: 0.25rem 0;
+}
+
+.logistics-preview-service-status.available {
+    background: #DFF0E0;
+    color: #236B2E;
+}
+
+.logistics-preview-service-status.limited {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.logistics-preview-service-status.unavailable {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.logistics-preview-service-desc {
+    font-size: 0.85rem;
+    color: var(--logistics-text-secondary, #6B7280);
+    margin: 0.25rem 0 0.5rem;
+    line-height: 1.5;
+}
+
+.logistics-preview-service-verified {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #236B2E;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.logistics-preview-service-verified i {
+    margin-right: 0.2rem;
+}
+
+/* ----- Dark Mode Support ----- */
+.logistics-dark-mode .logistics-preview-service {
+    background: #0D2812;
+    border-color: #1A3A22;
+}
+
+.logistics-dark-mode .logistics-preview-service-body h4 {
+    color: #F8F9FA;
+}
+
+.logistics-dark-mode .logistics-preview-service-type,
+.logistics-dark-mode .logistics-preview-service-location,
+.logistics-dark-mode .logistics-preview-service-desc {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .logistics-preview-service-rating span {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .logistics-preview-service-placeholder {
+    color: #9CA3AF;
+}
+
+/* ============================================================
+   RESPONSIVE - 4 COLUMNS DESKTOP, 2 COLUMNS MOBILE
+   ============================================================ */
+
+@media screen and (min-width: 993px) {
+    .scard-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .scard-img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 769px) {
+    .scard-item {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+    }
+    .scard-img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .scard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 6px;
+        padding-left: 6px;
+        margin-bottom: 12px;
+    }
+    .scard-img {
+        height: 160px;
+    }
+    .scard-body {
+        padding: 0.8rem;
+    }
+    .scard-title {
+        font-size: 0.95rem;
+    }
+    .scard-service,
+    .scard-location {
+        font-size: 0.75rem;
+    }
+    .scard-rating {
+        font-size: 0.75rem;
+    }
+    .scard-btn {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.4rem;
+    }
+    .scard-btn i {
+        font-size: 0.55rem;
+    }
+    .scard-actions {
+        gap: 0.3rem;
+    }
+
+    /* Add Service Page - Mobile */
+    .logistics-add-service-container {
+        grid-template-columns: 1fr;
+    }
+
+    .logistics-preview-service {
+        position: relative;
+        top: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .scard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 4px;
+        padding-left: 4px;
+        margin-bottom: 8px;
+    }
+    .scard-img {
+        height: 130px;
+    }
+    .scard-body {
+        padding: 0.6rem;
+    }
+    .scard-title {
+        font-size: 0.8rem;
+    }
+    .scard-service,
+    .scard-location {
+        font-size: 0.65rem;
+    }
+    .scard-rating {
+        font-size: 0.7rem;
+    }
+    .scard-rating i {
+        font-size: 0.7rem;
+    }
+    .scard-reviews {
+        font-size: 0.6rem;
+    }
+    .scard-status {
+        font-size: 0.7rem;
+    }
+    .scard-date {
+        font-size: 0.6rem;
+    }
+    .scard-btn {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.3rem;
+        border-width: 1.2px;
+    }
+    .scard-btn i {
+        font-size: 0.5rem;
+    }
+    .scard-actions {
+        gap: 0.25rem;
+    }
+
+    /* Add Service Preview - Mobile */
+    .logistics-preview-service-image {
+        height: 150px;
+    }
+    .logistics-preview-service-body {
+        padding: 0.8rem;
+    }
+    .logistics-preview-service-body h4 {
+        font-size: 0.95rem;
+    }
+    .logistics-preview-service-type,
+    .logistics-preview-service-location {
+        font-size: 0.75rem;
+    }
+    .logistics-preview-service-desc {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .scard-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-right: 3px;
+        padding-left: 3px;
+        margin-bottom: 6px;
+    }
+    .scard-img {
+        height: 100px;
+    }
+    .scard-body {
+        padding: 0.4rem;
+    }
+    .scard-title {
+        font-size: 0.7rem;
+    }
+    .scard-service,
+    .scard-location {
+        font-size: 0.6rem;
+    }
+    .scard-rating {
+        font-size: 0.6rem;
+    }
+    .scard-rating i {
+        font-size: 0.6rem;
+    }
+    .scard-reviews {
+        font-size: 0.55rem;
+    }
+    .scard-status {
+        font-size: 0.65rem;
+    }
+    .scard-date {
+        font-size: 0.55rem;
+    }
+    .scard-btn {
+        font-size: 0.5rem;
+        padding: 0.12rem 0.2rem;
+        border-width: 1px;
+    }
+    .scard-btn i {
+        font-size: 0.45rem;
+    }
+    .scard-actions {
+        gap: 0.2rem;
+    }
+
+    /* Add Service Preview - Small Mobile */
+    .logistics-preview-service-image {
+        height: 120px;
+    }
+    .logistics-preview-service-body {
+        padding: 0.6rem;
+    }
+    .logistics-preview-service-body h4 {
+        font-size: 0.8rem;
+    }
+    .logistics-preview-service-type,
+    .logistics-preview-service-location {
+        font-size: 0.65rem;
+    }
+    .logistics-preview-service-desc {
+        font-size: 0.65rem;
+    }
+    .logistics-preview-service-status {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.4rem;
+    }
+}
+
+/* ============================================================
+   PASSWORD RESET - AUTH PAGES STYLING
+   ============================================================ */
+
+/* ----- Section ----- */
+.password-reset-section {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #F0F5F0 0%, #EEF2EE 100%);
+}
+
+/* ----- Container ----- */
+.password-reset-container {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+/* ----- Card ----- */
+.password-reset-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.password-reset-card:hover {
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+}
+
+.password-reset-success-card {
+    text-align: center;
+}
+
+/* ----- Icon ----- */
+.password-reset-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(45, 125, 58, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 2rem;
+    color: #2D7D3A;
+}
+
+.password-reset-icon-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+/* ----- Title ----- */
+.password-reset-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+}
+
+.password-reset-subtitle {
+    font-size: 0.95rem;
+    color: #6B7280;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.password-reset-subtitle strong {
+    color: #111827;
+}
+
+/* ----- Form ----- */
+.password-reset-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.password-reset-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #F7FAF7;
+    border-radius: 12px;
+    border: 1.5px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.password-reset-input-group:focus-within {
+    border-color: #2D7D3A;
+    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.08);
+    background: #FFFFFF;
+}
+
+.password-reset-input-icon {
+    padding: 0 0.75rem 0 1rem;
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.password-reset-input {
+    border: none;
+    background: transparent;
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #111827;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.password-reset-input::placeholder {
+    color: #9CA3AF;
+}
+
+.password-reset-password-toggle {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    padding: 0 1rem 0 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.password-reset-password-toggle:hover {
+    color: #6B7280;
+}
+
+/* ----- Password Requirements ----- */
+.password-reset-password-requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: #6B7280;
+    padding: 0.25rem 0 0.25rem 0.25rem;
+}
+
+.password-reset-requirement {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.password-reset-requirement i {
+    font-size: 0.45rem;
+    color: #9CA3AF;
+    transition: color 0.3s ease;
+}
+
+.password-reset-requirement.valid i {
+    color: #10B981;
+}
+
+.password-reset-requirement.valid {
+    color: #10B981;
+}
+
+/* ----- Buttons ----- */
+.password-reset-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+.password-reset-btn-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.25);
+    width: 100%;
+}
+
+.password-reset-btn-primary:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 125, 58, 0.35);
+    color: #FFFFFF;
+}
+
+.password-reset-btn-outline {
+    background: transparent;
+    border: 1.5px solid #E5E7EB;
+    color: #111827;
+}
+
+.password-reset-btn-outline:hover {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+/* ----- Links ----- */
+.password-reset-links {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.password-reset-link {
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.password-reset-link:hover {
+    color: #2D7D3A;
+}
+
+/* ----- Tips & Actions ----- */
+.password-reset-email-tips,
+.password-reset-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    background: #F7FAF7;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+}
+
+.password-reset-tip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.password-reset-tip i {
+    width: 1.25rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.password-reset-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.password-reset-actions .password-reset-btn {
+    width: 100%;
+}
+
+.password-reset-success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.password-reset-success-actions .password-reset-btn {
+    width: 100%;
+}
+
+/* ----- Toast ----- */
+.password-reset-toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 380px;
+    width: 100%;
+}
+
+.password-reset-toast {
+    background: #FFFFFF;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: toastIn 0.4s ease;
+}
+
+.password-reset-toast-success {
+    border-left: 4px solid #10B981;
+}
+
+.password-reset-toast-error {
+    border-left: 4px solid #EF4444;
+}
+
+.password-reset-toast-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.password-reset-toast-success .password-reset-toast-icon {
+    color: #10B981;
+}
+
+.password-reset-toast-error .password-reset-toast-icon {
+    color: #EF4444;
+}
+
+.password-reset-toast-content {
+    flex: 1;
+}
+
+.password-reset-toast-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+}
+
+.password-reset-toast-message {
+    font-size: 0.85rem;
+    color: #6B7280;
+}
+
+.password-reset-toast-close {
+    background: none;
+    border: none;
+    color: #6B7280;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 768px) {
+    .password-reset-card {
+        padding: 2rem 1.25rem;
+    }
+    
+    .password-reset-title {
+        font-size: 1.3rem;
+    }
+    
+    .password-reset-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .password-reset-input {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.6rem 0.6rem 0;
+    }
+    
+    .password-reset-btn {
+        font-size: 0.9rem;
+        padding: 0.65rem 1.25rem;
+    }
+    
+    .password-reset-toast-container {
+        bottom: 1rem;
+        right: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .password-reset-section {
+        padding: 1rem 0.75rem;
+    }
+    
+    .password-reset-card {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+    
+    .password-reset-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+    
+    .password-reset-title {
+        font-size: 1.2rem;
+    }
+    
+    .password-reset-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .password-reset-input-group {
+        border-radius: 10px;
+    }
+    
+    .password-reset-input {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.5rem 0.5rem 0;
+    }
+    
+    .password-reset-input-icon {
+        padding: 0 0.5rem 0 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .password-reset-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .password-reset-password-requirements {
+        font-size: 0.75rem;
+    }
+    
+    .password-reset-tip {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================================
+   404 PAGE - FARMCONNECT STYLING
+   ============================================================ */
+
+/* ----- Section ----- */
+.error-404-section {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #F0F5F0 0%, #EEF2EE 100%);
+}
+
+/* ----- Container ----- */
+.error-404-container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* ----- Card ----- */
+.error-404-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E5E7EB;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.error-404-card:hover {
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* ----- Illustration ----- */
+.error-404-illustration {
+    margin-bottom: 2rem;
+}
+
+.error-404-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 6rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1;
+}
+
+.error-404-digit {
+    background: linear-gradient(135deg, #0A1F0E, #2D7D3A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.error-404-zero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(45, 125, 58, 0.08);
+    font-size: 3rem;
+    color: #2D7D3A;
+    -webkit-text-fill-color: #2D7D3A;
+}
+
+.error-404-zero i {
+    -webkit-text-fill-color: #2D7D3A;
+}
+
+.error-404-farm-animation {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: #6B7280;
+    animation: float 3s ease-in-out infinite;
+}
+
+.error-404-farm-animation i:nth-child(1) {
+    animation-delay: 0s;
+}
+.error-404-farm-animation i:nth-child(2) {
+    animation-delay: 0.5s;
+}
+.error-404-farm-animation i:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ----- Title ----- */
+.error-404-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.error-404-subtitle {
+    font-size: 1rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ----- Search ----- */
+.error-404-search {
+    margin-bottom: 2rem;
+}
+
+.error-404-search-form {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.error-404-search-wrapper {
+    display: flex;
+    align-items: center;
+    background: #F7FAF7;
+    border-radius: 60px;
+    border: 1.5px solid #E5E7EB;
+    padding: 0.1rem;
+    transition: all 0.3s ease;
+}
+
+.error-404-search-wrapper:focus-within {
+    border-color: #2D7D3A;
+    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.08);
+    background: #FFFFFF;
+}
+
+.error-404-search-icon {
+    padding: 0 0.75rem 0 1.25rem;
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.error-404-search-input {
+    border: none;
+    background: transparent;
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #111827;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.error-404-search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.error-404-search-btn {
+    background: #2D7D3A;
+    border: none;
+    color: #FFFFFF;
+    padding: 0.6rem 1.5rem;
+    border-radius: 60px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+}
+
+.error-404-search-btn:hover {
+    background: #236B2E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 58, 0.3);
+}
+
+/* ----- Quick Links ----- */
+.error-404-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-404-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 60px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6B7280;
+    background: #F7FAF7;
+    border: 1px solid #E5E7EB;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.error-404-link:hover {
+    color: #2D7D3A;
+    border-color: #2D7D3A;
+    background: rgba(45, 125, 58, 0.04);
+    transform: translateY(-2px);
+}
+
+.error-404-link-primary {
+    background: #2D7D3A;
+    color: #FFFFFF;
+    border-color: #2D7D3A;
+}
+
+.error-404-link-primary:hover {
+    background: #236B2E;
+    color: #FFFFFF;
+    border-color: #236B2E;
+}
+
+/* ----- Help ----- */
+.error-404-help {
+    font-size: 0.85rem;
+    color: #6B7280;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.error-404-help a {
+    color: #2D7D3A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.error-404-help a:hover {
+    color: #236B2E;
+    text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media screen and (max-width: 768px) {
+    .error-404-card {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .error-404-number {
+        font-size: 4.5rem;
+    }
+    
+    .error-404-zero {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+    
+    .error-404-title {
+        font-size: 1.5rem;
+    }
+    
+    .error-404-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .error-404-search-wrapper {
+        border-radius: 50px;
+    }
+    
+    .error-404-search-input {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.4rem;
+    }
+    
+    .error-404-search-btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .error-404-links {
+        gap: 0.5rem;
+    }
+    
+    .error-404-link {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .error-404-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .error-404-card {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+    
+    .error-404-number {
+        font-size: 3.5rem;
+    }
+    
+    .error-404-zero {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    
+    .error-404-title {
+        font-size: 1.3rem;
+    }
+    
+    .error-404-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .error-404-farm-animation {
+        font-size: 1.2rem;
+        gap: 1rem;
+    }
+    
+    .error-404-search-wrapper {
+        border-radius: 40px;
+        flex-wrap: wrap;
+        background: transparent;
+        border: none;
+        gap: 0.5rem;
+    }
+    
+    .error-404-search-wrapper:focus-within {
+        box-shadow: none;
+        background: transparent;
+    }
+    
+    .error-404-search-icon {
+        display: none;
+    }
+    
+    .error-404-search-input {
+        border: 1.5px solid #E5E7EB;
+        border-radius: 60px;
+        padding: 0.6rem 1rem;
+        background: #FFFFFF;
+        flex: 1 1 100%;
+    }
+    
+    .error-404-search-input:focus {
+        border-color: #2D7D3A;
+        box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.08);
+    }
+    
+    .error-404-search-btn {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        justify-content: center;
+    }
+    
+    .error-404-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .error-404-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/* ============================================================
+   DARK MODE - PUBLIC PAGES (Matching Dashboard)
+   ============================================================ */
+
+/* ----- Base Dark Mode ----- */
+body.dark-mode {
+    --home-bg: #0A1A0E;
+    --home-card-bg: #0D2812;
+    --home-text: #F8F9FA;
+    --home-text-secondary: #9CA3AF;
+    --home-border: #1A3A22;
+    --home-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --home-section-bg: #0A1A0E;
+}
+
+body.dark-mode {
+    background: #0A1A0E !important;
+    color: #F8F9FA !important;
+}
+
+/* ----- Navbar ----- */
+body.dark-mode .login-navbar,
+body.dark-mode .home-navbar,
+body.dark-mode .marketplace-navbar,
+body.dark-mode .farmers-navbar,
+body.dark-mode .logistics-navbar,
+body.dark-mode .detail-navbar {
+    background: #0D2812 !important;
+    border-bottom-color: #1A3A22 !important;
+}
+
+body.dark-mode .login-nav-links a,
+body.dark-mode .home-nav-links a,
+body.dark-mode .marketplace-nav-links a,
+body.dark-mode .farmers-nav-links a,
+body.dark-mode .logistics-nav-links a,
+body.dark-mode .detail-nav-links a,
+body.dark-mode .home-search-select-input,
+body.dark-mode .farmers-checkbox-label {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+body.dark-mode .login-nav-links a:hover,
+body.dark-mode .home-nav-links a:hover,
+body.dark-mode .marketplace-nav-links a:hover,
+body.dark-mode .farmers-nav-links a:hover,
+body.dark-mode .logistics-nav-links a:hover,
+body.dark-mode .detail-nav-links a:hover {
+    color: #FFFFFF !important;
+}
+
+/* ----- Hero Sections ----- */
+body.dark-mode .home-hero,
+body.dark-mode .marketplace-page-header,
+body.dark-mode .farmers-page-header,
+body.dark-mode .logistics-page-header,
+body.dark-mode .detail-product-header,
+body.dark-mode .detail-farmer-header,
+body.dark-mode .detail-logistics-header {
+    background: linear-gradient(135deg, #0A1F0E 0%, #0D2E14 100%) !important;
+}
+
+body.dark-mode .home-hero-title,
+body.dark-mode .marketplace-page-title,
+body.dark-mode .farmers-page-title,
+body.dark-mode .logistics-page-title,
+body.dark-mode .detail-product-title,
+body.dark-mode .detail-farmer-title,
+body.dark-mode .detail-logistics-title {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .home-hero-sub,
+body.dark-mode .marketplace-page-subtitle,
+body.dark-mode .farmers-page-subtitle,
+body.dark-mode .logistics-page-subtitle,
+body.dark-mode .detail-product-subtitle,
+body.dark-mode .detail-farmer-subtitle,
+body.dark-mode .detail-logistics-subtitle {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ----- Sections (White background becomes dark) ----- */
+body.dark-mode .home-section,
+body.dark-mode .marketplace-section,
+body.dark-mode .farmers-section,
+body.dark-mode .logistics-section,
+body.dark-mode .detail-section,
+body.dark-mode .about-section,
+body.dark-mode .contact-section,
+body.dark-mode .home-featured-section,
+body.dark-mode .marketplace-grid-section,
+body.dark-mode .farmers-grid-section,
+body.dark-mode .logistics-grid-section,
+body.dark-mode .detail-product-section,
+body.dark-mode .detail-profile-section,
+body.dark-mode .detail-seller-section,
+body.dark-mode .detail-similar-section,
+body.dark-mode .detail-reviews-section,
+body.dark-mode .detail-tracking-section,
+body.dark-mode .detail-vehicles-section,
+body.dark-mode .detail-coverage-section {
+    background: #0A1A0E !important;
+}
+
+/* ----- Cards ----- */
+body.dark-mode .home-featured-card,
+body.dark-mode .marketplace-card,
+body.dark-mode .farmers-card,
+body.dark-mode .logistics-card,
+body.dark-mode .detail-similar-card,
+body.dark-mode .detail-produce-card,
+body.dark-mode .detail-seller-card,
+body.dark-mode .detail-vehicle-card,
+body.dark-mode .detail-coverage-card,
+body.dark-mode .detail-shipment-card,
+body.dark-mode .home-category-card,
+body.dark-mode .about-problem-card,
+body.dark-mode .about-solution-card,
+body.dark-mode .about-trust-card,
+body.dark-mode .contact-info-card,
+body.dark-mode .contact-faq-item, 
+body.dark-mode .home-browse-section,
+body.dark-mode .home-step-card, 
+body.dark-mode .contact-form-wrapper, 
+body.dark-mode .contact-map-wrapper {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .home-featured-card:hover,
+body.dark-mode .marketplace-card:hover,
+body.dark-mode .farmers-card:hover,
+body.dark-mode .logistics-card:hover,
+body.dark-mode .detail-similar-card:hover,
+body.dark-mode .home-category-card:hover {
+    border-color: rgba(45, 125, 58, 0.3) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ----- Card Text ----- */
+body.dark-mode .home-featured-name,
+body.dark-mode .marketplace-card-name,
+/* body.dark-mode .farmers-card-name, */
+body.dark-mode .logistics-card-name,
+body.dark-mode .detail-similar-name,
+body.dark-mode .detail-produce-name,
+body.dark-mode .home-category-card span,
+body.dark-mode .about-problem-card h3,
+body.dark-mode .about-solution-card h3,
+body.dark-mode .about-trust-card h3,
+body.dark-mode .detail-review-name,
+body.dark-mode .detail-seller-name,
+body.dark-mode .detail-vehicle-card h3,
+body.dark-mode .detail-coverage-card h3,
+body.dark-mode .name-full {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .home-featured-seller,
+body.dark-mode .home-featured-location,
+body.dark-mode .marketplace-card-seller,
+body.dark-mode .marketplace-card-location,
+body.dark-mode .farmers-card-specialization,
+body.dark-mode .farmers-card-location,
+body.dark-mode .farmers-card-experience,
+body.dark-mode .logistics-card-service,
+body.dark-mode .logistics-card-location,
+body.dark-mode .detail-similar-farmer,
+body.dark-mode .detail-similar-location,
+body.dark-mode .detail-produce-quantity,
+body.dark-mode .detail-seller-location,
+body.dark-mode .detail-seller-experience,
+body.dark-mode .about-problem-card p,
+body.dark-mode .about-solution-card p,
+body.dark-mode .about-trust-card p,
+body.dark-mode .detail-vehicle-card p,
+body.dark-mode .detail-coverage-list li {
+    color: #9CA3AF !important;
+}
+
+/* ----- Headings ----- */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode .home-section-title,
+body.dark-mode .marketplace-grid-title,
+body.dark-mode .farmers-grid-title,
+body.dark-mode .logistics-grid-title,
+body.dark-mode .detail-section-title,
+body.dark-mode .about-section-title,
+body.dark-mode .contact-section-title {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .home-section-title::after {
+    background: #2D7D3A !important;
+}
+
+/* ----- Subtitle / Description ----- */
+body.dark-mode .home-featured-count,
+body.dark-mode .marketplace-grid-count,
+body.dark-mode .farmers-grid-count,
+body.dark-mode .logistics-grid-count,
+body.dark-mode .about-section-subtitle,
+body.dark-mode .contact-section-subtitle {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-featured-count,
+body.dark-mode .marketplace-grid-count,
+body.dark-mode .farmers-grid-count,
+body.dark-mode .logistics-grid-count {
+  font-size: 0.95rem;
+    color: #6B7280;
+    font-weight: 500;
+    display: inline-block;
+    background: #0D2812;
+    padding: 0.2rem 1.2rem;
+    border-radius: 60px;
+    letter-spacing: 0.02em;
+}
+
+/* ----- Product Detail ----- */
+body.dark-mode .detail-product-price {
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .detail-product-description,
+body.dark-mode .detail-profile-bio,
+body.dark-mode .detail-review-text {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .detail-product-rating span,
+body.dark-mode .detail-seller-rating span,
+body.dark-mode .detail-profile-rating span {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .detail-verified-farmer-badge {
+    background: #1A3A22 !important;
+    color: #2D7D3A !important;
+}
+
+/* ----- Forms & Inputs ----- */
+body.dark-mode .login-form input,
+body.dark-mode .contact-form-input,
+body.dark-mode .contact-form-textarea,
+body.dark-mode .detail-form-input,
+body.dark-mode .detail-form-textarea,
+body.dark-mode .marketplace-search-input,
+body.dark-mode .farmers-search-input,
+body.dark-mode .logistics-search-input,
+body.dark-mode .home-search-input,
+body.dark-mode .home-search-select,
+body.dark-mode .marketplace-search-select,
+body.dark-mode .farmers-search-select,
+body.dark-mode .logistics-search-select {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .login-form input::placeholder,
+body.dark-mode .contact-form-input::placeholder,
+body.dark-mode .contact-form-textarea::placeholder,
+body.dark-mode .detail-form-input::placeholder,
+body.dark-mode .detail-form-textarea::placeholder,
+body.dark-mode .marketplace-search-input::placeholder,
+body.dark-mode .farmers-search-input::placeholder,
+body.dark-mode .logistics-search-input::placeholder,
+body.dark-mode .home-search-input::placeholder {
+    color: #D3D3D3 !important;
+}
+
+body.dark-mode .marketplace-search-field,
+body.dark-mode .farmers-search-field,
+body.dark-mode .logistics-search-field,
+body.dark-mode .home-search-field {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+}
+
+body.dark-mode .marketplace-search-box,
+body.dark-mode .farmers-search-box,
+body.dark-mode .logistics-search-box,
+body.dark-mode .home-search-box {
+    background: #0D2812 !important;
+}
+
+body.dark-mode .marketplace-search-icon,
+body.dark-mode .farmers-search-icon,
+body.dark-mode .logistics-search-icon,
+body.dark-mode .home-search-icon {
+    color: #6B7280 !important;
+}
+
+/* ----- Modals ----- */
+body.dark-mode .detail-modal,
+body.dark-mode .detail-review-modal,
+body.dark-mode .detail-contact-modal,
+body.dark-mode .home-save-modal,
+body.dark-mode .marketplace-save-modal,
+body.dark-mode .product-detail-save-modal,
+body.dark-mode .similar-products-save-modal {
+    background: #0D2812 !important;
+}
+
+body.dark-mode .detail-modal-header,
+body.dark-mode .detail-review-modal-header,
+body.dark-mode .detail-contact-modal-header,
+body.dark-mode .home-save-modal-header,
+body.dark-mode .marketplace-save-modal-header {
+    border-bottom-color: #1A3A22 !important;
+}
+
+body.dark-mode .detail-modal-header h3,
+body.dark-mode .detail-review-modal-header h3,
+body.dark-mode .detail-contact-modal-header h3,
+body.dark-mode .home-save-modal h3,
+body.dark-mode .marketplace-save-modal h3 {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .detail-modal-close,
+body.dark-mode .detail-review-modal-close,
+body.dark-mode .detail-contact-modal-close,
+body.dark-mode .home-save-modal-close,
+body.dark-mode .marketplace-save-modal-close {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .detail-modal-close:hover,
+body.dark-mode .detail-review-modal-close:hover,
+body.dark-mode .detail-contact-modal-close:hover {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .detail-modal-body p,
+body.dark-mode .detail-review-modal-body p,
+body.dark-mode .detail-contact-modal-body p,
+body.dark-mode .home-save-modal p,
+body.dark-mode .marketplace-save-modal p {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .detail-modal-footer,
+body.dark-mode .detail-review-modal-footer,
+body.dark-mode .detail-contact-modal-footer,
+body.dark-mode .home-save-modal-footer,
+body.dark-mode .marketplace-save-modal-footer {
+    border-top-color: #1A3A22 !important;
+}
+
+/* ----- Footer ----- */
+body.dark-mode .home-footer {
+    background: #0D2812 !important;
+}
+
+body.dark-mode .home-footer h5 {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .home-footer-text {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-footer-links a {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-footer-links a:hover {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .home-footer-input {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .home-footer-input::placeholder {
+    color: #6B7280 !important;
+}
+
+body.dark-mode .home-footer-bottom {
+    border-top-color: #1A3A22 !important;
+    color: #6B7280 !important;
+}
+
+body.dark-mode .home-social-icons a {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-social-icons a:hover {
+    color: #FFFFFF !important;
+}
+
+/* ----- Badges & Status ----- */
+body.dark-mode .home-featured-badge,
+body.dark-mode .marketplace-featured-badge,
+body.dark-mode .farmers-featured-badge,
+body.dark-mode .logistics-featured-badge,
+body.dark-mode .detail-product-featured-badge,
+body.dark-mode .detail-profile-featured-badge {
+    background: #2D7D3A !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .farmers-verified-badge,
+body.dark-mode .logistics-verified-badge {
+    background: #1A3A22 !important;
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .farmers-unverified-badge,
+body.dark-mode .logistics-unverified-badge {
+    background: #2A1A1A !important;
+    color: #EF4444 !important;
+}
+
+body.dark-mode .home-status-available,
+body.dark-mode .marketplace-status-available,
+body.dark-mode .detail-status-available {
+    background: #1A3A22 !important;
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .home-status-low,
+body.dark-mode .marketplace-status-low,
+body.dark-mode .detail-status-low {
+    background: #2A2A1A !important;
+    color: #F59E0B !important;
+}
+
+/* ----- CTA Sections ----- */
+body.dark-mode .home-cta-section,
+body.dark-mode .marketplace-cta-section,
+body.dark-mode .farmers-cta-section,
+body.dark-mode .logistics-cta-section,
+body.dark-mode .about-cta-section,
+body.dark-mode .detail-cta-section {
+    background: linear-gradient(135deg, #0A1F0E 0%, #0D2E14 100%) !important;
+}
+
+body.dark-mode .home-cta-title,
+body.dark-mode .marketplace-cta-title,
+body.dark-mode .farmers-cta-title,
+body.dark-mode .logistics-cta-title,
+body.dark-mode .about-cta-title,
+body.dark-mode .detail-cta-title {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .home-cta-subtitle,
+body.dark-mode .marketplace-cta-subtitle,
+body.dark-mode .farmers-cta-subtitle,
+body.dark-mode .logistics-cta-subtitle,
+body.dark-mode .about-cta-subtitle,
+body.dark-mode .detail-cta-subtitle {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ----- Review Items ----- */
+body.dark-mode .detail-review-item {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+}
+
+/* ----- Search & Filter Sections ----- */
+body.dark-mode .marketplace-search-section,
+body.dark-mode .farmers-search-section,
+body.dark-mode .logistics-search-section {
+    background: #0A1A0E !important;
+    border-bottom-color: #1A3A22 !important;
+    
+}
+
+/* ----- Toast ----- */
+body.dark-mode .detail-toast,
+body.dark-mode .home-toast,
+body.dark-mode .marketplace-toast {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+}
+
+body.dark-mode .detail-toast-title,
+body.dark-mode .home-toast-title,
+body.dark-mode .marketplace-toast-title {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .detail-toast-message,
+body.dark-mode .home-toast-message,
+body.dark-mode .marketplace-toast-message {
+    color: #9CA3AF !important;
+}
+
+/* ----- Pagination ----- */
+body.dark-mode .marketplace-pagination-btn,
+body.dark-mode .farmers-pagination-btn,
+body.dark-mode .logistics-pagination-btn {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .marketplace-pagination-btn:hover:not(:disabled),
+body.dark-mode .farmers-pagination-btn:hover:not(:disabled),
+body.dark-mode .logistics-pagination-btn:hover:not(:disabled) {
+    border-color: #2D7D3A !important;
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .marketplace-pagination-btn.active,
+body.dark-mode .farmers-pagination-btn.active,
+body.dark-mode .logistics-pagination-btn.active {
+    background: #2D7D3A !important;
+    border-color: #2D7D3A !important;
+    color: #FFFFFF !important;
+}
+
+/* ----- About & Contact Pages ----- */
+body.dark-mode .about-mission-wrapper {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+}
+
+body.dark-mode .about-mission-statement {
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .contact-faq-question {
+    background: #0D2812 !important;
+}
+
+body.dark-mode .contact-faq-question:hover {
+    background: #1A3A22 !important;
+}
+
+body.dark-mode .contact-faq-question h3 {
+    color: #F8F9FA !important;
+}
+
+/* ----- Save Buttons ----- */
+body.dark-mode .home-featured-save-btn,
+body.dark-mode .marketplace-save-btn,
+body.dark-mode .farmers-save-btn,
+body.dark-mode .logistics-save-btn,
+body.dark-mode .detail-similar-save-btn,
+body.dark-mode .detail-product-save-btn,
+body.dark-mode .detail-profile-save-btn {
+    background: rgba(13, 40, 18, 0.9) !important;
+    border-color: #1A3A22 !important;
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-featured-save-btn:hover,
+body.dark-mode .marketplace-save-btn:hover,
+body.dark-mode .farmers-save-btn:hover,
+body.dark-mode .logistics-save-btn:hover,
+body.dark-mode .detail-similar-save-btn:hover,
+body.dark-mode .detail-product-save-btn:hover,
+body.dark-mode .detail-profile-save-btn:hover {
+    background: rgba(13, 40, 18, 1) !important;
+}
+
+body.dark-mode .home-featured-save-btn.saved,
+body.dark-mode .marketplace-save-btn.saved,
+body.dark-mode .farmers-save-btn.saved,
+body.dark-mode .logistics-save-btn.saved,
+body.dark-mode .detail-similar-save-btn.saved,
+body.dark-mode .detail-product-save-btn.saved,
+body.dark-mode .detail-profile-save-btn.saved {
+    color: #EF4444 !important;
+}
+
+/* ----- General Text Colors - PUBLIC PAGES ONLY ----- */
+body.public-page.dark-mode p,
+body.public-page.dark-mode li,
+body.public-page.dark-mode span:not(.home-featured-badge):not(.marketplace-featured-badge):not(.farmers-verified-badge):not(.logistics-verified-badge) {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .home-featured-price,
+body.dark-mode .marketplace-card-price,
+body.dark-mode .detail-similar-price,
+body.dark-mode .detail-produce-price {
+    color: #2D7D3A !important;
+}
+
+/* ----- Ensure buttons remain visible ----- */
+body.dark-mode .home-btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .home-btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ----- Fix for login/register pages ----- */
+body.dark-mode .login-card,
+body.dark-mode .register-card {
+    background: #0D2812 !important;
+    border-color: #1A3A22 !important;
+}
+
+body.dark-mode .login-card h1,
+body.dark-mode .register-card h1 {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .login-card p,
+body.dark-mode .register-card p {
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .login-input-group,
+body.dark-mode .register-input-group {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+}
+
+body.dark-mode .login-input-group input,
+body.dark-mode .register-input-group input {
+    color: #F8F9FA !important;
+}
+
+body.dark-mode .login-input-group input::placeholder,
+body.dark-mode .register-input-group input::placeholder {
+    color: #6B7280 !important;
+}
+
+body.dark-mode .login-input-icon,
+body.dark-mode .register-input-icon {
+    color: #6B7280 !important;
+}
+
+body.dark-mode .login-forgot a,
+body.dark-mode .register-login-link a {
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .login-forgot a:hover,
+body.dark-mode .register-login-link a:hover {
+    color: #236B2E !important;
+}
+
+body.dark-mode .login-divider span,
+body.dark-mode .register-divider span {
+    background: #0D2812 !important;
+    color: #6B7280 !important;
+}
+
+body.dark-mode .login-divider::before,
+body.dark-mode .login-divider::after,
+body.dark-mode .register-divider::before,
+body.dark-mode .register-divider::after {
+    background: #1A3A22 !important;
+}
+
+body.dark-mode .register-user-type-btn {
+    background: #1A3A22 !important;
+    border-color: #2A4F34 !important;
+    color: #9CA3AF !important;
+}
+
+body.dark-mode .register-user-type-btn.active {
+    background: rgba(45, 125, 58, 0.15) !important;
+    border-color: #2D7D3A !important;
+    color: #2D7D3A !important;
+}
+
+body.dark-mode .register-user-type-btn:hover {
+    border-color: #2D7D3A !important;
+    color: #2D7D3A !important;
+}
+
+
+
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #FFFFFF;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+
+/* ============================================================
+   DARK MODE - ALL NEW SECTIONS (sgrid-, pcard-, scard-)
+   ============================================================ */
+
+/* ----- 1. SAVED ITEMS DARK MODE (sgrid-) ----- */
+.farmer-dark-mode .sgrid-card,
+.buyer-dark-mode .sgrid-card,
+.logistics-dark-mode .sgrid-card {
+    background: #0D2812;
+    border-color: #1A3A22;
+}
+
+.farmer-dark-mode .sgrid-body,
+.buyer-dark-mode .sgrid-body,
+.logistics-dark-mode .sgrid-body {
+    background: #0D2812;
+}
+
+.farmer-dark-mode .sgrid-title,
+.buyer-dark-mode .sgrid-title,
+.logistics-dark-mode .sgrid-title {
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .sgrid-meta,
+.buyer-dark-mode .sgrid-meta,
+.logistics-dark-mode .sgrid-meta {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-location,
+.buyer-dark-mode .sgrid-location,
+.logistics-dark-mode .sgrid-location {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-price,
+.buyer-dark-mode .sgrid-price,
+.logistics-dark-mode .sgrid-price {
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .sgrid-status,
+.buyer-dark-mode .sgrid-status,
+.logistics-dark-mode .sgrid-status {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-status-available,
+.buyer-dark-mode .sgrid-status-available,
+.logistics-dark-mode .sgrid-status-available {
+    background: #1A3A22;
+    color: #4ADE80;
+}
+
+.farmer-dark-mode .sgrid-status-limited,
+.buyer-dark-mode .sgrid-status-limited,
+.logistics-dark-mode .sgrid-status-limited {
+    background: #1A3A22;
+    color: #FBBF24;
+}
+
+.farmer-dark-mode .sgrid-status-sold,
+.buyer-dark-mode .sgrid-status-sold,
+.logistics-dark-mode .sgrid-status-sold {
+    background: #1A3A22;
+    color: #F87171;
+}
+
+.farmer-dark-mode .sgrid-status-busy,
+.buyer-dark-mode .sgrid-status-busy,
+.logistics-dark-mode .sgrid-status-busy {
+    background: #1A3A22;
+    color: #FBBF24;
+}
+
+.farmer-dark-mode .sgrid-status-offline,
+.buyer-dark-mode .sgrid-status-offline,
+.logistics-dark-mode .sgrid-status-offline {
+    background: #1A3A22;
+    color: #6B7280;
+}
+
+.farmer-dark-mode .sgrid-rating,
+.buyer-dark-mode .sgrid-rating,
+.logistics-dark-mode .sgrid-rating {
+    color: #F59E0B;
+}
+
+.farmer-dark-mode .sgrid-rating span,
+.buyer-dark-mode .sgrid-rating span,
+.logistics-dark-mode .sgrid-rating span {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-tag,
+.buyer-dark-mode .sgrid-tag,
+.logistics-dark-mode .sgrid-tag {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-saved-date,
+.buyer-dark-mode .sgrid-saved-date,
+.logistics-dark-mode .sgrid-saved-date {
+    color: #6B7280;
+}
+
+.farmer-dark-mode .sgrid-btn,
+.buyer-dark-mode .sgrid-btn,
+.logistics-dark-mode .sgrid-btn {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .sgrid-btn:hover,
+.buyer-dark-mode .sgrid-btn:hover,
+.logistics-dark-mode .sgrid-btn:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-dark-mode .sgrid-verified-true,
+.buyer-dark-mode .sgrid-verified-true,
+.logistics-dark-mode .sgrid-verified-true {
+    background: #1A3A22;
+    color: #4ADE80;
+}
+
+.farmer-dark-mode .sgrid-verified-false,
+.buyer-dark-mode .sgrid-verified-false,
+.logistics-dark-mode .sgrid-verified-false {
+    background: #1A3A22;
+    color: #FBBF24;
+}
+
+.farmer-dark-mode .sgrid-badge-featured,
+.buyer-dark-mode .sgrid-badge-featured,
+.logistics-dark-mode .sgrid-badge-featured {
+    background: #1A3A22;
+    color: #FBBF24;
+    border-color: #FBBF24;
+}
+
+/* Tabs Dark Mode */
+.farmer-dark-mode .stabs-wrap,
+.buyer-dark-mode .stabs-wrap,
+.logistics-dark-mode .stabs-wrap {
+    background: #1A3A22;
+}
+
+.farmer-dark-mode .stabs-btn,
+.buyer-dark-mode .stabs-btn,
+.logistics-dark-mode .stabs-btn {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .stabs-btn:hover,
+.buyer-dark-mode .stabs-btn:hover,
+.logistics-dark-mode .stabs-btn:hover {
+    color: #F8F9FA;
+    background: rgba(45, 125, 58, 0.15);
+}
+
+.farmer-dark-mode .stabs-btn.active,
+.buyer-dark-mode .stabs-btn.active,
+.logistics-dark-mode .stabs-btn.active {
+    background: #0D2812;
+    color: #2D7D3A;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.farmer-dark-mode .stabs-count,
+.buyer-dark-mode .stabs-count,
+.logistics-dark-mode .stabs-count {
+    background: #1A3A22;
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .stabs-btn.active .stabs-count,
+.buyer-dark-mode .stabs-btn.active .stabs-count,
+.logistics-dark-mode .stabs-btn.active .stabs-count {
+    background: #1A3A22;
+    color: #4ADE80;
+}
+
+/* Empty State Dark Mode */
+.farmer-dark-mode .sgrid-empty,
+.buyer-dark-mode .sgrid-empty,
+.logistics-dark-mode .sgrid-empty {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .sgrid-empty i,
+.buyer-dark-mode .sgrid-empty i,
+.logistics-dark-mode .sgrid-empty i {
+    color: #374151;
+}
+
+.farmer-dark-mode .sgrid-empty h3,
+.buyer-dark-mode .sgrid-empty h3,
+.logistics-dark-mode .sgrid-empty h3 {
+    color: #F8F9FA;
+}
+
+/* ----- 2. FARMER PRODUCTS DARK MODE (pcard-) ----- */
+.farmer-dark-mode .pcard-card {
+    background: #0D2812;
+    border-color: #1A3A22;
+}
+
+.farmer-dark-mode .pcard-body {
+    background: #0D2812;
+}
+
+.farmer-dark-mode .pcard-title {
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .pcard-seller {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-location {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-price {
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .pcard-status {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-status-available {
+    background: #1A3A22;
+    color: #4ADE80;
+}
+
+.farmer-dark-mode .pcard-status-limited {
+    background: #1A3A22;
+    color: #FBBF24;
+}
+
+.farmer-dark-mode .pcard-status-sold {
+    background: #1A3A22;
+    color: #F87171;
+}
+
+.farmer-dark-mode .pcard-rating {
+    color: #F59E0B;
+}
+
+.farmer-dark-mode .pcard-rating span {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-tag {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-date {
+    color: #6B7280;
+}
+
+.farmer-dark-mode .pcard-btn {
+    border-color: #1A3A22;
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-btn-view {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .pcard-btn-view:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-dark-mode .pcard-btn-edit {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .pcard-btn-edit:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.farmer-dark-mode .pcard-btn-delete {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+.farmer-dark-mode .pcard-btn-delete:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+.farmer-dark-mode .pcard-empty {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .pcard-empty i {
+    color: #374151;
+}
+
+.farmer-dark-mode .pcard-empty h3 {
+    color: #F8F9FA;
+}
+
+/* ----- 3. LOGISTICS SERVICES DARK MODE (scard-) ----- */
+.logistics-dark-mode .scard-card {
+    background: #0D2812;
+    border-color: #1A3A22;
+}
+
+.logistics-dark-mode .scard-body {
+    background: #0D2812;
+}
+
+.logistics-dark-mode .scard-title {
+    color: #F8F9FA;
+}
+
+.logistics-dark-mode .scard-service {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-location {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-price {
+    color: #2D7D3A;
+}
+
+.logistics-dark-mode .scard-status {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-status-available {
+    color: #4ADE80;
+}
+
+.logistics-dark-mode .scard-status-available i {
+    color: #4ADE80;
+}
+
+.logistics-dark-mode .scard-status-limited {
+    color: #FBBF24;
+}
+
+.logistics-dark-mode .scard-status-limited i {
+    color: #FBBF24;
+}
+
+.logistics-dark-mode .scard-status-busy {
+    color: #FBBF24;
+}
+
+.logistics-dark-mode .scard-status-busy i {
+    color: #FBBF24;
+}
+
+.logistics-dark-mode .scard-status-offline {
+    color: #6B7280;
+}
+
+.logistics-dark-mode .scard-status-offline i {
+    color: #6B7280;
+}
+
+.logistics-dark-mode .scard-rating {
+    color: #F59E0B;
+}
+
+.logistics-dark-mode .scard-rating span {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-reviews {
+    color: #6B7280;
+}
+
+.logistics-dark-mode .scard-tag {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-date {
+    color: #6B7280;
+}
+
+.logistics-dark-mode .scard-btn {
+    border-color: #1A3A22;
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-btn-view {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.logistics-dark-mode .scard-btn-view:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.logistics-dark-mode .scard-btn-edit {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+}
+
+.logistics-dark-mode .scard-btn-edit:hover {
+    background: #2D7D3A;
+    color: #FFFFFF;
+}
+
+.logistics-dark-mode .scard-btn-delete {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+.logistics-dark-mode .scard-btn-delete:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+.logistics-dark-mode .scard-empty {
+    color: #9CA3AF;
+}
+
+.logistics-dark-mode .scard-empty i {
+    color: #374151;
+}
+
+.logistics-dark-mode .scard-empty h3 {
+    color: #F8F9FA;
+}
+
+/* ----- 4. ADD SERVICE / ADD PRODUCT PAGE DARK MODE ----- */
+.farmer-dark-mode .farmer-add-product-container,
+.logistics-dark-mode .logistics-add-service-container {
+    background: transparent;
+}
+
+.farmer-dark-mode .farmer-preview-product,
+.logistics-dark-mode .logistics-preview-service {
+    background: #0D2812;
+    border-color: #1A3A22;
+}
+
+.farmer-dark-mode .farmer-preview-product-body,
+.logistics-dark-mode .logistics-preview-service-body {
+    background: #0D2812;
+}
+
+.farmer-dark-mode .farmer-preview-product-body h4,
+.logistics-dark-mode .logistics-preview-service-body h4 {
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-preview-product-seller,
+.logistics-dark-mode .logistics-preview-service-provider {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-location,
+.logistics-dark-mode .logistics-preview-service-location {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-price,
+.logistics-dark-mode .logistics-preview-service-price {
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .farmer-preview-product-status,
+.logistics-dark-mode .logistics-preview-service-status {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-status.farmer-status-available,
+.logistics-dark-mode .logistics-preview-service-status.logistics-status-available {
+    background: #1A3A22;
+    color: #4ADE80;
+}
+
+.farmer-dark-mode .farmer-preview-product-status.farmer-status-low,
+.logistics-dark-mode .logistics-preview-service-status.logistics-status-limited {
+    background: #1A3A22;
+    color: #FBBF24;
+}
+
+.farmer-dark-mode .farmer-preview-product-category,
+.logistics-dark-mode .logistics-preview-service-category {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-desc,
+.logistics-dark-mode .logistics-preview-service-desc {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-spec,
+.logistics-dark-mode .logistics-preview-spec {
+    background: #1A3A22;
+    color: #F8F9FA;
+    border-color: #1A3A22;
+}
+
+.farmer-dark-mode .farmer-preview-spec span:first-child,
+.logistics-dark-mode .logistics-preview-spec span:first-child {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-verified,
+.logistics-dark-mode .logistics-preview-service-verified {
+    color: #4ADE80;
+}
+
+.farmer-dark-mode .farmer-form-input,
+.logistics-dark-mode .logistics-form-input,
+.farmer-dark-mode .farmer-form-textarea,
+.logistics-dark-mode .logistics-form-textarea {
+    background: #1A3A22;
+    border-color: #2A4F34;
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-form-input:focus,
+.logistics-dark-mode .logistics-form-input:focus,
+.farmer-dark-mode .farmer-form-textarea:focus,
+.logistics-dark-mode .logistics-form-textarea:focus {
+    border-color: #2D7D3A;
+    box-shadow: 0 0 0 3px rgba(45, 125, 58, 0.15);
+}
+
+.farmer-dark-mode .farmer-form-group label,
+.logistics-dark-mode .logistics-form-group label {
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-image-preview,
+.logistics-dark-mode .logistics-image-preview {
+    border-color: #2A4F34;
+    background: #1A3A22;
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-image-preview i,
+.logistics-dark-mode .logistics-image-preview i {
+    color: #2D7D3A;
+}
+
+.farmer-dark-mode .farmer-image-preview:hover,
+.logistics-dark-mode .logistics-image-preview:hover {
+    border-color: #2D7D3A;
+}
+
+.farmer-dark-mode .farmer-preview-product-placeholder,
+.logistics-dark-mode .logistics-preview-service-placeholder {
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-preview-product-placeholder i,
+.logistics-dark-mode .logistics-preview-service-placeholder i {
+    color: #374151;
+}
+
+/* ----- 5. TABLE HEADERS & SEARCH DARK MODE ----- */
+.farmer-dark-mode .farmer-table-header h2,
+.logistics-dark-mode .logistics-table-header h2,
+.buyer-dark-mode .buyer-table-header h2 {
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-table-search,
+.logistics-dark-mode .logistics-table-search,
+.buyer-dark-mode .buyer-table-search {
+    background: #1A3A22;
+    border-color: #2A4F34;
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-table-search::placeholder,
+.logistics-dark-mode .logistics-table-search::placeholder,
+.buyer-dark-mode .buyer-table-search::placeholder {
+    color: #6B7280;
+}
+
+.farmer-dark-mode .farmer-filter-select,
+.logistics-dark-mode .logistics-filter-select,
+.buyer-dark-mode .buyer-filter-select {
+    background: #1A3A22;
+    border-color: #2A4F34;
+    color: #F8F9FA;
+}
+
+.farmer-dark-mode .farmer-btn-outline,
+.logistics-dark-mode .logistics-btn-outline,
+.buyer-dark-mode .buyer-btn-outline {
+    border-color: #2A4F34;
+    color: #9CA3AF;
+}
+
+.farmer-dark-mode .farmer-btn-outline:hover,
+.logistics-dark-mode .logistics-btn-outline:hover,
+.buyer-dark-mode .buyer-btn-outline:hover {
+    border-color: #2D7D3A;
+    color: #2D7D3A;
+    background: transparent;
+}
+
+/* ----- 6. CARD HOVER DARK MODE ----- */
+.farmer-dark-mode .pcard-card:hover,
+.logistics-dark-mode .scard-card:hover,
+.farmer-dark-mode .sgrid-card:hover,
+.buyer-dark-mode .sgrid-card:hover,
+.logistics-dark-mode .sgrid-card:hover {
+    border-color: #2D7D3A;
+    box-shadow: 0 20px 40px rgba(45, 125, 58, 0.15);
+}
+
+/* ============================================================
+   FEATURED BADGES - WHITE TEXT (ALL SECTIONS)
+   ============================================================ */
+
+/* Saved Items */
+.sgrid-badge-featured,
+.farmer-dark-mode .sgrid-badge-featured,
+.buyer-dark-mode .sgrid-badge-featured,
+.logistics-dark-mode .sgrid-badge-featured {
+    color: #FFFFFF !important;
+}
+
+.sgrid-badge-featured i,
+.farmer-dark-mode .sgrid-badge-featured i,
+.buyer-dark-mode .sgrid-badge-featured i,
+.logistics-dark-mode .sgrid-badge-featured i {
+    color: #FFFFFF !important;
+}
+
+/* Farmer Products */
+.pcard-badge-featured,
+.farmer-dark-mode .pcard-badge-featured {
+    color: #FFFFFF !important;
+}
+
+.pcard-badge-featured i,
+.farmer-dark-mode .pcard-badge-featured i {
+    color: #FFFFFF !important;
+}
+
+/* Logistics Services */
+.scard-badge-featured,
+.logistics-dark-mode .scard-badge-featured {
+    color: #FFFFFF !important;
+}
+
+.scard-badge-featured i,
+.logistics-dark-mode .scard-badge-featured i {
+    color: #FFFFFF !important;
+}
+
+/* Existing marketplace featured badges */
+.marketplace-featured-badge,
+.farmers-featured-badge,
+.logistics-featured-badge,
+.home-featured-badge,
+.detail-product-featured-badge,
+.detail-profile-featured-badge {
+    color: #FFFFFF !important;
+}
+
+.marketplace-featured-badge i,
+.farmers-featured-badge i,
+.logistics-featured-badge i,
+.home-featured-badge i,
+.detail-product-featured-badge i,
+.detail-profile-featured-badge i {
+    color: #FFFFFF !important;
+}
+
+
+/* ============================================================
+   PUBLIC PAGES - DARK MODE STATUS BADGES (HIGHEST SPECIFICITY)
+   ============================================================ */
+
+/* ----- Force all status text colors ----- */
+body.dark-mode .marketplace-status-available,
+body.dark-mode .home-status-available,
+body.dark-mode .detail-status-available,
+body.dark-mode .marketplace-card .marketplace-status-available,
+body.dark-mode .home-featured-card .home-status-available,
+body.dark-mode .detail-product-section .detail-status-available {
+    background: #1A3A22 !important;
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .marketplace-status-low,
+body.dark-mode .home-status-low,
+body.dark-mode .detail-status-low,
+body.dark-mode .marketplace-card .marketplace-status-low,
+body.dark-mode .home-featured-card .home-status-low,
+body.dark-mode .detail-product-section .detail-status-low {
+    background: #1A3A22 !important;
+    color: #FBBF24 !important;
+}
+
+body.dark-mode .marketplace-status-sold,
+body.dark-mode .detail-status-sold,
+body.dark-mode .marketplace-card .marketplace-status-sold,
+body.dark-mode .detail-product-section .detail-status-sold {
+    background: #1A3A22 !important;
+    color: #F87171 !important;
+}
+
+/* ----- Logistics Status ----- */
+body.dark-mode .logistics-status-available,
+body.dark-mode .logistics-card .logistics-status-available {
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .logistics-status-available i,
+body.dark-mode .logistics-card .logistics-status-available i {
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .logistics-status-busy,
+body.dark-mode .logistics-card .logistics-status-busy {
+    color: #FBBF24 !important;
+}
+
+body.dark-mode .logistics-status-busy i,
+body.dark-mode .logistics-card .logistics-status-busy i {
+    color: #FBBF24 !important;
+}
+
+body.dark-mode .logistics-status-offline,
+body.dark-mode .logistics-card .logistics-status-offline {
+    color: #6B7280 !important;
+}
+
+body.dark-mode .logistics-status-offline i,
+body.dark-mode .logistics-card .logistics-status-offline i {
+    color: #6B7280 !important;
+}
+
+/* ----- Farmer Verified Badges ----- */
+body.dark-mode .farmers-verified-badge,
+body.dark-mode .detail-verified-badge,
+body.dark-mode .farmers-card .farmers-verified-badge {
+    background: #1A3A22 !important;
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .farmers-verified-badge i,
+body.dark-mode .detail-verified-badge i,
+body.dark-mode .farmers-card .farmers-verified-badge i {
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .farmers-unverified-badge,
+body.dark-mode .farmers-card .farmers-unverified-badge {
+    background: #1A3A22 !important;
+    color: #FBBF24 !important;
+}
+
+body.dark-mode .farmers-unverified-badge i,
+body.dark-mode .farmers-card .farmers-unverified-badge i {
+    color: #FBBF24 !important;
+}
+
+/* ----- Logistics Verified Badges ----- */
+body.dark-mode .logistics-verified-badge,
+body.dark-mode .logistics-card .logistics-verified-badge {
+    background: #1A3A22 !important;
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .logistics-verified-badge i,
+body.dark-mode .logistics-card .logistics-verified-badge i {
+    color: #4ADE80 !important;
+}
+
+body.dark-mode .logistics-unverified-badge,
+body.dark-mode .logistics-card .logistics-unverified-badge {
+    background: #1A3A22 !important;
+    color: #FBBF24 !important;
+}
+
+body.dark-mode .logistics-unverified-badge i,
+body.dark-mode .logistics-card .logistics-unverified-badge i {
+    color: #FBBF24 !important;
+}

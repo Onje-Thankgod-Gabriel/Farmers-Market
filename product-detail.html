@@ -16,7 +16,7 @@
     <!-- Product Detail CSS -->
     <link rel="stylesheet" href="../assets/css/product-detail.css">
 </head>
-<body>
+<body class="public-page">
 
 <!-- ====== NAVBAR ====== -->
 <nav class="login-navbar">
@@ -33,9 +33,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register" >
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>
@@ -55,7 +59,7 @@
     <section class="detail-product-section" aria-label="Product details">
         <div class="container">
             <div class="row g-5">
-                <!-- Product Image -->
+                                <!-- Product Image -->
                 <div class="col-lg-6">
                     <div class="detail-product-image-wrapper">
                         <!-- FEATURED BADGE - Hardcoded for frontend testing -->
@@ -66,8 +70,8 @@
                         <!-- Product Image -->
                         <div class="detail-product-image" style="background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&h=450&fit=crop');"></div>
                         
-                        <!-- SAVE BUTTON - Uses localStorage -->
-                        <button class="detail-product-save-btn" 
+                        <!-- SAVE BUTTON - Use the same class as other pages -->
+                        <button class="detail-product-save-btn marketplace-save-btn" 
                                 data-product-id="1" 
                                 aria-label="Save product">
                             <i class="far fa-heart"></i>
@@ -534,6 +538,45 @@
             </div>
         </form>
     </div>
+</div>
+
+<!-- ====== PRODUCT DETAIL SAVE MODAL ====== -->
+<div class="product-detail-save-modal-overlay" id="productDetailSaveModal">
+    <div class="product-detail-save-modal">
+        <button class="product-detail-save-modal-close" id="productDetailSaveModalClose">&times;</button>
+        <div class="product-detail-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="productDetailSaveModalMessage">You need to login or register to save this product to your dashboard.</p>
+        <div class="product-detail-save-modal-buttons">
+            <a href="login.html" class="product-detail-save-modal-btn product-detail-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="product-detail-save-modal-btn product-detail-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="product-detail-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== SIMILAR PRODUCTS SAVE MODAL ====== -->
+<div class="similar-save-modal-overlay" id="similarSaveModal">
+    <div class="similar-save-modal">
+        <button class="similar-save-modal-close" id="similarSaveModalClose">&times;</button>
+        <div class="similar-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="similarSaveModalMessage">You need to login or register to save this product to your dashboard.</p>
+        <div class="similar-save-modal-buttons">
+            <a href="login.html" class="similar-save-modal-btn similar-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="similar-save-modal-btn similar-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="similar-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== TOAST NOTIFICATION SYSTEM ====== -->
+<div class="toast-container" id="toastContainer">
+    <!-- Toasts will be dynamically added here -->
 </div>
 
 <!-- ====== SCRIPTS ====== -->

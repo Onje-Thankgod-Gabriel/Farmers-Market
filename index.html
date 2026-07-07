@@ -14,7 +14,7 @@
     <!-- ======== HOME.CSS (linked) ======== -->
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
-<body>
+<body class="public-page">
 <!-- ====== NAVBAR (sticky, mobile-first) ====== -->
 <nav class="login-navbar">
     <div class="login-nav-container">
@@ -30,9 +30,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register" >
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>
@@ -77,7 +81,10 @@
         <!-- ====== CATEGORY SECTION (white background) ====== -->
     <section class="home-section home-section-white" aria-label="Categories">
         <div class="container">
-            <h2 class="home-section-title">Browse Categories</h2>
+            <div class="home-featured-header">
+                <h2 class="home-section-title">Browse Categories</h2>
+                <span class="home-featured-count">Categories</span>
+            </div>
             <div class="row g-4 home-category-grid" id="categoryGrid">
                 <!-- Crops & Grains -->
                 <div class="col-6 col-md-4 col-lg-2 home-category-item" data-category="Crops">
@@ -424,6 +431,28 @@
         </div>
     </div>
 </footer>
+
+<!-- ====== HOME SAVE MODAL ====== -->
+<div class="home-save-modal-overlay" id="homeSaveModal">
+    <div class="home-save-modal">
+        <button class="home-save-modal-close" id="homeSaveModalClose">&times;</button>
+        <div class="home-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="homeSaveModalMessage">You need to login or register to save this product to your dashboard.</p>
+        <div class="home-save-modal-buttons">
+            <a href="login.html" class="home-save-modal-btn home-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="home-save-modal-btn home-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="home-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== TOAST NOTIFICATION SYSTEM ====== -->
+<div class="toast-container" id="toastContainer">
+    <!-- Toasts will be dynamically added here -->
+</div>
 
 <!-- ====== HOME.JS linked ====== -->
 <script src="../assets/js/main.js" defer></script>

@@ -3435,6 +3435,7 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
 
 
 
+
 // =============================================================
 // FARMER DASHBOARD - NAMESPACED
 // =============================================================
@@ -3445,133 +3446,123 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     if (!document.getElementById('farmerSidebar')) {
         return;
     }
-    
-    // ... all farmer dashboard code here ...
 
-    // =============================================================
-// farmer-dashboard.js · FarmConnect Farmer Dashboard
-// Complete, production-quality, no alerts
-// =============================================================
-
-(function() {
-    'use strict';
+    console.log('🌱 Farmer Dashboard loading...');
 
     // =============================================================
     // STATE
     // =============================================================
-    let currentSection = 'overview';
-    let isSidebarCollapsed = false;
-    let isDarkMode = false;
-    let products = [];
-    let enquiries = [];
-    let reviews = [];
-    let notifications = [];
-    let isEditingProduct = false;
-    let editingProductId = null;
+    var currentSection = 'overview';
+    var isSidebarCollapsed = false;
+    var isDarkMode = false;
+    var products = [];
+    var enquiries = [];
+    var reviews = [];
+    var notifications = [];
+    var isEditingProduct = false;
+    var editingProductId = null;
 
     // =============================================================
     // DOM REFS
     // =============================================================
-    const sidebar = document.getElementById('farmerSidebar');
-    const sidebarCollapse = document.getElementById('sidebarCollapse');
-    const navbarToggle = document.getElementById('navbarToggle');
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const modal = document.getElementById('farmerModal');
-    const modalClose = document.getElementById('modalClose');
-    const modalCancel = document.getElementById('modalCancel');
-    const modalConfirm = document.getElementById('modalConfirm');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const modalMessage = document.getElementById('modalMessage');
-    const modalFields = document.getElementById('modalFields');
-    const modalFooter = document.getElementById('modalFooter');
-    const toastContainer = document.getElementById('toastContainer');
+    var sidebar = document.getElementById('farmerSidebar');
+    var sidebarCollapse = document.getElementById('sidebarCollapse');
+    var navbarToggle = document.getElementById('navbarToggle');
+    var darkModeToggle = document.getElementById('darkModeToggle');
+    var modal = document.getElementById('farmerModal');
+    var modalClose = document.getElementById('modalClose');
+    var modalCancel = document.getElementById('modalCancel');
+    var modalConfirm = document.getElementById('modalConfirm');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalMessage = document.getElementById('modalMessage');
+    var modalFields = document.getElementById('modalFields');
+    var modalFooter = document.getElementById('modalFooter');
+    var toastContainer = document.getElementById('toastContainer');
 
     // Profile
-    const profileImageInput = document.getElementById('profileImageInput');
-    const profileImageUpload = document.getElementById('profileImageUpload');
-    const profileImagePreview = document.getElementById('profileImagePreview');
-    const farmNameInput = document.getElementById('farmName');
-    const specializationInput = document.getElementById('specialization');
-    const locationInput = document.getElementById('location');
-    const experienceInput = document.getElementById('experience');
-    const whatsappInput = document.getElementById('whatsapp');
-    const phoneInput = document.getElementById('phone');
-    const bioInput = document.getElementById('bio');
-    const previewName = document.getElementById('previewName');
-    const previewSpecialization = document.getElementById('previewSpecialization');
-    const previewLocation = document.getElementById('previewLocation');
-    const previewExperience = document.getElementById('previewExperience');
-    const previewBio = document.getElementById('previewBio');
-    const previewAvatar = document.getElementById('previewAvatar');
-    const previewAvatarText = document.getElementById('previewAvatarText');
-    const profileForm = document.getElementById('profileForm');
+    var profileImageInput = document.getElementById('profileImageInput');
+    var profileImageUpload = document.getElementById('profileImageUpload');
+    var profileImagePreview = document.getElementById('profileImagePreview');
+    var farmNameInput = document.getElementById('farmName');
+    var specializationInput = document.getElementById('specialization');
+    var locationInput = document.getElementById('location');
+    var experienceInput = document.getElementById('experience');
+    var whatsappInput = document.getElementById('whatsapp');
+    var phoneInput = document.getElementById('phone');
+    var bioInput = document.getElementById('bio');
+    var previewName = document.getElementById('previewName');
+    var previewSpecialization = document.getElementById('previewSpecialization');
+    var previewLocation = document.getElementById('previewLocation');
+    var previewExperience = document.getElementById('previewExperience');
+    var previewBio = document.getElementById('previewBio');
+    var previewAvatar = document.getElementById('previewAvatar');
+    var previewAvatarText = document.getElementById('previewAvatarText');
+    var profileForm = document.getElementById('profileForm');
 
     // Products
-    const productsGrid = document.getElementById('productsGrid');
-    const productSearch = document.getElementById('productSearch');
-    const productCategoryFilter = document.getElementById('productCategoryFilter');
+    var productsGrid = document.getElementById('productsGrid');
+    var productSearch = document.getElementById('productSearch');
+    var productCategoryFilter = document.getElementById('productCategoryFilter');
 
     // Add Product
-    const productImageInput = document.getElementById('productImageInput');
-    const productImageUpload = document.getElementById('productImageUpload');
-    const productImagePreview = document.getElementById('productImagePreview');
-    const productNameInput = document.getElementById('productName');
-    const productCategoryInput = document.getElementById('productCategory');
-    const productTypeInput = document.getElementById('productType');
-    const productDescriptionInput = document.getElementById('productDescription');
-    const productPriceInput = document.getElementById('productPrice');
-    const productQuantityInput = document.getElementById('productQuantity');
-    const productPackagingInput = document.getElementById('productPackaging');
-    const productMinOrderInput = document.getElementById('productMinOrder');
-    const productStatusInput = document.getElementById('productStatus');
-    const addProductForm = document.getElementById('addProductForm');
+    var productImageInput = document.getElementById('productImageInput');
+    var productImageUpload = document.getElementById('productImageUpload');
+    var productImagePreview = document.getElementById('productImagePreview');
+    var productNameInput = document.getElementById('productName');
+    var productCategoryInput = document.getElementById('productCategory');
+    var productTypeInput = document.getElementById('productType');
+    var productDescriptionInput = document.getElementById('productDescription');
+    var productPriceInput = document.getElementById('productPrice');
+    var productQuantityInput = document.getElementById('productQuantity');
+    var productPackagingInput = document.getElementById('productPackaging');
+    var productMinOrderInput = document.getElementById('productMinOrder');
+    var productStatusInput = document.getElementById('productStatus');
+    var addProductForm = document.getElementById('addProductForm');
 
     // Product Preview
-    const previewProductImage = document.getElementById('previewProductImage');
-    const previewProductName = document.getElementById('previewProductName');
-    const previewProductPrice = document.getElementById('previewProductPrice');
-    const previewProductStatus = document.getElementById('previewProductStatus');
-    const previewProductCategory = document.getElementById('previewProductCategory');
-    const previewProductDesc = document.getElementById('previewProductDesc');
-    const previewProductType = document.getElementById('previewProductType');
-    const previewProductQty = document.getElementById('previewProductQty');
-    const previewProductPackaging = document.getElementById('previewProductPackaging');
-    const previewProductMinOrder = document.getElementById('previewProductMinOrder');
+    var previewProductImage = document.getElementById('previewProductImage');
+    var previewProductName = document.getElementById('previewProductName');
+    var previewProductPrice = document.getElementById('previewProductPrice');
+    var previewProductStatus = document.getElementById('previewProductStatus');
+    var previewProductCategory = document.getElementById('previewProductCategory');
+    var previewProductDesc = document.getElementById('previewProductDesc');
+    var previewProductType = document.getElementById('previewProductType');
+    var previewProductQty = document.getElementById('previewProductQty');
+    var previewProductPackaging = document.getElementById('previewProductPackaging');
+    var previewProductMinOrder = document.getElementById('previewProductMinOrder');
 
     // Enquiries
-    const enquiriesList = document.getElementById('enquiriesList');
-    const enquirySearch = document.getElementById('enquirySearch');
-    const enquiryStatusFilter = document.getElementById('enquiryStatusFilter');
+    var enquiriesList = document.getElementById('enquiriesList');
+    var enquirySearch = document.getElementById('enquirySearch');
+    var enquiryStatusFilter = document.getElementById('enquiryStatusFilter');
 
     // Reviews
-    const reviewsList = document.getElementById('reviewsList');
-    const reviewAvg = document.getElementById('reviewAvg');
-    const reviewCount = document.getElementById('reviewCount');
+    var reviewsList = document.getElementById('reviewsList');
+    var reviewAvg = document.getElementById('reviewAvg');
+    var reviewCount = document.getElementById('reviewCount');
 
     // Notifications
-    const notificationsList = document.getElementById('notificationsList');
-    const notificationDot = document.getElementById('notificationDot');
-    const notificationIcon = document.getElementById('notificationIcon');
+    var notificationsList = document.getElementById('notificationsList');
+    var notificationDot = document.getElementById('notificationDot');
+    var notificationIcon = document.getElementById('notificationIcon');
 
     // Settings
-    const settingsDarkMode = document.getElementById('settingsDarkMode');
-    const changePasswordBtn = document.getElementById('changePasswordBtn');
+    var settingsDarkMode = document.getElementById('settingsDarkMode');
+    var changePasswordBtn = document.getElementById('changePasswordBtn');
 
     // Welcome
-    const welcomeName = document.getElementById('welcomeName');
-    const totalProducts = document.getElementById('totalProducts');
-    const totalEnquiries = document.getElementById('totalEnquiries');
-    const avgRating = document.getElementById('avgRating');
-    const totalReviews = document.getElementById('totalReviews');
-    const completionFill = document.getElementById('completionFill');
-    const completionPercent = document.getElementById('completionPercent');
+    var welcomeName = document.getElementById('welcomeName');
+    var totalProducts = document.getElementById('totalProducts');
+    var totalEnquiries = document.getElementById('totalEnquiries');
+    var avgRating = document.getElementById('avgRating');
+    var totalReviews = document.getElementById('totalReviews');
+    var completionFill = document.getElementById('completionFill');
+    var completionPercent = document.getElementById('completionPercent');
 
     // =============================================================
     // INITIAL DATA
     // =============================================================
     function initData() {
-        // Sample products
         products = [
             {
                 id: 1,
@@ -3620,7 +3611,6 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             }
         ];
 
-        // Sample enquiries
         enquiries = [
             {
                 id: 1,
@@ -3648,13 +3638,12 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             }
         ];
 
-        // Sample reviews
         reviews = [
             {
                 id: 1,
                 buyer: 'Chioma Okafor',
                 rating: 5,
-                text: 'Excellent quality rice! The grains are long and fluffy. Will definitely order again.',
+                text: 'Excellent quality rice! The grains are long and fluffy.',
                 date: 'March 15, 2026',
                 response: ''
             },
@@ -3662,21 +3651,20 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                 id: 2,
                 buyer: 'Emeka Nwachukwu',
                 rating: 4,
-                text: 'Great produce and fast delivery. The farmer was very responsive.',
+                text: 'Great produce and fast delivery.',
                 date: 'February 28, 2026',
-                response: 'Thank you for your kind words, Emeka! We appreciate your support.'
+                response: 'Thank you for your kind words!'
             },
             {
                 id: 3,
                 buyer: 'Aisha Mohammed',
                 rating: 5,
-                text: 'Best farmer I\'ve worked with in Ibadan. The quality is consistently excellent.',
+                text: 'Best farmer I\'ve worked with in Ibadan.',
                 date: 'February 10, 2026',
                 response: ''
             }
         ];
 
-        // Sample notifications
         notifications = [
             {
                 id: 1,
@@ -3708,27 +3696,24 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     // =============================================================
     // TOAST SYSTEM
     // =============================================================
-    function showToast(title, message, type = 'success') {
-        const toast = document.createElement('div');
-        toast.className = `farmer-toast farmer-toast-${type}`;
-        const icons = {
+    function showToast(title, message, type) {
+        type = type || 'success';
+        if (!toastContainer) return;
+
+        var toast = document.createElement('div');
+        toast.className = 'farmer-toast farmer-toast-' + type;
+        var icons = {
             success: 'fa-check-circle',
             error: 'fa-exclamation-circle',
             info: 'fa-info-circle'
         };
-        toast.innerHTML = `
-            <div class="farmer-toast-icon"><i class="fas ${icons[type] || icons.success}"></i></div>
-            <div class="farmer-toast-content">
-                <div class="farmer-toast-title">${title}</div>
-                <div class="farmer-toast-message">${message}</div>
-            </div>
-            <button class="farmer-toast-close">&times;</button>
-        `;
-        toast.querySelector('.farmer-toast-close').addEventListener('click', () => {
-            toast.remove();
-        });
+        toast.innerHTML = '<div class="farmer-toast-icon"><i class="fas ' + (icons[type] || icons.success) + '"></i></div><div class="farmer-toast-content"><div class="farmer-toast-title">' + title + '</div><div class="farmer-toast-message">' + message + '</div></div><button class="farmer-toast-close">&times;</button>';
+        var closeBtn = toast.querySelector('.farmer-toast-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() { toast.remove(); });
+        }
         toastContainer.appendChild(toast);
-        setTimeout(() => {
+        setTimeout(function() {
             if (toast.parentNode) toast.remove();
         }, 5000);
     }
@@ -3736,21 +3721,25 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     // =============================================================
     // MODAL SYSTEM
     // =============================================================
-    function openModal(title, message, fields = '', confirmText = 'Confirm', cancelText = 'Cancel', confirmCallback = null) {
+    function openModal(title, message, fields, confirmText, cancelText, confirmCallback) {
+        fields = fields || '';
+        confirmText = confirmText || 'Confirm';
+        cancelText = cancelText || 'Cancel';
+        if (!modal) return;
+
         modalTitle.textContent = title;
         modalMessage.textContent = message;
-        modalFields.innerHTML = fields || '';
+        modalFields.innerHTML = fields;
         modalConfirm.textContent = confirmText;
         modalCancel.textContent = cancelText;
         modalFooter.style.display = 'flex';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-
-        // Store callback
         modal._confirmCallback = confirmCallback || null;
     }
 
     function closeModal() {
+        if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = '';
         modalFields.innerHTML = '';
@@ -3758,22 +3747,29 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     }
 
     // Modal event listeners
-    modalClose.addEventListener('click', closeModal);
-    modalCancel.addEventListener('click', closeModal);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
-    });
-
-    modalConfirm.addEventListener('click', function() {
-        if (modal._confirmCallback) {
-            modal._confirmCallback();
-        } else {
-            closeModal();
-        }
-    });
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+    if (modalCancel) {
+        modalCancel.addEventListener('click', closeModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+    }
+    if (modalConfirm) {
+        modalConfirm.addEventListener('click', function() {
+            if (modal._confirmCallback) {
+                modal._confirmCallback();
+            } else {
+                closeModal();
+            }
+        });
+    }
 
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
             closeModal();
         }
     });
@@ -3782,13 +3778,27 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     // NAVIGATION
     // =============================================================
     function navigateTo(section) {
-        document.querySelectorAll('.farmer-sidebar-link[data-section]').forEach(l => {
-            l.classList.toggle('active', l.dataset.section === section);
-        });
-        document.querySelectorAll('.farmer-section').forEach(s => {
-            s.classList.toggle('active', s.id === 'section-' + section);
-        });
-        const titles = {
+        var links = document.querySelectorAll('.farmer-sidebar-link[data-section]');
+        for (var i = 0; i < links.length; i++) {
+            var l = links[i];
+            if (l.dataset.section === section) {
+                l.classList.add('active');
+            } else {
+                l.classList.remove('active');
+            }
+        }
+
+        var sections = document.querySelectorAll('.farmer-section');
+        for (var j = 0; j < sections.length; j++) {
+            var s = sections[j];
+            if (s.id === 'section-' + section) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        }
+
+        var titles = {
             overview: 'Overview',
             profile: 'My Profile',
             products: 'My Products',
@@ -3796,64 +3806,83 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             enquiries: 'Enquiries',
             reviews: 'Reviews',
             notifications: 'Notifications',
+            saved: 'Saved Items',
             settings: 'Settings'
         };
-        document.getElementById('pageTitle').textContent = titles[section] || 'Dashboard';
+        var titleEl = document.getElementById('pageTitle');
+        if (titleEl) titleEl.textContent = titles[section] || 'Dashboard';
+
         currentSection = section;
+
         if (section === 'overview') updateOverview();
-        if (section === 'products') renderProducts();
+        if (section === 'products') {
+            initProductActions();
+            filterProducts();
+        }
         if (section === 'enquiries') renderEnquiries();
         if (section === 'reviews') renderReviews();
         if (section === 'notifications') renderNotifications();
+        if (section === 'saved') updateSavedCounts();
     }
 
     // Sidebar links
-    document.querySelectorAll('.farmer-sidebar-link[data-section]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const section = this.dataset.section;
-            navigateTo(section);
-            if (window.innerWidth <= 992) {
-                sidebar.classList.remove('mobile-open');
-            }
-        });
-    });
+    var sidebarLinks = document.querySelectorAll('.farmer-sidebar-link[data-section]');
+    for (var i = 0; i < sidebarLinks.length; i++) {
+        (function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var section = this.dataset.section;
+                navigateTo(section);
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            });
+        })(sidebarLinks[i]);
+    }
 
     // =============================================================
     // SIDEBAR COLLAPSE
     // =============================================================
-    sidebarCollapse.addEventListener('click', function() {
-        isSidebarCollapsed = !isSidebarCollapsed;
-        sidebar.classList.toggle('collapsed', isSidebarCollapsed);
-        localStorage.setItem('farmerSidebarCollapsed', JSON.stringify(isSidebarCollapsed));
-    });
-
-    const savedCollapse = localStorage.getItem('farmerSidebarCollapsed');
-    if (savedCollapse === 'true') {
-        isSidebarCollapsed = true;
-        sidebar.classList.add('collapsed');
+    if (sidebarCollapse) {
+        sidebarCollapse.addEventListener('click', function() {
+            isSidebarCollapsed = !isSidebarCollapsed;
+            sidebar.classList.toggle('collapsed', isSidebarCollapsed);
+            try {
+                localStorage.setItem('farmerSidebarCollapsed', JSON.stringify(isSidebarCollapsed));
+            } catch(e) {}
+        });
     }
+
+    try {
+        var savedCollapse = localStorage.getItem('farmerSidebarCollapsed');
+        if (savedCollapse === 'true') {
+            isSidebarCollapsed = true;
+            sidebar.classList.add('collapsed');
+        }
+    } catch(e) {}
 
     // =============================================================
     // MOBILE MENU
     // =============================================================
-    navbarToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('mobile-open');
-        const icon = this.querySelector('i');
-        if (sidebar.classList.contains('mobile-open')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+    if (navbarToggle) {
+        navbarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('mobile-open');
+            var icon = this.querySelector('i');
+            if (sidebar.classList.contains('mobile-open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
 
     document.addEventListener('click', function(e) {
         if (window.innerWidth <= 992) {
-            if (!sidebar.contains(e.target) && !navbarToggle.contains(e.target)) {
+            if (sidebar && navbarToggle && !sidebar.contains(e.target) && !navbarToggle.contains(e.target)) {
                 sidebar.classList.remove('mobile-open');
-                const icon = navbarToggle.querySelector('i');
+                var icon = navbarToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
@@ -3863,574 +3892,605 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     // =============================================================
     // DARK MODE
     // =============================================================
-    darkModeToggle.addEventListener('click', function() {
-        isDarkMode = !isDarkMode;
-        document.body.classList.toggle('farmer-dark-mode', isDarkMode);
-        const icon = this.querySelector('i');
-        icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
-        localStorage.setItem('farmerDarkMode', JSON.stringify(isDarkMode));
-        if (settingsDarkMode) settingsDarkMode.checked = isDarkMode;
-    });
-
-    const savedDarkMode = localStorage.getItem('farmerDarkMode');
-    if (savedDarkMode === 'true') {
-        isDarkMode = true;
-        document.body.classList.add('farmer-dark-mode');
-        darkModeToggle.querySelector('i').className = 'fas fa-sun';
-        if (settingsDarkMode) settingsDarkMode.checked = true;
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('farmer-dark-mode', isDarkMode);
+            var icon = this.querySelector('i');
+            icon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+            try {
+                localStorage.setItem('farmerDarkMode', JSON.stringify(isDarkMode));
+            } catch(e) {}
+            if (settingsDarkMode) settingsDarkMode.checked = isDarkMode;
+        });
     }
 
-    settingsDarkMode.addEventListener('change', function() {
-        darkModeToggle.click();
-    });
+    try {
+        var savedDarkMode = localStorage.getItem('farmerDarkMode');
+        if (savedDarkMode === 'true') {
+            isDarkMode = true;
+            document.body.classList.add('farmer-dark-mode');
+            darkModeToggle.querySelector('i').className = 'fas fa-sun';
+            if (settingsDarkMode) settingsDarkMode.checked = true;
+        }
+    } catch(e) {}
+
+    if (settingsDarkMode) {
+        settingsDarkMode.addEventListener('change', function() {
+            darkModeToggle.click();
+        });
+    }
 
     // =============================================================
     // PROFILE PREVIEW - LIVE UPDATE
     // =============================================================
     function updateProfilePreview() {
-        const name = farmNameInput.value || 'Farm Name';
-        const specialization = specializationInput.value || 'Specialization';
-        const location = locationInput.value || 'Location';
-        const experience = experienceInput.value || '0';
-        const bio = bioInput.value || 'No bio provided.';
+        var name = farmNameInput ? farmNameInput.value || 'Farm Name' : 'Farm Name';
+        var specialization = specializationInput ? specializationInput.value || 'Specialization' : 'Specialization';
+        var location = locationInput ? locationInput.value || 'Location' : 'Location';
+        var experience = experienceInput ? experienceInput.value || '0' : '0';
+        var bio = bioInput ? bioInput.value || 'No bio provided.' : 'No bio provided.';
 
-        previewName.textContent = name;
-        previewSpecialization.innerHTML = `<i class="fas fa-tractor"></i> ${specialization}`;
-        previewLocation.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${location}`;
-        previewExperience.innerHTML = `<i class="fas fa-clock"></i> ${experience} years experience`;
-        previewBio.textContent = bio;
+        if (previewName) previewName.textContent = name;
+        if (previewSpecialization) previewSpecialization.innerHTML = '<i class="fas fa-tractor"></i> ' + specialization;
+        if (previewLocation) previewLocation.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + location;
+        if (previewExperience) previewExperience.innerHTML = '<i class="fas fa-clock"></i> ' + experience + ' years experience';
+        if (previewBio) previewBio.textContent = bio;
 
-        // Update initials
-        const initials = name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
-        previewAvatarText.textContent = initials;
+        var initials = name.split(' ').map(function(w) { return w[0]; }).join('').substring(0, 2).toUpperCase();
+        if (previewAvatarText) previewAvatarText.textContent = initials;
 
-        // Update welcome name
-        welcomeName.textContent = name.split(' ')[0] || 'Farmer';
+        if (welcomeName) welcomeName.textContent = name.split(' ')[0] || 'Farmer';
 
-        // Update profile completion
         updateCompletion();
     }
 
     function updateCompletion() {
-        const fields = [
-            farmNameInput.value,
-            specializationInput.value,
-            locationInput.value,
-            experienceInput.value,
-            whatsappInput.value,
-            phoneInput.value,
-            bioInput.value
+        var fields = [
+            farmNameInput ? farmNameInput.value : '',
+            specializationInput ? specializationInput.value : '',
+            locationInput ? locationInput.value : '',
+            experienceInput ? experienceInput.value : '',
+            whatsappInput ? whatsappInput.value : '',
+            phoneInput ? phoneInput.value : '',
+            bioInput ? bioInput.value : ''
         ];
-        const filled = fields.filter(f => f && f.trim() !== '').length;
-        const total = fields.length;
-        const percent = Math.round((filled / total) * 100);
-        completionFill.style.width = percent + '%';
-        completionPercent.textContent = percent + '%';
+        var filled = 0;
+        for (var i = 0; i < fields.length; i++) {
+            if (fields[i] && fields[i].trim() !== '') {
+                filled++;
+            }
+        }
+        var total = fields.length;
+        var percent = Math.round((filled / total) * 100);
+        if (completionFill) completionFill.style.width = percent + '%';
+        if (completionPercent) completionPercent.textContent = percent + '%';
     }
 
     // Profile form listeners
-    [farmNameInput, specializationInput, locationInput, experienceInput, whatsappInput, phoneInput, bioInput].forEach(input => {
-        input.addEventListener('input', updateProfilePreview);
-    });
-
-    // Profile image upload
-    profileImageUpload.addEventListener('click', () => profileImageInput.click());
-    profileImageInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            profileImagePreview.innerHTML = `<img src="${event.target.result}" alt="Profile">`;
-            previewAvatar.innerHTML = `<img src="${event.target.result}" alt="Profile">`;
-            previewAvatar.style.background = 'transparent';
-        };
-        reader.readAsDataURL(file);
-    });
-
-    // Profile form submit
-    profileForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        showToast('Success', 'Profile updated successfully!', 'success');
-        updateProfilePreview();
-    });
-
-    // =============================================================
-    // PRODUCTS
-    // =============================================================
-    function renderProducts() {
-        const search = productSearch.value.toLowerCase();
-        const category = productCategoryFilter.value;
-
-        let filtered = products.filter(p => {
-            const matchSearch = p.name.toLowerCase().includes(search);
-            const matchCategory = !category || p.category === category;
-            return matchSearch && matchCategory;
-        });
-
-        if (filtered.length === 0) {
-            productsGrid.innerHTML = `
-                <div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);">
-                    <i class="fas fa-box" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i>
-                    <p>No products found. <a href="#" onclick="document.querySelector('[data-section=\\'add-product\\']').click();return false;" style="color:#2D7D3A;">Add your first product</a></p>
-                </div>
-            `;
-            return;
-        }
-
-        productsGrid.innerHTML = filtered.map(p => `
-            <div class="farmer-product-card">
-                <div class="farmer-product-image" style="background-image: url('${p.image || 'https://via.placeholder.com/400x250/E5E7EB/6B7280?text=No+Image'}');"></div>
-                <div class="farmer-product-body">
-                    <div class="farmer-product-name">${p.name}</div>
-                    <div class="farmer-product-meta">
-                        <span>${p.category}</span>
-                        <span class="farmer-product-price">₦${p.price.toLocaleString()}</span>
-                    </div>
-                    <div class="farmer-product-meta">
-                        <span>Qty: ${p.quantity}</span>
-                        <span class="farmer-product-status farmer-status-${p.status === 'In Stock' ? 'available' : p.status === 'Limited' ? 'low' : 'sold'}">${p.status}</span>
-                    </div>
-                    <div class="farmer-product-meta">
-                        <span>⭐ ${p.rating}</span>
-                        <span>${p.dateAdded}</span>
-                    </div>
-                    <div class="farmer-product-actions">
-                        <button class="farmer-btn farmer-btn-outline farmer-btn-sm" data-action="view-product" data-id="${p.id}">View</button>
-                        <button class="farmer-btn farmer-btn-outline farmer-btn-sm" data-action="edit-product" data-id="${p.id}">Edit</button>
-                        <button class="farmer-btn farmer-btn-outline farmer-btn-sm" data-action="delete-product" data-id="${p.id}" style="color:#EF4444;border-color:#EF4444;">Delete</button>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-
-        // Product actions
-        document.querySelectorAll('[data-action="view-product"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const product = products.find(p => p.id === id);
-                if (product) {
-                    openModal(
-                        product.name,
-                        '',
-                        `
-                            <div style="display:flex;gap:1rem;margin-bottom:1rem;">
-                                <div style="width:100px;height:100px;border-radius:12px;background:url('${product.image || 'https://via.placeholder.com/100x100/E5E7EB/6B7280?text=No+Image'}') center/cover;flex-shrink:0;"></div>
-                                <div>
-                                    <p><strong>Category:</strong> ${product.category}</p>
-                                    <p><strong>Price:</strong> ₦${product.price.toLocaleString()}</p>
-                                    <p><strong>Quantity:</strong> ${product.quantity}</p>
-                                    <p><strong>Status:</strong> ${product.status}</p>
-                                </div>
-                            </div>
-                            <p><strong>Description:</strong> ${product.description}</p>
-                            <p><strong>Packaging:</strong> ${product.packaging}</p>
-                            <p><strong>Min Order:</strong> ${product.minOrder}</p>
-                            <p><strong>Rating:</strong> ⭐ ${product.rating}</p>
-                            <p><strong>Date Added:</strong> ${product.dateAdded}</p>
-                        `,
-                        'Close'
-                    );
-                    modalCancel.style.display = 'none';
-                    modalConfirm.textContent = 'Close';
-                    modal._confirmCallback = closeModal;
-                    setTimeout(() => { modalCancel.style.display = ''; modalConfirm.textContent = 'Confirm'; }, 100);
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="edit-product"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const product = products.find(p => p.id === id);
-                if (product) {
-                    // Navigate to add product with edit mode
-                    isEditingProduct = true;
-                    editingProductId = id;
-                    navigateTo('add-product');
-                    // Fill form
-                    productNameInput.value = product.name;
-                    productCategoryInput.value = product.category;
-                    productTypeInput.value = product.type || '';
-                    productDescriptionInput.value = product.description;
-                    productPriceInput.value = product.price;
-                    productQuantityInput.value = product.quantity;
-                    productPackagingInput.value = product.packaging || '';
-                    productMinOrderInput.value = product.minOrder || '';
-                    productStatusInput.value = product.status;
-                    if (product.image) {
-                        productImagePreview.innerHTML = `<img src="${product.image}" alt="Product">`;
-                    }
-                    document.querySelector('#section-add-product h2').textContent = 'Edit Product';
-                    document.querySelector('#saveProductBtn').textContent = 'Update Product';
-                    showToast('Info', 'Editing product. Update and save.', 'info');
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="delete-product"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const product = products.find(p => p.id === id);
-                if (product) {
-                    openModal(
-                        'Delete Product',
-                        `Are you sure you want to delete "${product.name}"? This action cannot be undone.`,
-                        '',
-                        'Delete',
-                        'Cancel',
-                        function() {
-                            products = products.filter(p => p.id !== id);
-                            renderProducts();
-                            updateOverview();
-                            closeModal();
-                            showToast('Deleted', `"${product.name}" has been deleted.`, 'success');
-                        }
-                    );
-                }
-            });
-        });
-
-        // Update total products
-        totalProducts.textContent = products.length;
+    var profileInputs = [farmNameInput, specializationInput, locationInput, experienceInput, whatsappInput, phoneInput, bioInput];
+    for (var i = 0; i < profileInputs.length; i++) {
+        (function(input) {
+            if (input) {
+                input.addEventListener('input', updateProfilePreview);
+            }
+        })(profileInputs[i]);
     }
 
-    // Product search/filter
-    productSearch.addEventListener('input', renderProducts);
-    productCategoryFilter.addEventListener('change', renderProducts);
+    // Profile image upload
+    if (profileImageUpload && profileImageInput) {
+        profileImageUpload.addEventListener('click', function() { profileImageInput.click(); });
+        profileImageInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                if (profileImagePreview) {
+                    profileImagePreview.innerHTML = '<img src="' + event.target.result + '" alt="Profile">';
+                }
+                if (previewAvatar) {
+                    previewAvatar.innerHTML = '<img src="' + event.target.result + '" alt="Profile">';
+                    previewAvatar.style.background = 'transparent';
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Profile form submit
+    if (profileForm) {
+        profileForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Success', 'Profile updated successfully!', 'success');
+            updateProfilePreview();
+        });
+    }
+
+    // =============================================================
+    // PRODUCTS - HARDCORDED CARDS (No Rendering)
+    // =============================================================
+
+    function initProductActions() {
+        // View Product - Redirect to product-detail.html
+        var viewBtns = document.querySelectorAll('.pcard-btn-view');
+        for (var i = 0; i < viewBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = this.dataset.id;
+                    window.location.href = 'product-detail.html?id=' + id;
+                });
+            })(viewBtns[i]);
+        }
+
+        // Edit Product - Navigate to add-product with edit mode
+        var editBtns = document.querySelectorAll('.pcard-btn-edit');
+        for (var i = 0; i < editBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = parseInt(this.dataset.id);
+                    var product = null;
+                    for (var m = 0; m < products.length; m++) {
+                        if (products[m].id === id) {
+                            product = products[m];
+                            break;
+                        }
+                    }
+                    if (product) {
+                        isEditingProduct = true;
+                        editingProductId = id;
+                        navigateTo('add-product');
+                        if (productNameInput) productNameInput.value = product.name;
+                        if (productCategoryInput) productCategoryInput.value = product.category;
+                        if (productTypeInput) productTypeInput.value = product.type || '';
+                        if (productDescriptionInput) productDescriptionInput.value = product.description;
+                        if (productPriceInput) productPriceInput.value = product.price;
+                        if (productQuantityInput) productQuantityInput.value = product.quantity;
+                        if (productPackagingInput) productPackagingInput.value = product.packaging || '';
+                        if (productMinOrderInput) productMinOrderInput.value = product.minOrder || '';
+                        if (productStatusInput) productStatusInput.value = product.status;
+                        if (product.image && productImagePreview) {
+                            productImagePreview.innerHTML = '<img src="' + product.image + '" alt="Product">';
+                        }
+                        var addTitle = document.querySelector('#section-add-product h2');
+                        if (addTitle) addTitle.textContent = 'Edit Product';
+                        var saveBtn = document.querySelector('#saveProductBtn');
+                        if (saveBtn) saveBtn.textContent = 'Update Product';
+                        showToast('Info', 'Editing product. Update and save.', 'info');
+                    }
+                });
+            })(editBtns[i]);
+        }
+
+        // Delete Product - Show confirmation modal
+        var deleteBtns = document.querySelectorAll('.pcard-btn-delete');
+        for (var i = 0; i < deleteBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = parseInt(this.dataset.id);
+                    var product = null;
+                    for (var m = 0; m < products.length; m++) {
+                        if (products[m].id === id) {
+                            product = products[m];
+                            break;
+                        }
+                    }
+                    if (product) {
+                        openModal(
+                            'Delete Product',
+                            'Are you sure you want to delete "' + product.name + '"? This action cannot be undone.',
+                            '',
+                            'Delete',
+                            'Cancel',
+                            function() {
+                                var newProducts = [];
+                                for (var m = 0; m < products.length; m++) {
+                                    if (products[m].id !== id) {
+                                        newProducts.push(products[m]);
+                                    }
+                                }
+                                products = newProducts;
+                                var card = document.querySelector('.pcard-item[data-id="' + id + '"]');
+                                if (card) {
+                                    card.remove();
+                                }
+                                updateOverview();
+                                closeModal();
+                                showToast('Deleted', '"' + product.name + '" has been deleted.', 'success');
+                            }
+                        );
+                    }
+                });
+            })(deleteBtns[i]);
+        }
+    }
+
+    // ----- Filter products (search + category) -----
+    function filterProducts() {
+        var search = '';
+        var category = '';
+        if (document.getElementById('productSearch')) {
+            search = document.getElementById('productSearch').value.toLowerCase();
+        }
+        if (document.getElementById('productCategoryFilter')) {
+            category = document.getElementById('productCategoryFilter').value;
+        }
+        
+        var items = document.querySelectorAll('.pcard-item');
+        var visibleCount = 0;
+        var empty = document.getElementById('productSearchEmpty');
+        
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var nameEl = item.querySelector('.pcard-title');
+            var name = nameEl ? nameEl.textContent.toLowerCase() : '';
+            var cat = item.dataset.type || '';
+            
+            var matchSearch = search === '' || name.indexOf(search) !== -1;
+            var matchCategory = !category || cat === category;
+            
+            if (matchSearch && matchCategory) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        }
+        
+        if (empty) {
+            if (visibleCount === 0 && items.length > 0) {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
+    }
 
     // =============================================================
     // ADD PRODUCT - LIVE PREVIEW
     // =============================================================
     function updateProductPreview() {
-        const name = productNameInput.value || 'Product Name';
-        const price = productPriceInput.value || '0';
-        const status = productStatusInput.value || 'In Stock';
-        const category = productCategoryInput.value || 'Category';
-        const desc = productDescriptionInput.value || 'Description goes here...';
-        const type = productTypeInput.value || '-';
-        const qty = productQuantityInput.value || '-';
-        const packaging = productPackagingInput.value || '-';
-        const minOrder = productMinOrderInput.value || '-';
+        var name = productNameInput ? productNameInput.value || 'Product Name' : 'Product Name';
+        var price = productPriceInput ? productPriceInput.value || '0' : '0';
+        var status = productStatusInput ? productStatusInput.value || 'In Stock' : 'In Stock';
+        var category = productCategoryInput ? productCategoryInput.value || 'Category' : 'Category';
+        var desc = productDescriptionInput ? productDescriptionInput.value || 'Description goes here...' : 'Description goes here...';
+        var type = productTypeInput ? productTypeInput.value || '-' : '-';
+        var qty = productQuantityInput ? productQuantityInput.value || '-' : '-';
+        var packaging = productPackagingInput ? productPackagingInput.value || '-' : '-';
+        var minOrder = productMinOrderInput ? productMinOrderInput.value || '-' : '-';
 
-        previewProductName.textContent = name;
-        previewProductPrice.textContent = `₦${parseInt(price).toLocaleString()}`;
-        previewProductStatus.textContent = status;
-        previewProductStatus.className = `farmer-preview-product-status farmer-status-${status === 'In Stock' ? 'available' : status === 'Limited' ? 'low' : 'sold'}`;
-        previewProductCategory.innerHTML = `<i class="fas fa-tag"></i> ${category}`;
-        previewProductDesc.textContent = desc;
-        previewProductType.textContent = type;
-        previewProductQty.textContent = qty;
-        previewProductPackaging.textContent = packaging;
-        previewProductMinOrder.textContent = minOrder;
+        if (previewProductName) previewProductName.textContent = name;
+        if (previewProductPrice) previewProductPrice.textContent = '₦' + parseInt(price).toLocaleString();
+        if (previewProductStatus) {
+            previewProductStatus.textContent = status;
+            var statusClass = 'farmer-preview-product-status farmer-status-';
+            if (status === 'In Stock') statusClass += 'available';
+            else if (status === 'Limited') statusClass += 'low';
+            else statusClass += 'sold';
+            previewProductStatus.className = statusClass;
+        }
+        if (previewProductCategory) previewProductCategory.innerHTML = '<i class="fas fa-tag"></i> ' + category;
+        if (previewProductDesc) previewProductDesc.textContent = desc;
+        if (previewProductType) previewProductType.textContent = type;
+        if (previewProductQty) previewProductQty.textContent = qty;
+        if (previewProductPackaging) previewProductPackaging.textContent = packaging;
+        if (previewProductMinOrder) previewProductMinOrder.textContent = minOrder;
     }
 
     // Product form listeners
-    [productNameInput, productCategoryInput, productTypeInput, productDescriptionInput, productPriceInput, productQuantityInput, productPackagingInput, productMinOrderInput, productStatusInput].forEach(input => {
-        input.addEventListener('input', updateProductPreview);
-        input.addEventListener('change', updateProductPreview);
-    });
+    var productInputs = [productNameInput, productCategoryInput, productTypeInput, productDescriptionInput, productPriceInput, productQuantityInput, productPackagingInput, productMinOrderInput, productStatusInput];
+    for (var i = 0; i < productInputs.length; i++) {
+        (function(input) {
+            if (input) {
+                input.addEventListener('input', updateProductPreview);
+                input.addEventListener('change', updateProductPreview);
+            }
+        })(productInputs[i]);
+    }
 
     // Product image upload
-    productImageUpload.addEventListener('click', () => productImageInput.click());
-    productImageInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            productImagePreview.innerHTML = `<img src="${event.target.result}" alt="Product">`;
-            previewProductImage.innerHTML = '';
-            previewProductImage.style.backgroundImage = `url('${event.target.result}')`;
-        };
-        reader.readAsDataURL(file);
-    });
+    if (productImageUpload && productImageInput) {
+        productImageUpload.addEventListener('click', function() { productImageInput.click(); });
+        productImageInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                if (productImagePreview) {
+                    productImagePreview.innerHTML = '<img src="' + event.target.result + '" alt="Product">';
+                }
+                if (previewProductImage) {
+                    previewProductImage.innerHTML = '';
+                    previewProductImage.style.backgroundImage = 'url(\'' + event.target.result + '\')';
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
 
     // Add/Update product
-    addProductForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (addProductForm) {
+        addProductForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const name = productNameInput.value.trim();
-        const category = productCategoryInput.value;
-        const type = productTypeInput.value.trim();
-        const description = productDescriptionInput.value.trim();
-        const price = parseFloat(productPriceInput.value) || 0;
-        const quantity = parseInt(productQuantityInput.value) || 0;
-        const packaging = productPackagingInput.value.trim();
-        const minOrder = productMinOrderInput.value.trim();
-        const status = productStatusInput.value;
+            var name = productNameInput ? productNameInput.value.trim() : '';
+            var category = productCategoryInput ? productCategoryInput.value : '';
+            var type = productTypeInput ? productTypeInput.value.trim() : '';
+            var description = productDescriptionInput ? productDescriptionInput.value.trim() : '';
+            var price = parseFloat(productPriceInput ? productPriceInput.value : 0) || 0;
+            var quantity = parseInt(productQuantityInput ? productQuantityInput.value : 0) || 0;
+            var packaging = productPackagingInput ? productPackagingInput.value.trim() : '';
+            var minOrder = productMinOrderInput ? productMinOrderInput.value.trim() : '';
+            var status = productStatusInput ? productStatusInput.value : 'In Stock';
 
-        if (!name) {
-            showToast('Error', 'Please enter a product name.', 'error');
-            return;
-        }
-        if (!category) {
-            showToast('Error', 'Please select a category.', 'error');
-            return;
-        }
-        if (price <= 0) {
-            showToast('Error', 'Please enter a valid price.', 'error');
-            return;
-        }
-
-        if (isEditingProduct && editingProductId) {
-            // Update existing product
-            const index = products.findIndex(p => p.id === editingProductId);
-            if (index !== -1) {
-                const imgSrc = productImagePreview.querySelector('img')?.src || products[index].image || '';
-                products[index] = {
-                    ...products[index],
-                    name,
-                    category,
-                    type,
-                    description,
-                    price,
-                    quantity,
-                    packaging,
-                    minOrder,
-                    status,
-                    image: imgSrc
-                };
-                showToast('Success', `"${name}" has been updated successfully!`, 'success');
+            if (!name) {
+                showToast('Error', 'Please enter a product name.', 'error');
+                return;
             }
-            isEditingProduct = false;
-            editingProductId = null;
-        } else {
-            // Add new product
-            const imgSrc = productImagePreview.querySelector('img')?.src || '';
-            const newProduct = {
-                id: Date.now(),
-                name,
-                category,
-                type,
-                description,
-                price,
-                quantity,
-                packaging,
-                minOrder,
-                status,
-                image: imgSrc,
-                rating: 0,
-                dateAdded: new Date().toISOString().split('T')[0]
-            };
-            products.push(newProduct);
-            showToast('Success', `"${name}" has been added successfully!`, 'success');
-        }
+            if (!category) {
+                showToast('Error', 'Please select a category.', 'error');
+                return;
+            }
+            if (price <= 0) {
+                showToast('Error', 'Please enter a valid price.', 'error');
+                return;
+            }
 
-        // Reset form
-        addProductForm.reset();
-        productImagePreview.innerHTML = `<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>`;
-        previewProductImage.innerHTML = `<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>`;
-        previewProductImage.style.backgroundImage = '';
-        document.querySelector('#section-add-product h2').textContent = 'Add New Product';
-        document.querySelector('#saveProductBtn').textContent = 'Save Product';
-        updateProductPreview();
-        renderProducts();
-        updateOverview();
-        navigateTo('products');
-    });
+            if (isEditingProduct && editingProductId) {
+                var index = -1;
+                for (var m = 0; m < products.length; m++) {
+                    if (products[m].id === editingProductId) {
+                        index = m;
+                        break;
+                    }
+                }
+                if (index !== -1) {
+                    var imgSrc = '';
+                    if (productImagePreview) {
+                        var img = productImagePreview.querySelector('img');
+                        if (img) imgSrc = img.src;
+                        else imgSrc = products[index].image || '';
+                    }
+                    products[index] = {
+                        id: products[index].id,
+                        name: name,
+                        category: category,
+                        type: type,
+                        description: description,
+                        price: price,
+                        quantity: quantity,
+                        packaging: packaging,
+                        minOrder: minOrder,
+                        status: status,
+                        image: imgSrc,
+                        rating: products[index].rating || 0,
+                        dateAdded: products[index].dateAdded || new Date().toISOString().split('T')[0]
+                    };
+                    showToast('Success', '"' + name + '" has been updated successfully!', 'success');
+                }
+                isEditingProduct = false;
+                editingProductId = null;
+            } else {
+                var imgSrc = '';
+                if (productImagePreview) {
+                    var img = productImagePreview.querySelector('img');
+                    if (img) imgSrc = img.src;
+                }
+                var newProduct = {
+                    id: Date.now(),
+                    name: name,
+                    category: category,
+                    type: type,
+                    description: description,
+                    price: price,
+                    quantity: quantity,
+                    packaging: packaging,
+                    minOrder: minOrder,
+                    status: status,
+                    image: imgSrc,
+                    rating: 0,
+                    dateAdded: new Date().toISOString().split('T')[0]
+                };
+                products.push(newProduct);
+                showToast('Success', '"' + name + '" has been added successfully!', 'success');
+            }
+
+            // Reset form
+            if (addProductForm) addProductForm.reset();
+            if (productImagePreview) {
+                productImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+            }
+            if (previewProductImage) {
+                previewProductImage.innerHTML = '<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                previewProductImage.style.backgroundImage = '';
+            }
+            var addTitle = document.querySelector('#section-add-product h2');
+            if (addTitle) addTitle.textContent = 'Add New Product';
+            var saveBtn = document.querySelector('#saveProductBtn');
+            if (saveBtn) saveBtn.textContent = 'Save Product';
+            updateProductPreview();
+            initProductActions();
+            filterProducts();
+            updateOverview();
+            navigateTo('products');
+        });
+    }
 
     // Cancel add product
-    document.getElementById('cancelProductBtn').addEventListener('click', function() {
-        if (isEditingProduct) {
-            isEditingProduct = false;
-            editingProductId = null;
-            document.querySelector('#section-add-product h2').textContent = 'Add New Product';
-            document.querySelector('#saveProductBtn').textContent = 'Save Product';
-        }
-        addProductForm.reset();
-        productImagePreview.innerHTML = `<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>`;
-        previewProductImage.innerHTML = `<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>`;
-        previewProductImage.style.backgroundImage = '';
-        updateProductPreview();
-        showToast('Info', 'Product creation cancelled.', 'info');
-        navigateTo('products');
-    });
+    var cancelBtn = document.getElementById('cancelProductBtn');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', function() {
+            if (isEditingProduct) {
+                isEditingProduct = false;
+                editingProductId = null;
+                var addTitle = document.querySelector('#section-add-product h2');
+                if (addTitle) addTitle.textContent = 'Add New Product';
+                var saveBtn = document.querySelector('#saveProductBtn');
+                if (saveBtn) saveBtn.textContent = 'Save Product';
+            }
+            if (addProductForm) addProductForm.reset();
+            if (productImagePreview) {
+                productImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+            }
+            if (previewProductImage) {
+                previewProductImage.innerHTML = '<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                previewProductImage.style.backgroundImage = '';
+            }
+            updateProductPreview();
+            showToast('Info', 'Product creation cancelled.', 'info');
+            navigateTo('products');
+        });
+    }
 
     // =============================================================
     // ENQUIRIES
     // =============================================================
     function renderEnquiries() {
-        const search = enquirySearch.value.toLowerCase();
-        const status = enquiryStatusFilter.value;
+        if (!enquiriesList) return;
 
-        let filtered = enquiries.filter(e => {
-            const matchSearch = e.buyer.toLowerCase().includes(search) || e.product.toLowerCase().includes(search);
-            const matchStatus = !status || e.status === status;
-            return matchSearch && matchStatus;
-        });
+        var search = enquirySearch ? enquirySearch.value.toLowerCase() : '';
+        var status = enquiryStatusFilter ? enquiryStatusFilter.value : '';
+
+        var filtered = [];
+        for (var i = 0; i < enquiries.length; i++) {
+            var e = enquiries[i];
+            var matchSearch = e.buyer.toLowerCase().indexOf(search) !== -1 || e.product.toLowerCase().indexOf(search) !== -1;
+            var matchStatus = !status || e.status === status;
+            if (matchSearch && matchStatus) {
+                filtered.push(e);
+            }
+        }
 
         if (filtered.length === 0) {
-            enquiriesList.innerHTML = `
-                <div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);">
-                    <i class="fas fa-envelope" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i>
-                    <p>No enquiries found.</p>
-                </div>
-            `;
+            enquiriesList.innerHTML = '<div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);"><i class="fas fa-envelope" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i><p>No enquiries found.</p></div>';
             return;
         }
 
-        enquiriesList.innerHTML = filtered.map(e => `
-            <div class="farmer-enquiry-item">
-                <div class="farmer-enquiry-info">
-                    <h4>${e.buyer}</h4>
-                    <p>${e.contactMethod} · Interested in: ${e.product}</p>
-                    <p style="font-size:0.75rem;color:var(--farmer-text-secondary);">${e.date}</p>
-                </div>
-                <span class="farmer-enquiry-status farmer-enquiry-status-${e.status.toLowerCase()}">${e.status}</span>
-                <div class="farmer-enquiry-actions">
-                    <button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="view-enquiry" data-id="${e.id}">View</button>
-                    ${e.status === 'New' ? `<button class="farmer-btn farmer-btn-sm farmer-btn-primary" data-action="mark-contacted" data-id="${e.id}">Mark Contacted</button>` : ''}
-                    ${e.status !== 'Closed' ? `<button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="mark-closed" data-id="${e.id}">Mark Closed</button>` : ''}
-                </div>
-            </div>
-        `).join('');
+        var html = '';
+        for (var j = 0; j < filtered.length; j++) {
+            var e = filtered[j];
+            var statusClass = 'farmer-enquiry-status-' + e.status.toLowerCase();
+            html += '<div class="farmer-enquiry-item"><div class="farmer-enquiry-info"><h4>' + e.buyer + '</h4><p>' + e.contactMethod + ' · Interested in: ' + e.product + '</p><p style="font-size:0.75rem;color:var(--farmer-text-secondary);">' + e.date + '</p></div><span class="farmer-enquiry-status ' + statusClass + '">' + e.status + '</span><div class="farmer-enquiry-actions"><button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="view-enquiry" data-id="' + e.id + '">View</button>' + (e.status === 'New' ? '<button class="farmer-btn farmer-btn-sm farmer-btn-primary" data-action="mark-contacted" data-id="' + e.id + '">Mark Contacted</button>' : '') + (e.status !== 'Closed' ? '<button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="mark-closed" data-id="' + e.id + '">Mark Closed</button>' : '') + '</div></div>';
+        }
+        enquiriesList.innerHTML = html;
 
         // Enquiry actions
-        document.querySelectorAll('[data-action="view-enquiry"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const enquiry = enquiries.find(e => e.id === id);
-                if (enquiry) {
-                    openModal(
-                        'Enquiry Details',
-                        '',
-                        `
-                            <p><strong>Buyer:</strong> ${enquiry.buyer}</p>
-                            <p><strong>Contact Method:</strong> ${enquiry.contactMethod}</p>
-                            <p><strong>Product:</strong> ${enquiry.product}</p>
-                            <p><strong>Date:</strong> ${enquiry.date}</p>
-                            <p><strong>Status:</strong> ${enquiry.status}</p>
-                        `,
-                        'Close'
-                    );
-                    modalCancel.style.display = 'none';
-                    modalConfirm.textContent = 'Close';
-                    modal._confirmCallback = closeModal;
-                    setTimeout(() => { modalCancel.style.display = ''; modalConfirm.textContent = 'Confirm'; }, 100);
+        enquiriesList.addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            var action = btn.dataset.action;
+            var id = parseInt(btn.dataset.id);
+
+            var enquiry = null;
+            for (var m = 0; m < enquiries.length; m++) {
+                if (enquiries[m].id === id) {
+                    enquiry = enquiries[m];
+                    break;
                 }
-            });
+            }
+            if (!enquiry) return;
+
+            if (action === 'view-enquiry') {
+                openModal('Enquiry Details', '', '<p><strong>Buyer:</strong> ' + enquiry.buyer + '</p><p><strong>Contact Method:</strong> ' + enquiry.contactMethod + '</p><p><strong>Product:</strong> ' + enquiry.product + '</p><p><strong>Date:</strong> ' + enquiry.date + '</p><p><strong>Status:</strong> ' + enquiry.status + '</p>', 'Close', '');
+                modalCancel.style.display = 'none';
+                modalConfirm.textContent = 'Close';
+                modal._confirmCallback = closeModal;
+                setTimeout(function() { modalCancel.style.display = ''; modalConfirm.textContent = 'Confirm'; }, 100);
+            } else if (action === 'mark-contacted') {
+                openModal('Mark as Contacted', 'Mark "' + enquiry.buyer + '" enquiry as contacted?', '', 'Yes, Mark Contacted', 'Cancel', function() {
+                    enquiry.status = 'Contacted';
+                    renderEnquiries();
+                    closeModal();
+                    showToast('Updated', 'Enquiry marked as contacted.', 'success');
+                });
+            } else if (action === 'mark-closed') {
+                openModal('Mark as Closed', 'Mark "' + enquiry.buyer + '" enquiry as closed?', '', 'Yes, Mark Closed', 'Cancel', function() {
+                    enquiry.status = 'Closed';
+                    renderEnquiries();
+                    closeModal();
+                    showToast('Updated', 'Enquiry marked as closed.', 'success');
+                });
+            }
         });
 
-        document.querySelectorAll('[data-action="mark-contacted"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const enquiry = enquiries.find(e => e.id === id);
-                if (enquiry) {
-                    openModal(
-                        'Mark as Contacted',
-                        `Mark "${enquiry.buyer}" enquiry as contacted?`,
-                        '',
-                        'Yes, Mark Contacted',
-                        'Cancel',
-                        function() {
-                            enquiry.status = 'Contacted';
-                            renderEnquiries();
-                            closeModal();
-                            showToast('Updated', 'Enquiry marked as contacted.', 'success');
-                        }
-                    );
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="mark-closed"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const enquiry = enquiries.find(e => e.id === id);
-                if (enquiry) {
-                    openModal(
-                        'Mark as Closed',
-                        `Mark "${enquiry.buyer}" enquiry as closed?`,
-                        '',
-                        'Yes, Mark Closed',
-                        'Cancel',
-                        function() {
-                            enquiry.status = 'Closed';
-                            renderEnquiries();
-                            closeModal();
-                            showToast('Updated', 'Enquiry marked as closed.', 'success');
-                        }
-                    );
-                }
-            });
-        });
-
-        totalEnquiries.textContent = enquiries.length;
+        if (totalEnquiries) totalEnquiries.textContent = enquiries.length;
     }
 
-    enquirySearch.addEventListener('input', renderEnquiries);
-    enquiryStatusFilter.addEventListener('change', renderEnquiries);
+    if (enquirySearch) {
+        enquirySearch.addEventListener('input', renderEnquiries);
+    }
+    if (enquiryStatusFilter) {
+        enquiryStatusFilter.addEventListener('change', renderEnquiries);
+    }
 
     // =============================================================
     // REVIEWS
     // =============================================================
     function renderReviews() {
+        if (!reviewsList) return;
+
         if (reviews.length === 0) {
-            reviewsList.innerHTML = `
-                <div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);">
-                    <i class="fas fa-star" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i>
-                    <p>No reviews yet.</p>
-                </div>
-            `;
+            reviewsList.innerHTML = '<div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);"><i class="fas fa-star" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i><p>No reviews yet.</p></div>';
             return;
         }
 
-        // Calculate stats
-        const total = reviews.length;
-        const avg = (reviews.reduce((sum, r) => sum + r.rating, 0) / total);
-        reviewAvg.textContent = avg.toFixed(1);
-        reviewCount.textContent = total;
+        var total = reviews.length;
+        var sum = 0;
+        for (var i = 0; i < reviews.length; i++) {
+            sum += reviews[i].rating;
+        }
+        var avg = sum / total;
+        if (reviewAvg) reviewAvg.textContent = avg.toFixed(1);
+        if (reviewCount) reviewCount.textContent = total;
 
-        reviewsList.innerHTML = reviews.map(r => `
-            <div class="farmer-review-card">
-                <div class="farmer-review-header">
-                    <span class="farmer-review-name">${r.buyer}</span>
-                    <span class="farmer-review-stars">${'⭐'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
-                </div>
-                <p class="farmer-review-text">"${r.text}"</p>
-                <span class="farmer-review-date">${r.date}</span>
-                ${r.response ? `
-                    <div class="farmer-review-response">
-                        <div class="farmer-review-response-label">Your Response</div>
-                        <p class="farmer-review-response-text">${r.response}</p>
-                    </div>
-                ` : `
-                    <div style="margin-top:0.5rem;">
-                        <button class="farmer-btn farmer-btn-sm farmer-btn-primary" data-action="respond-review" data-id="${r.id}">Respond</button>
-                    </div>
-                `}
-            </div>
-        `).join('');
+        var html = '';
+        for (var i = 0; i < reviews.length; i++) {
+            var r = reviews[i];
+            var stars = '';
+            for (var s = 0; s < r.rating; s++) stars += '⭐';
+            for (var s = r.rating; s < 5; s++) stars += '☆';
+            html += '<div class="farmer-review-card"><div class="farmer-review-header"><span class="farmer-review-name">' + r.buyer + '</span><span class="farmer-review-stars">' + stars + '</span></div><p class="farmer-review-text">"' + r.text + '"</p><span class="farmer-review-date">' + r.date + '</span>';
+            if (r.response) {
+                html += '<div class="farmer-review-response"><div class="farmer-review-response-label">Your Response</div><p class="farmer-review-response-text">' + r.response + '</p></div>';
+            } else {
+                html += '<div style="margin-top:0.5rem;"><button class="farmer-btn farmer-btn-sm farmer-btn-primary" data-action="respond-review" data-id="' + r.id + '">Respond</button></div>';
+            }
+            html += '</div>';
+        }
+        reviewsList.innerHTML = html;
 
-        document.querySelectorAll('[data-action="respond-review"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = parseInt(this.dataset.id);
-                const review = reviews.find(r => r.id === id);
-                if (review) {
-                    openModal(
-                        'Respond to Review',
-                        `Write your response to ${review.buyer}:`,
-                        `
-                            <div class="farmer-form-group">
-                                <label>Your Response</label>
-                                <textarea id="reviewResponseInput" class="farmer-form-textarea" rows="4" placeholder="Thank you for your review..."></textarea>
-                            </div>
-                        `,
-                        'Send Response',
-                        'Cancel',
-                        function() {
-                            const response = document.getElementById('reviewResponseInput').value.trim();
-                            if (!response) {
-                                showToast('Error', 'Please write a response.', 'error');
-                                return;
-                            }
-                            review.response = response;
-                            renderReviews();
-                            closeModal();
-                            showToast('Success', 'Response sent successfully!', 'success');
-                        }
-                    );
+        reviewsList.addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            var action = btn.dataset.action;
+            var id = parseInt(btn.dataset.id);
+
+            var review = null;
+            for (var m = 0; m < reviews.length; m++) {
+                if (reviews[m].id === id) {
+                    review = reviews[m];
+                    break;
                 }
-            });
+            }
+            if (!review) return;
+
+            if (action === 'respond-review') {
+                openModal('Respond to Review', 'Write your response to ' + review.buyer + ':', '<div class="farmer-form-group"><label>Your Response</label><textarea id="reviewResponseInput" class="farmer-form-textarea" rows="4" placeholder="Thank you for your review..."></textarea></div>', 'Send Response', 'Cancel', function() {
+                    var responseInput = document.getElementById('reviewResponseInput');
+                    var response = responseInput ? responseInput.value.trim() : '';
+                    if (!response) {
+                        showToast('Error', 'Please write a response.', 'error');
+                        return;
+                    }
+                    review.response = response;
+                    renderReviews();
+                    closeModal();
+                    showToast('Success', 'Response sent successfully!', 'success');
+                });
+            }
         });
     }
 
@@ -4438,301 +4498,585 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     // NOTIFICATIONS
     // =============================================================
     function renderNotifications() {
-        const unreadCount = notifications.filter(n => !n.read).length;
-        notificationDot.style.display = unreadCount > 0 ? 'block' : 'none';
+        if (!notificationsList) return;
+
+        var unreadCount = 0;
+        for (var i = 0; i < notifications.length; i++) {
+            if (!notifications[i].read) unreadCount++;
+        }
+        if (notificationDot) {
+            notificationDot.style.display = unreadCount > 0 ? 'block' : 'none';
+        }
 
         if (notifications.length === 0) {
-            notificationsList.innerHTML = `
-                <div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);">
-                    <i class="fas fa-bell-slash" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i>
-                    <p>No notifications</p>
-                </div>
-            `;
+            notificationsList.innerHTML = '<div style="text-align:center;padding:3rem 0;color:var(--farmer-text-secondary);"><i class="fas fa-bell-slash" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i><p>No notifications</p></div>';
             return;
         }
 
-        notificationsList.innerHTML = notifications.map(n => `
-            <div class="farmer-notification-item ${n.read ? '' : 'unread'}" data-id="${n.id}" data-link="${n.link}">
-                <div class="farmer-notification-content">
-                    <div class="farmer-notification-title">${n.title}</div>
-                    <div class="farmer-notification-message">${n.message}</div>
-                    <span class="farmer-notification-time">${n.time}</span>
-                </div>
-                <div class="farmer-notification-actions">
-                    <button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="mark-read" data-id="${n.id}">${n.read ? 'Read' : 'Mark Read'}</button>
-                    <button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="delete-notification" data-id="${n.id}" style="color:#EF4444;border-color:#EF4444;">Delete</button>
-                </div>
-            </div>
-        `).join('');
+        var html = '';
+        for (var j = 0; j < notifications.length; j++) {
+            var n = notifications[j];
+            html += '<div class="farmer-notification-item ' + (n.read ? '' : 'unread') + '" data-id="' + n.id + '" data-link="' + n.link + '"><div class="farmer-notification-content"><div class="farmer-notification-title">' + n.title + '</div><div class="farmer-notification-message">' + n.message + '</div><span class="farmer-notification-time">' + n.time + '</span></div><div class="farmer-notification-actions"><button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="mark-read" data-id="' + n.id + '">' + (n.read ? 'Read' : 'Mark Read') + '</button><button class="farmer-btn farmer-btn-sm farmer-btn-outline" data-action="delete-notification" data-id="' + n.id + '" style="color:#EF4444;border-color:#EF4444;">Delete</button></div></div>';
+        }
+        notificationsList.innerHTML = html;
 
-        // Click on notification to navigate
-        document.querySelectorAll('.farmer-notification-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (e.target.closest('.farmer-notification-actions')) return;
-                const link = this.dataset.link;
-                const id = parseInt(this.dataset.id);
-                const notif = notifications.find(n => n.id === id);
-                if (notif && !notif.read) {
-                    notif.read = true;
-                    renderNotifications();
-                }
-                if (link) {
-                    navigateTo(link);
-                }
-            });
-        });
+        notificationsList.addEventListener('click', function(e) {
+            var target = e.target;
+            var item = target.closest('.farmer-notification-item');
+            if (!item) return;
 
-        document.querySelectorAll('[data-action="mark-read"]').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const id = parseInt(this.dataset.id);
-                const notif = notifications.find(n => n.id === id);
-                if (notif) {
-                    notif.read = true;
-                    renderNotifications();
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="delete-notification"]').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const id = parseInt(this.dataset.id);
-                openModal(
-                    'Delete Notification',
-                    'Are you sure you want to delete this notification?',
-                    '',
-                    'Delete',
-                    'Cancel',
-                    function() {
-                        notifications = notifications.filter(n => n.id !== id);
-                        renderNotifications();
-                        closeModal();
-                        showToast('Deleted', 'Notification deleted.', 'success');
+            var btn = target.closest('button');
+            if (btn) {
+                var action = btn.dataset.action;
+                var id = parseInt(btn.dataset.id);
+                if (action === 'mark-read') {
+                    var notif = null;
+                    for (var m = 0; m < notifications.length; m++) {
+                        if (notifications[m].id === id) {
+                            notif = notifications[m];
+                            break;
+                        }
                     }
-                );
-            });
+                    if (notif) {
+                        notif.read = true;
+                        renderNotifications();
+                    }
+                    return;
+                } else if (action === 'delete-notification') {
+                    var notif = null;
+                    for (var m = 0; m < notifications.length; m++) {
+                        if (notifications[m].id === id) {
+                            notif = notifications[m];
+                            break;
+                        }
+                    }
+                    if (notif) {
+                        openModal('Delete Notification', 'Are you sure you want to delete this notification?', '', 'Delete', 'Cancel', function() {
+                            var newNotifs = [];
+                            for (var m = 0; m < notifications.length; m++) {
+                                if (notifications[m].id !== id) {
+                                    newNotifs.push(notifications[m]);
+                                }
+                            }
+                            notifications = newNotifs;
+                            renderNotifications();
+                            closeModal();
+                            showToast('Deleted', 'Notification deleted.', 'success');
+                        });
+                    }
+                    return;
+                }
+            }
+
+            var link = item.dataset.link;
+            var id = parseInt(item.dataset.id);
+            var notif = null;
+            for (var m = 0; m < notifications.length; m++) {
+                if (notifications[m].id === id) {
+                    notif = notifications[m];
+                    break;
+                }
+            }
+            if (notif && !notif.read) {
+                notif.read = true;
+                renderNotifications();
+            }
+            if (link) {
+                navigateTo(link);
+            }
         });
     }
 
     // Mark all read
-    document.getElementById('markAllReadBtn').addEventListener('click', function() {
-        notifications.forEach(n => n.read = true);
-        renderNotifications();
-        showToast('Updated', 'All notifications marked as read.', 'success');
-    });
+    var markAllReadBtn = document.getElementById('markAllReadBtn');
+    if (markAllReadBtn) {
+        markAllReadBtn.addEventListener('click', function() {
+            for (var k = 0; k < notifications.length; k++) {
+                notifications[k].read = true;
+            }
+            renderNotifications();
+            showToast('Updated', 'All notifications marked as read.', 'success');
+        });
+    }
 
     // Notification icon click
-    notificationIcon.addEventListener('click', function() {
-        navigateTo('notifications');
-    });
+    if (notificationIcon) {
+        notificationIcon.addEventListener('click', function() {
+            navigateTo('notifications');
+        });
+    }
 
     // =============================================================
     // OVERVIEW
     // =============================================================
     function updateOverview() {
-        totalProducts.textContent = products.length;
-        totalEnquiries.textContent = enquiries.length;
+        if (totalProducts) totalProducts.textContent = products.length;
+        if (totalEnquiries) totalEnquiries.textContent = enquiries.length;
         if (reviews.length > 0) {
-            const avg = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
-            avgRating.textContent = avg.toFixed(1);
+            var sum = 0;
+            for (var i = 0; i < reviews.length; i++) {
+                sum += reviews[i].rating;
+            }
+            var avg = sum / reviews.length;
+            if (avgRating) avgRating.textContent = avg.toFixed(1);
         }
-        totalReviews.textContent = reviews.length;
+        if (totalReviews) totalReviews.textContent = reviews.length;
         updateCompletion();
     }
 
     // =============================================================
     // SETTINGS
     // =============================================================
-    changePasswordBtn.addEventListener('click', function() {
-        const newPass = document.getElementById('settingsNewPassword').value;
-        const confirmPass = document.getElementById('settingsConfirmPassword').value;
+    if (changePasswordBtn) {
+        changePasswordBtn.addEventListener('click', function() {
+            var newPass = document.getElementById('settingsNewPassword') ? document.getElementById('settingsNewPassword').value : '';
+            var confirmPass = document.getElementById('settingsConfirmPassword') ? document.getElementById('settingsConfirmPassword').value : '';
 
-        if (!newPass || !confirmPass) {
-            showToast('Error', 'Please fill in both password fields.', 'error');
-            return;
-        }
-        if (newPass !== confirmPass) {
-            showToast('Error', 'Passwords do not match.', 'error');
-            return;
-        }
-        if (newPass.length < 6) {
-            showToast('Error', 'Password must be at least 6 characters.', 'error');
-            return;
-        }
+            if (!newPass || !confirmPass) {
+                showToast('Error', 'Please fill in both password fields.', 'error');
+                return;
+            }
+            if (newPass !== confirmPass) {
+                showToast('Error', 'Passwords do not match.', 'error');
+                return;
+            }
+            if (newPass.length < 6) {
+                showToast('Error', 'Password must be at least 6 characters.', 'error');
+                return;
+            }
 
-        showToast('Success', 'Password updated successfully!', 'success');
-        document.getElementById('settingsNewPassword').value = '';
-        document.getElementById('settingsConfirmPassword').value = '';
-    });
+            showToast('Success', 'Password updated successfully!', 'success');
+            if (document.getElementById('settingsNewPassword')) document.getElementById('settingsNewPassword').value = '';
+            if (document.getElementById('settingsConfirmPassword')) document.getElementById('settingsConfirmPassword').value = '';
+        });
+    }
 
     // =============================================================
     // QUICK ACTION BUTTONS
     // =============================================================
-    document.querySelectorAll('[data-action="add-product"]').forEach(btn => {
-        btn.addEventListener('click', function() {
+    var actionBtns = document.querySelectorAll('[data-action="add-product"], [data-action="view-products"], [data-action="complete-profile"]');
+    for (var i = 0; i < actionBtns.length; i++) {
+        (function(btn) {
+            btn.addEventListener('click', function() {
+                var action = this.dataset.action;
+                if (action === 'add-product') {
+                    isEditingProduct = false;
+                    editingProductId = null;
+                    var addTitle = document.querySelector('#section-add-product h2');
+                    if (addTitle) addTitle.textContent = 'Add New Product';
+                    var saveBtn = document.querySelector('#saveProductBtn');
+                    if (saveBtn) saveBtn.textContent = 'Save Product';
+                    if (addProductForm) addProductForm.reset();
+                    if (productImagePreview) {
+                        productImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+                    }
+                    if (previewProductImage) {
+                        previewProductImage.innerHTML = '<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                        previewProductImage.style.backgroundImage = '';
+                    }
+                    updateProductPreview();
+                    navigateTo('add-product');
+                } else if (action === 'view-products') {
+                    navigateTo('products');
+                } else if (action === 'complete-profile') {
+                    navigateTo('profile');
+                }
+            });
+        })(actionBtns[i]);
+    }
+
+    // Add product from products page
+    var addProductFromProducts = document.getElementById('addProductFromProducts');
+    if (addProductFromProducts) {
+        addProductFromProducts.addEventListener('click', function() {
             isEditingProduct = false;
             editingProductId = null;
-            document.querySelector('#section-add-product h2').textContent = 'Add New Product';
-            document.querySelector('#saveProductBtn').textContent = 'Save Product';
-            addProductForm.reset();
-            productImagePreview.innerHTML = `<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>`;
-            previewProductImage.innerHTML = `<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>`;
-            previewProductImage.style.backgroundImage = '';
+            var addTitle = document.querySelector('#section-add-product h2');
+            if (addTitle) addTitle.textContent = 'Add New Product';
+            var saveBtn = document.querySelector('#saveProductBtn');
+            if (saveBtn) saveBtn.textContent = 'Save Product';
+            if (addProductForm) addProductForm.reset();
+            if (productImagePreview) {
+                productImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+            }
+            if (previewProductImage) {
+                previewProductImage.innerHTML = '<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                previewProductImage.style.backgroundImage = '';
+            }
             updateProductPreview();
             navigateTo('add-product');
         });
-    });
-
-    document.querySelectorAll('[data-action="view-products"]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            navigateTo('products');
-        });
-    });
-
-    document.querySelectorAll('[data-action="complete-profile"]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            navigateTo('profile');
-        });
-    });
-
-    // Add product from products page
-    document.getElementById('addProductFromProducts').addEventListener('click', function() {
-        isEditingProduct = false;
-        editingProductId = null;
-        document.querySelector('#section-add-product h2').textContent = 'Add New Product';
-        document.querySelector('#saveProductBtn').textContent = 'Save Product';
-        addProductForm.reset();
-        productImagePreview.innerHTML = `<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>`;
-        previewProductImage.innerHTML = `<div class="farmer-preview-product-placeholder"><i class="fas fa-image"></i> No Image</div>`;
-        previewProductImage.style.backgroundImage = '';
-        updateProductPreview();
-        navigateTo('add-product');
-    });
+    }
 
     // =============================================================
     // PROFILE DROPDOWN
     // =============================================================
-    const profileDropdown = document.getElementById('farmerProfileDropdown');
-    const profileTrigger = document.querySelector('.farmer-profile-trigger');
+    var profileDropdown = document.getElementById('farmerProfileDropdown');
+    var profileTrigger = document.querySelector('.farmer-profile-trigger');
 
-    profileTrigger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        profileDropdown.classList.toggle('active');
-    });
+    if (profileTrigger && profileDropdown) {
+        profileTrigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
 
-    document.addEventListener('click', function(e) {
-        if (!profileDropdown.contains(e.target)) {
-            profileDropdown.classList.remove('active');
-        }
-    });
-
-    document.querySelectorAll('.farmer-profile-menu-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const action = this.dataset.action;
-            profileDropdown.classList.remove('active');
-            if (action === 'profile') navigateTo('profile');
-            else if (action === 'settings') navigateTo('settings');
-            else if (action === 'logout') {
-                openModal('Logout', 'Are you sure you want to logout?', '', 'Logout', 'Cancel', function() {
-                    closeModal();
-                    showToast('Info', 'Logging out...', 'info');
-                    setTimeout(() => { window.location.href = 'login.html'; }, 1000);
-                });
+        document.addEventListener('click', function(e) {
+            if (profileDropdown && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('active');
             }
         });
-    });
+    }
+
+    var profileMenuItems = document.querySelectorAll('.farmer-profile-menu-item');
+    for (var i = 0; i < profileMenuItems.length; i++) {
+        (function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                var action = this.dataset.action;
+                if (profileDropdown) profileDropdown.classList.remove('active');
+                if (action === 'profile') navigateTo('profile');
+                else if (action === 'saved') navigateTo('saved');
+                else if (action === 'settings') navigateTo('settings');
+                else if (action === 'logout') {
+                    openModal('Logout', 'Are you sure you want to logout?', '', 'Logout', 'Cancel', function() {
+                        closeModal();
+                        showToast('Info', 'Logging out...', 'info');
+                        setTimeout(function() { window.location.href = 'login.html'; }, 1000);
+                    });
+                }
+            });
+        })(profileMenuItems[i]);
+    }
 
     // =============================================================
     // LOGOUT
     // =============================================================
-    document.querySelector('.farmer-sidebar-logout').addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal('Logout', 'Are you sure you want to logout?', '', 'Logout', 'Cancel', function() {
-            closeModal();
-            showToast('Info', 'Logging out...', 'info');
-            setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+    var logoutLink = document.querySelector('.farmer-sidebar-logout');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('Logout', 'Are you sure you want to logout?', '', 'Logout', 'Cancel', function() {
+                closeModal();
+                showToast('Info', 'Logging out...', 'info');
+                setTimeout(function() { window.location.href = 'login.html'; }, 1000);
+            });
         });
-    });
+    }
 
     // =============================================================
     // GLOBAL SEARCH
     // =============================================================
-    const globalSearch = document.getElementById('globalSearch');
-    globalSearch.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            const term = this.value.toLowerCase();
-            const sections = ['products', 'enquiries', 'reviews'];
-            let found = false;
-            for (const section of sections) {
-                const el = document.getElementById(`section-${section}`);
-                if (el) {
-                    const text = el.textContent.toLowerCase();
-                    if (text.includes(term)) {
-                        navigateTo(section);
-                        found = true;
-                        break;
+    var globalSearch = document.getElementById('globalSearch');
+    if (globalSearch) {
+        globalSearch.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                var term = this.value.toLowerCase();
+                var sections = ['products', 'enquiries', 'reviews'];
+                var found = false;
+                for (var i = 0; i < sections.length; i++) {
+                    var el = document.getElementById('section-' + sections[i]);
+                    if (el) {
+                        var text = el.textContent.toLowerCase();
+                        if (text.indexOf(term) !== -1) {
+                            navigateTo(sections[i]);
+                            found = true;
+                            break;
+                        }
                     }
                 }
+                if (!found) {
+                    showToast('Info', 'No results found for "' + this.value + '"', 'info');
+                }
             }
-            if (!found) {
-                showToast('Info', `No results found for "${this.value}"`, 'info');
+        });
+    }
+
+    // =============================================================
+    // SEARCH AND FILTER FOR PRODUCTS
+    // =============================================================
+    if (productSearch) {
+        productSearch.addEventListener('input', filterProducts);
+    }
+    if (productCategoryFilter) {
+        productCategoryFilter.addEventListener('change', filterProducts);
+    }
+
+    // =============================================================
+    // SAVED ITEMS - UPDATE COUNTS
+    // =============================================================
+    function updateSavedCounts() {
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        var tabs = ['product', 'farmer', 'logistics'];
+        for (var i = 0; i < containers.length; i++) {
+            var container = document.getElementById(containers[i]);
+            var countEl = document.getElementById(tabs[i] + 'Count');
+            if (container && countEl) {
+                var items = container.querySelectorAll('.sgrid-item');
+                countEl.textContent = items.length;
             }
         }
-    });
+    }
 
     // =============================================================
     // INITIALIZE
     // =============================================================
-    initData();
-    updateProfilePreview();
-    renderProducts();
-    renderEnquiries();
-    renderReviews();
-    renderNotifications();
-    updateOverview();
-    updateProductPreview();
+    function init() {
+        console.log('🛒 Initializing Farmer Dashboard...');
 
-    // Show welcome toast
-    setTimeout(() => {
-        showToast('Welcome back!', 'John, your farm is thriving. 🌱', 'success');
-    }, 800);
+        initData();
+        
+        // Setup sidebar collapse from localStorage
+        try {
+            var savedCollapse = localStorage.getItem('farmerSidebarCollapsed');
+            if (savedCollapse === 'true') {
+                isSidebarCollapsed = true;
+                if (sidebar) sidebar.classList.add('collapsed');
+            }
+        } catch(e) {}
 
-    console.log('🌱 FarmConnect Farmer Dashboard loaded');
-    console.log('📊 Dashboard ready for farmer management');
+        // Setup dark mode from localStorage
+        try {
+            var savedDarkMode = localStorage.getItem('farmerDarkMode');
+            if (savedDarkMode === 'true') {
+                isDarkMode = true;
+                document.body.classList.add('farmer-dark-mode');
+                if (darkModeToggle) {
+                    var icon = darkModeToggle.querySelector('i');
+                    if (icon) icon.className = 'fas fa-sun';
+                }
+                if (settingsDarkMode) settingsDarkMode.checked = true;
+            }
+        } catch(e) {}
+
+        // Profile image upload
+        if (profileImageUpload && profileImageInput) {
+            profileImageUpload.addEventListener('click', function() { profileImageInput.click(); });
+            profileImageInput.addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                if (!file) return;
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    if (profileImagePreview) {
+                        profileImagePreview.innerHTML = '<img src="' + event.target.result + '" alt="Profile">';
+                    }
+                    if (previewAvatar) {
+                        previewAvatar.innerHTML = '<img src="' + event.target.result + '" alt="Profile">';
+                        previewAvatar.style.background = 'transparent';
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        updateProfilePreview();
+        initProductActions();
+        filterProducts();
+        renderEnquiries();
+        renderReviews();
+        renderNotifications();
+        updateOverview();
+        updateProductPreview();
+
+        // Set default active section
+        navigateTo('overview');
+
+        setTimeout(function() {
+            showToast('Welcome back!', 'John, your farm is thriving. 🌱', 'success');
+        }, 800);
+
+        console.log('✅ Farmer Dashboard initialized successfully');
+        console.log('📊 Stats:', {
+            products: products.length,
+            enquiries: enquiries.length,
+            reviews: reviews.length,
+            notifications: notifications.length
+        });
+    }
+
+    // =============================================================
+    // START
+    // =============================================================
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 
 })();
-    
+
+// ============================================================
+// FARMER DASHBOARD - SAVED ITEMS (sgrid- prefix)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on farmer dashboard
+    if (!document.getElementById('farmerSidebar')) {
+        return;
+    }
+
+    console.log('💾 Farmer Saved Items (sgrid) initializing...');
+
+    // ============================================================
+    // DOM REFS
+    // ============================================================
+    var savedSearch = document.getElementById('savedSearch');
+    var productContainer = document.getElementById('savedProductsContainer');
+    var farmerContainer = document.getElementById('savedFarmersContainer');
+    var logisticsContainer = document.getElementById('savedLogisticsContainer');
+
+    // ============================================================
+    // FILTER FUNCTION - ONLY FILTERS, NO RENDERING
+    // ============================================================
+    function filterSavedItems() {
+        var searchTerm = savedSearch ? savedSearch.value.trim().toLowerCase() : '';
+
+        var containers = [productContainer, farmerContainer, logisticsContainer];
+        var activeContainer = null;
+        var activeTab = 'products';
+
+        for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            if (el && el.style.display !== 'none') {
+                activeContainer = el;
+                if (el === productContainer) activeTab = 'product';
+                else if (el === farmerContainer) activeTab = 'farmer';
+                else if (el === logisticsContainer) activeTab = 'logistics';
+                break;
+            }
+        }
+
+        if (!activeContainer) return;
+
+        var items = activeContainer.querySelectorAll('.sgrid-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
+
+        items.forEach(function(item) {
+            var nameEl = item.querySelector('.sgrid-title');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
+
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        var countEl = document.getElementById(activeTab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        var empty = document.getElementById('savedSearchEmpty');
+        if (empty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
+    }
+
+    // ============================================================
+    // UPDATE COUNTS
+    // ============================================================
+    function updateSavedCounts() {
+        var containers = [
+            { el: productContainer, id: 'productCount' },
+            { el: farmerContainer, id: 'farmerCount' },
+            { el: logisticsContainer, id: 'logisticsCount' }
+        ];
+
+        for (var i = 0; i < containers.length; i++) {
+            var c = containers[i];
+            var countEl = document.getElementById(c.id);
+            if (c.el && countEl) {
+                var items = c.el.querySelectorAll('.sgrid-item');
+                countEl.textContent = items.length;
+            }
+        }
+    }
+
+    // ============================================================
+    // TAB SWITCHING
+    // ============================================================
+    function setupTabs() {
+        var tabs = document.querySelectorAll('.stabs-btn');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var tabName = this.dataset.tab;
+
+                tabs.forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.tab === tabName);
+                });
+
+                var containers = [productContainer, farmerContainer, logisticsContainer];
+                containers.forEach(function(el) {
+                    if (el) el.style.display = 'none';
+                });
+
+                if (tabName === 'products' && productContainer) {
+                    productContainer.style.display = 'block';
+                } else if (tabName === 'farmers' && farmerContainer) {
+                    farmerContainer.style.display = 'block';
+                } else if (tabName === 'logistics' && logisticsContainer) {
+                    logisticsContainer.style.display = 'block';
+                }
+
+                if (savedSearch) savedSearch.value = '';
+                filterSavedItems();
+                updateSavedCounts();
+            });
+        });
+    }
+
+    // ============================================================
+    // INITIALIZE
+    // ============================================================
+    function init() {
+        setupTabs();
+
+        if (savedSearch) {
+            savedSearch.addEventListener('input', filterSavedItems);
+            savedSearch.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterSavedItems();
+                }
+            });
+        }
+
+        if (productContainer) productContainer.style.display = 'block';
+        if (farmerContainer) farmerContainer.style.display = 'none';
+        if (logisticsContainer) logisticsContainer.style.display = 'none';
+
+        updateSavedCounts();
+
+        console.log('✅ Farmer Saved Items (sgrid) initialized');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
 })();
 
 
 // =============================================================
-// BUYER DASHBOARD - NAMESPACED
+// BUYER DASHBOARD - COMPLETE FIXED VERSION (NO renderSaved)
 // =============================================================
+
 (function() {
     'use strict';
     
     // Only run on buyer dashboard
     if (!document.getElementById('buyerSidebar')) {
-        return;
-    }
-    
-    // ... all buyer dashboard code here ...
-    // =============================================================
-// buyer-dashboard.js · FarmConnect Buyer Dashboard
-// Production-quality, fully functional, no errors
-// =============================================================
-
-(function() {
-    'use strict';
-
-    // =============================================================
-    // PAGE-SAFE INITIALIZATION
-    // Only runs on buyer dashboard page
-    // =============================================================
-    if (!document.getElementById('buyerSidebar')) {
-        console.log('⏭️ Not on buyer dashboard page, skipping initialization.');
         return;
     }
 
@@ -4783,8 +5127,7 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     var previewAvatarText = getEl('previewAvatarText');
     var profileForm = getEl('profileForm');
 
-    // Saved Products
-    var savedGrid = getEl('savedGrid');
+    // Saved Products - REMOVED savedGrid (cards are in HTML)
     var savedSearch = getEl('savedSearch');
     var savedCategoryFilter = getEl('savedCategoryFilter');
 
@@ -5096,7 +5439,7 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     }
 
     // =============================================================
-    // NAVIGATION
+    // NAVIGATION - NO renderSaved() call
     // =============================================================
     function navigateTo(section) {
         var links = document.querySelectorAll('.buyer-sidebar-link[data-section]');
@@ -5122,7 +5465,7 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         var titles = {
             overview: 'Overview',
             profile: 'My Profile',
-            saved: 'Saved Products',
+            saved: 'Saved Items',
             contacts: 'Contact History',
             reviews: 'My Reviews',
             notifications: 'Notifications',
@@ -5134,10 +5477,15 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         currentSection = section;
 
         if (section === 'overview') updateOverview();
-        if (section === 'saved') renderSaved();
+        // DO NOT call renderSaved() - cards are already in HTML
         if (section === 'contacts') renderContacts();
         if (section === 'reviews') renderReviews();
         if (section === 'notifications') renderNotifications();
+        
+        // Update saved counts when saved section is shown
+        if (section === 'saved') {
+            updateSavedCounts();
+        }
     }
 
     // =============================================================
@@ -5208,118 +5556,77 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     }
 
     // =============================================================
-    // SAVED PRODUCTS
+    // SAVED ITEMS - INTERACTIVITY ONLY (NO RENDERING)
     // =============================================================
-    function renderSaved() {
-        if (!savedGrid) return;
 
-        var search = savedSearch ? savedSearch.value.toLowerCase() : '';
-        var category = savedCategoryFilter ? savedCategoryFilter.value : '';
+    // Update saved item counts
+    function updateSavedCounts() {
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        var tabs = ['product', 'farmer', 'logistics'];
+        for (var i = 0; i < containers.length; i++) {
+            var container = document.getElementById(containers[i]);
+            var countEl = document.getElementById(tabs[i] + 'Count');
+            if (container && countEl) {
+                var items = container.querySelectorAll('.saved-item');
+                countEl.textContent = items.length;
+            }
+        }
+    }
 
-        var filtered = [];
-        for (var i = 0; i < savedProducts.length; i++) {
-            var p = savedProducts[i];
-            var matchSearch = p.name.toLowerCase().indexOf(search) !== -1 || p.farmer.toLowerCase().indexOf(search) !== -1;
-            var matchCategory = !category || p.category === category;
-            if (matchSearch && matchCategory) {
-                filtered.push(p);
+    // Filter saved items by search (without rendering)
+    function filterSavedItems() {
+        var searchInput = document.getElementById('savedSearch');
+        var searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+        // Find which container is visible
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        var activeContainer = null;
+        var activeTab = 'products';
+
+        for (var i = 0; i < containers.length; i++) {
+            var el = document.getElementById(containers[i]);
+            if (el && el.style.display !== 'none') {
+                activeContainer = el;
+                if (containers[i] === 'savedProductsContainer') activeTab = 'product';
+                else if (containers[i] === 'savedFarmersContainer') activeTab = 'farmer';
+                else if (containers[i] === 'savedLogisticsContainer') activeTab = 'logistics';
+                break;
             }
         }
 
-        if (filtered.length === 0) {
-            savedGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--buyer-text-secondary);"><i class="fas fa-heart" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i><p>No saved products. <a href="marketplace.html" style="color:#2D7D3A;">Browse products to save</a></p></div>';
-            return;
-        }
+        if (!activeContainer) return;
 
-        var html = '';
-        for (var j = 0; j < filtered.length; j++) {
-            var p = filtered[j];
-            var statusClass = 'buyer-status-' + (p.status === 'In Stock' ? 'available' : p.status === 'Limited' ? 'low' : 'sold');
-            var imageUrl = p.image || 'https://via.placeholder.com/400x250/E5E7EB/6B7280?text=No+Image';
-            html += '<div class="buyer-saved-item"><div class="buyer-saved-image" style="background-image: url(\'' + imageUrl + '\');"></div><div class="buyer-saved-body"><div class="buyer-saved-name">' + p.name + '</div><div class="buyer-saved-meta"><span>' + p.category + '</span><span>' + p.farmer + '</span></div><div class="buyer-saved-meta"><span><i class="fas fa-map-marker-alt"></i> ' + p.location + '</span><span>⭐ ' + p.rating + '</span></div><div class="buyer-saved-meta"><span class="buyer-saved-price">₦' + p.price.toLocaleString() + '</span><span class="buyer-saved-status ' + statusClass + '">' + p.status + '</span></div><div class="buyer-saved-meta" style="font-size:0.7rem;color:var(--buyer-text-secondary);"><span>Saved: ' + p.dateAdded + '</span></div><div class="buyer-saved-actions"><button class="buyer-btn buyer-btn-sm buyer-btn-outline" data-action="view-saved" data-id="' + p.id + '">View</button><button class="buyer-btn buyer-btn-sm buyer-btn-outline" data-action="contact-saved" data-id="' + p.id + '">Contact</button><button class="buyer-btn buyer-btn-sm buyer-btn-outline" data-action="remove-saved" data-id="' + p.id + '" style="color:#EF4444;border-color:#EF4444;">Remove</button></div></div></div>';
-        }
-        savedGrid.innerHTML = html;
+        var items = activeContainer.querySelectorAll('.saved-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
 
-        // Event delegation for saved product actions
-        savedGrid.addEventListener('click', function(e) {
-            var btn = e.target.closest('button');
-            if (!btn) return;
-            var action = btn.dataset.action;
-            var id = parseInt(btn.dataset.id);
+        items.forEach(function(item) {
+            var nameEl = item.querySelector('.buyer-saved-title');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
 
-            if (action === 'view-saved') {
-                var product = null;
-                for (var m = 0; m < savedProducts.length; m++) {
-                    if (savedProducts[m].id === id) { product = savedProducts[m]; break; }
-                }
-                if (product) {
-                    var imageUrl = product.image || 'https://via.placeholder.com/100x100/E5E7EB/6B7280?text=No+Image';
-                    var fields = '<div style="display:flex;gap:1rem;margin-bottom:1rem;"><div style="width:100px;height:100px;border-radius:12px;background:url(\'' + imageUrl + '\') center/cover;flex-shrink:0;"></div><div><p><strong>Farmer:</strong> ' + product.farmer + '</p><p><strong>Category:</strong> ' + product.category + '</p><p><strong>Price:</strong> ₦' + product.price.toLocaleString() + '</p><p><strong>Status:</strong> ' + product.status + '</p></div></div><p><strong>Location:</strong> ' + product.location + '</p><p><strong>Rating:</strong> ⭐ ' + product.rating + '</p><p><strong>Saved:</strong> ' + product.dateAdded + '</p>';
-                    openModal(product.name, '', fields, 'Close', '');
-                    if (modalCancel) modalCancel.style.display = 'none';
-                    if (modalConfirm) modalConfirm.textContent = 'Close';
-                    modal._confirmCallback = closeModal;
-                    setTimeout(function() {
-                        if (modalCancel) modalCancel.style.display = '';
-                        if (modalConfirm) modalConfirm.textContent = 'Confirm';
-                    }, 100);
-                }
-            } else if (action === 'contact-saved') {
-                var product = null;
-                for (var m = 0; m < savedProducts.length; m++) {
-                    if (savedProducts[m].id === id) { product = savedProducts[m]; break; }
-                }
-                if (product) {
-                    var fields = '<div class="buyer-form-group"><label>Message</label><textarea id="contactMessageInput" class="buyer-form-textarea" rows="4" placeholder="Hi, I\'m interested in your ' + product.name + '..."></textarea></div><div class="buyer-form-group"><label>Contact Method</label><select id="contactMethodInput" class="buyer-form-input"><option value="WhatsApp">WhatsApp</option><option value="Phone">Phone</option></select></div>';
-                    openModal('Contact Farmer', 'Send a message to ' + product.farmer + ' about ' + product.name + ':', fields, 'Send', 'Cancel', function() {
-                        var messageInput = document.getElementById('contactMessageInput');
-                        var methodInput = document.getElementById('contactMethodInput');
-                        var message = messageInput ? messageInput.value.trim() : '';
-                        var method = methodInput ? methodInput.value : 'WhatsApp';
-                        if (!message) {
-                            showToast('Error', 'Please write a message.', 'error');
-                            return;
-                        }
-                        var newContact = {
-                            id: Date.now(),
-                            name: product.farmer,
-                            type: 'Farmer',
-                            product: product.name,
-                            method: method,
-                            date: new Date().toISOString().split('T')[0],
-                            status: 'Ongoing'
-                        };
-                        contacts.push(newContact);
-                        saveData();
-                        showToast('Success', 'Message sent to ' + product.farmer + '!', 'success');
-                        closeModal();
-                        renderContacts();
-                        updateOverview();
-                    });
-                }
-            } else if (action === 'remove-saved') {
-                var product = null;
-                for (var m = 0; m < savedProducts.length; m++) {
-                    if (savedProducts[m].id === id) { product = savedProducts[m]; break; }
-                }
-                if (product) {
-                    openModal('Remove Saved Product', 'Are you sure you want to remove "' + product.name + '" from your saved products?', '', 'Remove', 'Cancel', function() {
-                        var newSaved = [];
-                        for (var m = 0; m < savedProducts.length; m++) {
-                            if (savedProducts[m].id !== id) newSaved.push(savedProducts[m]);
-                        }
-                        savedProducts = newSaved;
-                        saveData();
-                        renderSaved();
-                        updateOverview();
-                        closeModal();
-                        showToast('Removed', '"' + product.name + '" removed from saved.', 'success');
-                    });
-                }
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
             }
         });
 
-        if (savedCount) savedCount.textContent = savedProducts.length;
+        // Update count
+        var countEl = document.getElementById(activeTab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        // Show/hide empty search state
+        var empty = document.getElementById('savedSearchEmpty');
+        if (empty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
     }
 
     // =============================================================
@@ -5796,13 +6103,27 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             }
         });
 
-        // Search and filter
+        // =============================================================
+        // SAVED ITEMS - SEARCH AND FILTER (NO RENDERING)
+        // =============================================================
+
+        // Search input for saved items
         if (savedSearch) {
-            savedSearch.addEventListener('input', renderSaved);
+            savedSearch.addEventListener('input', filterSavedItems);
+            savedSearch.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterSavedItems();
+                }
+            });
         }
+
+        // Category filter for saved items
         if (savedCategoryFilter) {
-            savedCategoryFilter.addEventListener('change', renderSaved);
+            savedCategoryFilter.addEventListener('change', filterSavedItems);
         }
+
+        // Contacts search and filter
         if (contactSearch) {
             contactSearch.addEventListener('input', renderContacts);
         }
@@ -5921,6 +6242,43 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                 }
             });
         }
+
+        // =============================================================
+        // SAVED ITEMS - TAB CLICK HANDLERS (NO RENDERING)
+        // =============================================================
+
+        // Tab click handlers
+        document.querySelectorAll('.buyer-saved-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var tabName = this.dataset.tab;
+
+                // Update tabs
+                document.querySelectorAll('.buyer-saved-tab').forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.tab === tabName);
+                });
+
+                // Hide all containers
+                var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+                containers.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
+
+                // Show selected container
+                var containerId = 'saved' + tabName.charAt(0).toUpperCase() + tabName.slice(1) + 'Container';
+                var container = document.getElementById(containerId);
+                if (container) container.style.display = 'block';
+
+                // Reset search
+                if (savedSearch) savedSearch.value = '';
+
+                // Filter items
+                filterSavedItems();
+
+                // Update counts
+                updateSavedCounts();
+            });
+        });
     }
 
     // =============================================================
@@ -5934,7 +6292,6 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         updateProfilePreview();
 
         // Initial render
-        renderSaved();
         renderContacts();
         renderReviews();
         renderNotifications();
@@ -5942,6 +6299,24 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
 
         // Set default active section
         navigateTo('overview');
+
+        // Initialize saved items - show products by default
+        var productsContainer = document.getElementById('savedProductsContainer');
+        if (productsContainer) {
+            productsContainer.style.display = 'block';
+            var farmersContainer = document.getElementById('savedFarmersContainer');
+            var logisticsContainer = document.getElementById('savedLogisticsContainer');
+            if (farmersContainer) farmersContainer.style.display = 'none';
+            if (logisticsContainer) logisticsContainer.style.display = 'none';
+        }
+
+        // Update saved counts
+        updateSavedCounts();
+
+        // Activate products tab
+        document.querySelectorAll('.buyer-saved-tab').forEach(function(tab) {
+            tab.classList.toggle('active', tab.dataset.tab === 'products');
+        });
 
         setTimeout(function() {
             showToast('Welcome back!', 'Chioma, fresh farm produce awaits you. 🌾', 'success');
@@ -5966,7 +6341,187 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     }
 
 })();
-    
+
+
+// ============================================================
+// SAVED ITEMS - COMPLETELY UNIQUE JS (sgrid- prefix)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on buyer dashboard
+    if (!document.getElementById('buyerSidebar')) {
+        return;
+    }
+
+    console.log('💾 Saved Items (sgrid) initializing...');
+
+    // ============================================================
+    // DOM REFS
+    // ============================================================
+    var savedSearch = document.getElementById('savedSearch');
+    var productContainer = document.getElementById('savedProductsContainer');
+    var farmerContainer = document.getElementById('savedFarmersContainer');
+    var logisticsContainer = document.getElementById('savedLogisticsContainer');
+
+    // ============================================================
+    // FILTER FUNCTION - ONLY FILTERS, NO RENDERING
+    // ============================================================
+    function filterSavedItems() {
+        var searchTerm = savedSearch ? savedSearch.value.trim().toLowerCase() : '';
+
+        // Find which container is visible
+        var containers = [productContainer, farmerContainer, logisticsContainer];
+        var activeContainer = null;
+        var activeTab = 'products';
+
+        for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            if (el && el.style.display !== 'none') {
+                activeContainer = el;
+                if (el === productContainer) activeTab = 'product';
+                else if (el === farmerContainer) activeTab = 'farmer';
+                else if (el === logisticsContainer) activeTab = 'logistics';
+                break;
+            }
+        }
+
+        if (!activeContainer) return;
+
+        var items = activeContainer.querySelectorAll('.sgrid-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
+
+        items.forEach(function(item) {
+            var nameEl = item.querySelector('.sgrid-title');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
+
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Update count
+        var countEl = document.getElementById(activeTab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        // Show/hide empty search state
+        var empty = document.getElementById('savedSearchEmpty');
+        if (empty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
+    }
+
+    // ============================================================
+    // UPDATE COUNTS
+    // ============================================================
+    function updateSavedCounts() {
+        var containers = [
+            { el: productContainer, id: 'productCount' },
+            { el: farmerContainer, id: 'farmerCount' },
+            { el: logisticsContainer, id: 'logisticsCount' }
+        ];
+
+        for (var i = 0; i < containers.length; i++) {
+            var c = containers[i];
+            var countEl = document.getElementById(c.id);
+            if (c.el && countEl) {
+                var items = c.el.querySelectorAll('.sgrid-item');
+                countEl.textContent = items.length;
+            }
+        }
+    }
+
+    // ============================================================
+    // TAB SWITCHING
+    // ============================================================
+    function setupTabs() {
+        var tabs = document.querySelectorAll('.stabs-btn');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var tabName = this.dataset.tab;
+
+                // Update tabs
+                tabs.forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.tab === tabName);
+                });
+
+                // Hide all containers
+                var containers = [productContainer, farmerContainer, logisticsContainer];
+                containers.forEach(function(el) {
+                    if (el) el.style.display = 'none';
+                });
+
+                // Show selected container
+                if (tabName === 'products' && productContainer) {
+                    productContainer.style.display = 'block';
+                } else if (tabName === 'farmers' && farmerContainer) {
+                    farmerContainer.style.display = 'block';
+                } else if (tabName === 'logistics' && logisticsContainer) {
+                    logisticsContainer.style.display = 'block';
+                }
+
+                // Reset search
+                if (savedSearch) savedSearch.value = '';
+
+                // Filter items
+                filterSavedItems();
+
+                // Update counts
+                updateSavedCounts();
+            });
+        });
+    }
+
+    // ============================================================
+    // INITIALIZE
+    // ============================================================
+    function init() {
+        // Setup tabs
+        setupTabs();
+
+        // Setup search
+        if (savedSearch) {
+            savedSearch.addEventListener('input', filterSavedItems);
+            savedSearch.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterSavedItems();
+                }
+            });
+        }
+
+        // Show products by default
+        if (productContainer) productContainer.style.display = 'block';
+        if (farmerContainer) farmerContainer.style.display = 'none';
+        if (logisticsContainer) logisticsContainer.style.display = 'none';
+
+        // Update counts
+        updateSavedCounts();
+
+        console.log('✅ Saved Items (sgrid) initialized');
+    }
+
+    // ============================================================
+    // START
+    // ============================================================
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
 })();
 
 
@@ -6014,12 +6569,6 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     var modalFields = getLogisticsEl('logisticsModalFields');
     var toastContainer = getLogisticsEl('logisticsToastContainer');
 
-    // Add Service Modal
-    var addServiceModal = getLogisticsEl('logisticsAddServiceModal');
-    var addServiceModalClose = getLogisticsEl('logisticsAddServiceModalClose');
-    var addServiceCancel = getLogisticsEl('logisticsAddServiceCancel');
-    var addServiceForm = getLogisticsEl('logisticsAddServiceForm');
-
     // Profile
     var profileImageInput = getLogisticsEl('logisticsProfileImageInput');
     var profileImageUpload = getLogisticsEl('logisticsProfileImageUpload');
@@ -6042,11 +6591,27 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     var previewAvatarText = getLogisticsEl('logisticsPreviewAvatarText');
     var profileForm = getLogisticsEl('logisticsProfileForm');
 
-    // Services
-    var servicesGrid = getLogisticsEl('logisticsServicesGrid');
+    // Services - REMOVED servicesGrid (cards are in HTML)
     var serviceSearch = getLogisticsEl('logisticsServiceSearch');
     var serviceTypeFilter = getLogisticsEl('logisticsServiceTypeFilter');
     var addServiceBtn = getLogisticsEl('logisticsAddServiceBtn');
+
+    // Add Service Page
+    var addServiceForm = getLogisticsEl('addServiceForm');
+    var serviceImageInput = getLogisticsEl('logisticsServiceImageInput');
+    var serviceImageUpload = getLogisticsEl('logisticsServiceImageUpload');
+    var serviceImagePreview = getLogisticsEl('logisticsServiceImagePreview');
+    var serviceNameInput = getLogisticsEl('logisticsServiceName');
+    var serviceTypeSelect = getLogisticsEl('logisticsServiceTypeSelect');
+    var serviceCoverageInput = getLogisticsEl('logisticsServiceCoverage');
+    var serviceDescriptionInput = getLogisticsEl('logisticsServiceDescription');
+    var serviceStatusInput = getLogisticsEl('logisticsServiceStatus');
+    var previewServiceImage = getLogisticsEl('previewServiceImage');
+    var previewServiceName = getLogisticsEl('previewServiceName');
+    var previewServiceType = getLogisticsEl('previewServiceType');
+    var previewServiceCoverage = getLogisticsEl('previewServiceCoverage');
+    var previewServiceStatus = getLogisticsEl('previewServiceStatus');
+    var previewServiceDesc = getLogisticsEl('previewServiceDesc');
 
     // Contacts
     var contactsList = getLogisticsEl('logisticsContactsList');
@@ -6089,6 +6654,8 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     var contacts = [];
     var reviews = [];
     var notifications = [];
+    var isEditingService = false;
+    var editingServiceId = null;
 
     // =============================================================
     // INITIAL DATA
@@ -6286,11 +6853,11 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         cancelText = cancelText || 'Cancel';
         if (!modal) return;
 
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalMessage) modalMessage.textContent = message;
-        if (modalFields) modalFields.innerHTML = fields;
-        if (modalConfirm) modalConfirm.textContent = confirmText;
-        if (modalCancel) modalCancel.textContent = cancelText;
+        modalTitle.textContent = title;
+        modalMessage.textContent = message;
+        modalFields.innerHTML = fields;
+        modalConfirm.textContent = confirmText;
+        modalCancel.textContent = cancelText;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         modal._confirmCallback = confirmCallback || null;
@@ -6300,9 +6867,37 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        if (modalFields) modalFields.innerHTML = '';
+        modalFields.innerHTML = '';
         modal._confirmCallback = null;
     }
+
+    // Modal event listeners
+    if (modalClose) {
+        modalClose.addEventListener('click', closeLogisticsModal);
+    }
+    if (modalCancel) {
+        modalCancel.addEventListener('click', closeLogisticsModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeLogisticsModal();
+        });
+    }
+    if (modalConfirm) {
+        modalConfirm.addEventListener('click', function() {
+            if (modal._confirmCallback) {
+                modal._confirmCallback();
+            } else {
+                closeLogisticsModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeLogisticsModal();
+        }
+    });
 
     // =============================================================
     // NAVIGATION
@@ -6332,9 +6927,11 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             overview: 'Overview',
             profile: 'Company Profile',
             services: 'Service Listings',
+            'add-service': 'Add Service',
             contacts: 'Contact History',
             reviews: 'Reviews',
             notifications: 'Notifications',
+            saved: 'Saved Items',
             settings: 'Settings'
         };
         var titleEl = document.getElementById('logisticsPageTitle');
@@ -6343,10 +6940,14 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         currentSection = section;
 
         if (section === 'overview') updateLogisticsOverview();
-        if (section === 'services') renderLogisticsServices();
+        if (section === 'services') {
+            initServiceActions();
+            filterServices();
+        }
         if (section === 'contacts') renderLogisticsContacts();
         if (section === 'reviews') renderLogisticsReviews();
         if (section === 'notifications') renderLogisticsNotifications();
+        if (section === 'saved') updateSavedCounts();
     }
 
     // =============================================================
@@ -6420,164 +7021,177 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
     }
 
     // =============================================================
-    // SERVICES
+    // SERVICES - HARDCORDED CARDS (No Rendering)
     // =============================================================
-    function renderLogisticsServices() {
-        if (!servicesGrid) return;
 
-        var search = serviceSearch ? serviceSearch.value.toLowerCase() : '';
-        var type = serviceTypeFilter ? serviceTypeFilter.value : '';
-
-        var filtered = [];
-        for (var i = 0; i < services.length; i++) {
-            var s = services[i];
-            var matchSearch = s.name.toLowerCase().indexOf(search) !== -1;
-            var matchType = !type || s.type === type;
-            if (matchSearch && matchType) {
-                filtered.push(s);
-            }
+    function initServiceActions() {
+        // View Service - Redirect to logistics-detail.html
+        var viewBtns = document.querySelectorAll('.scard-btn-view');
+        for (var i = 0; i < viewBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = this.dataset.id;
+                    window.location.href = 'logistics-detail.html?id=' + id;
+                });
+            })(viewBtns[i]);
         }
 
-        if (filtered.length === 0) {
-            servicesGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--logistics-text-secondary);"><i class="fas fa-truck" style="font-size:2rem;display:block;margin-bottom:0.5rem;color:#9CA3AF;"></i><p>No services found. <a href="#" onclick="openLogisticsAddServiceModal();return false;" style="color:#2D7D3A;">Add your first service</a></p></div>';
-            return;
-        }
-
-        var html = '';
-        for (var j = 0; j < filtered.length; j++) {
-            var s = filtered[j];
-            var statusClass = 'logistics-status-' + (s.status === 'Available' ? 'available' : s.status === 'Limited' ? 'low' : 'sold');
-            var imageUrl = s.image || 'https://via.placeholder.com/400x250/E5E7EB/6B7280?text=No+Image';
-            html += '<div class="logistics-service-item"><div class="logistics-service-image" style="background-image: url(\'' + imageUrl + '\');"></div><div class="logistics-service-body"><div class="logistics-service-name">' + s.name + '</div><div class="logistics-service-meta"><span>' + s.type + '</span><span>' + s.coverage + '</span></div><div class="logistics-service-meta"><span class="logistics-service-status ' + statusClass + '">' + s.status + '</span><span style="font-size:0.7rem;color:var(--logistics-text-secondary);">' + s.dateAdded + '</span></div><div class="logistics-service-actions"><button class="logistics-btn logistics-btn-sm logistics-btn-outline" data-action="view-service" data-id="' + s.id + '">View</button><button class="logistics-btn logistics-btn-sm logistics-btn-outline" data-action="edit-service" data-id="' + s.id + '">Edit</button><button class="logistics-btn logistics-btn-sm logistics-btn-outline" data-action="delete-service" data-id="' + s.id + '" style="color:#EF4444;border-color:#EF4444;">Delete</button></div></div></div>';
-        }
-        servicesGrid.innerHTML = html;
-
-        // Event delegation for service actions
-        servicesGrid.addEventListener('click', function(e) {
-            var btn = e.target.closest('button');
-            if (!btn) return;
-            var action = btn.dataset.action;
-            var id = parseInt(btn.dataset.id);
-
-            if (action === 'view-service') {
-                var service = null;
-                for (var m = 0; m < services.length; m++) {
-                    if (services[m].id === id) { service = services[m]; break; }
-                }
-                if (service) {
-                    var fields = '<p><strong>Name:</strong> ' + service.name + '</p><p><strong>Type:</strong> ' + service.type + '</p><p><strong>Coverage:</strong> ' + service.coverage + '</p><p><strong>Status:</strong> ' + service.status + '</p><p><strong>Description:</strong> ' + service.description + '</p><p><strong>Added:</strong> ' + service.dateAdded + '</p>';
-                    openLogisticsModal('Service Details', '', fields, 'Close', '');
-                    if (modalCancel) modalCancel.style.display = 'none';
-                    if (modalConfirm) modalConfirm.textContent = 'Close';
-                    modal._confirmCallback = closeLogisticsModal;
-                    setTimeout(function() {
-                        if (modalCancel) modalCancel.style.display = '';
-                        if (modalConfirm) modalConfirm.textContent = 'Confirm';
-                    }, 100);
-                }
-            } else if (action === 'edit-service') {
-                // Open add service modal with data
-                var service = null;
-                for (var m = 0; m < services.length; m++) {
-                    if (services[m].id === id) { service = services[m]; break; }
-                }
-                if (service) {
-                    openLogisticsAddServiceModal(service);
-                }
-            } else if (action === 'delete-service') {
-                var service = null;
-                for (var m = 0; m < services.length; m++) {
-                    if (services[m].id === id) { service = services[m]; break; }
-                }
-                if (service) {
-                    openLogisticsModal('Delete Service', 'Are you sure you want to delete "' + service.name + '"?', '', 'Delete', 'Cancel', function() {
-                        var newServices = [];
-                        for (var m = 0; m < services.length; m++) {
-                            if (services[m].id !== id) newServices.push(services[m]);
+        // Edit Service - Navigate to add-service with edit mode
+        var editBtns = document.querySelectorAll('.scard-btn-edit');
+        for (var i = 0; i < editBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = parseInt(this.dataset.id);
+                    var service = null;
+                    for (var m = 0; m < services.length; m++) {
+                        if (services[m].id === id) {
+                            service = services[m];
+                            break;
                         }
-                        services = newServices;
-                        saveLogisticsData();
-                        renderLogisticsServices();
-                        updateLogisticsOverview();
-                        closeLogisticsModal();
-                        showLogisticsToast('Deleted', 'Service deleted successfully.', 'success');
-                    });
-                }
-            }
-        });
-
-        if (servicesCount) servicesCount.textContent = services.length;
-    }
-
-    // =============================================================
-    // ADD SERVICE MODAL
-    // =============================================================
-    function openLogisticsAddServiceModal(editData) {
-        if (!addServiceModal) return;
-
-        var isEdit = !!editData;
-        var title = isEdit ? 'Edit Service' : 'Add New Service';
-        var titleEl = document.getElementById('logisticsAddServiceModalTitle');
-        if (titleEl) titleEl.textContent = title;
-
-        // Reset form
-        var form = addServiceForm;
-        if (form) form.reset();
-
-        if (isEdit && editData) {
-            document.getElementById('logisticsServiceName').value = editData.name || '';
-            document.getElementById('logisticsServiceTypeSelect').value = editData.type || '';
-            document.getElementById('logisticsServiceCoverage').value = editData.coverage || '';
-            document.getElementById('logisticsServiceDescription').value = editData.description || '';
-            document.getElementById('logisticsServiceStatus').value = editData.status || 'Available';
-            if (editData.image) {
-                var preview = document.getElementById('logisticsServiceImagePreview');
-                if (preview) {
-                    preview.innerHTML = '<img src="' + editData.image + '" alt="Service">';
-                }
-            }
-            // Store edit ID
-            addServiceModal._editId = editData.id;
-        } else {
-            addServiceModal._editId = null;
-            var preview = document.getElementById('logisticsServiceImagePreview');
-            if (preview) {
-                preview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
-            }
+                    }
+                    if (service) {
+                        isEditingService = true;
+                        editingServiceId = id;
+                        navigateToLogisticsSection('add-service');
+                        if (serviceNameInput) serviceNameInput.value = service.name;
+                        if (serviceTypeSelect) serviceTypeSelect.value = service.type;
+                        if (serviceCoverageInput) serviceCoverageInput.value = service.coverage;
+                        if (serviceDescriptionInput) serviceDescriptionInput.value = service.description;
+                        if (serviceStatusInput) serviceStatusInput.value = service.status;
+                        if (service.image && serviceImagePreview) {
+                            serviceImagePreview.innerHTML = '<img src="' + service.image + '" alt="Service">';
+                        }
+                        var addTitle = document.querySelector('#logistics-section-add-service h2');
+                        if (addTitle) addTitle.textContent = 'Edit Service';
+                        var saveBtn = document.querySelector('#saveServiceBtn');
+                        if (saveBtn) saveBtn.textContent = 'Update Service';
+                        showLogisticsToast('Info', 'Editing service. Update and save.', 'info');
+                    }
+                });
+            })(editBtns[i]);
         }
 
-        addServiceModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        // Delete Service - Show confirmation modal
+        var deleteBtns = document.querySelectorAll('.scard-btn-delete');
+        for (var i = 0; i < deleteBtns.length; i++) {
+            (function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = parseInt(this.dataset.id);
+                    var service = null;
+                    for (var m = 0; m < services.length; m++) {
+                        if (services[m].id === id) {
+                            service = services[m];
+                            break;
+                        }
+                    }
+                    if (service) {
+                        openLogisticsModal(
+                            'Delete Service',
+                            'Are you sure you want to delete "' + service.name + '"? This action cannot be undone.',
+                            '',
+                            'Delete',
+                            'Cancel',
+                            function() {
+                                var newServices = [];
+                                for (var m = 0; m < services.length; m++) {
+                                    if (services[m].id !== id) {
+                                        newServices.push(services[m]);
+                                    }
+                                }
+                                services = newServices;
+                                var card = document.querySelector('.scard-item[data-id="' + id + '"]');
+                                if (card) {
+                                    card.remove();
+                                }
+                                updateLogisticsOverview();
+                                closeLogisticsModal();
+                                showLogisticsToast('Deleted', '"' + service.name + '" has been deleted.', 'success');
+                            }
+                        );
+                    }
+                });
+            })(deleteBtns[i]);
+        }
     }
 
-    function closeLogisticsAddServiceModal() {
-        if (!addServiceModal) return;
-        addServiceModal.classList.remove('active');
-        document.body.style.overflow = '';
-        addServiceModal._editId = null;
+    // ----- Filter services (search + type) -----
+    function filterServices() {
+        var search = '';
+        var type = '';
+        if (document.getElementById('logisticsServiceSearch')) {
+            search = document.getElementById('logisticsServiceSearch').value.toLowerCase();
+        }
+        if (document.getElementById('logisticsServiceTypeFilter')) {
+            type = document.getElementById('logisticsServiceTypeFilter').value;
+        }
+        
+        var items = document.querySelectorAll('.scard-item');
+        var visibleCount = 0;
+        var empty = document.getElementById('serviceSearchEmpty');
+        
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var nameEl = item.querySelector('.scard-title');
+            var name = nameEl ? nameEl.textContent.toLowerCase() : '';
+            var itemType = item.dataset.type || '';
+            
+            var matchSearch = search === '' || name.indexOf(search) !== -1;
+            var matchType = !type || itemType === type;
+            
+            if (matchSearch && matchType) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        }
+        
+        if (empty) {
+            if (visibleCount === 0 && items.length > 0) {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
     }
 
-    if (addServiceModalClose) {
-        addServiceModalClose.addEventListener('click', closeLogisticsAddServiceModal);
+    // =============================================================
+    // ADD SERVICE - LIVE PREVIEW
+    // =============================================================
+    function updateServicePreview() {
+        var name = serviceNameInput ? serviceNameInput.value || 'Service Name' : 'Service Name';
+        var type = serviceTypeSelect ? serviceTypeSelect.value || 'Service Type' : 'Service Type';
+        var coverage = serviceCoverageInput ? serviceCoverageInput.value || 'Coverage Area' : 'Coverage Area';
+        var desc = serviceDescriptionInput ? serviceDescriptionInput.value || 'Description goes here...' : 'Description goes here...';
+        var status = serviceStatusInput ? serviceStatusInput.value || 'Available' : 'Available';
+
+        if (previewServiceName) previewServiceName.textContent = name;
+        if (previewServiceType) previewServiceType.textContent = type;
+        if (previewServiceCoverage) previewServiceCoverage.textContent = coverage;
+        if (previewServiceDesc) previewServiceDesc.textContent = desc;
+        if (previewServiceStatus) {
+            previewServiceStatus.textContent = status;
+            previewServiceStatus.className = 'logistics-preview-service-status ' + status.toLowerCase();
+        }
     }
-    if (addServiceCancel) {
-        addServiceCancel.addEventListener('click', closeLogisticsAddServiceModal);
-    }
-    if (addServiceModal) {
-        addServiceModal.addEventListener('click', function(e) {
-            if (e.target === addServiceModal) closeLogisticsAddServiceModal();
-        });
+
+    // Service form listeners
+    var serviceInputs = [serviceNameInput, serviceTypeSelect, serviceCoverageInput, serviceDescriptionInput, serviceStatusInput];
+    for (var i = 0; i < serviceInputs.length; i++) {
+        (function(input) {
+            if (input) {
+                input.addEventListener('input', updateServicePreview);
+                input.addEventListener('change', updateServicePreview);
+            }
+        })(serviceInputs[i]);
     }
 
     // Service image upload
-    var serviceImageUpload = document.getElementById('logisticsServiceImageUpload');
-    var serviceImageInput = document.getElementById('logisticsServiceImageInput');
-    var serviceImagePreview = document.getElementById('logisticsServiceImagePreview');
-
     if (serviceImageUpload && serviceImageInput) {
-        serviceImageUpload.addEventListener('click', function() {
-            serviceImageInput.click();
-        });
+        serviceImageUpload.addEventListener('click', function() { serviceImageInput.click(); });
         serviceImageInput.addEventListener('change', function(e) {
             var file = e.target.files[0];
             if (!file) return;
@@ -6586,46 +7200,74 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                 if (serviceImagePreview) {
                     serviceImagePreview.innerHTML = '<img src="' + event.target.result + '" alt="Service">';
                 }
+                if (previewServiceImage) {
+                    previewServiceImage.innerHTML = '';
+                    previewServiceImage.style.backgroundImage = 'url(\'' + event.target.result + '\')';
+                }
             };
             reader.readAsDataURL(file);
         });
     }
 
-    // Add service form submit
+    // Add/Update service
     if (addServiceForm) {
         addServiceForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            var name = document.getElementById('logisticsServiceName').value.trim();
-            var type = document.getElementById('logisticsServiceTypeSelect').value;
-            var coverage = document.getElementById('logisticsServiceCoverage').value.trim();
-            var description = document.getElementById('logisticsServiceDescription').value.trim();
-            var status = document.getElementById('logisticsServiceStatus').value;
-            var image = serviceImagePreview ? serviceImagePreview.querySelector('img')?.src || '' : '';
+            var name = serviceNameInput ? serviceNameInput.value.trim() : '';
+            var type = serviceTypeSelect ? serviceTypeSelect.value : '';
+            var coverage = serviceCoverageInput ? serviceCoverageInput.value.trim() : '';
+            var description = serviceDescriptionInput ? serviceDescriptionInput.value.trim() : '';
+            var status = serviceStatusInput ? serviceStatusInput.value : 'Available';
 
             if (!name) {
                 showLogisticsToast('Error', 'Please enter a service name.', 'error');
                 return;
             }
+            if (!type) {
+                showLogisticsToast('Error', 'Please select a service type.', 'error');
+                return;
+            }
+            if (!coverage) {
+                showLogisticsToast('Error', 'Please enter coverage area.', 'error');
+                return;
+            }
 
-            var editId = addServiceModal._editId;
-
-            if (editId) {
-                // Edit existing
+            if (isEditingService && editingServiceId) {
+                var index = -1;
                 for (var m = 0; m < services.length; m++) {
-                    if (services[m].id === editId) {
-                        services[m].name = name;
-                        services[m].type = type;
-                        services[m].coverage = coverage;
-                        services[m].description = description;
-                        services[m].status = status;
-                        if (image) services[m].image = image;
+                    if (services[m].id === editingServiceId) {
+                        index = m;
                         break;
                     }
                 }
-                showLogisticsToast('Success', 'Service updated successfully!', 'success');
+                if (index !== -1) {
+                    var imgSrc = '';
+                    if (serviceImagePreview) {
+                        var img = serviceImagePreview.querySelector('img');
+                        if (img) imgSrc = img.src;
+                        else imgSrc = services[index].image || '';
+                    }
+                    services[index] = {
+                        id: services[index].id,
+                        name: name,
+                        type: type,
+                        coverage: coverage,
+                        description: description,
+                        status: status,
+                        image: imgSrc,
+                        dateAdded: services[index].dateAdded || new Date().toISOString().split('T')[0]
+                    };
+                    showLogisticsToast('Success', '"' + name + '" has been updated successfully!', 'success');
+                }
+                isEditingService = false;
+                editingServiceId = null;
             } else {
-                // Add new
+                var imgSrc = '';
+                if (serviceImagePreview) {
+                    var img = serviceImagePreview.querySelector('img');
+                    if (img) imgSrc = img.src;
+                }
                 var newService = {
                     id: Date.now(),
                     name: name,
@@ -6633,23 +7275,57 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                     coverage: coverage,
                     description: description,
                     status: status,
-                    image: image,
+                    image: imgSrc,
                     dateAdded: new Date().toISOString().split('T')[0]
                 };
                 services.push(newService);
-                showLogisticsToast('Success', 'Service added successfully!', 'success');
+                showLogisticsToast('Success', '"' + name + '" has been added successfully!', 'success');
             }
 
-            saveLogisticsData();
-            renderLogisticsServices();
+            // Reset form
+            if (addServiceForm) addServiceForm.reset();
+            if (serviceImagePreview) {
+                serviceImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+            }
+            if (previewServiceImage) {
+                previewServiceImage.innerHTML = '<div class="logistics-preview-service-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                previewServiceImage.style.backgroundImage = '';
+            }
+            var addTitle = document.querySelector('#logistics-section-add-service h2');
+            if (addTitle) addTitle.textContent = 'Add New Service';
+            var saveBtn = document.querySelector('#saveServiceBtn');
+            if (saveBtn) saveBtn.textContent = 'Save Service';
+            updateServicePreview();
+            initServiceActions();
+            filterServices();
             updateLogisticsOverview();
-            closeLogisticsAddServiceModal();
+            navigateToLogisticsSection('services');
         });
     }
 
-    if (addServiceBtn) {
-        addServiceBtn.addEventListener('click', function() {
-            openLogisticsAddServiceModal(null);
+    // Cancel add service
+    var cancelServiceBtn = document.getElementById('cancelServiceBtn');
+    if (cancelServiceBtn) {
+        cancelServiceBtn.addEventListener('click', function() {
+            if (isEditingService) {
+                isEditingService = false;
+                editingServiceId = null;
+                var addTitle = document.querySelector('#logistics-section-add-service h2');
+                if (addTitle) addTitle.textContent = 'Add New Service';
+                var saveBtn = document.querySelector('#saveServiceBtn');
+                if (saveBtn) saveBtn.textContent = 'Save Service';
+            }
+            if (addServiceForm) addServiceForm.reset();
+            if (serviceImagePreview) {
+                serviceImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+            }
+            if (previewServiceImage) {
+                previewServiceImage.innerHTML = '<div class="logistics-preview-service-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                previewServiceImage.style.backgroundImage = '';
+            }
+            updateServicePreview();
+            showLogisticsToast('Info', 'Service creation cancelled.', 'info');
+            navigateToLogisticsSection('services');
         });
     }
 
@@ -6699,13 +7375,10 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                 if (contact) {
                     var fields = '<p><strong>Name:</strong> ' + contact.name + '</p><p><strong>Type:</strong> ' + contact.type + '</p><p><strong>Service:</strong> ' + contact.service + '</p><p><strong>Contact Method:</strong> ' + contact.method + '</p><p><strong>Date:</strong> ' + contact.date + '</p><p><strong>Status:</strong> ' + contact.status + '</p>';
                     openLogisticsModal('Contact Details', '', fields, 'Close', '');
-                    if (modalCancel) modalCancel.style.display = 'none';
-                    if (modalConfirm) modalConfirm.textContent = 'Close';
+                    modalCancel.style.display = 'none';
+                    modalConfirm.textContent = 'Close';
                     modal._confirmCallback = closeLogisticsModal;
-                    setTimeout(function() {
-                        if (modalCancel) modalCancel.style.display = '';
-                        if (modalConfirm) modalConfirm.textContent = 'Confirm';
-                    }, 100);
+                    setTimeout(function() { modalCancel.style.display = ''; modalConfirm.textContent = 'Confirm'; }, 100);
                 }
             } else if (action === 'continue-contact') {
                 var contact = null;
@@ -6924,6 +7597,25 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         });
     }
 
+    // Mark all read
+    if (markAllReadBtn) {
+        markAllReadBtn.addEventListener('click', function() {
+            for (var k = 0; k < notifications.length; k++) {
+                notifications[k].read = true;
+            }
+            saveLogisticsData();
+            renderLogisticsNotifications();
+            showLogisticsToast('Updated', 'All notifications marked as read.', 'success');
+        });
+    }
+
+    // Notification icon click
+    if (notificationIcon) {
+        notificationIcon.addEventListener('click', function() {
+            navigateToLogisticsSection('notifications');
+        });
+    }
+
     // =============================================================
     // OVERVIEW
     // =============================================================
@@ -7114,23 +7806,20 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         }
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (modal && modal.classList.contains('active')) {
-                    closeLogisticsModal();
-                }
-                if (addServiceModal && addServiceModal.classList.contains('active')) {
-                    closeLogisticsAddServiceModal();
-                }
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                closeLogisticsModal();
             }
         });
 
-        // Search and filter
+        // Search and filter for services
         if (serviceSearch) {
-            serviceSearch.addEventListener('input', renderLogisticsServices);
+            serviceSearch.addEventListener('input', filterServices);
         }
         if (serviceTypeFilter) {
-            serviceTypeFilter.addEventListener('change', renderLogisticsServices);
+            serviceTypeFilter.addEventListener('change', filterServices);
         }
+
+        // Contacts search and filter
         if (contactSearch) {
             contactSearch.addEventListener('input', renderLogisticsContacts);
         }
@@ -7170,6 +7859,28 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             })(actionBtns[m]);
         }
 
+        // Add Service button in services page
+        if (addServiceBtn) {
+            addServiceBtn.addEventListener('click', function() {
+                isEditingService = false;
+                editingServiceId = null;
+                var addTitle = document.querySelector('#logistics-section-add-service h2');
+                if (addTitle) addTitle.textContent = 'Add New Service';
+                var saveBtn = document.querySelector('#saveServiceBtn');
+                if (saveBtn) saveBtn.textContent = 'Save Service';
+                if (addServiceForm) addServiceForm.reset();
+                if (serviceImagePreview) {
+                    serviceImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+                }
+                if (previewServiceImage) {
+                    previewServiceImage.innerHTML = '<div class="logistics-preview-service-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                    previewServiceImage.style.backgroundImage = '';
+                }
+                updateServicePreview();
+                navigateToLogisticsSection('add-service');
+            });
+        }
+
         // Profile dropdown
         var profileDropdown = document.getElementById('logisticsProfileDropdown');
         var profileTrigger = document.querySelector('.logistics-profile-trigger');
@@ -7195,8 +7906,26 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                     var action = this.dataset.action;
                     if (profileDropdown) profileDropdown.classList.remove('active');
                     if (action === 'profile') navigateToLogisticsSection('profile');
+                    else if (action === 'saved') navigateToLogisticsSection('saved');
                     else if (action === 'settings') navigateToLogisticsSection('settings');
-                    else if (action === 'logout') {
+                    else if (action === 'add-service') {
+                        isEditingService = false;
+                        editingServiceId = null;
+                        var addTitle = document.querySelector('#logistics-section-add-service h2');
+                        if (addTitle) addTitle.textContent = 'Add New Service';
+                        var saveBtn = document.querySelector('#saveServiceBtn');
+                        if (saveBtn) saveBtn.textContent = 'Save Service';
+                        if (addServiceForm) addServiceForm.reset();
+                        if (serviceImagePreview) {
+                            serviceImagePreview.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><span>Click to upload image</span>';
+                        }
+                        if (previewServiceImage) {
+                            previewServiceImage.innerHTML = '<div class="logistics-preview-service-placeholder"><i class="fas fa-image"></i> No Image</div>';
+                            previewServiceImage.style.backgroundImage = '';
+                        }
+                        updateServicePreview();
+                        navigateToLogisticsSection('add-service');
+                    } else if (action === 'logout') {
                         openLogisticsModal('Logout', 'Are you sure you want to logout?', '', 'Logout', 'Cancel', function() {
                             closeLogisticsModal();
                             showLogisticsToast('Info', 'Logging out...', 'info');
@@ -7245,6 +7974,118 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
                 }
             });
         }
+
+        // =============================================================
+        // SAVED ITEMS - TAB SWITCHING AND FILTERING
+        // =============================================================
+
+        // Tab click handlers
+        document.querySelectorAll('.stabs-btn').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var tabName = this.dataset.tab;
+
+                document.querySelectorAll('.stabs-btn').forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.tab === tabName);
+                });
+
+                var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+                containers.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
+
+                var containerId = 'saved' + tabName.charAt(0).toUpperCase() + tabName.slice(1) + 'Container';
+                var container = document.getElementById(containerId);
+                if (container) container.style.display = 'block';
+
+                var searchInput = document.getElementById('savedSearch');
+                if (searchInput) searchInput.value = '';
+
+                filterSavedItems();
+                updateSavedCounts();
+            });
+        });
+
+        // Search input for saved items
+        var savedSearch = document.getElementById('savedSearch');
+        if (savedSearch) {
+            savedSearch.addEventListener('input', filterSavedItems);
+            savedSearch.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterSavedItems();
+                }
+            });
+        }
+    }
+
+    // =============================================================
+    // SAVED ITEMS - FILTER AND COUNTS
+    // =============================================================
+    function filterSavedItems() {
+        var searchInput = document.getElementById('savedSearch');
+        var searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        var activeContainer = null;
+        var activeTab = 'products';
+
+        for (var i = 0; i < containers.length; i++) {
+            var el = document.getElementById(containers[i]);
+            if (el && el.style.display !== 'none') {
+                activeContainer = el;
+                if (containers[i] === 'savedProductsContainer') activeTab = 'product';
+                else if (containers[i] === 'savedFarmersContainer') activeTab = 'farmer';
+                else if (containers[i] === 'savedLogisticsContainer') activeTab = 'logistics';
+                break;
+            }
+        }
+
+        if (!activeContainer) return;
+
+        var items = activeContainer.querySelectorAll('.sgrid-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
+
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var nameEl = item.querySelector('.sgrid-title');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
+
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        }
+
+        var countEl = document.getElementById(activeTab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        var empty = document.getElementById('savedSearchEmpty');
+        if (empty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
+    }
+
+    function updateSavedCounts() {
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        var tabs = ['product', 'farmer', 'logistics'];
+        for (var i = 0; i < containers.length; i++) {
+            var container = document.getElementById(containers[i]);
+            var countEl = document.getElementById(tabs[i] + 'Count');
+            if (container && countEl) {
+                var items = container.querySelectorAll('.sgrid-item');
+                countEl.textContent = items.length;
+            }
+        }
     }
 
     // =============================================================
@@ -7258,14 +8099,33 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         updateLogisticsProfilePreview();
 
         // Initial render
-        renderLogisticsServices();
+        initServiceActions();
+        filterServices();
         renderLogisticsContacts();
         renderLogisticsReviews();
         renderLogisticsNotifications();
         updateLogisticsOverview();
+        updateServicePreview();
 
         // Set default active section
         navigateToLogisticsSection('overview');
+
+        // Show products by default in saved items
+        var productsContainer = document.getElementById('savedProductsContainer');
+        if (productsContainer) {
+            productsContainer.style.display = 'block';
+            var farmersContainer = document.getElementById('savedFarmersContainer');
+            var logisticsContainer = document.getElementById('savedLogisticsContainer');
+            if (farmersContainer) farmersContainer.style.display = 'none';
+            if (logisticsContainer) logisticsContainer.style.display = 'none';
+        }
+
+        updateSavedCounts();
+
+        // Activate products tab
+        document.querySelectorAll('.stabs-btn').forEach(function(tab) {
+            tab.classList.toggle('active', tab.dataset.tab === 'products');
+        });
 
         setTimeout(function() {
             showLogisticsToast('Welcome back!', 'FarmExpress, your logistics services are ready. 🚚', 'success');
@@ -7287,6 +8147,170 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         document.addEventListener('DOMContentLoaded', initLogisticsDashboard);
     } else {
         initLogisticsDashboard();
+    }
+
+})();
+
+
+// ============================================================
+// LOGISTICS DASHBOARD - SAVED ITEMS (sgrid- prefix)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on logistics dashboard
+    if (!document.getElementById('logisticsSidebar')) {
+        return;
+    }
+
+    console.log('💾 Logistics Saved Items (sgrid) initializing...');
+
+    // ============================================================
+    // DOM REFS
+    // ============================================================
+    var savedSearch = document.getElementById('savedSearch');
+    var productContainer = document.getElementById('savedProductsContainer');
+    var farmerContainer = document.getElementById('savedFarmersContainer');
+    var logisticsContainer = document.getElementById('savedLogisticsContainer');
+
+    // ============================================================
+    // FILTER FUNCTION - ONLY FILTERS, NO RENDERING
+    // ============================================================
+    function filterSavedItems() {
+        var searchTerm = savedSearch ? savedSearch.value.trim().toLowerCase() : '';
+
+        var containers = [productContainer, farmerContainer, logisticsContainer];
+        var activeContainer = null;
+        var activeTab = 'products';
+
+        for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            if (el && el.style.display !== 'none') {
+                activeContainer = el;
+                if (el === productContainer) activeTab = 'product';
+                else if (el === farmerContainer) activeTab = 'farmer';
+                else if (el === logisticsContainer) activeTab = 'logistics';
+                break;
+            }
+        }
+
+        if (!activeContainer) return;
+
+        var items = activeContainer.querySelectorAll('.sgrid-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
+
+        items.forEach(function(item) {
+            var nameEl = item.querySelector('.sgrid-title');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
+
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        var countEl = document.getElementById(activeTab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        var empty = document.getElementById('savedSearchEmpty');
+        if (empty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+            }
+        }
+    }
+
+    // ============================================================
+    // UPDATE COUNTS
+    // ============================================================
+    function updateSavedCounts() {
+        var containers = [
+            { el: productContainer, id: 'productCount' },
+            { el: farmerContainer, id: 'farmerCount' },
+            { el: logisticsContainer, id: 'logisticsCount' }
+        ];
+
+        for (var i = 0; i < containers.length; i++) {
+            var c = containers[i];
+            var countEl = document.getElementById(c.id);
+            if (c.el && countEl) {
+                var items = c.el.querySelectorAll('.sgrid-item');
+                countEl.textContent = items.length;
+            }
+        }
+    }
+
+    // ============================================================
+    // TAB SWITCHING
+    // ============================================================
+    function setupTabs() {
+        var tabs = document.querySelectorAll('.stabs-btn');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var tabName = this.dataset.tab;
+
+                tabs.forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.tab === tabName);
+                });
+
+                var containers = [productContainer, farmerContainer, logisticsContainer];
+                containers.forEach(function(el) {
+                    if (el) el.style.display = 'none';
+                });
+
+                if (tabName === 'products' && productContainer) {
+                    productContainer.style.display = 'block';
+                } else if (tabName === 'farmers' && farmerContainer) {
+                    farmerContainer.style.display = 'block';
+                } else if (tabName === 'logistics' && logisticsContainer) {
+                    logisticsContainer.style.display = 'block';
+                }
+
+                if (savedSearch) savedSearch.value = '';
+                filterSavedItems();
+                updateSavedCounts();
+            });
+        });
+    }
+
+    // ============================================================
+    // INITIALIZE
+    // ============================================================
+    function init() {
+        setupTabs();
+
+        if (savedSearch) {
+            savedSearch.addEventListener('input', filterSavedItems);
+            savedSearch.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterSavedItems();
+                }
+            });
+        }
+
+        if (productContainer) productContainer.style.display = 'block';
+        if (farmerContainer) farmerContainer.style.display = 'none';
+        if (logisticsContainer) logisticsContainer.style.display = 'none';
+
+        updateSavedCounts();
+
+        console.log('✅ Logistics Saved Items (sgrid) initialized');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 
 })();
@@ -7519,6 +8543,34 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
         modal._confirmCallback = null;
     }
 
+    // Modal event listeners
+    if (modalClose) {
+        modalClose.addEventListener('click', closeAdminModal);
+    }
+    if (modalCancel) {
+        modalCancel.addEventListener('click', closeAdminModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeAdminModal();
+        });
+    }
+    if (modalConfirm) {
+        modalConfirm.addEventListener('click', function() {
+            if (modal._confirmCallback) {
+                modal._confirmCallback();
+            } else {
+                closeAdminModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeAdminModal();
+        }
+    });
+
     // =============================================================
     // NAVIGATION
     // =============================================================
@@ -7735,9 +8787,6 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
 
         if (productsCount) productsCount.textContent = products.length;
     }
-
-    if (productSearch) productSearch.addEventListener('input', renderAdminProducts);
-    if (productStatusFilter) productStatusFilter.addEventListener('change', renderAdminProducts);
 
     // =============================================================
     // REVIEWS
@@ -7971,7 +9020,7 @@ console.log('📌 Search for: Products (Buyer) | Farmers | Logistics');
             var id = parseInt(item.dataset.id);
             var notif = null;
             for (var m = 0; m < notifications.length; m++) {
-                if (notifications[m].id === id) { notif = notifications[m]; break; }
+                               if (notifications[m].id === id) { notif = notifications[m]; break; }
             }
             if (notif && !notif.read) {
                 notif.read = true;
@@ -9017,299 +10066,7 @@ function filterProductsByCategory(category) {
 
 })();
 
-// ============================================================
-// MARKETPLACE PAGINATION - DYNAMIC
-// ============================================================
 
-(function() {
-    'use strict';
-
-    var currentPage = 1;
-    var itemsPerPage = 12;
-    var allItems = document.querySelectorAll('.marketplace-card-item');
-    var totalItems = allItems.length;
-    var totalPages = Math.ceil(totalItems / itemsPerPage); // ← DYNAMIC!
-
-    console.log('📦 Total items:', totalItems);
-    console.log('📄 Total pages:', totalPages);
-
-    function getItemsForPage(page) {
-        var start = (page - 1) * itemsPerPage;
-        var end = start + itemsPerPage;
-        var visibleCount = 0;
-
-        allItems.forEach(function(item, index) {
-            if (index >= start && index < end) {
-                item.style.display = '';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
-        // Update count
-        var resultCount = document.getElementById('resultCount');
-        if (resultCount) {
-            resultCount.textContent = visibleCount + ' product' + (visibleCount !== 1 ? 's' : '');
-        }
-
-        // Update pagination buttons
-        updatePagination(page);
-    }
-
-    function updatePagination(page) {
-        var prevBtn = document.getElementById('prevPageBtn');
-        var nextBtn = document.getElementById('nextPageBtn');
-        var pageNumbers = document.getElementById('paginationNumbers');
-
-        // Update prev/next buttons
-        if (prevBtn) {
-            prevBtn.disabled = page === 1;
-        }
-        if (nextBtn) {
-            nextBtn.disabled = page === totalPages;
-        }
-
-        // Regenerate page number buttons
-        if (pageNumbers) {
-            var html = '';
-            for (var i = 1; i <= totalPages; i++) {
-                var activeClass = i === page ? 'active' : '';
-                html += '<button class="marketplace-pagination-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
-            }
-            pageNumbers.innerHTML = html;
-
-            // Add click listeners to new buttons
-            pageNumbers.querySelectorAll('.marketplace-pagination-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var pageNum = parseInt(this.dataset.page);
-                    if (pageNum !== currentPage) {
-                        goToPage(pageNum);
-                    }
-                });
-            });
-        }
-    }
-
-    function goToPage(page) {
-        if (page < 1 || page > totalPages) return;
-        currentPage = page;
-        getItemsForPage(page);
-        
-        // Scroll to top of products
-        var grid = document.getElementById('productGrid');
-        if (grid) {
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // Event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-        var prevBtn = document.getElementById('prevPageBtn');
-        var nextBtn = document.getElementById('nextPageBtn');
-
-        if (!prevBtn || !nextBtn) return;
-
-        // Previous button
-        prevBtn.addEventListener('click', function() {
-            if (currentPage > 1) {
-                goToPage(currentPage - 1);
-            }
-        });
-
-        // Next button
-        nextBtn.addEventListener('click', function() {
-            if (currentPage < totalPages) {
-                goToPage(currentPage + 1);
-            }
-        });
-
-        // Initialize - show page 1
-        goToPage(1);
-
-        console.log('📄 Marketplace pagination initialized');
-        console.log('📦 Total items:', totalItems);
-        console.log('📄 Total pages:', totalPages);
-    });
-
-})();
-
-// ============================================================
-// FARMERS - SAVE BUTTON
-// ============================================================
-
-(function() {
-    'use strict';
-
-    var saveButtons = document.querySelectorAll('.farmers-save-btn');
-
-    var savedFarmers = [];
-    try {
-        var saved = localStorage.getItem('farmersSaved');
-        if (saved) {
-            savedFarmers = JSON.parse(saved);
-        }
-    } catch(e) {}
-
-    function updateFarmersSaveButtons() {
-        saveButtons.forEach(function(btn) {
-            var farmerId = parseInt(btn.dataset.farmerId);
-            if (savedFarmers.indexOf(farmerId) !== -1) {
-                btn.classList.add('saved');
-                btn.querySelector('i').classList.remove('far');
-                btn.querySelector('i').classList.add('fas');
-            } else {
-                btn.classList.remove('saved');
-                btn.querySelector('i').classList.remove('fas');
-                btn.querySelector('i').classList.add('far');
-            }
-        });
-    }
-
-    function toggleFarmersSave(btn) {
-        var farmerId = parseInt(btn.dataset.farmerId);
-        var isSaved = btn.classList.contains('saved');
-
-        if (isSaved) {
-            var index = savedFarmers.indexOf(farmerId);
-            if (index !== -1) {
-                savedFarmers.splice(index, 1);
-            }
-            btn.classList.remove('saved');
-            btn.querySelector('i').classList.remove('fas');
-            btn.querySelector('i').classList.add('far');
-            console.log('💔 Farmer removed from saved:', farmerId);
-        } else {
-            if (savedFarmers.indexOf(farmerId) === -1) {
-                savedFarmers.push(farmerId);
-            }
-            btn.classList.add('saved');
-            btn.querySelector('i').classList.remove('far');
-            btn.querySelector('i').classList.add('fas');
-            console.log('❤️ Farmer saved:', farmerId);
-        }
-
-        try {
-            localStorage.setItem('farmersSaved', JSON.stringify(savedFarmers));
-        } catch(e) {}
-    }
-
-    saveButtons.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            toggleFarmersSave(this);
-        });
-    });
-
-    updateFarmersSaveButtons();
-
-    console.log('💾 Farmers save functionality initialized');
-
-})();
-
-// ============================================================
-// FARMERS PAGINATION - DYNAMIC
-// ============================================================
-
-(function() {
-    'use strict';
-
-    var currentPage = 1;
-    var itemsPerPage = 12;
-    var allItems = document.querySelectorAll('.farmers-card-item');
-    var totalItems = allItems.length;
-    var totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    console.log('📦 Total farmers:', totalItems);
-    console.log('📄 Total pages:', totalPages);
-
-    function getFarmersForPage(page) {
-        var start = (page - 1) * itemsPerPage;
-        var end = start + itemsPerPage;
-        var visibleCount = 0;
-
-        allItems.forEach(function(item, index) {
-            if (index >= start && index < end) {
-                item.style.display = '';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
-
-        var resultCount = document.getElementById('farmersResultCount');
-        if (resultCount) {
-            resultCount.textContent = visibleCount + ' farmer' + (visibleCount !== 1 ? 's' : '');
-        }
-
-        updateFarmersPagination(page);
-    }
-
-    function updateFarmersPagination(page) {
-        var prevBtn = document.getElementById('farmersPrevBtn');
-        var nextBtn = document.getElementById('farmersNextBtn');
-        var pageNumbers = document.getElementById('farmersPaginationNumbers');
-
-        if (prevBtn) {
-            prevBtn.disabled = page === 1;
-        }
-        if (nextBtn) {
-            nextBtn.disabled = page === totalPages;
-        }
-
-        if (pageNumbers) {
-            var html = '';
-            for (var i = 1; i <= totalPages; i++) {
-                var activeClass = i === page ? 'active' : '';
-                html += '<button class="farmers-pagination-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
-            }
-            pageNumbers.innerHTML = html;
-
-            pageNumbers.querySelectorAll('.farmers-pagination-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var pageNum = parseInt(this.dataset.page);
-                    if (pageNum !== currentPage) {
-                        goToFarmersPage(pageNum);
-                    }
-                });
-            });
-        }
-    }
-
-    function goToFarmersPage(page) {
-        if (page < 1 || page > totalPages) return;
-        currentPage = page;
-        getFarmersForPage(page);
-
-        var grid = document.getElementById('farmerGrid');
-        if (grid) {
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var prevBtn = document.getElementById('farmersPrevBtn');
-        var nextBtn = document.getElementById('farmersNextBtn');
-
-        if (!prevBtn || !nextBtn) return;
-
-        prevBtn.addEventListener('click', function() {
-            if (currentPage > 1) {
-                goToFarmersPage(currentPage - 1);
-            }
-        });
-
-        nextBtn.addEventListener('click', function() {
-            if (currentPage < totalPages) {
-                goToFarmersPage(currentPage + 1);
-            }
-        });
-
-        goToFarmersPage(1);
-    });
-
-})();
 
 // ============================================================
 // FARMER DETAIL - SAVE BUTTON
@@ -9456,8 +10213,989 @@ function filterProductsByCategory(category) {
 
 })();
 
+
+
 // ============================================================
-// LOGISTICS PAGINATION - DYNAMIC
+// LOGISTICS FILTER FUNCTIONALITY - WORKING
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on logistics page
+    if (!document.getElementById('logisticsGrid')) {
+        return;
+    }
+
+    var searchInput = document.getElementById('searchLogistics');
+    var locationFilter = document.getElementById('filterLocation');
+    var serviceFilter = document.getElementById('filterService');
+    var availabilityFilter = document.getElementById('filterAvailability');
+    var filterBtn = document.getElementById('filterBtn');
+    var resultCount = document.getElementById('logisticsResultCount');
+    var emptyState = document.getElementById('logisticsEmptyState');
+
+    function filterLogistics() {
+        var searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        var location = locationFilter ? locationFilter.value : '';
+        var service = serviceFilter ? serviceFilter.value : '';
+        var availability = availabilityFilter ? availabilityFilter.value : '';
+
+        console.log('🔍 Logistics Filter:');
+        console.log('  Search:', searchTerm || '(empty)');
+        console.log('  Location:', location || '(all)');
+        console.log('  Service:', service || '(all)');
+        console.log('  Availability:', availability || '(all)');
+
+        var cards = document.querySelectorAll('.logistics-card-item');
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+            var cardName = card.querySelector('.logistics-card-name')?.textContent?.toLowerCase() || '';
+            var cardLocation = card.getAttribute('data-location') || '';
+            var cardService = card.getAttribute('data-service') || '';
+            var cardAvailability = card.getAttribute('data-availability') || '';
+
+            var match = true;
+
+            if (searchTerm && !cardName.includes(searchTerm)) {
+                match = false;
+            }
+
+            if (location && cardLocation !== location) {
+                match = false;
+            }
+
+            if (service && cardService !== service) {
+                match = false;
+            }
+
+            if (availability && cardAvailability !== availability) {
+                match = false;
+            }
+
+            if (match) {
+                card.style.display = '';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update count
+        if (resultCount) {
+            resultCount.textContent = visibleCount + ' provider' + (visibleCount !== 1 ? 's' : '');
+        }
+
+        // Show/hide empty state
+        if (emptyState) {
+            if (visibleCount === 0 && cards.length > 0) {
+                emptyState.classList.add('show');
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.classList.remove('show');
+                emptyState.style.display = 'none';
+            }
+        }
+    }
+
+    // Event listeners
+    if (filterBtn) {
+        filterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            filterLogistics();
+        });
+    }
+
+    // Real-time search on input
+    if (searchInput) {
+        searchInput.addEventListener('input', filterLogistics);
+    }
+
+    if (locationFilter) {
+        locationFilter.addEventListener('change', filterLogistics);
+    }
+
+    if (serviceFilter) {
+        serviceFilter.addEventListener('change', filterLogistics);
+    }
+
+    if (availabilityFilter) {
+        availabilityFilter.addEventListener('change', filterLogistics);
+    }
+
+    // Allow Enter key on search input
+    if (searchInput) {
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                filterLogistics();
+            }
+        });
+    }
+
+    // Initial filter
+    filterLogistics();
+
+    console.log('✅ Logistics filter initialized');
+
+})();
+
+
+
+// ============================================================
+// FARMERS FILTER FUNCTIONALITY - FULLY WORKING
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on farmers page
+    if (!document.getElementById('farmerGrid')) {
+        return;
+    }
+
+    // DOM refs
+    var searchInput = document.getElementById('searchFarmer');
+    var locationFilter = document.getElementById('filterLocation');
+    var specializationFilter = document.getElementById('filterSpecialization');
+    var verifiedFilter = document.getElementById('filterVerified');
+    var filterBtn = document.getElementById('filterBtn');
+    
+    // Use the correct IDs from your HTML
+    var resultCount = document.getElementById('resultCount');
+    var emptyState = document.getElementById('emptyState');
+
+    function filterFarmers() {
+        var searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        var location = locationFilter ? locationFilter.value : '';
+        var specialization = specializationFilter ? specializationFilter.value : '';
+        var verifiedOnly = verifiedFilter ? verifiedFilter.checked : false;
+
+        console.log('🔍 Farmers Filter:');
+        console.log('  Search:', searchTerm || '(empty)');
+        console.log('  Location:', location || '(all)');
+        console.log('  Specialization:', specialization || '(all)');
+        console.log('  Verified Only:', verifiedOnly);
+
+        var cards = document.querySelectorAll('.farmers-card-item');
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+            var cardName = card.querySelector('.farmers-card-name')?.textContent?.toLowerCase() || '';
+            var cardLocation = card.getAttribute('data-location') || '';
+            var cardSpecialization = card.getAttribute('data-specialization') || '';
+            var cardVerified = card.getAttribute('data-verified') === 'true';
+
+            var match = true;
+
+            if (searchTerm && !cardName.includes(searchTerm)) {
+                match = false;
+            }
+
+            if (location && cardLocation !== location) {
+                match = false;
+            }
+
+            if (specialization && cardSpecialization !== specialization) {
+                match = false;
+            }
+
+            if (verifiedOnly && !cardVerified) {
+                match = false;
+            }
+
+            if (match) {
+                card.style.display = '';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Update count
+        if (resultCount) {
+            resultCount.textContent = visibleCount + ' farmer' + (visibleCount !== 1 ? 's' : '');
+        }
+
+        // Show/hide empty state
+        if (emptyState) {
+            if (visibleCount === 0 && cards.length > 0) {
+                emptyState.classList.add('show');
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.classList.remove('show');
+                emptyState.style.display = 'none';
+            }
+        }
+    }
+
+    // Event listeners - attach directly without cloning
+    if (filterBtn) {
+        filterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            filterFarmers();
+        });
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterFarmers);
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                filterFarmers();
+            }
+        });
+    }
+
+    if (locationFilter) {
+        locationFilter.addEventListener('change', filterFarmers);
+    }
+
+    if (specializationFilter) {
+        specializationFilter.addEventListener('change', filterFarmers);
+    }
+
+    if (verifiedFilter) {
+        verifiedFilter.addEventListener('change', filterFarmers);
+    }
+
+    // Initial filter
+    filterFarmers();
+
+    console.log('✅ Farmers filter initialized');
+
+})();
+
+
+
+
+
+// ============================================================
+// SIMILAR PRODUCTS - SAVE BUTTONS (Product Detail Page)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Check if user is logged in (Django will set this)
+    var isLoggedIn = false; // Change to {{ user.is_authenticated|yesno:'true,false' }} in Django
+
+    // Only run if similar products exist on page
+    var similarButtons = document.querySelectorAll('.detail-similar-save-btn');
+    if (!similarButtons.length) {
+        console.log('⏭️ No similar products on this page, skipping initialization.');
+        return;
+    }
+
+    // Get the modal
+    var modal = document.getElementById('similarSaveModal');
+    var modalClose = document.getElementById('similarSaveModalClose');
+    var modalMessage = document.getElementById('similarSaveModalMessage');
+
+    // Show modal with custom message
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Hide modal
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Close modal events
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    // Initialize save button states
+    function initSaveStates() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn');
+        
+        buttons.forEach(function(btn) {
+            var productId = parseInt(btn.dataset.productId);
+            
+            // Check if already saved
+            var savedItems = [];
+            try {
+                var data = localStorage.getItem('homeSavedProducts');
+                if (data) savedItems = JSON.parse(data);
+            } catch(e) {}
+            
+            if (savedItems.indexOf(productId) !== -1) {
+                btn.classList.add('saved');
+                var icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                }
+            }
+        });
+    }
+
+    // Handle save button clicks
+    function attachSaveEvents() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn');
+        
+        buttons.forEach(function(btn) {
+            // Remove existing listener by cloning
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.detail-similar-card').querySelector('.detail-similar-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    // Toggle save state
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        console.log('💔 Similar product removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        console.log('❤️ Similar product saved:', productName);
+                    }
+                    // Update localStorage
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    // Store pending action
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingSimilarSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    // Check for pending save after login
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingSimilarSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending similar product save:', data.itemName);
+                    localStorage.removeItem('pendingSimilarSave');
+                    // Find and update the button
+                    var buttons = document.querySelectorAll('.detail-similar-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            var icon = btn.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('far');
+                                icon.classList.add('fas');
+                            }
+                        }
+                    });
+                    // Show toast or alert
+                    // Instead of alert, show toast
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingSimilarSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingSimilarSave');
+            }
+        }
+    }
+
+    // Initialize
+    initSaveStates();
+    attachSaveEvents();
+    checkPendingSave();
+
+    console.log('💾 Similar products save buttons initialized');
+
+})();
+
+
+// ============================================================
+// TOAST NOTIFICATION SYSTEM - CLEAN VERSION
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var TOAST_DURATION = 3000;
+    var MAX_TOASTS = 3;
+
+    window.showToast = function(options) {
+        var container = document.getElementById('toastContainer');
+        if (!container) {
+            console.warn('Toast container not found');
+            return;
+        }
+
+        var config = {
+            title: options.title || 'Success',
+            message: options.message || 'Action completed',
+            type: options.type || 'success',
+            duration: options.duration || TOAST_DURATION
+        };
+
+        var existingToasts = container.querySelectorAll('.toast-notification');
+        if (existingToasts.length >= MAX_TOASTS) {
+            var oldestToast = existingToasts[0];
+            if (oldestToast) {
+                oldestToast.classList.add('toast-hiding');
+                setTimeout(function() {
+                    if (oldestToast.parentNode) {
+                        oldestToast.remove();
+                    }
+                }, 300);
+            }
+        }
+
+        var toast = document.createElement('div');
+        toast.className = 'toast-notification toast-' + config.type;
+
+        var iconMap = {
+            'success': 'fas fa-check-circle',
+            'error': 'fas fa-exclamation-circle',
+            'warning': 'fas fa-exclamation-triangle',
+            'info': 'fas fa-info-circle',
+            'removed': 'fas fa-times-circle'
+        };
+        var iconClass = iconMap[config.type] || iconMap.success;
+
+        toast.innerHTML = `
+            <div class="toast-icon">
+                <i class="${iconClass}"></i>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">${config.title}</div>
+                <p class="toast-message">${config.message}</p>
+            </div>
+            <button class="toast-close" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+
+        container.appendChild(toast);
+
+        var closeBtn = toast.querySelector('.toast-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                removeToast(toast);
+            });
+        }
+
+        var timeoutId = setTimeout(function() {
+            removeToast(toast);
+        }, config.duration);
+
+        toast._timeoutId = timeoutId;
+
+        toast.addEventListener('mouseenter', function() {
+            clearTimeout(this._timeoutId);
+        });
+
+        toast.addEventListener('mouseleave', function() {
+            this._timeoutId = setTimeout(function() {
+                removeToast(toast);
+            }, config.duration);
+        });
+
+        return toast;
+    };
+
+    function removeToast(toast) {
+        if (!toast || toast.classList.contains('toast-hiding')) return;
+        
+        toast.classList.add('toast-hiding');
+        clearTimeout(toast._timeoutId);
+        
+        setTimeout(function() {
+            if (toast.parentNode) {
+                toast.remove();
+            }
+        }, 300);
+    }
+
+    window.showSuccessToast = function(message) {
+        return window.showToast({
+            title: '✅ Added to Dashboard',
+            message: message || 'Item saved successfully!',
+            type: 'success'
+        });
+    };
+
+    window.showRemovedToast = function(message) {
+        return window.showToast({
+            title: '❌ Removed from Dashboard',
+            message: message || 'Item removed successfully!',
+            type: 'removed'
+        });
+    };
+
+    console.log('🍞 Toast system ready');
+
+})();
+
+// ============================================================
+// HOME PAGE - SAVE BUTTON
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false; // Set to true for testing
+
+    // Modal elements
+    var modal = document.getElementById('homeSaveModal');
+    var modalClose = document.getElementById('homeSaveModalClose');
+    var modalMessage = document.getElementById('homeSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function attachEvents() {
+        var buttons = document.querySelectorAll('.home-featured-save-btn');
+        
+        buttons.forEach(function(btn) {
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.home-featured-card').querySelector('.home-featured-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Product removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + productName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Product saved:', productName);
+                    }
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingHomeSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingHomeSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingHomeSave');
+                    var buttons = document.querySelectorAll('.home-featured-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            btn.querySelector('i').classList.remove('far');
+                            btn.querySelector('i').classList.add('fas');
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingHomeSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingHomeSave');
+            }
+        }
+    }
+
+    attachEvents();
+    checkPendingSave();
+
+    var observer = new MutationObserver(function() {
+        attachEvents();
+    });
+    
+    setTimeout(function() {
+        var grid = document.getElementById('featuredGrid');
+        if (grid) {
+            observer.observe(grid, { childList: true, subtree: true });
+        }
+    }, 1000);
+
+    console.log('💾 Home page save buttons initialized');
+
+})();
+
+
+
+// ============================================================
+// MARKETPLACE PAGINATION - SCROLL ONLY ON PAGINATION CLICK
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var currentPage = 1;
+    var itemsPerPage = 12;
+    var allItems = document.querySelectorAll('.marketplace-card-item');
+    var totalItems = allItems.length;
+    var totalPages = Math.ceil(totalItems / itemsPerPage);
+    var isPaginationClick = false;
+    var isInitialLoad = true;
+
+    function getItemsForPage(page) {
+        var start = (page - 1) * itemsPerPage;
+        var end = start + itemsPerPage;
+        var visibleCount = 0;
+
+        allItems.forEach(function(item, index) {
+            if (index >= start && index < end) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        var resultCount = document.getElementById('resultCount');
+        if (resultCount) {
+            resultCount.textContent = visibleCount + ' product' + (visibleCount !== 1 ? 's' : '');
+        }
+
+        updatePagination(page);
+    }
+
+    function updatePagination(page) {
+        var prevBtn = document.getElementById('prevPageBtn');
+        var nextBtn = document.getElementById('nextPageBtn');
+        var pageNumbers = document.getElementById('paginationNumbers');
+
+        if (prevBtn) {
+            prevBtn.disabled = page === 1;
+        }
+        if (nextBtn) {
+            nextBtn.disabled = page === totalPages;
+        }
+
+        if (pageNumbers) {
+            var html = '';
+            for (var i = 1; i <= totalPages; i++) {
+                var activeClass = i === page ? 'active' : '';
+                html += '<button class="marketplace-pagination-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
+            }
+            pageNumbers.innerHTML = html;
+        }
+    }
+
+    function goToPage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        getItemsForPage(page);
+
+        // ONLY scroll when user clicks pagination (not on initial load)
+        if (isPaginationClick) {
+            var grid = document.getElementById('productGrid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            isPaginationClick = false;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var prevBtn = document.getElementById('prevPageBtn');
+        var nextBtn = document.getElementById('nextPageBtn');
+
+        if (!prevBtn || !nextBtn) return;
+
+        prevBtn.addEventListener('click', function() {
+            if (currentPage > 1) {
+                isPaginationClick = true;
+                goToPage(currentPage - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                isPaginationClick = true;
+                goToPage(currentPage + 1);
+            }
+        });
+
+        // Page number buttons - event delegation
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.marketplace-pagination-btn[data-page]');
+            if (btn) {
+                var page = parseInt(btn.dataset.page);
+                if (page !== currentPage) {
+                    isPaginationClick = true;
+                    goToPage(page);
+                }
+            }
+        });
+
+        // Initialize - show page 1 WITHOUT scrolling
+        getItemsForPage(1);
+        isInitialLoad = false;
+    });
+
+})();
+
+// ============================================================
+// FARMERS PAGINATION - SCROLL ONLY ON PAGINATION CLICK
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var currentPage = 1;
+    var itemsPerPage = 12;
+    var allItems = document.querySelectorAll('.farmers-card-item');
+    var totalItems = allItems.length;
+    var totalPages = Math.ceil(totalItems / itemsPerPage);
+    var isPaginationClick = false;
+
+    function getFarmersForPage(page) {
+        var start = (page - 1) * itemsPerPage;
+        var end = start + itemsPerPage;
+        var visibleCount = 0;
+
+        allItems.forEach(function(item, index) {
+            if (index >= start && index < end) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        var resultCount = document.getElementById('farmersResultCount');
+        if (resultCount) {
+            resultCount.textContent = visibleCount + ' farmer' + (visibleCount !== 1 ? 's' : '');
+        }
+
+        updateFarmersPagination(page);
+    }
+
+    function updateFarmersPagination(page) {
+        var prevBtn = document.getElementById('farmersPrevBtn');
+        var nextBtn = document.getElementById('farmersNextBtn');
+        var pageNumbers = document.getElementById('farmersPaginationNumbers');
+
+        if (prevBtn) {
+            prevBtn.disabled = page === 1;
+        }
+        if (nextBtn) {
+            nextBtn.disabled = page === totalPages;
+        }
+
+        if (pageNumbers) {
+            var html = '';
+            for (var i = 1; i <= totalPages; i++) {
+                var activeClass = i === page ? 'active' : '';
+                html += '<button class="farmers-pagination-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
+            }
+            pageNumbers.innerHTML = html;
+        }
+    }
+
+    function goToFarmersPage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        getFarmersForPage(page);
+
+        if (isPaginationClick) {
+            var grid = document.getElementById('farmerGrid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            isPaginationClick = false;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var prevBtn = document.getElementById('farmersPrevBtn');
+        var nextBtn = document.getElementById('farmersNextBtn');
+
+        if (!prevBtn || !nextBtn) return;
+
+        prevBtn.addEventListener('click', function() {
+            if (currentPage > 1) {
+                isPaginationClick = true;
+                goToFarmersPage(currentPage - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                isPaginationClick = true;
+                goToFarmersPage(currentPage + 1);
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.farmers-pagination-btn[data-page]');
+            if (btn) {
+                var page = parseInt(btn.dataset.page);
+                if (page !== currentPage) {
+                    isPaginationClick = true;
+                    goToFarmersPage(page);
+                }
+            }
+        });
+
+        getFarmersForPage(1);
+    });
+
+})();
+
+
+// ============================================================
+// LOGISTICS PAGINATION - SCROLL ONLY ON PAGINATION CLICK
 // ============================================================
 
 (function() {
@@ -9468,9 +11206,7 @@ function filterProductsByCategory(category) {
     var allItems = document.querySelectorAll('.logistics-card-item');
     var totalItems = allItems.length;
     var totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    console.log('📦 Total logistics providers:', totalItems);
-    console.log('📄 Total pages:', totalPages);
+    var isPaginationClick = false;
 
     function getLogisticsForPage(page) {
         var start = (page - 1) * itemsPerPage;
@@ -9513,15 +11249,6 @@ function filterProductsByCategory(category) {
                 html += '<button class="logistics-pagination-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
             }
             pageNumbers.innerHTML = html;
-
-            pageNumbers.querySelectorAll('.logistics-pagination-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var pageNum = parseInt(this.dataset.page);
-                    if (pageNum !== currentPage) {
-                        goToLogisticsPage(pageNum);
-                    }
-                });
-            });
         }
     }
 
@@ -9530,9 +11257,12 @@ function filterProductsByCategory(category) {
         currentPage = page;
         getLogisticsForPage(page);
 
-        var grid = document.getElementById('logisticsGrid');
-        if (grid) {
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (isPaginationClick) {
+            var grid = document.getElementById('logisticsGrid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            isPaginationClick = false;
         }
     }
 
@@ -9544,18 +11274,1878 @@ function filterProductsByCategory(category) {
 
         prevBtn.addEventListener('click', function() {
             if (currentPage > 1) {
+                isPaginationClick = true;
                 goToLogisticsPage(currentPage - 1);
             }
         });
 
         nextBtn.addEventListener('click', function() {
             if (currentPage < totalPages) {
+                isPaginationClick = true;
                 goToLogisticsPage(currentPage + 1);
             }
         });
 
-        goToLogisticsPage(1);
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.logistics-pagination-btn[data-page]');
+            if (btn) {
+                var page = parseInt(btn.dataset.page);
+                if (page !== currentPage) {
+                    isPaginationClick = true;
+                    goToLogisticsPage(page);
+                }
+            }
+        });
+
+        getLogisticsForPage(1);
     });
 
 })();
 
+
+
+
+
+// ============================================================
+// MARKETPLACE PAGE - SAVE BUTTON (FIXED - NO CONFLICTS)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var modal = document.getElementById('marketplaceSaveModal');
+    var modalClose = document.getElementById('marketplaceSaveModalClose');
+    var modalMessage = document.getElementById('marketplaceSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function attachEvents() {
+        var buttons = document.querySelectorAll('.marketplace-save-btn');
+        
+        buttons.forEach(function(btn) {
+            // Skip if already has our event
+            if (btn.dataset.listenerAdded === 'true') return;
+            
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.marketplace-card').querySelector('.marketplace-card-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Product removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + productName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Product saved:', productName);
+                    }
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingMarketplaceSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+            
+            newBtn.dataset.listenerAdded = 'true';
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingMarketplaceSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingMarketplaceSave');
+                    var buttons = document.querySelectorAll('.marketplace-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            btn.querySelector('i').classList.remove('far');
+                            btn.querySelector('i').classList.add('fas');
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingMarketplaceSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingMarketplaceSave');
+            }
+        }
+    }
+
+    // Initial attach only - NO MutationObserver, NO pagination click listener
+    attachEvents();
+    checkPendingSave();
+
+    // Listen for pagination complete event to re-attach
+    document.addEventListener('paginationComplete', function() {
+        setTimeout(function() {
+            attachEvents();
+            console.log('🔄 Marketplace save events re-attached after pagination');
+        }, 300);
+    });
+
+    console.log('💾 Marketplace page save buttons initialized (FIXED)');
+
+})();
+
+// ============================================================
+// FARMERS PAGE - SAVE BUTTON (FIXED - NO CONFLICTS)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var modal = document.getElementById('farmersSaveModal');
+    var modalClose = document.getElementById('farmersSaveModalClose');
+    var modalMessage = document.getElementById('farmersSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this farmer to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function attachEvents() {
+        var buttons = document.querySelectorAll('.farmers-save-btn');
+        
+        buttons.forEach(function(btn) {
+            if (btn.dataset.listenerAdded === 'true') return;
+            
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var farmerId = parseInt(this.dataset.farmerId);
+                var farmerName = this.closest('.farmers-card').querySelector('.farmers-card-name')?.textContent?.trim() || 'this farmer';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + farmerName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Farmer removed from saved:', farmerName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + farmerName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Farmer saved:', farmerName);
+                    }
+                    updateLocalStorage(farmerId);
+                } else {
+                    showModal('You need to login or register to save "' + farmerName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'farmer',
+                        itemName: farmerName,
+                        itemId: farmerId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingFarmersSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+            
+            newBtn.dataset.listenerAdded = 'true';
+        });
+    }
+
+    function updateLocalStorage(farmerId) {
+        var savedFarmers = [];
+        try {
+            var data = localStorage.getItem('farmersSaved');
+            if (data) savedFarmers = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedFarmers.indexOf(farmerId);
+        if (index !== -1) {
+            savedFarmers.splice(index, 1);
+        } else {
+            savedFarmers.push(farmerId);
+        }
+        
+        try {
+            localStorage.setItem('farmersSaved', JSON.stringify(savedFarmers));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingFarmersSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingFarmersSave');
+                    var buttons = document.querySelectorAll('.farmers-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.farmerId) === data.itemId) {
+                            btn.classList.add('saved');
+                            btn.querySelector('i').classList.remove('far');
+                            btn.querySelector('i').classList.add('fas');
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingFarmersSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingFarmersSave');
+            }
+        }
+    }
+
+    // Initial attach only - NO MutationObserver, NO pagination click listener
+    attachEvents();
+    checkPendingSave();
+
+    // Listen for pagination complete event to re-attach
+    document.addEventListener('paginationComplete', function() {
+        setTimeout(function() {
+            attachEvents();
+            console.log('🔄 Farmers save events re-attached after pagination');
+        }, 300);
+    });
+
+    console.log('💾 Farmers page save buttons initialized (FIXED)');
+
+})();
+
+// ============================================================
+// LOGISTICS PAGE - SAVE BUTTON (FIXED - NO CONFLICTS)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var modal = document.getElementById('logisticsSaveModal');
+    var modalClose = document.getElementById('logisticsSaveModalClose');
+    var modalMessage = document.getElementById('logisticsSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this logistics provider to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function attachEvents() {
+        var buttons = document.querySelectorAll('.logistics-save-btn');
+        
+        buttons.forEach(function(btn) {
+            if (btn.dataset.listenerAdded === 'true') return;
+            
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var logisticsId = parseInt(this.dataset.logisticsId);
+                var logisticsName = this.closest('.logistics-card').querySelector('.logistics-card-name')?.textContent?.trim() || 'this logistics provider';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + logisticsName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Logistics provider removed from saved:', logisticsName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + logisticsName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Logistics provider saved:', logisticsName);
+                    }
+                    updateLocalStorage(logisticsId);
+                } else {
+                    showModal('You need to login or register to save "' + logisticsName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'logistics',
+                        itemName: logisticsName,
+                        itemId: logisticsId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingLogisticsSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+            
+            newBtn.dataset.listenerAdded = 'true';
+        });
+    }
+
+    function updateLocalStorage(logisticsId) {
+        var savedLogistics = [];
+        try {
+            var data = localStorage.getItem('logisticsSaved');
+            if (data) savedLogistics = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedLogistics.indexOf(logisticsId);
+        if (index !== -1) {
+            savedLogistics.splice(index, 1);
+        } else {
+            savedLogistics.push(logisticsId);
+        }
+        
+        try {
+            localStorage.setItem('logisticsSaved', JSON.stringify(savedLogistics));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingLogisticsSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingLogisticsSave');
+                    var buttons = document.querySelectorAll('.logistics-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.logisticsId) === data.itemId) {
+                            btn.classList.add('saved');
+                            btn.querySelector('i').classList.remove('far');
+                            btn.querySelector('i').classList.add('fas');
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingLogisticsSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingLogisticsSave');
+            }
+        }
+    }
+
+    // Initial attach only - NO MutationObserver, NO pagination click listener
+    attachEvents();
+    checkPendingSave();
+
+    // Listen for pagination complete event to re-attach
+    document.addEventListener('paginationComplete', function() {
+        setTimeout(function() {
+            attachEvents();
+            console.log('🔄 Logistics save events re-attached after pagination');
+        }, 300);
+    });
+
+    console.log('💾 Logistics page save buttons initialized (FIXED)');
+
+})();
+
+
+
+// ============================================================
+// PRODUCT DETAIL - MAIN IMAGE SAVE BUTTON
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var modal = document.getElementById('productDetailSaveModal');
+    var modalClose = document.getElementById('productDetailSaveModalClose');
+    var modalMessage = document.getElementById('productDetailSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function initSaveState() {
+        var btn = document.querySelector('.detail-product-save-btn');
+        if (!btn) return;
+
+        var productId = parseInt(btn.dataset.productId);
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        if (savedProducts.indexOf(productId) !== -1) {
+            btn.classList.add('saved');
+            var icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            }
+        }
+    }
+
+    function attachSaveEvent() {
+        var btn = document.querySelector('.detail-product-save-btn');
+        if (!btn) return;
+
+        var newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var productId = parseInt(this.dataset.productId);
+            var productName = document.querySelector('.detail-product-name')?.textContent?.trim() || 'this product';
+            
+            if (isLoggedIn) {
+                var isSaved = this.classList.contains('saved');
+                var icon = this.querySelector('i');
+                
+                if (isSaved) {
+                    this.classList.remove('saved');
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    if (window.showRemovedToast) {
+                        window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                    }
+                    console.log('💔 Product removed from saved:', productName);
+                } else {
+                    this.classList.add('saved');
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + productName + '" added to your dashboard');
+                    }
+                    console.log('❤️ Product saved:', productName);
+                }
+                updateLocalStorage(productId);
+            } else {
+                showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                var saveData = {
+                    action: 'save',
+                    itemType: 'product',
+                    itemName: productName,
+                    itemId: productId,
+                    timestamp: Date.now()
+                };
+                try {
+                    localStorage.setItem('pendingProductDetailSave', JSON.stringify(saveData));
+                } catch(e) {}
+            }
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingProductDetailSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingProductDetailSave');
+                    var btn = document.querySelector('.detail-product-save-btn');
+                    if (btn && parseInt(btn.dataset.productId) === data.itemId) {
+                        btn.classList.add('saved');
+                        var icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                        }
+                    }
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingProductDetailSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingProductDetailSave');
+            }
+        }
+    }
+
+    initSaveState();
+    attachSaveEvent();
+    checkPendingSave();
+
+    console.log('💾 Product Detail main image save button initialized');
+
+})();
+
+// ============================================================
+// PRODUCT DETAIL - SIMILAR PRODUCTS SAVE BUTTONS
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var modal = document.getElementById('similarSaveModal');
+    var modalClose = document.getElementById('similarSaveModalClose');
+    var modalMessage = document.getElementById('similarSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function initSaveStates() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn');
+        
+        buttons.forEach(function(btn) {
+            var productId = parseInt(btn.dataset.productId);
+            var savedProducts = [];
+            try {
+                var data = localStorage.getItem('homeSavedProducts');
+                if (data) savedProducts = JSON.parse(data);
+            } catch(e) {}
+            
+            if (savedProducts.indexOf(productId) !== -1) {
+                btn.classList.add('saved');
+                var icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                }
+            }
+        });
+    }
+
+    function attachSaveEvents() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn');
+        
+        buttons.forEach(function(btn) {
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.detail-similar-card').querySelector('.detail-similar-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Similar product removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + productName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Similar product saved:', productName);
+                    }
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingSimilarSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingSimilarSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending similar product save:', data.itemName);
+                    localStorage.removeItem('pendingSimilarSave');
+                    var buttons = document.querySelectorAll('.detail-similar-save-btn');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            var icon = btn.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('far');
+                                icon.classList.add('fas');
+                            }
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingSimilarSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingSimilarSave');
+            }
+        }
+    }
+
+    initSaveStates();
+    attachSaveEvents();
+    checkPendingSave();
+
+    console.log('💾 Similar products save buttons initialized');
+
+})();
+
+
+// ============================================================
+// FARMER PRODUCE - SAVE BUTTONS
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false; // Set to true for testing
+
+    // Check if on farmer produce section
+    var produceSection = document.getElementById('produce-section');
+    var produceButtons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+    
+    if (!produceSection || !produceButtons.length) {
+        console.log('⏭️ Not on farmer produce section');
+        return;
+    }
+
+    console.log('🌾 Farmer produce section found');
+
+    var modal = document.getElementById('farmerProduceSaveModal');
+    var modalClose = document.getElementById('farmerProduceSaveModalClose');
+    var modalMessage = document.getElementById('farmerProduceSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function initSaveStates() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+        
+        buttons.forEach(function(btn) {
+            var productId = parseInt(btn.dataset.productId);
+            var savedProducts = [];
+            try {
+                var data = localStorage.getItem('homeSavedProducts');
+                if (data) savedProducts = JSON.parse(data);
+            } catch(e) {}
+            
+            if (savedProducts.indexOf(productId) !== -1) {
+                btn.classList.add('saved');
+                var icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                }
+            }
+        });
+    }
+
+    function attachSaveEvents() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+        
+        buttons.forEach(function(btn) {
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.detail-similar-card').querySelector('.detail-similar-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Farmer produce removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + productName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Farmer produce saved:', productName);
+                    }
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingFarmerProduceSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingFarmerProduceSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending farmer produce save:', data.itemName);
+                    localStorage.removeItem('pendingFarmerProduceSave');
+                    var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            var icon = btn.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('far');
+                                icon.classList.add('fas');
+                            }
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingFarmerProduceSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingFarmerProduceSave');
+            }
+        }
+    }
+
+    initSaveStates();
+    attachSaveEvents();
+    checkPendingSave();
+
+    console.log('💾 Farmer produce section save buttons initialized');
+
+})();
+
+
+
+// ============================================================
+// LOGISTICS DETAIL - PROFILE SAVE BUTTON
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    var btn = document.querySelector('.detail-profile-save-btn[data-logistics-id]');
+    if (!btn) {
+        console.log('⏭️ Not on logistics detail page');
+        return;
+    }
+
+    var modal = document.getElementById('logisticsDetailSaveModal');
+    var modalClose = document.getElementById('logisticsDetailSaveModalClose');
+    var modalMessage = document.getElementById('logisticsDetailSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this logistics provider to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function initSaveState() {
+        var btn = document.querySelector('.detail-profile-save-btn[data-logistics-id]');
+        if (!btn) return;
+
+        var logisticsId = parseInt(btn.dataset.logisticsId);
+        var savedLogistics = [];
+        try {
+            var data = localStorage.getItem('logisticsSaved');
+            if (data) savedLogistics = JSON.parse(data);
+        } catch(e) {}
+        
+        if (savedLogistics.indexOf(logisticsId) !== -1) {
+            btn.classList.add('saved');
+            var icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            }
+        }
+    }
+
+    function attachSaveEvent() {
+        var btn = document.querySelector('.detail-profile-save-btn[data-logistics-id]');
+        if (!btn) return;
+
+        var newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var logisticsId = parseInt(this.dataset.logisticsId);
+            var logisticsName = document.querySelector('.detail-profile-name')?.textContent?.trim() || 'this logistics provider';
+            
+            if (isLoggedIn) {
+                var isSaved = this.classList.contains('saved');
+                var icon = this.querySelector('i');
+                
+                if (isSaved) {
+                    this.classList.remove('saved');
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    if (window.showRemovedToast) {
+                        window.showRemovedToast('"' + logisticsName + '" removed from your dashboard');
+                    }
+                    console.log('💔 Logistics provider removed from saved:', logisticsName);
+                } else {
+                    this.classList.add('saved');
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + logisticsName + '" added to your dashboard');
+                    }
+                    console.log('❤️ Logistics provider saved:', logisticsName);
+                }
+                updateLocalStorage(logisticsId);
+            } else {
+                showModal('You need to login or register to save "' + logisticsName + '" to your dashboard.');
+                var saveData = {
+                    action: 'save',
+                    itemType: 'logistics',
+                    itemName: logisticsName,
+                    itemId: logisticsId,
+                    timestamp: Date.now()
+                };
+                try {
+                    localStorage.setItem('pendingLogisticsDetailSave', JSON.stringify(saveData));
+                } catch(e) {}
+            }
+        });
+    }
+
+    function updateLocalStorage(logisticsId) {
+        var savedLogistics = [];
+        try {
+            var data = localStorage.getItem('logisticsSaved');
+            if (data) savedLogistics = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedLogistics.indexOf(logisticsId);
+        if (index !== -1) {
+            savedLogistics.splice(index, 1);
+        } else {
+            savedLogistics.push(logisticsId);
+        }
+        
+        try {
+            localStorage.setItem('logisticsSaved', JSON.stringify(savedLogistics));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingLogisticsDetailSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending save:', data.itemName);
+                    localStorage.removeItem('pendingLogisticsDetailSave');
+                    var btn = document.querySelector('.detail-profile-save-btn[data-logistics-id]');
+                    if (btn && parseInt(btn.dataset.logisticsId) === data.itemId) {
+                        btn.classList.add('saved');
+                        var icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                        }
+                    }
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingLogisticsDetailSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingLogisticsDetailSave');
+            }
+        }
+    }
+
+    initSaveState();
+    attachSaveEvent();
+    checkPendingSave();
+
+    console.log('💾 Logistics Detail page save button initialized');
+
+})();
+
+// ============================================================
+// FARMER DETAIL - PRODUCE SECTION SAVE BUTTONS
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var isLoggedIn = false;
+
+    // Only run if we're on farmer detail page with produce section
+    var produceButtons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+    var isFarmerDetailPage = document.getElementById('produce-section') !== null;
+    
+    if (!isFarmerDetailPage || !produceButtons.length) {
+        console.log('⏭️ Not on farmer detail produce section');
+        return;
+    }
+
+    console.log('🌾 Farmer produce section found, initializing...');
+
+    var modal = document.getElementById('farmerProduceSaveModal');
+    var modalClose = document.getElementById('farmerProduceSaveModalClose');
+    var modalMessage = document.getElementById('farmerProduceSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this product to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    function initSaveStates() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+        
+        buttons.forEach(function(btn) {
+            var productId = parseInt(btn.dataset.productId);
+            var savedProducts = [];
+            try {
+                var data = localStorage.getItem('homeSavedProducts');
+                if (data) savedProducts = JSON.parse(data);
+            } catch(e) {}
+            
+            if (savedProducts.indexOf(productId) !== -1) {
+                btn.classList.add('saved');
+                var icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                }
+            }
+        });
+    }
+
+    function attachSaveEvents() {
+        var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+        
+        buttons.forEach(function(btn) {
+            var newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+            
+            newBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var productId = parseInt(this.dataset.productId);
+                var productName = this.closest('.detail-similar-card').querySelector('.detail-similar-name')?.textContent?.trim() || 'this product';
+                
+                if (isLoggedIn) {
+                    var isSaved = this.classList.contains('saved');
+                    var icon = this.querySelector('i');
+                    
+                    if (isSaved) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        if (window.showRemovedToast) {
+                            window.showRemovedToast('"' + productName + '" removed from your dashboard');
+                        }
+                        console.log('💔 Farmer produce removed from saved:', productName);
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        if (window.showSuccessToast) {
+                            window.showSuccessToast('"' + productName + '" added to your dashboard');
+                        }
+                        console.log('❤️ Farmer produce saved:', productName);
+                    }
+                    updateLocalStorage(productId);
+                } else {
+                    showModal('You need to login or register to save "' + productName + '" to your dashboard.');
+                    var saveData = {
+                        action: 'save',
+                        itemType: 'product',
+                        itemName: productName,
+                        itemId: productId,
+                        timestamp: Date.now()
+                    };
+                    try {
+                        localStorage.setItem('pendingFarmerProduceSave', JSON.stringify(saveData));
+                    } catch(e) {}
+                }
+            });
+        });
+    }
+
+    function updateLocalStorage(productId) {
+        var savedProducts = [];
+        try {
+            var data = localStorage.getItem('homeSavedProducts');
+            if (data) savedProducts = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedProducts.indexOf(productId);
+        if (index !== -1) {
+            savedProducts.splice(index, 1);
+        } else {
+            savedProducts.push(productId);
+        }
+        
+        try {
+            localStorage.setItem('homeSavedProducts', JSON.stringify(savedProducts));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingFarmerProduceSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending farmer produce save:', data.itemName);
+                    localStorage.removeItem('pendingFarmerProduceSave');
+                    var buttons = document.querySelectorAll('.detail-similar-save-btn[data-product-id]');
+                    buttons.forEach(function(btn) {
+                        if (parseInt(btn.dataset.productId) === data.itemId) {
+                            btn.classList.add('saved');
+                            var icon = btn.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('far');
+                                icon.classList.add('fas');
+                            }
+                        }
+                    });
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingFarmerProduceSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingFarmerProduceSave');
+            }
+        }
+    }
+
+    initSaveStates();
+    attachSaveEvents();
+    checkPendingSave();
+
+    console.log('💾 Farmer produce section save buttons initialized');
+
+})();
+
+// ============================================================
+// FARMER PROFILE - SAVE BUTTON (COMPLETELY UNIQUE)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // UNIQUE: Only target farmer profile button with data-farmer-id
+    var farmerProfileBtn = document.querySelector('button.detail-profile-save-btn[data-farmer-id]');
+    
+    // If no farmer profile button exists, exit completely
+    if (!farmerProfileBtn) {
+        console.log('⏭️ Not on farmer profile page - skipping');
+        return;
+    }
+
+    console.log('🌾 Farmer Profile button found - initializing');
+
+    var isLoggedIn = false; // Set to true for testing
+
+    // UNIQUE MODAL: Only for farmer profile
+    var modal = document.getElementById('farmerProfileSaveModal');
+    var modalClose = document.getElementById('farmerProfileSaveModalClose');
+    var modalMessage = document.getElementById('farmerProfileSaveModalMessage');
+
+    function showModal(message) {
+        if (modal) {
+            if (modalMessage) {
+                modalMessage.textContent = message || 'You need to login or register to save this farmer to your dashboard.';
+            }
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function hideModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Modal close events
+    if (modalClose) {
+        var newCloseBtn = modalClose.cloneNode(true);
+        modalClose.parentNode.replaceChild(newCloseBtn, modalClose);
+        newCloseBtn.addEventListener('click', hideModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            hideModal();
+        }
+    });
+
+    // UNIQUE: Initialize save state for farmer profile button only
+    function initSaveState() {
+        var btn = document.querySelector('button.detail-profile-save-btn[data-farmer-id]');
+        if (!btn) return;
+
+        var farmerId = parseInt(btn.dataset.farmerId);
+        var savedFarmers = [];
+        try {
+            var data = localStorage.getItem('farmersSaved');
+            if (data) savedFarmers = JSON.parse(data);
+        } catch(e) {}
+        
+        if (savedFarmers.indexOf(farmerId) !== -1) {
+            btn.classList.add('saved');
+            var icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            }
+        }
+    }
+
+    // UNIQUE: Attach event to farmer profile button only
+    function attachSaveEvent() {
+        var btn = document.querySelector('button.detail-profile-save-btn[data-farmer-id]');
+        if (!btn) return;
+
+        // Clone to remove any existing listeners
+        var newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var farmerId = parseInt(this.dataset.farmerId);
+            var farmerName = document.querySelector('.detail-profile-name')?.textContent?.trim() || 'this farmer';
+            
+            if (isLoggedIn) {
+                var isSaved = this.classList.contains('saved');
+                var icon = this.querySelector('i');
+                
+                if (isSaved) {
+                    this.classList.remove('saved');
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    // Toast: Removed
+                    if (window.showRemovedToast) {
+                        window.showRemovedToast('"' + farmerName + '" removed from your dashboard');
+                    }
+                    console.log('💔 Farmer removed from saved:', farmerName);
+                } else {
+                    this.classList.add('saved');
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    // Toast: Added
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + farmerName + '" added to your dashboard');
+                    }
+                    console.log('❤️ Farmer saved:', farmerName);
+                }
+                updateLocalStorage(farmerId);
+            } else {
+                showModal('You need to login or register to save "' + farmerName + '" to your dashboard.');
+                var saveData = {
+                    action: 'save',
+                    itemType: 'farmer',
+                    itemName: farmerName,
+                    itemId: farmerId,
+                    timestamp: Date.now()
+                };
+                try {
+                    localStorage.setItem('pendingFarmerProfileSave', JSON.stringify(saveData));
+                } catch(e) {}
+            }
+        });
+    }
+
+    function updateLocalStorage(farmerId) {
+        var savedFarmers = [];
+        try {
+            var data = localStorage.getItem('farmersSaved');
+            if (data) savedFarmers = JSON.parse(data);
+        } catch(e) {}
+        
+        var index = savedFarmers.indexOf(farmerId);
+        if (index !== -1) {
+            savedFarmers.splice(index, 1);
+        } else {
+            savedFarmers.push(farmerId);
+        }
+        
+        try {
+            localStorage.setItem('farmersSaved', JSON.stringify(savedFarmers));
+        } catch(e) {}
+    }
+
+    function checkPendingSave() {
+        var pendingData = localStorage.getItem('pendingFarmerProfileSave');
+        if (pendingData) {
+            try {
+                var data = JSON.parse(pendingData);
+                if (Date.now() - data.timestamp < 300000 && isLoggedIn) {
+                    console.log('✅ Pending farmer save:', data.itemName);
+                    localStorage.removeItem('pendingFarmerProfileSave');
+                    var btn = document.querySelector('button.detail-profile-save-btn[data-farmer-id]');
+                    if (btn && parseInt(btn.dataset.farmerId) === data.itemId) {
+                        btn.classList.add('saved');
+                        var icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                        }
+                    }
+                    if (window.showSuccessToast) {
+                        window.showSuccessToast('"' + data.itemName + '" added to your dashboard');
+                    }
+                } else {
+                    localStorage.removeItem('pendingFarmerProfileSave');
+                }
+            } catch(e) {
+                localStorage.removeItem('pendingFarmerProfileSave');
+            }
+        }
+    }
+
+    // Initialize
+    initSaveState();
+    attachSaveEvent();
+    checkPendingSave();
+
+    console.log('💾 Farmer Profile save button initialized (UNIQUE)');
+
+})();
+
+
+// ============================================================
+// BUYER DASHBOARD - SAVED ITEMS (Interactivity Only)
+// ============================================================
+
+(function() {
+    'use strict';
+
+    // Only run on buyer dashboard
+    if (!document.getElementById('buyerSidebar')) {
+        return;
+    }
+
+    console.log('🛒 Buyer Dashboard - Saved Items Interactivity');
+
+    var currentTab = 'products';
+
+    // Tab switching
+    function switchTab(tab) {
+        currentTab = tab;
+
+        // Update tabs
+        document.querySelectorAll('.buyer-saved-tab').forEach(function(t) {
+            t.classList.toggle('active', t.dataset.tab === tab);
+        });
+
+        // Hide all containers
+        var containers = ['savedProductsContainer', 'savedFarmersContainer', 'savedLogisticsContainer'];
+        containers.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+
+        // Show selected container
+        var containerId = 'saved' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Container';
+        var container = document.getElementById(containerId);
+        if (container) container.style.display = 'block';
+
+        // Reset search and filter
+        var searchInput = document.getElementById('savedSearch');
+        if (searchInput) {
+            searchInput.value = '';
+            filterItems(tab);
+        }
+    }
+
+    // Filter items based on search
+    function filterItems(tab) {
+        var searchInput = document.getElementById('savedSearch');
+        var searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        
+        var containerId = 'saved' + tab.charAt(0).toUpperCase() + tab.slice(1) + 'Grid';
+        var container = document.getElementById(containerId);
+        if (!container) return;
+
+        var items = container.querySelectorAll('.saved-item');
+        var visibleCount = 0;
+        var totalItems = items.length;
+
+        items.forEach(function(item) {
+            var nameEl = item.querySelector('.marketplace-card-name, .farmers-card-name, .logistics-card-name');
+            var nameText = nameEl ? nameEl.textContent.toLowerCase() : '';
+            
+            if (searchTerm === '' || nameText.indexOf(searchTerm) !== -1) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Update count
+        var countEl = document.getElementById(tab + 'Count');
+        if (countEl) {
+            countEl.textContent = visibleCount + '/' + totalItems;
+        }
+
+        // Show/hide empty search state
+        var searchEmpty = document.getElementById('savedSearchEmpty');
+        if (searchEmpty) {
+            if (visibleCount === 0 && totalItems > 0 && searchTerm !== '') {
+                searchEmpty.style.display = 'block';
+            } else {
+                searchEmpty.style.display = 'none';
+            }
+        }
+
+        // Show/hide container empty state (no items at all)
+        var containerEmpty = container.parentElement.querySelector('.buyer-saved-empty');
+        if (containerEmpty) {
+            if (totalItems === 0) {
+                containerEmpty.style.display = 'block';
+            } else {
+                containerEmpty.style.display = 'none';
+            }
+        }
+    }
+
+    // Initialize
+    function init() {
+        // Tab click handlers
+        document.querySelectorAll('.buyer-saved-tab').forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                switchTab(this.dataset.tab);
+            });
+        });
+
+        // Search handler
+        var searchInput = document.getElementById('savedSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                filterItems(currentTab);
+            });
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterItems(currentTab);
+                }
+            });
+        }
+
+        // Show products by default
+        switchTab('products');
+
+        console.log('✅ Saved Items interactive ready');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
+
+
+// ============================================================
+// DARK MODE TOGGLE - PUBLIC PAGES
+// ============================================================
+
+(function() {
+    'use strict';
+
+    var toggleBtn = document.getElementById('darkModeToggle');
+    
+    if (!toggleBtn) return;
+
+    // Check for saved preference
+    var darkMode = localStorage.getItem('publicDarkMode') === 'true';
+
+    // Apply dark mode if saved
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        toggleBtn.querySelector('i').className = 'fas fa-sun';
+    }
+
+    // Toggle dark mode
+    toggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        var isDark = document.body.classList.contains('dark-mode');
+        
+        var icon = this.querySelector('i');
+        if (isDark) {
+            icon.className = 'fas fa-sun';
+        } else {
+            icon.className = 'fas fa-moon';
+        }
+        
+        localStorage.setItem('publicDarkMode', isDark);
+        
+        console.log('🌓 Dark mode:', isDark ? 'ON' : 'OFF');
+    });
+
+    console.log('🌓 Dark mode toggle initialized');
+
+})();

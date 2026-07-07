@@ -16,7 +16,7 @@
     <!-- Farmers CSS -->
     <link rel="stylesheet" href="../assets/css/farmers.css">
 </head>
-<body>
+<body class="public-page">
 
 <!-- ====== NAVBAR ====== -->
 <nav class="login-navbar">
@@ -33,9 +33,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register" >
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>
@@ -102,9 +106,9 @@
         <!-- ====== FARMERS GRID (white background) ====== -->
     <section class="farmers-grid-section" aria-label="Farmers listings">
         <div class="container">
-            <div class="farmers-grid-header">
-                <h2 class="farmers-grid-title">Verified Farmers</h2>
-                <span class="farmers-grid-count" id="farmersResultCount">15 farmers</span>
+            <div class="home-featured-header">
+                <h2 class="home-section-title">Verified Farmers</h2>
+                <span class="home-featured-count" id="farmersResultCount">15 farmers</span>
             </div>
             <div class="row g-4 farmers-card-grid" id="farmerGrid">
                 <!-- Farmer Card 1 -->
@@ -567,6 +571,28 @@
         </div>
     </div>
 </footer>
+
+<!-- ====== FARMERS SAVE MODAL ====== -->
+<div class="farmers-save-modal-overlay" id="farmersSaveModal">
+    <div class="farmers-save-modal">
+        <button class="farmers-save-modal-close" id="farmersSaveModalClose">&times;</button>
+        <div class="farmers-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="farmersSaveModalMessage">You need to login or register to save this farmer to your dashboard.</p>
+        <div class="farmers-save-modal-buttons">
+            <a href="login.html" class="farmers-save-modal-btn farmers-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="farmers-save-modal-btn farmers-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="farmers-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== TOAST NOTIFICATION SYSTEM ====== -->
+<div class="toast-container" id="toastContainer">
+    <!-- Toasts will be dynamically added here -->
+</div>
 
 <!-- ====== SCRIPTS ====== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>

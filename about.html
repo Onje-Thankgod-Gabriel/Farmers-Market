@@ -16,7 +16,7 @@
     <!-- About CSS -->
     <link rel="stylesheet" href="../assets/css/about.css">
 </head>
-<body>
+<body class="public-page"> 
 
 <!-- ====== NAVBAR (auth nav - removed per instruction) ====== -->
 <!-- ====== NAVBAR (sticky, mobile-first) ====== -->
@@ -34,9 +34,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register" >
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>

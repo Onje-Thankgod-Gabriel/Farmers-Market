@@ -16,7 +16,7 @@
     <!-- Contact CSS -->
     <link rel="stylesheet" href="../assets/css/contact.css">
 </head>
-<body>
+<body class="public-page">
 
 <!-- ====== NAVBAR (auth nav - removed per instruction) ====== -->
  <!-- ====== NAVBAR (sticky, mobile-first) ====== -->
@@ -34,9 +34,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register" >
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>
@@ -104,19 +108,19 @@
                         <p class="contact-form-subtitle">We'll respond within 24 hours.</p>
                         <form id="contactForm">
                             <div class="contact-form-group">
-                                <label for="contactName">Full Name</label>
+                                <label for="contactName" class="name-full">Full Name</label>
                                 <input type="text" id="contactName" placeholder="John Doe" class="contact-form-input" required>
                             </div>
                             <div class="contact-form-group">
-                                <label for="contactEmail">Email Address</label>
+                                <label for="contactEmail" class="name-full">Email Address</label>
                                 <input type="email" id="contactEmail" placeholder="john@example.com" class="contact-form-input" required>
                             </div>
                             <div class="contact-form-group">
-                                <label for="contactSubject">Subject</label>
+                                <label for="contactSubject" class="name-full">Subject</label>
                                 <input type="text" id="contactSubject" placeholder="I'm interested in..." class="contact-form-input" required>
                             </div>
                             <div class="contact-form-group">
-                                <label for="contactMessage">Message</label>
+                                <label for="contactMessage" class="name-full">Message</label>
                                 <textarea id="contactMessage" rows="5" placeholder="Tell us how we can help..." class="contact-form-textarea" required></textarea>
                             </div>
                             <button type="submit" class="contact-btn contact-btn-primary contact-btn-submit">

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/farmer-detail.css">
 </head>
-<body>
+<body class="public-page">
 
 <!-- ====== NAVBAR ====== -->
 <nav class="login-navbar">
@@ -29,9 +29,13 @@
                 <li><a href="logistics.html">Logistics</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Add this inside the navbar-right section -->
+                <button class="home-navbar-btn dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <li class="home-nav-cta-wrapper home-btn-login-register">
                     <a href="login.html" class="home-btn home-btn-primary home-btn-sm home-btn-login">Login</a>
-                    <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a>
+                    <!-- <a href="register.html" class="home-btn home-btn-outline-light home-btn-sm home-btn-register">Register</a> -->
                 </li>
             </ul>
         </div>
@@ -461,6 +465,45 @@
             </div>
         </form>
     </div>
+</div>
+
+<!-- ====== FARMER PROFILE SAVE MODAL ====== -->
+<div class="farmer-profile-save-modal-overlay" id="farmerProfileSaveModal">
+    <div class="farmer-profile-save-modal">
+        <button class="farmer-profile-save-modal-close" id="farmerProfileSaveModalClose">&times;</button>
+        <div class="farmer-profile-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="farmerProfileSaveModalMessage">You need to login or register to save this farmer to your dashboard.</p>
+        <div class="farmer-profile-save-modal-buttons">
+            <a href="login.html" class="farmer-profile-save-modal-btn farmer-profile-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="farmer-profile-save-modal-btn farmer-profile-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="farmer-profile-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== FARMER PRODUCE SAVE MODAL ====== -->
+<div class="farmer-produce-save-modal-overlay" id="farmerProduceSaveModal">
+    <div class="farmer-produce-save-modal">
+        <button class="farmer-produce-save-modal-close" id="farmerProduceSaveModalClose">&times;</button>
+        <div class="farmer-produce-save-modal-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h3>Login Required</h3>
+        <p id="farmerProduceSaveModalMessage">You need to login or register to save this product to your dashboard.</p>
+        <div class="farmer-produce-save-modal-buttons">
+            <a href="login.html" class="farmer-produce-save-modal-btn farmer-produce-save-modal-btn-primary">Login</a>
+            <a href="register.html" class="farmer-produce-save-modal-btn farmer-produce-save-modal-btn-outline">Register</a>
+        </div>
+        <p class="farmer-produce-save-modal-note">You'll be redirected back after login.</p>
+    </div>
+</div>
+
+<!-- ====== TOAST NOTIFICATION SYSTEM ====== -->
+<div class="toast-container" id="toastContainer">
+    <!-- Toasts will be dynamically added here -->
 </div>
 
 <!-- ====== SCRIPTS ====== -->
